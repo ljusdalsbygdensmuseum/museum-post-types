@@ -21,6 +21,9 @@ class PluginBoilerplate
 
         //Save posts
         add_action('save_post_mptab_exhibition', array($this, 'save_exhibition_post'));
+
+        //enqueue
+        add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
     }
     function on_init()
     {
@@ -58,7 +61,7 @@ class PluginBoilerplate
         $endAlias = get_post_meta($post->ID, 'mptab-exhibition-date-end-alias', true);
 ?>
         <div class="exhibition-date-meta">
-            <div class="mptab-exhibition-daterange"></div>
+            <div class="mptab-exhibition-daterange" id="mptab-exhibition-daterange"></div>
             <input type="number" name="mptab-exhibition-date-start-field" id="mptab-exhibition-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>">
             <input type="number" name="mptab-exhibition-date-end-field" id="mptab-exhibition-date-end-field" value="<?php esc_attr_e($endDate, 'mptab-domain') ?>">
             <label for="mptab-exhibition-date-start-alias-field"><?php _e('Start Alias', 'mptab-domain') ?></label>
@@ -92,6 +95,26 @@ class PluginBoilerplate
         update_post_meta($postID, 'mptab-exhibition-date-end', $endDate);
         update_post_meta($postID, 'mptab-exhibition-date-start-alias', $startAlias);
         update_post_meta($postID, 'mptab-exhibition-date-end-alias', $endAlias);
+    }
+
+    function admin_scripts($hook)
+    {
+        if ($hook != 'post.php' && $hook != 'post-new.php') {
+            return;
+        }
+        if (get_post_type() == 'mptab_exhibition') {
+            //Grab dependencies
+            $assets = include plugin_dir_path(__FILE__) . 'build/exhibition_meta.asset.php';
+
+            //Enqueue scripts
+            wp_enqueue_script('mptab-exhibitions', plugin_dir_url(__FILE__) . 'build/exhibition_meta.js', $assets['dependencies'], $assets['version'], true);
+
+            //Enqueue styles
+            wp_enqueue_style('wp-components');
+
+            //Set translation
+            wp_set_script_translations('mptab-exhibitions', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
+        }
     }
 }
 
