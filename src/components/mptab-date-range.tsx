@@ -55,11 +55,9 @@ export function MPTABDateRange({ dates, input }: Props) {
 			// override if number is not filled in
 			if ((oldDates[0] >= 0 && oldDates[0] < 10000) || isNaN(oldDates[0])) {
 				changeDates[0] = new Date(newDate).getTime()
-				console.log('first')
 			}
 			if ((oldDates[1] >= 0 && oldDates[1] < 10000) || isNaN(oldDates[1])) {
 				changeDates[1] = new Date(newDate).getTime()
-				console.log('end')
 			}
 			setAllDates(() => {
 				return getAllDates(changeDates)

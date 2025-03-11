@@ -62,9 +62,9 @@ class PluginBoilerplate
 ?>
         <div class="exhibition-date-meta">
             <div class="mptab-exhibition-daterange" id="mptab-exhibition-daterange"></div>
-            <input type="number" name="mptab-exhibition-date-start-field" id="mptab-exhibition-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>">
-            <input type="number" name="mptab-exhibition-date-end-field" id="mptab-exhibition-date-end-field" value="<?php esc_attr_e($endDate, 'mptab-domain') ?>">
-            <label for="mptab-exhibition-date-start-alias-field"><?php _e('Start Alias', 'mptab-domain') ?></label>
+            <input type="number" name="mptab-exhibition-date-start-field" id="mptab-exhibition-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>" style="display:none;">
+            <input type=" number" name="mptab-exhibition-date-end-field" id="mptab-exhibition-date-end-field" value="<?php esc_attr_e($endDate, 'mptab-domain') ?>" style="display:none;">
+            <label for=" mptab-exhibition-date-start-alias-field"><?php _e('Start Alias', 'mptab-domain') ?></label>
             <input type="text" name="mptab-exhibition-date-start-alias-field" id="mptab-exhibition-date-start-alias-field" value="<?php esc_attr_e($startAlias, 'mptab-domain') ?>">
             <label for="mptab-exhibition-date-end-alias-field"><?php _e('End Alias', 'mptab-domain') ?></label>
             <input type="text" name="mptab-exhibition-date-end-alias-field" id="mptab-exhibition-date-end-alias-field" value="<?php esc_attr_e($endAlias, 'mptab-domain') ?>">
