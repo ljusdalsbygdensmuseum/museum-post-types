@@ -59,6 +59,7 @@ class PluginBoilerplate
         $endDate = get_post_meta($post->ID, 'mptab-exhibition-date-end', true);
         $startAlias = get_post_meta($post->ID, 'mptab-exhibition-date-start-alias', true);
         $endAlias = get_post_meta($post->ID, 'mptab-exhibition-date-end-alias', true);
+        $permanent = get_post_meta($post->ID, 'mptab-exhibition-is-permanent', true);
 ?>
         <div class="exhibition-date-meta">
             <div class="mptab-exhibition-daterange" id="mptab-exhibition-daterange"></div>
@@ -66,6 +67,7 @@ class PluginBoilerplate
             <input type=" number" name="mptab-exhibition-date-end-field" id="mptab-exhibition-date-end-field" value="<?php esc_attr_e($endDate, 'mptab-domain') ?>" style="display:none;">
             <input type="text" name="mptab-exhibition-date-start-alias-field" id="mptab-exhibition-date-start-alias-field" value="<?php esc_attr_e($startAlias, 'mptab-domain') ?>" style="display:none;">
             <input type="text" name="mptab-exhibition-date-end-alias-field" id="mptab-exhibition-date-end-alias-field" value="<?php esc_attr_e($endAlias, 'mptab-domain') ?>" style="display:none;">
+            <input type="checkbox" name="mptab-exhibition-is-permanent" id="mptab-exhibition-is-permanent" <?php echo ($permanent) ? 'checked' : '' ?>>
         </div>
 <?php
     }
@@ -88,11 +90,13 @@ class PluginBoilerplate
         $endDate = (int) sanitize_text_field($_POST['mptab-exhibition-date-end-field']);
         $startAlias = sanitize_text_field($_POST['mptab-exhibition-date-start-alias-field']);
         $endAlias = sanitize_text_field($_POST['mptab-exhibition-date-end-alias-field']);
+        $permanent = isset($_POST['mptab-exhibition-is-permanent']);
 
         update_post_meta($postID, 'mptab-exhibition-date-start', $startDate);
         update_post_meta($postID, 'mptab-exhibition-date-end', $endDate);
         update_post_meta($postID, 'mptab-exhibition-date-start-alias', $startAlias);
         update_post_meta($postID, 'mptab-exhibition-date-end-alias', $endAlias);
+        update_post_meta($postID, 'mptab-exhibition-is-permanent', $permanent);
     }
 
     function admin_scripts($hook)
