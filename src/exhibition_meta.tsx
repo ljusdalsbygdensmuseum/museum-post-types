@@ -19,10 +19,7 @@ domReady(() => {
 		throw new Error('dates_field not found')
 	}
 
-	let minDate = parseInt(mindateInput.value)
-	if (minDate < 86400000) {
-		minDate = new Date().getTime()
-	}
+	const minDate = parseInt(mindateInput.value)
 	const maxDate = parseInt(maxdateInput.value)
 
 	root.render(
