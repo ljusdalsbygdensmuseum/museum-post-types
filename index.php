@@ -47,6 +47,26 @@ class PluginBoilerplate
         );
         register_post_type('mptab_exhibition', $exhibition_args);
 
+        $event_args = array(
+            'labels' => array(
+                'name' => __('Events', 'mptab_domain'),
+                'singular_name' => __('Event', 'mptab-domain'),
+                'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
+                'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
+                'new_item' => __('New', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
+                'view_items' => __('View', 'mptab-domain') . ' ' . __('events', 'mptab-domain'),
+                'search_items' => __('Search', 'mptab-domain') . ' ' . __('events', 'mptab-domain'),
+                'all_items' => __('All', 'mptab-domain') . ' ' . __('events', 'mptab-domain'),
+                'archives' => __('Event', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
+            ),
+            'rewrite' => array('slug' => __('events', 'mptab_domain')),
+            'menu_icon' => 'dashicons-schedule',
+            'public' => true,
+            'show_in_rest' => true,
+            'supports' => array('title', 'editor', 'excerpt', 'thumbnail')
+        );
+        register_post_type('mptab_event', $event_args);
+
         $service_args = array(
             'labels' => array(
                 'name' => __('Services', 'mptab_domain'),
@@ -60,7 +80,7 @@ class PluginBoilerplate
                 'archives' => __('Service', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
             'rewrite' => array('slug' => __('services', 'mptab_domain')),
-            'menu_icon' => 'dashicons-schedule',
+            'menu_icon' => 'dashicons-hammer',
             'public' => true,
             'show_in_rest' => true,
             'supports' => array('title', 'editor', 'excerpt', 'thumbnail')
