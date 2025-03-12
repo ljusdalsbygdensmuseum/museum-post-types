@@ -6,6 +6,7 @@ module.exports = {
 	entry: {
 		...defaults.entry(),
 		exhibition_meta: path.resolve(process.cwd(), 'src', 'exhibition_meta.tsx'),
+		event_meta: path.resolve(process.cwd(), 'src', 'event_meta.tsx'),
 	},
 	output: {
 		filename: '[name].js',
