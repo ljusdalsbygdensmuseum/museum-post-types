@@ -2,7 +2,7 @@ import domReady from '@wordpress/dom-ready'
 import { createRoot } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 
-import { MPTABExhibitionDate } from './components/mptab-exhibition-date'
+import { MPTABExhibitionDate } from './input/mptab-exhibition-date'
 
 domReady(() => {
 	const root = createRoot(

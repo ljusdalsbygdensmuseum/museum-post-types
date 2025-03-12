@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { __ } from '@wordpress/i18n'
 import { BaseControl, ToggleControl } from '@wordpress/components'
 
-import { MPTABDateRange } from './mptab-date-range'
-import { MPTABAlias } from './mptab-alias'
+import { MPTABDateRange } from '../components/mptab-date-range'
+import { MPTABAlias } from '../components/mptab-alias'
 
 interface Props {
 	checkedInput: HTMLInputElement
