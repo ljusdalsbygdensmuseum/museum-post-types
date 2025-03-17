@@ -333,7 +333,7 @@ class PluginBoilerplate
                 'url' => get_permalink(),
                 'title' => get_the_title(),
                 'exerpt' => get_the_excerpt(),
-                'tumbnail' => get_the_post_thumbnail_url(),
+                'thumbnail' => get_the_post_thumbnail_url(),
                 ...$specialData
             ));
         }
