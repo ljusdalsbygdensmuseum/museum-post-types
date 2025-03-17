@@ -264,14 +264,43 @@ class PluginBoilerplate
 
         $exhibitionsQuery = new WP_Query(array(
             'post_type' => 'mptab_exhibition',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-exhibition-date-start',
+                    'compare' => '<=',
+                    'value' => date('Uv')
+                ),
+                array(
+                    'key' => 'mptab-exhibition-date-end',
+                    'compare' => '>=',
+                    'value' => date('Uv')
+                )
+            )
         ));
         $eventsQuery = new WP_Query(array(
             'post_type' => 'mptab_event',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-event-date-start',
+                    'compare' => '<=',
+                    'value' => date('Uv')
+                ),
+                array(
+                    'key' => 'mptab-event-date-end',
+                    'compare' => '>=',
+                    'value' => date('Uv')
+                )
+            )
         ));
-        while ($eventsQuery->have_posts()) {
-            $eventsQuery->the_post();
+
+        $allPosts = new WP_Query();
+        $allPosts->posts = array_merge($exhibitionsQuery->posts, $eventsQuery->posts);
+        $allPosts->post_count = count($allPosts->posts);
+
+        while ($allPosts->have_posts()) {
+            $allPosts->the_post();
             $specialData = [];
             if (get_post_type() == 'mptab_exhibition') {
                 $specialData = array(
