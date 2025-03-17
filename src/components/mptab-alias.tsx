@@ -46,9 +46,12 @@ export function MPTABAlias({ element }: Props) {
 					setUseAlias((state) => {
 						const newState = !state
 						if (!newState) {
-							setValues(['', ''])
-							element[0].input.value = ''
-							element[1].input.value = ''
+							setValues(() => {
+								return element.map((element) => {
+									element.input.value = ''
+									return ''
+								})
+							})
 						}
 						return newState
 					})
