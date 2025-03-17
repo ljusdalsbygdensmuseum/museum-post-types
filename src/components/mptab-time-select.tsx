@@ -21,7 +21,6 @@ export function MPTABTimeSelect({ hours, input }: Props) {
 	const theHours = allHours.map((hour: Hour, index) => {
 		const removeItem = () => {
 			setAllHours((oldHours) => {
-				console.log('hello')
 				const newHours = oldHours.concat()
 				newHours.splice(index, 1)
 				input.value = JSON.stringify(newHours)

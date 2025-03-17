@@ -94,6 +94,8 @@ class PluginBoilerplate
     function init_meta_boxes()
     {
         add_meta_box('mptab-exhibition-date', __('Dates', 'mptab-domain'), array($this, 'metabox_exhibition_date'), 'mptab_exhibition', 'side', 'default');
+
+        add_meta_box('mptab-event-hour', __('Hours', 'mptab-domain'), array($this, 'metabox_event_hour'), 'mptab_event', 'side', 'default');
         add_meta_box('mptab-event-date', __('Dates', 'mptab-domain'), array($this, 'metabox_event_date'), 'mptab_event', 'side', 'default');
     }
     function metabox_exhibition_date($post)
@@ -116,6 +118,19 @@ class PluginBoilerplate
         </div>
     <?php
     }
+    function metabox_event_hour($post)
+    {
+        wp_nonce_field('save_event_post', 'mptab-event-hour-nonce');
+
+        $time = get_post_meta($post->ID, 'mptab-event-time', true);
+
+    ?>
+        <div class="event-date-meta">
+            <div class="mptab-event-hour-select" id="mptab-event-hour-select"></div>
+            <input type="text" name="mptab-event-time-field" id="mptab-event-time-field" value="<?php esc_attr_e($time, 'mptab-domain') ?>" style="display:none;">
+        </div>
+    <?php
+    }
     function metabox_event_date($post)
     {
         wp_nonce_field('save_event_post', 'mptab-event-date-nonce');
@@ -124,16 +139,14 @@ class PluginBoilerplate
         $endDate = get_post_meta($post->ID, 'mptab-event-date-end', true);
         $allDates = get_post_meta($post->ID, 'mptab-event-date-all', true);
         $alias = get_post_meta($post->ID, 'mptab-event-date-alias', true);
-        $time = get_post_meta($post->ID, 'mptab-event-time', true);
 
     ?>
         <div class="event-date-meta">
             <div class="mptab-event-date-select" id="mptab-event-date-select"></div>
-            <input type="number" name="mptab-event-date-start-field" id="mptab-event-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>">
-            <input type="number" name="mptab-event-date-end-field" id="mptab-event-date-end-field" value="<?php esc_attr_e($endDate, 'mptab-domain') ?>">
-            <input type="text" name="mptab-event-date-all-field" id="mptab-event-date-all-field" value="<?php esc_attr_e($allDates, 'mptab-domain') ?>">
-            <input type="text" name="mptab-event-date-alias-field" id="mptab-event-date-alias-field" value="<?php esc_attr_e($alias, 'mptab-domain') ?>">
-            <input type="text" name="mptab-event-time-field" id="mptab-event-time-field" value="<?php esc_attr_e($time, 'mptab-domain') ?>">
+            <input type="number" name="mptab-event-date-start-field" id="mptab-event-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>" style="display:none;">
+            <input type="number" name="mptab-event-date-end-field" id="mptab-event-date-end-field" value="<?php esc_attr_e($endDate, 'mptab-domain') ?>" style="display:none;">
+            <input type="text" name="mptab-event-date-all-field" id="mptab-event-date-all-field" value="<?php esc_attr_e($allDates, 'mptab-domain') ?>" style="display:none;">
+            <input type="text" name="mptab-event-date-alias-field" id="mptab-event-date-alias-field" value="<?php esc_attr_e($alias, 'mptab-domain') ?>" style="display:none;">
         </div>
 <?php
     }
@@ -169,10 +182,10 @@ class PluginBoilerplate
     }
     function save_event_post($postID)
     {
-        if (! isset($_POST['mptab-event-date-nonce'])) {
+        if (! isset($_POST['mptab-event-date-nonce']) || ! isset($_POST['mptab-event-hour-nonce'])) {
             return;
         }
-        if (! wp_verify_nonce($_POST['mptab-event-date-nonce'], 'save_event_post')) {
+        if (! wp_verify_nonce($_POST['mptab-event-date-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-hour-nonce'], 'save_event_post')) {
             return;
         }
         if (! current_user_can('edit_post', $postID)) {
@@ -224,6 +237,8 @@ class PluginBoilerplate
 
             //Enqueue styles
             wp_enqueue_style('wp-components');
+
+            wp_enqueue_style('mptab-event-style', plugin_dir_url(__FILE__) . 'build/event_meta.css');
 
             //Set translation
             wp_set_script_translations('mptab-events', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
