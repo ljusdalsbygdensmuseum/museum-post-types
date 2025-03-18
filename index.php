@@ -255,14 +255,13 @@ class PluginBoilerplate
     {
         register_rest_route('mptab/v1', 'current_exhibition_event', array(
             'methods' => WP_REST_Server::READABLE,
-            'callback' => array($this, 'rest_current_exhibition_event')
+            'callback' => array($this, 'rest_exhibition_event')
         ));
     }
-    function rest_current_exhibition_event()
+    function rest_exhibition_event()
     {
-        $posts = [];
-
-        $exhibitionsQuery = new WP_Query(array(
+        //current posts
+        $exhibitionsCurrentQuery = new WP_Query(array(
             'post_type' => 'mptab_exhibition',
             'posts_per_page' => -1,
             'meta_query' => array(
@@ -278,7 +277,7 @@ class PluginBoilerplate
                 )
             )
         ));
-        $eventsQuery = new WP_Query(array(
+        $eventsCurrentQuery = new WP_Query(array(
             'post_type' => 'mptab_event',
             'posts_per_page' => -1,
             'meta_query' => array(
@@ -295,9 +294,61 @@ class PluginBoilerplate
             )
         ));
 
-        $allPosts = new WP_Query();
-        $allPosts->posts = array_merge($exhibitionsQuery->posts, $eventsQuery->posts);
-        $allPosts->post_count = count($allPosts->posts);
+        $allCurrentQuery = new WP_Query();
+        $allCurrentQuery->posts = array_merge($exhibitionsCurrentQuery->posts, $eventsCurrentQuery->posts);
+        $allCurrentQuery->post_count = count($allCurrentQuery->posts);
+
+        $currentPosts = $this->exhibition_event_data($allCurrentQuery);
+
+        //comming posts
+        $daysInAdvanced = 14;
+
+        $exhibitionsCommingQuery = new WP_Query(array(
+            'post_type' => 'mptab_exhibition',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-exhibition-date-start',
+                    'compare' => '<',
+                    'value' => date('Uv') + (86400000 * $daysInAdvanced)
+                ),
+                array(
+                    'key' => 'mptab-exhibition-date-start',
+                    'compare' => '>',
+                    'value' => date('Uv')
+                )
+            )
+        ));
+        $eventsCommingQuery = new WP_Query(array(
+            'post_type' => 'mptab_event',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-event-date-start',
+                    'compare' => '<',
+                    'value' => date('Uv') + (86400000 * $daysInAdvanced)
+                ),
+                array(
+                    'key' => 'mptab-event-date-start',
+                    'compare' => '>',
+                    'value' => date('Uv')
+                )
+            )
+        ));
+
+        $allCommingQuery = new WP_Query();
+        $allCommingQuery->posts = array_merge($exhibitionsCommingQuery->posts, $eventsCommingQuery->posts);
+        $allCommingQuery->post_count = count($allCommingQuery->posts);
+
+        $commingPosts = $this->exhibition_event_data($allCommingQuery);
+        return array(
+            'current' => $currentPosts,
+            'comming' => $commingPosts
+        );
+    }
+    function exhibition_event_data($allPosts)
+    {
+        $posts = [];
 
         while ($allPosts->have_posts()) {
             $allPosts->the_post();

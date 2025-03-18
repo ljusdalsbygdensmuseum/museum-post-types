@@ -10,9 +10,14 @@ export const EventObjectSchema = z.object({
 	title: z.string(),
 	exerpt: z.string(),
 	thumbnail: z.union([z.boolean(), z.string().url()]),
-	permanent: z.string().optional(),
-	hours: HoursSchema.optional(),
+	permanent: z.string().nullish(),
+	hours: HoursSchema.nullish(),
 	dates: DatesSchema,
 	alias: z.array(z.string()),
 })
-export const EventsObjectSchema = z.array(EventObjectSchema)
+export const CurentCommingEventSchema = z.object({
+	current: z.array(EventObjectSchema),
+	comming: z.array(EventObjectSchema),
+})
+
+export type CurentCommingEvent = z.infer<typeof CurentCommingEventSchema>
