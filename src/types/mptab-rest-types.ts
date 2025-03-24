@@ -20,4 +20,6 @@ export const CurentCommingEventSchema = z.object({
 	comming: z.array(EventObjectSchema),
 })
 
+export type EventObject = z.infer<typeof EventObjectSchema>
+
 export type CurentCommingEvent = z.infer<typeof CurentCommingEventSchema>

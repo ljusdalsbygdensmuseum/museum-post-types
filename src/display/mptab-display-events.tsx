@@ -1,6 +1,8 @@
 import apiFetch from '@wordpress/api-fetch'
 import { useState, useEffect } from 'react'
 
+import { MPTABEvent } from '../components/mptab-event'
+
 import {
 	CurentCommingEventSchema,
 	CurentCommingEvent,
@@ -29,7 +31,7 @@ export function MPTABDisplayEvent({ path }: Props) {
 		})
 	}, [])
 	const current = data.current.map((item) => {
-		return item.title
+		return <MPTABEvent item={item} />
 	})
 	return current
 }
