@@ -7,16 +7,23 @@ interface Props {
 export function MPTABEvent({ item }: Props) {
 	const img = item.thumbnail && item.thumbnail != true ? item.thumbnail : 'test'
 	return (
-		<div className='mptab_event mptab_event_display mptab_event_display_min row'>
+		<div className='row mptab_event mptab_event_display mptab_event_display_min'>
 			<div
-				className='mptab_event mptab_event_display_img col'
+				className='col mptab_event_display_img'
 				style={{ backgroundImage: `url(${img})` }}
 			></div>
-			<div className='col'>
-				<h3>{item.title}</h3>
+			<div className='col mptab_event_display_info'>
+				<div className='mptab_event_display_text'>
+					<h3>{item.title}</h3>
 
-				<p>{item.exerpt}</p>
-				<a href={item.url}>{__('Read more')}</a>
+					<p>{item.exerpt}</p>
+				</div>
+				<a
+					href={item.url}
+					className='btn btn-primary mptab_event_display_button'
+				>
+					{__('Read more', 'mptab-domain')}
+				</a>
 			</div>
 		</div>
 	)
