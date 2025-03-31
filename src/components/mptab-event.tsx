@@ -5,7 +5,10 @@ interface Props {
 	item: EventObject
 }
 export function MPTABEvent({ item }: Props) {
-	const img = item.thumbnail && item.thumbnail != true ? item.thumbnail : 'test'
+	const img =
+		item.thumbnail && item.thumbnail != true
+			? item.thumbnail
+			: './img/default_event.png' // change to path for default image
 	return (
 		<div className='row mptab_event mptab_event_display mptab_event_display_min'>
 			<div

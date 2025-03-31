@@ -4,11 +4,14 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-@use '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$border: 3px solid $secondary;
 
 .wp-block-mptab-show-ex-ev {
 	.mptab_event_display_min {
-		border: 2px solid green;
+		border-top: $border;
+		border-bottom: $border;
 		position: relative;
 		left: 50%;
 		right: 50%;
