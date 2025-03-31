@@ -60,11 +60,12 @@ export function MPTABDateSelect({ dates, input }: Props) {
 		setDateParam((dates) => {
 			const newDates = dates.filter(
 				(compareItem) =>
-					newDate.toDateString() !== new Date(compareItem.date).toDateString()
+					newDate.toDateString() !==
+					new Date(parseInt(compareItem.date)).toDateString()
 			)
-			begOrEndDate(new Date(newDates[0].date), [...newDates])
+			begOrEndDate(new Date(parseInt(newDates[0].date)), [...newDates])
 			input[0].value = JSON.stringify([...newDates])
-			setAllDates(getAllDates(newDates))
+			setAllDates(getAllDates([...newDates]))
 			return [...newDates]
 		})
 	}
