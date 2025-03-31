@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { DatePicker, PanelBody } from '@wordpress/components'
-import { Dates } from '../types/mptab-date-types'
+import { DateInputEvent } from '../types/mptab-date-types'
 
 interface Props {
 	dates: number[]
@@ -10,7 +10,7 @@ export function MPTABDateRange({ dates, input }: Props) {
 	const getAllDates = (range: number[]) => {
 		const start = new Date(range[0]).setHours(0, 0, 0, 0)
 		const end = new Date(range[1]).setHours(0, 0, 0, 0)
-		let allDatesArray: Dates = []
+		let allDatesArray: DateInputEvent[] = []
 		let loopDate = new Date(start)
 
 		while (loopDate <= new Date(end)) {
