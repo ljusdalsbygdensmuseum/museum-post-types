@@ -21,6 +21,9 @@ $border: 3px solid $secondary;
 		margin-right: -50vw;
 		margin-bottom: 1rem;
 		padding: 1rem 0;
+		&:nth-of-type(even) {
+			flex-direction: row-reverse;
+		}
 	}
 	.mptab_event_display_img {
 		// should have the same focal point as chosen
