@@ -1,0 +1,44 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$border: 3px solid $secondary;
+
+.wp-block-mptab-show-ex-ev {
+	.mptab_event_display_min {
+		border-top: $border;
+		border-bottom: $border;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		width: 100vw;
+		min-height: 20rem;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		margin-bottom: 1rem;
+		padding: 1rem 0;
+		&:nth-of-type(even) {
+			flex-direction: row-reverse;
+		}
+	}
+	.mptab_event_display_img {
+		// should have the same focal point as chosen
+		background-size: cover;
+		background-position: center center;
+		border: 2px solid blue;
+	}
+	.mptab_event_display_info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-top: 1rem;
+		padding-bottom: 2rem;
+	}
+	.mptab_event_display_button {
+		width: fit-content;
+	}
+}

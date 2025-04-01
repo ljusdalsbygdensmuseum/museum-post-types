@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { DatePicker, ToggleControl } from '@wordpress/components'
-import { Dates } from '../types/mptab-date-types'
+import { Dates, DateInputEvent } from '../types/mptab-date-types'
 
 interface Props {
 	dates: Dates
@@ -8,22 +8,36 @@ interface Props {
 }
 
 export function MPTABDateSelect({ dates, input }: Props) {
+	const getAllDates = (dates: Dates) => {
+		const allDates = dates.map((item) => {
+			return { date: new Date(parseInt(item.date)) }
+		})
+		return allDates
+	}
+
 	const [dateParam, setDateParam] = useState(dates)
+	const [allDates, setAllDates] = useState(getAllDates(dates))
 
 	const [multipleState, setMultipleState] = useState(false)
 	const [removeState, setRemoveState] = useState(false)
 	const [prevDate, setPrevDate] = useState(new Date())
 
 	const begOrEndDate = (newDate: Date, allDates: Dates) => {
-		let begDate = newDate
-		let endDate = newDate
+		let begDate = new Date(newDate).getTime()
+		let endDate = new Date(newDate).getTime()
 
 		allDates.forEach((compareDate) => {
-			if (new Date(compareDate.date).getTime() < new Date(begDate).getTime()) {
-				begDate = new Date(compareDate.date)
+			if (
+				new Date(parseInt(compareDate.date)).getTime() <
+				new Date(begDate).getTime()
+			) {
+				begDate = new Date(parseInt(compareDate.date)).getTime()
 			}
-			if (new Date(compareDate.date).getTime() > new Date(endDate).getTime()) {
-				endDate = new Date(compareDate.date)
+			if (
+				new Date(parseInt(compareDate.date)).getTime() >
+				new Date(endDate).getTime()
+			) {
+				endDate = new Date(parseInt(compareDate.date)).getTime()
 			}
 		})
 		input[1].value = String(new Date(begDate).getTime())
@@ -31,12 +45,14 @@ export function MPTABDateSelect({ dates, input }: Props) {
 	}
 	const addDate = (newDate: Date) => {
 		setDateParam((currentDate) => {
-			begOrEndDate(newDate, [...currentDate, { date: new Date(newDate) }])
-			input[0].value = JSON.stringify([
+			const newDates = [
 				...currentDate,
-				{ date: new Date(newDate) },
-			])
-			return [...currentDate, { date: new Date(newDate) }]
+				{ date: String(new Date(newDate).getTime()) },
+			]
+			begOrEndDate(newDate, newDates)
+			input[0].value = JSON.stringify(newDates)
+			setAllDates(getAllDates(newDates))
+			return newDates
 		})
 	}
 
@@ -44,10 +60,12 @@ export function MPTABDateSelect({ dates, input }: Props) {
 		setDateParam((dates) => {
 			const newDates = dates.filter(
 				(compareItem) =>
-					newDate.toDateString() !== new Date(compareItem.date).toDateString()
+					newDate.toDateString() !==
+					new Date(parseInt(compareItem.date)).toDateString()
 			)
-			begOrEndDate(new Date(newDates[0].date), [...newDates])
+			begOrEndDate(new Date(parseInt(newDates[0].date)), [...newDates])
 			input[0].value = JSON.stringify([...newDates])
+			setAllDates(getAllDates([...newDates]))
 			return [...newDates]
 		})
 	}
@@ -82,7 +100,7 @@ export function MPTABDateSelect({ dates, input }: Props) {
 			<DatePicker
 				startOfWeek={1}
 				currentDate={null}
-				events={dateParam}
+				events={allDates}
 				onChange={(newDate) => changeDates(new Date(newDate))}
 			/>
 

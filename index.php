@@ -25,6 +25,9 @@ class PluginBoilerplate
 
         //enqueue
         add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
+
+        //RestAPI
+        add_action('rest_api_init', array($this, 'custom_rest'));
     }
     function on_init()
     {
@@ -87,6 +90,9 @@ class PluginBoilerplate
             'supports' => array('title', 'editor', 'excerpt', 'thumbnail')
         );
         register_post_type('mptab_service', $service_args);
+
+        //blocks
+        register_block_type(__DIR__ . '/build/blocks/mptab_show_ex_ev');
     }
 
     //Metaboxes
@@ -243,6 +249,146 @@ class PluginBoilerplate
             //Set translation
             wp_set_script_translations('mptab-events', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
         }
+    }
+    //RestAPI
+    function custom_rest()
+    {
+        register_rest_route('mptab/v1', 'current_exhibition_event', array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array($this, 'rest_exhibition_event')
+        ));
+    }
+    function rest_exhibition_event()
+    {
+        //current posts
+        $exhibitionsCurrentQuery = new WP_Query(array(
+            'post_type' => 'mptab_exhibition',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-exhibition-date-start',
+                    'compare' => '<=',
+                    'value' => date('Uv')
+                ),
+                array(
+                    'key' => 'mptab-exhibition-date-end',
+                    'compare' => '>=',
+                    'value' => date('Uv')
+                )
+            )
+        ));
+        $eventsCurrentQuery = new WP_Query(array(
+            'post_type' => 'mptab_event',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-event-date-start',
+                    'compare' => '<=',
+                    'value' => date('Uv')
+                ),
+                array(
+                    'key' => 'mptab-event-date-end',
+                    'compare' => '>=',
+                    'value' => date('Uv')
+                )
+            )
+        ));
+
+        $allCurrentQuery = new WP_Query();
+        $allCurrentQuery->posts = array_merge($exhibitionsCurrentQuery->posts, $eventsCurrentQuery->posts);
+        $allCurrentQuery->post_count = count($allCurrentQuery->posts);
+
+        $currentPosts = $this->exhibition_event_data($allCurrentQuery);
+
+        //comming posts
+        $daysInAdvanced = 14;
+
+        $exhibitionsCommingQuery = new WP_Query(array(
+            'post_type' => 'mptab_exhibition',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-exhibition-date-start',
+                    'compare' => '<',
+                    'value' => date('Uv') + (86400000 * $daysInAdvanced)
+                ),
+                array(
+                    'key' => 'mptab-exhibition-date-start',
+                    'compare' => '>',
+                    'value' => date('Uv')
+                )
+            )
+        ));
+        $eventsCommingQuery = new WP_Query(array(
+            'post_type' => 'mptab_event',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'mptab-event-date-start',
+                    'compare' => '<',
+                    'value' => date('Uv') + (86400000 * $daysInAdvanced)
+                ),
+                array(
+                    'key' => 'mptab-event-date-start',
+                    'compare' => '>',
+                    'value' => date('Uv')
+                )
+            )
+        ));
+
+        $allCommingQuery = new WP_Query();
+        $allCommingQuery->posts = array_merge($exhibitionsCommingQuery->posts, $eventsCommingQuery->posts);
+        $allCommingQuery->post_count = count($allCommingQuery->posts);
+
+        $commingPosts = $this->exhibition_event_data($allCommingQuery);
+        return array(
+            'current' => $currentPosts,
+            'comming' => $commingPosts
+        );
+    }
+    function exhibition_event_data($allPosts)
+    {
+        $posts = [];
+
+        while ($allPosts->have_posts()) {
+            $allPosts->the_post();
+            $specialData = [];
+            if (get_post_type() == 'mptab_exhibition') {
+                $specialData = array(
+                    'permanent' => get_post_meta(get_the_ID(), 'mptab-exhibition-is-permanent', true),
+                    'dates' => array(
+                        array(
+                            'date' => get_post_meta(get_the_ID(), 'mptab-exhibition-date-start', true)
+                        ),
+                        array(
+                            'date' => get_post_meta(get_the_ID(), 'mptab-exhibition-date-end', true)
+                        )
+                    ),
+                    'alias' => array(
+                        get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
+                        get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true)
+                    )
+                );
+            }
+            if (get_post_type() == 'mptab_event') {
+
+                $specialData = array(
+                    'hours' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-time', true)),
+                    'dates' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-date-all', true)),
+                    'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true))
+                );
+            }
+            array_push($posts, array(
+                'ID' => get_the_ID(),
+                'post_type' => get_post_type(),
+                'url' => get_permalink(),
+                'title' => get_the_title(),
+                'exerpt' => get_the_excerpt(), // remove [...]
+                'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
+                ...$specialData
+            ));
+        }
+        return $posts;
     }
 }
 
