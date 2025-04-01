@@ -1,6 +1,7 @@
 import { __ } from '@wordpress/i18n'
 
 import { EventObject } from '../types/mptab-rest-types'
+import { Dates } from '../types/mptab-date-types'
 import { MPTABDate } from './mptab-date'
 interface Props {
 	item: EventObject
@@ -19,13 +20,20 @@ export function MPTABEvent({ item }: Props) {
 			<div className='col mptab_event_display_info'>
 				<div className='mptab_event_display_text'>
 					<h3>{item.title}</h3>
-					<p>
-						<MPTABDate
-							post_type={item.post_type}
-							dates={item.dates}
-							alias={item.alias}
-						/>
-					</p>
+					{(item.post_type == 'mptab_exhibition' ||
+						item.post_type == 'mptab_event') &&
+					item.dates != null &&
+					item.alias != null ? (
+						<p>
+							<MPTABDate
+								post_type={item.post_type}
+								dates={item.dates}
+								alias={item.alias}
+							/>
+						</p>
+					) : (
+						''
+					)}
 					<p>{item.exerpt}</p>
 				</div>
 				<a

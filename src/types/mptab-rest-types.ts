@@ -12,8 +12,8 @@ export const EventObjectSchema = z.object({
 	thumbnail: z.union([z.boolean(), z.string().url()]),
 	permanent: z.string().nullish(),
 	hours: HoursSchema.nullish(),
-	dates: DatesSchema,
-	alias: z.array(z.string()),
+	dates: DatesSchema.nullish(),
+	alias: z.array(z.string()).nullish(),
 })
 export const CurentCommingEventSchema = z.object({
 	current: z.array(EventObjectSchema),
@@ -23,3 +23,18 @@ export const CurentCommingEventSchema = z.object({
 export type EventObject = z.infer<typeof EventObjectSchema>
 
 export type CurentCommingEvent = z.infer<typeof CurentCommingEventSchema>
+
+export const ServiceObjectSchema = z.object({
+	ID: z.number(),
+	post_type: z.string(),
+	url: z.string().url(),
+	title: z.string(),
+	exerpt: z.string(),
+	thumbnail: z.union([z.boolean(), z.string().url()]),
+})
+
+export const ServicesSchema = z.array(ServiceObjectSchema)
+
+export type ServiceObject = z.infer<typeof ServiceObjectSchema>
+
+export type Services = z.infer<typeof ServicesSchema>

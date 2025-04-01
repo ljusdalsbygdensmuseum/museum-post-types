@@ -93,6 +93,7 @@ class PluginBoilerplate
 
         //blocks
         register_block_type(__DIR__ . '/build/blocks/mptab_show_ex_ev');
+        register_block_type(__DIR__ . '/build/blocks/mptab_show_services');
     }
 
     //Metaboxes
@@ -257,6 +258,10 @@ class PluginBoilerplate
             'methods' => WP_REST_Server::READABLE,
             'callback' => array($this, 'rest_exhibition_event')
         ));
+        register_rest_route('mptab/v1', 'services', array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array($this, 'rest_services')
+        ));
     }
     function rest_exhibition_event()
     {
@@ -386,6 +391,28 @@ class PluginBoilerplate
                 'exerpt' => get_the_excerpt(), // remove [...]
                 'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
                 ...$specialData
+            ));
+        }
+        return $posts;
+    }
+    function rest_services()
+    {
+        $servicesQuery = new WP_Query(array(
+            'post_type' => 'mptab_service',
+            'posts_per_page' => -1,
+        ));
+
+        $posts = [];
+
+        while ($servicesQuery->have_posts()) {
+            $servicesQuery->the_post();
+            array_push($posts, array(
+                'ID' => get_the_ID(),
+                'post_type' => get_post_type(),
+                'url' => get_permalink(),
+                'title' => get_the_title(),
+                'exerpt' => get_the_excerpt(), // remove [...]
+                'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
             ));
         }
         return $posts;
