@@ -388,7 +388,7 @@ class PluginBoilerplate
                 'post_type' => get_post_type(),
                 'url' => get_permalink(),
                 'title' => get_the_title(),
-                'exerpt' => get_the_excerpt(), // remove [...]
+                'exerpt' => str_replace('[&hellip;]', '', get_the_excerpt()), // remove [...]
                 'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
                 ...$specialData
             ));
@@ -411,7 +411,7 @@ class PluginBoilerplate
                 'post_type' => get_post_type(),
                 'url' => get_permalink(),
                 'title' => get_the_title(),
-                'exerpt' => get_the_excerpt(), // remove [...]
+                'exerpt' => str_replace('[&hellip;]', '', get_the_excerpt()), // remove [...]
                 'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
             ));
         }
