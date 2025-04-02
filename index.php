@@ -13,7 +13,7 @@ class PluginBoilerplate
 {
     public function __construct()
     {
-        //on init /post types /blocks
+        //on init /post types /blocks 
         add_action('init', array($this, 'on_init'));
 
         //meta boxes
@@ -28,6 +28,12 @@ class PluginBoilerplate
 
         //RestAPI
         add_action('rest_api_init', array($this, 'custom_rest'));
+
+        //Sub page
+        add_action('admin_menu', array($this, 'init_admin_menu'));
+
+        //on admin init /settings
+        add_action('admin_init', array($this, 'on_admin_init'));
     }
     function on_init()
     {
@@ -155,7 +161,7 @@ class PluginBoilerplate
             <input type="text" name="mptab-event-date-all-field" id="mptab-event-date-all-field" value="<?php esc_attr_e($allDates, 'mptab-domain') ?>" style="display:none;">
             <input type="text" name="mptab-event-date-alias-field" id="mptab-event-date-alias-field" value="<?php esc_attr_e($alias, 'mptab-domain') ?>" style="display:none;">
         </div>
-<?php
+    <?php
     }
 
     //Save posts
@@ -416,6 +422,72 @@ class PluginBoilerplate
             ));
         }
         return $posts;
+    }
+
+    //Sub page
+    function init_admin_menu()
+    {
+        add_menu_page(
+            __('Museum settings', 'mptab-domain'),
+            __('Museum settings', 'mptab-domain'),
+            'manage_options',
+            'mptab-settings',
+            array($this, 'mptab_settings'),
+            'data:image/svg+xml;base64,' . base64_encode('<svg width="20" height="20" viewBox="0 0 255.463 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; "><clipPath id="_clip1"><rect x="0" y="0" width="255.463" height="500" /></clipPath><g clip-path="url(#_clip1)"><path d="M159.15,252.589l0,241.419c0,3.861 -3.131,6.992 -6.992,6.992l-48.528,-0c-1.854,-0 -3.633,-0.737 -4.944,-2.048c-1.312,-1.311 -2.048,-3.09 -2.048,-4.944l-0,-24.439l-89.475,0c-3.862,0 -6.993,-3.131 -6.993,-6.992l0,-48.528c0,-1.854 0.737,-3.633 2.048,-4.944c1.311,-1.312 3.09,-2.048 4.945,-2.048l89.475,-0l-0,-12.639l-89.496,-0.059c-3.862,-0.002 -6.99,-3.135 -6.988,-6.997l0.032,-48.527c0.002,-3.862 3.135,-6.99 6.997,-6.988l89.455,0.058l-0,-79.316c-55.404,-13.958 -96.468,-64.154 -96.468,-123.865c0,-70.493 57.231,-127.724 127.724,-127.724c70.493,0 127.724,57.231 127.724,127.724c-0,59.711 -41.064,109.907 -96.468,123.865Zm-31.256,-189.193c-36.056,-0 -65.328,29.272 -65.328,65.328c-0,36.055 29.272,65.328 65.328,65.328c36.056,0 65.328,-29.273 65.328,-65.328c0,-36.056 -29.272,-65.328 -65.328,-65.328Z"/></g></svg>'),
+            80
+        );
+    }
+
+    //Settings
+    function on_admin_init()
+    {
+        register_setting('mptab_general_settings_group', 'mptab_phone', array(
+            'sanitize_callback' => array($this, 'sanitize_tel'),
+            'default' => '0000-000 000'
+        ));
+        add_settings_section(
+            'mptab_general_settings_section',
+            __('Museum Settings', 'mptab-domain'),
+            array($this, 'mptab_general_settings_section'),
+            'mptab-settings'
+        );
+        add_settings_field(
+            'mptab_phone',
+            __('Phone number', 'mptab-domain'),
+            array($this, 'mptab_phone'),
+            'mptab-settings',
+            'mptab_general_settings_section'
+        );
+    }
+
+    function sanitize_tel($input)
+    {
+        $sanitized = preg_replace('/[^0-9 \- ]/', '', $input); // removes anything that isn't numbers spaces or dashes
+        return $sanitized;
+    }
+
+    function mptab_settings()
+    {
+    ?>
+        <div class="wrap">
+            <form action="options.php" method="POST">
+                <?php
+                settings_errors();
+                settings_fields('mptab_general_settings_group');
+                do_settings_sections('mptab-settings');
+                submit_button();
+                ?>
+            </form>
+        </div>
+    <?php
+    }
+
+    function mptab_general_settings_section() {}
+    function mptab_phone()
+    {
+    ?>
+        <input name="mptab_phone" type="tel" value="<?php echo esc_attr(get_option('mptab_phone')) ?>">
+<?php
     }
 }
 
