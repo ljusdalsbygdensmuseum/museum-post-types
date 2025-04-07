@@ -1,4 +1,4 @@
-import z from 'zod'
+import z, { ZodString } from 'zod'
 
 import { DatesSchema } from './mptab-date-types'
 import { HoursSchema } from './mptab-hour-types'
@@ -38,3 +38,9 @@ export const ServicesSchema = z.array(ServiceObjectSchema)
 export type ServiceObject = z.infer<typeof ServiceObjectSchema>
 
 export type Services = z.infer<typeof ServicesSchema>
+
+export const SettingsSchema = z.object({
+	phone: z.string(),
+})
+
+export type Settings = z.infer<typeof SettingsSchema>

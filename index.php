@@ -100,6 +100,7 @@ class PluginBoilerplate
         //blocks
         register_block_type(__DIR__ . '/build/blocks/mptab_show_ex_ev');
         register_block_type(__DIR__ . '/build/blocks/mptab_show_services');
+        register_block_type(__DIR__ . '/build/blocks/mptab_phone');
     }
 
     //Metaboxes
@@ -225,6 +226,18 @@ class PluginBoilerplate
 
     function admin_scripts($hook)
     {
+        //settings scripts
+        if ($hook == 'toplevel_page_mptab-settings') {
+            //Grab dependencies
+            $assets = include plugin_dir_path(__FILE__) . 'build/mptab_settings.asset.php';
+
+            //Enqueue scripts
+            wp_enqueue_script('mptab-settings', plugin_dir_url(__FILE__) . 'build/mptab_settings.js', $assets['dependencies'], $assets['version'], true);
+
+            //Enqueue styles
+            wp_enqueue_style('wp-components');
+        }
+        //post editor scripts
         if ($hook != 'post.php' && $hook != 'post-new.php') {
             return;
         }
@@ -267,6 +280,10 @@ class PluginBoilerplate
         register_rest_route('mptab/v1', 'services', array(
             'methods' => WP_REST_Server::READABLE,
             'callback' => array($this, 'rest_services')
+        ));
+        register_rest_route('mptab/v1', 'settings', array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array($this, 'rest_settings')
         ));
     }
     function rest_exhibition_event()
@@ -423,6 +440,12 @@ class PluginBoilerplate
         }
         return $posts;
     }
+    function rest_settings()
+    {
+        return array(
+            'phone' => esc_attr(get_option('mptab_phone'))
+        );
+    }
 
     //Sub page
     function init_admin_menu()
@@ -441,20 +464,33 @@ class PluginBoilerplate
     //Settings
     function on_admin_init()
     {
-        register_setting('mptab_general_settings_group', 'mptab_phone', array(
-            'sanitize_callback' => array($this, 'sanitize_tel'),
-            'default' => '0000-000 000'
-        ));
         add_settings_section(
             'mptab_general_settings_section',
             __('Museum Settings', 'mptab-domain'),
             array($this, 'mptab_general_settings_section'),
             'mptab-settings'
         );
+        // Phone
+        register_setting('mptab_general_settings_group', 'mptab_phone', array(
+            'sanitize_callback' => array($this, 'sanitize_tel'),
+            'default' => '0000-000 000'
+        ));
         add_settings_field(
             'mptab_phone',
             __('Phone number', 'mptab-domain'),
             array($this, 'mptab_phone'),
+            'mptab-settings',
+            'mptab_general_settings_section'
+        );
+        //Adress
+        register_setting('mptab_general_settings_group', 'mptab_adress', array(
+            'sanitize_callback' => array($this, 'sanitize_tel'),
+            'default' => 'test'
+        ));
+        add_settings_field(
+            'mptab_adress',
+            __('Adress', 'mptab-domain'),
+            array($this, 'mptab_adress'),
             'mptab-settings',
             'mptab_general_settings_section'
         );
@@ -487,6 +523,13 @@ class PluginBoilerplate
     {
     ?>
         <input name="mptab_phone" type="tel" value="<?php echo esc_attr(get_option('mptab_phone')) ?>">
+    <?php
+    }
+    function mptab_adress()
+    {
+    ?>
+        <input name="mptab_adress" type="text" value="<?php echo esc_attr(get_option('mptab_adress')) ?>">
+        <div id="mptab-settings-adress-map"></div>
 <?php
     }
 }
