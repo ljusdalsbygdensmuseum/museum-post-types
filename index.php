@@ -236,6 +236,7 @@ class PluginBoilerplate
 
             //Enqueue styles
             wp_enqueue_style('wp-components');
+            wp_enqueue_style('mptab-settings', plugin_dir_url(__FILE__) . 'build/mptab_settings.css');
         }
         //post editor scripts
         if ($hook != 'post.php' && $hook != 'post-new.php') {
