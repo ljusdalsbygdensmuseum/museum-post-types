@@ -1,9 +1,10 @@
-import { MapContainer, TileLayer, useMap } from 'react-leaflet'
-import EsriLeafletGeoSearch from 'react-esri-leaflet/plugins/EsriLeafletGeoSearch'
+import { useState, useEffect } from 'react'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { Geocoder, geocoders } from 'leaflet-control-geocoder'
 
 import 'leaflet/dist/leaflet.css'
-import 'esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css'
 import '../sass/settings/settings_page.scss'
+import { MPTABGeocoder } from './mptab-leaflet-geocoder'
 
 interface Props {
 	key: number
@@ -11,8 +12,22 @@ interface Props {
 }
 
 export function MPTABMap({ key, location }: Props) {
-	console.log(key)
-	console.log(location)
+	const [marker, setMarker] = useState(location)
+
+	const geocoding = (address: string) => {
+		useEffect(() => {
+			const geocoder = new geocoders.Nominatim()
+
+			geocoder.geocode(address).then((result) => {
+				if (!result.length) {
+					return
+				}
+				console.log(result)
+				setMarker(result[0].center)
+			})
+		}, [address])
+	}
+	geocoding('ljusdalsbygdens museum')
 
 	return (
 		<MapContainer center={location} zoom={13} scrollWheelZoom={true}>
@@ -20,7 +35,7 @@ export function MPTABMap({ key, location }: Props) {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 			/>
-			<EsriLeafletGeoSearch />
+			<Marker position={marker}></Marker>
 		</MapContainer>
 	)
 }
