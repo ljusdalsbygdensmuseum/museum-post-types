@@ -581,13 +581,13 @@ class PluginBoilerplate
     function mptab_city()
     {
     ?>
-        <input name="mptab_city" type="tel" value="<?php echo esc_attr(get_option('mptab_city')) ?>">
+        <input name="mptab_city" type="text" value="<?php echo esc_attr(get_option('mptab_city')) ?>">
     <?php
     }
     function mptab_areacode()
     {
     ?>
-        <input name="mptab_areacode" type="tel" value="<?php echo esc_attr(get_option('mptab_areacode')) ?>">
+        <input name="mptab_areacode" type="text" value="<?php echo esc_attr(get_option('mptab_areacode')) ?>">
     <?php
     }
     function mptab_latlng()
