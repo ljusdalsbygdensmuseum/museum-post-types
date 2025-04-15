@@ -1,30 +1,24 @@
 import { useEffect } from 'react'
-import { useMap, Marker, Popup } from 'react-leaflet'
-import 'leaflet-control-geocoder/dist/Control.Geocoder.css'
-import { Geocoder, geocoders } from 'leaflet-control-geocoder'
-import L from 'leaflet'
+import { useMap } from 'react-leaflet'
+
+import { Geocoder } from 'leaflet-control-geocoder'
+import { MarkGeocodeEvent } from 'leaflet-control-geocoder/dist/control'
 
 interface Props {
-	address: string
+	setMarker: (location: L.LatLngExpression) => void
 }
 
-export function MPTABGeocoder({ address }: Props) {
+export function MPTABGeocoder({ setMarker }: Props) {
 	const map = useMap()
 	useEffect(() => {
-		const geocoder = new geocoders.Nominatim()
-
-		geocoder.geocode(address).then((result) => {
-			if (!result.length) {
-				return
-			}
-			map.fitBounds(result[0].bbox)
-			console.log(result)
-			return (
-				<>
-					<Marker position={result[0].center}></Marker>
-				</>
-			)
+		const GeocoderControl = new Geocoder({
+			defaultMarkGeocode: false,
 		})
-	}, [address])
+		GeocoderControl.addTo(map)
+		GeocoderControl.on('markgeocode', function (event: MarkGeocodeEvent) {
+			map.flyToBounds(event.geocode.bbox)
+			setMarker(event.geocode.center)
+		})
+	}, [])
 	return null
 }

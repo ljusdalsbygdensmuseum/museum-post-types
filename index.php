@@ -495,6 +495,10 @@ class PluginBoilerplate
             'mptab-settings',
             'mptab_general_settings_section'
         );
+        //Lat lng
+        register_setting('mptab_general_settings_group', 'mptab_latlng', array(
+            'default' => 'test2'
+        ));
     }
 
     function sanitize_tel($input)
@@ -530,6 +534,8 @@ class PluginBoilerplate
     {
     ?>
         <input name="mptab_adress" type="text" value="<?php echo esc_attr(get_option('mptab_adress')) ?>">
+        <input name="mptab_latlng" type="text" value="<?php echo esc_attr(get_option('mptab_latlng')) ?>">
+        <div id="mptab-settings-adress"></div>
         <div id="mptab-settings-adress-map"></div>
 <?php
     }
