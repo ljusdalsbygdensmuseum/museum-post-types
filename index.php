@@ -483,22 +483,57 @@ class PluginBoilerplate
             'mptab-settings',
             'mptab_general_settings_section'
         );
+
+        add_settings_section(
+            'mptab_adress_settings_section',
+            __('Adress Settings', 'mptab-domain'),
+            array($this, 'mptab_adress_settings_section'),
+            'mptab-settings'
+        );
         //Adress
-        register_setting('mptab_general_settings_group', 'mptab_adress', array(
-            'sanitize_callback' => array($this, 'sanitize_tel'),
-            'default' => 'test'
+        register_setting('mptab_adress_settings_group', 'mptab_adress', array(
+            'sanitize_callback' => 'sanitize_text_field',
         ));
         add_settings_field(
             'mptab_adress',
             __('Adress', 'mptab-domain'),
             array($this, 'mptab_adress'),
             'mptab-settings',
-            'mptab_general_settings_section'
+            'mptab_adress_settings_section'
+        );
+        //City
+        register_setting('mptab_adress_settings_group', 'mptab_city', array(
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        add_settings_field(
+            'mptab_city',
+            __('City', 'mptab-domain'),
+            array($this, 'mptab_city'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
+        );
+        //Area code
+        register_setting('mptab_adress_settings_group', 'mptab_areacode', array(
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        add_settings_field(
+            'mptab_areacode',
+            __('Area code', 'mptab-domain'),
+            array($this, 'mptab_areacode'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
         );
         //Lat lng
-        register_setting('mptab_general_settings_group', 'mptab_latlng', array(
-            'default' => 'test2'
+        register_setting('mptab_adress_settings_group', 'mptab_latlng', array(
+            'description' => __('Area code', 'mptab-domain')
         ));
+        add_settings_field(
+            'mptab_latlng',
+            __('Map', 'mptab-domain'),
+            array($this, 'mptab_latlng'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
+        );
     }
 
     function sanitize_tel($input)
@@ -515,6 +550,7 @@ class PluginBoilerplate
                 <?php
                 settings_errors();
                 settings_fields('mptab_general_settings_group');
+                settings_fields('mptab_adress_settings_group');
                 do_settings_sections('mptab-settings');
                 submit_button();
                 ?>
@@ -524,6 +560,12 @@ class PluginBoilerplate
     }
 
     function mptab_general_settings_section() {}
+    function mptab_adress_settings_section()
+    {
+    ?>
+        <h3><?php __('Adress Settings', 'mptab-domain') ?></h3>
+    <?php
+    }
     function mptab_phone()
     {
     ?>
@@ -534,8 +576,25 @@ class PluginBoilerplate
     {
     ?>
         <input name="mptab_adress" type="text" value="<?php echo esc_attr(get_option('mptab_adress')) ?>">
-        <input name="mptab_latlng" type="text" value="<?php echo esc_attr(get_option('mptab_latlng')) ?>">
-        <div id="mptab-settings-adress"></div>
+    <?php
+    }
+    function mptab_city()
+    {
+    ?>
+        <input name="mptab_city" type="tel" value="<?php echo esc_attr(get_option('mptab_city')) ?>">
+    <?php
+    }
+    function mptab_areacode()
+    {
+    ?>
+        <input name="mptab_areacode" type="tel" value="<?php echo esc_attr(get_option('mptab_areacode')) ?>">
+    <?php
+    }
+    function mptab_latlng()
+    {
+    ?>
+        <p id="mptab-settings-map-description" class="description"><?php _e('Mark the location by clicking on the map or searching.', 'mptab-domain') ?></p>
+        <input name="mptab_latlng" type="text" value="<?php echo esc_attr(get_option('mptab_latlng')) ?>" style="display:none;">
         <div id="mptab-settings-adress-map"></div>
 <?php
     }
