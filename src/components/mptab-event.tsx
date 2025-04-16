@@ -6,11 +6,12 @@ import { MPTABDate } from './mptab-date'
 interface Props {
 	item: EventObject
 }
+
+import defaultImg from '../../img/default_event.png'
+
 export function MPTABEvent({ item }: Props) {
 	const img =
-		item.thumbnail && item.thumbnail != true
-			? item.thumbnail
-			: './img/default_event.png' // change to path for default image
+		item.thumbnail && item.thumbnail != true ? item.thumbnail : defaultImg
 	return (
 		<div className='row mptab_event mptab_event_display mptab_event_display_min'>
 			<div
