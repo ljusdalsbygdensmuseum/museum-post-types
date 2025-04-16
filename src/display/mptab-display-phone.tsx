@@ -7,6 +7,12 @@ import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 export function MPTABDisplayPhone() {
 	const defaultData: Settings = {
 		phone: '',
+		adress: {
+			adress: '',
+			city: '',
+			areacode: '',
+			latlng: { lat: 0, lng: 0 },
+		},
 	}
 	const [data, setData] = useState(defaultData)
 

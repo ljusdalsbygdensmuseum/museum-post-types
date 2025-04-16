@@ -101,6 +101,7 @@ class PluginBoilerplate
         register_block_type(__DIR__ . '/build/blocks/mptab_show_ex_ev');
         register_block_type(__DIR__ . '/build/blocks/mptab_show_services');
         register_block_type(__DIR__ . '/build/blocks/mptab_phone');
+        register_block_type(__DIR__ . '/build/blocks/mptab_map');
     }
 
     //Metaboxes
@@ -444,7 +445,13 @@ class PluginBoilerplate
     function rest_settings()
     {
         return array(
-            'phone' => esc_attr(get_option('mptab_phone'))
+            'phone' => esc_attr(get_option('mptab_phone')),
+            'adress' => array(
+                "adress" => esc_attr(get_option('mptab_adress')),
+                "city" => esc_attr(get_option('mptab_city')),
+                "areacode" => esc_attr(get_option('mptab_areacode')),
+                "latlng" => json_decode(get_option('mptab_latlng')),
+            )
         );
     }
 

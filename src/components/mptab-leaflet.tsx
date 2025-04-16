@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
 
 import 'leaflet/dist/leaflet.css'
@@ -10,14 +10,21 @@ import { MPTABClicker } from './mptab-leaflet-clicker'
 
 import icon from '../../img/marker.png'
 import iconShadow from '../../img/marker_shadow.png'
+import { ReactElement } from '@wordpress/element/build-types/serialize'
 
 interface Props {
 	searchable: boolean
 	location: L.LatLngExpression
-	searchInput: HTMLInputElement | null
+	searchInput?: HTMLInputElement | null
+	visibleAdress?: ReactElement
 }
 
-export function MPTABMap({ searchable, location, searchInput }: Props) {
+export function MPTABMap({
+	searchable,
+	location,
+	searchInput,
+	visibleAdress,
+}: Props) {
 	const [marker, setMarker] = useState(location)
 
 	const customIcon = new Icon({
@@ -27,6 +34,7 @@ export function MPTABMap({ searchable, location, searchInput }: Props) {
 		shadowUrl: iconShadow,
 		shadowSize: [36, 36],
 		shadowAnchor: [6, 30],
+		popupAnchor: [0, -37],
 	})
 
 	const geocodeMarker = (location: L.LatLngExpression) => {
@@ -43,7 +51,7 @@ export function MPTABMap({ searchable, location, searchInput }: Props) {
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
-				{searchable === true ? (
+				{searchable ? (
 					<>
 						<MPTABGeocoder setMarker={geocodeMarker} />
 						<MPTABClicker setMarker={geocodeMarker} />
@@ -51,7 +59,9 @@ export function MPTABMap({ searchable, location, searchInput }: Props) {
 				) : (
 					''
 				)}
-				<Marker position={marker} icon={customIcon}></Marker>
+				<Marker position={location} icon={customIcon}>
+					{!searchable ? <Popup>{visibleAdress}</Popup> : ''}
+				</Marker>
 			</MapContainer>
 		</>
 	)
