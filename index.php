@@ -5,6 +5,7 @@
  * Version:           0.1.0
  * Author:            Ina Eklund
  * Text Domain:       mptab-domain
+ * Domain Path:       /languages
 */
 if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -37,9 +38,13 @@ class PluginBoilerplate
     }
     function on_init()
     {
+        // languages
+        load_plugin_textdomain('mptab-domain', false, dirname(plugin_basename(__FILE__)) . '/languages');
+
+        // Post types
         $exhibition_args = array(
             'labels' => array(
-                'name' => __('Exhibitions', 'mptab_domain'),
+                'name' => __('Exhibitions', 'mptab-domain'),
                 'singular_name' => __('Exhibition', 'mptab-domain'),
                 'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('exhibition', 'mptab-domain'),
                 'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('exhibition', 'mptab-domain'),
@@ -49,7 +54,7 @@ class PluginBoilerplate
                 'all_items' => __('All', 'mptab-domain') . ' ' . __('exhibitions', 'mptab-domain'),
                 'archives' => __('Exhibition', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
-            'rewrite' => array('slug' => __('exhibitions', 'mptab_domain')),
+            'rewrite' => array('slug' => __('exhibitions', 'mptab-domain')),
             'menu_icon' => 'dashicons-admin-site-alt',
             'public' => true,
             'show_in_rest' => true,
@@ -59,7 +64,7 @@ class PluginBoilerplate
 
         $event_args = array(
             'labels' => array(
-                'name' => __('Events', 'mptab_domain'),
+                'name' => __('Events', 'mptab-domain'),
                 'singular_name' => __('Event', 'mptab-domain'),
                 'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
                 'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
@@ -69,7 +74,7 @@ class PluginBoilerplate
                 'all_items' => __('All', 'mptab-domain') . ' ' . __('events', 'mptab-domain'),
                 'archives' => __('Event', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
-            'rewrite' => array('slug' => __('events', 'mptab_domain')),
+            'rewrite' => array('slug' => __('events', 'mptab-domain')),
             'menu_icon' => 'dashicons-schedule',
             'public' => true,
             'show_in_rest' => true,
@@ -79,7 +84,7 @@ class PluginBoilerplate
 
         $service_args = array(
             'labels' => array(
-                'name' => __('Services', 'mptab_domain'),
+                'name' => __('Services', 'mptab-domain'),
                 'singular_name' => __('Service', 'mptab-domain'),
                 'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('service', 'mptab-domain'),
                 'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('service', 'mptab-domain'),
@@ -89,7 +94,7 @@ class PluginBoilerplate
                 'all_items' => __('All', 'mptab-domain') . ' ' . __('services', 'mptab-domain'),
                 'archives' => __('Service', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
-            'rewrite' => array('slug' => __('services', 'mptab_domain')),
+            'rewrite' => array('slug' => __('services', 'mptab-domain')),
             'menu_icon' => 'dashicons-hammer',
             'public' => true,
             'show_in_rest' => true,
@@ -239,6 +244,9 @@ class PluginBoilerplate
             //Enqueue styles
             wp_enqueue_style('wp-components');
             wp_enqueue_style('mptab-settings', plugin_dir_url(__FILE__) . 'build/mptab_settings.css');
+
+            //Set translation
+            wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
         }
         //post editor scripts
         if ($hook != 'post.php' && $hook != 'post-new.php') {
