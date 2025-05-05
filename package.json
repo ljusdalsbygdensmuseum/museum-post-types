@@ -7,7 +7,7 @@
 		"start": "wp-scripts start",
 		"dev": "wp-scripts start",
 		"devFast": "wp-scripts start",
-		"make-pot": "wp i18n make-pot . languages/flexible-open-hours-domain.pot",
+		"make-pot": "wp i18n make-pot . languages/mptab-domain.pot",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
@@ -21,13 +21,14 @@
 		"@babel/runtime": "7.26.10"
 	},
 	"devDependencies": {
+		"@types/leaflet": "^1.9.17",
+		"@types/wordpress__block-editor": "^11.5.16",
+		"@types/wordpress__blocks": "^12.5.16",
 		"@wordpress/scripts": "^30.7.0",
 		"ts-loader": "^9.5.1",
 		"typescript": "^5.7.2"
 	},
 	"dependencies": {
-		"@types/wordpress__block-editor": "^11.5.16",
-		"@types/wordpress__blocks": "^12.5.16",
 		"@wordpress/block-editor": "^14.4.0",
 		"@wordpress/blocks": "^13.9.0",
 		"@wordpress/components": "^28.9.0",
@@ -35,6 +36,9 @@
 		"@wordpress/element": "^6.9.0",
 		"@wordpress/i18n": "^5.9.0",
 		"bootstrap": "^5.3.3",
+		"leaflet": "^1.9.4",
+		"leaflet-control-geocoder": "^3.1.0",
+		"react-leaflet": "^4.2.1",
 		"zod": "^3.24.2"
 	}
 }

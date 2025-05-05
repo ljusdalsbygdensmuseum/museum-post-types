@@ -5,6 +5,7 @@
  * Version:           0.1.0
  * Author:            Ina Eklund
  * Text Domain:       mptab-domain
+ * Domain Path:       /languages
 */
 if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -13,7 +14,7 @@ class PluginBoilerplate
 {
     public function __construct()
     {
-        //on init /post types /blocks
+        //on init /post types /blocks 
         add_action('init', array($this, 'on_init'));
 
         //meta boxes
@@ -28,12 +29,22 @@ class PluginBoilerplate
 
         //RestAPI
         add_action('rest_api_init', array($this, 'custom_rest'));
+
+        //Sub page
+        add_action('admin_menu', array($this, 'init_admin_menu'));
+
+        //on admin init /settings
+        add_action('admin_init', array($this, 'on_admin_init'));
     }
     function on_init()
     {
+        // languages
+        load_plugin_textdomain('mptab-domain', false, dirname(plugin_basename(__FILE__)) . '/languages');
+
+        // Post types
         $exhibition_args = array(
             'labels' => array(
-                'name' => __('Exhibitions', 'mptab_domain'),
+                'name' => __('Exhibitions', 'mptab-domain'),
                 'singular_name' => __('Exhibition', 'mptab-domain'),
                 'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('exhibition', 'mptab-domain'),
                 'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('exhibition', 'mptab-domain'),
@@ -43,7 +54,7 @@ class PluginBoilerplate
                 'all_items' => __('All', 'mptab-domain') . ' ' . __('exhibitions', 'mptab-domain'),
                 'archives' => __('Exhibition', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
-            'rewrite' => array('slug' => __('exhibitions', 'mptab_domain')),
+            'rewrite' => array('slug' => __('exhibitions', 'mptab-domain')),
             'menu_icon' => 'dashicons-admin-site-alt',
             'public' => true,
             'show_in_rest' => true,
@@ -53,7 +64,7 @@ class PluginBoilerplate
 
         $event_args = array(
             'labels' => array(
-                'name' => __('Events', 'mptab_domain'),
+                'name' => __('Events', 'mptab-domain'),
                 'singular_name' => __('Event', 'mptab-domain'),
                 'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
                 'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('event', 'mptab-domain'),
@@ -63,7 +74,7 @@ class PluginBoilerplate
                 'all_items' => __('All', 'mptab-domain') . ' ' . __('events', 'mptab-domain'),
                 'archives' => __('Event', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
-            'rewrite' => array('slug' => __('events', 'mptab_domain')),
+            'rewrite' => array('slug' => __('events', 'mptab-domain')),
             'menu_icon' => 'dashicons-schedule',
             'public' => true,
             'show_in_rest' => true,
@@ -73,7 +84,7 @@ class PluginBoilerplate
 
         $service_args = array(
             'labels' => array(
-                'name' => __('Services', 'mptab_domain'),
+                'name' => __('Services', 'mptab-domain'),
                 'singular_name' => __('Service', 'mptab-domain'),
                 'add_new_item' => __('Add new', 'mptab-domain') . ' ' . __('service', 'mptab-domain'),
                 'edit_item' => __('Edit', 'mptab-domain') . ' ' . __('service', 'mptab-domain'),
@@ -83,7 +94,7 @@ class PluginBoilerplate
                 'all_items' => __('All', 'mptab-domain') . ' ' . __('services', 'mptab-domain'),
                 'archives' => __('Service', 'mptab-domain') . ' ' . __('archives', 'mptab-domain'),
             ),
-            'rewrite' => array('slug' => __('services', 'mptab_domain')),
+            'rewrite' => array('slug' => __('services', 'mptab-domain')),
             'menu_icon' => 'dashicons-hammer',
             'public' => true,
             'show_in_rest' => true,
@@ -93,6 +104,10 @@ class PluginBoilerplate
 
         //blocks
         register_block_type(__DIR__ . '/build/blocks/mptab_show_ex_ev');
+        register_block_type(__DIR__ . '/build/blocks/mptab_show_services');
+        register_block_type(__DIR__ . '/build/blocks/mptab_phone');
+        register_block_type(__DIR__ . '/build/blocks/mptab_map');
+        register_block_type(__DIR__ . '/build/blocks/mptab_adress');
     }
 
     //Metaboxes
@@ -154,7 +169,7 @@ class PluginBoilerplate
             <input type="text" name="mptab-event-date-all-field" id="mptab-event-date-all-field" value="<?php esc_attr_e($allDates, 'mptab-domain') ?>" style="display:none;">
             <input type="text" name="mptab-event-date-alias-field" id="mptab-event-date-alias-field" value="<?php esc_attr_e($alias, 'mptab-domain') ?>" style="display:none;">
         </div>
-<?php
+    <?php
     }
 
     //Save posts
@@ -218,6 +233,22 @@ class PluginBoilerplate
 
     function admin_scripts($hook)
     {
+        //settings scripts
+        if ($hook == 'toplevel_page_mptab-settings') {
+            //Grab dependencies
+            $assets = include plugin_dir_path(__FILE__) . 'build/mptab_settings.asset.php';
+
+            //Enqueue scripts
+            wp_enqueue_script('mptab-settings', plugin_dir_url(__FILE__) . 'build/mptab_settings.js', $assets['dependencies'], $assets['version'], true);
+
+            //Enqueue styles
+            wp_enqueue_style('wp-components');
+            wp_enqueue_style('mptab-settings', plugin_dir_url(__FILE__) . 'build/mptab_settings.css');
+
+            //Set translation
+            wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
+        }
+        //post editor scripts
         if ($hook != 'post.php' && $hook != 'post-new.php') {
             return;
         }
@@ -256,6 +287,14 @@ class PluginBoilerplate
         register_rest_route('mptab/v1', 'current_exhibition_event', array(
             'methods' => WP_REST_Server::READABLE,
             'callback' => array($this, 'rest_exhibition_event')
+        ));
+        register_rest_route('mptab/v1', 'services', array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array($this, 'rest_services')
+        ));
+        register_rest_route('mptab/v1', 'settings', array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array($this, 'rest_settings')
         ));
     }
     function rest_exhibition_event()
@@ -383,12 +422,197 @@ class PluginBoilerplate
                 'post_type' => get_post_type(),
                 'url' => get_permalink(),
                 'title' => get_the_title(),
-                'exerpt' => get_the_excerpt(), // remove [...]
+                'exerpt' => str_replace('[&hellip;]', '', get_the_excerpt()), // remove [...]
                 'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
                 ...$specialData
             ));
         }
         return $posts;
+    }
+    function rest_services()
+    {
+        $servicesQuery = new WP_Query(array(
+            'post_type' => 'mptab_service',
+            'posts_per_page' => -1,
+        ));
+
+        $posts = [];
+
+        while ($servicesQuery->have_posts()) {
+            $servicesQuery->the_post();
+            array_push($posts, array(
+                'ID' => get_the_ID(),
+                'post_type' => get_post_type(),
+                'url' => get_permalink(),
+                'title' => get_the_title(),
+                'exerpt' => str_replace('[&hellip;]', '', get_the_excerpt()), // remove [...]
+                'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
+            ));
+        }
+        return $posts;
+    }
+    function rest_settings()
+    {
+        return array(
+            'phone' => esc_attr(get_option('mptab_phone')),
+            'adress' => array(
+                "adress" => esc_attr(get_option('mptab_adress')),
+                "city" => esc_attr(get_option('mptab_city')),
+                "areacode" => esc_attr(get_option('mptab_areacode')),
+                "latlng" => json_decode(get_option('mptab_latlng')),
+            )
+        );
+    }
+
+    //Sub page
+    function init_admin_menu()
+    {
+        add_menu_page(
+            __('Museum settings', 'mptab-domain'),
+            __('Museum settings', 'mptab-domain'),
+            'manage_options',
+            'mptab-settings',
+            array($this, 'mptab_settings'),
+            'data:image/svg+xml;base64,' . base64_encode('<svg width="100%" height="100%" viewBox="0 0 2084 2084" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M1198.93,1187.78l-777.181,777.18c-12.429,12.43 -32.588,12.43 -45.017,0l-156.223,-156.222c-5.968,-5.968 -9.322,-14.068 -9.322,-22.509c-0.004,-8.444 3.354,-16.54 9.322,-22.509l78.675,-78.674l-288.04,-288.04c-12.432,-12.432 -12.432,-32.591 -0.003,-45.02l156.222,-156.223c5.969,-5.968 14.068,-9.323 22.509,-9.323c8.444,-0.003 16.54,3.355 22.512,9.327l288.04,288.039l40.687,-40.688l-287.917,-288.297c-12.426,-12.439 -12.41,-32.594 0.029,-45.021l156.322,-156.116c12.439,-12.426 32.595,-12.41 45.021,0.029l287.788,288.162l255.336,-255.335c-133.424,-223.292 -104.026,-517.078 88.197,-709.3c226.932,-226.933 595.411,-226.933 822.343,-0c226.933,226.932 226.933,595.41 0,822.343c-192.223,192.222 -486.009,221.62 -709.3,88.197Zm508.434,-709.674c-116.072,-116.072 -304.538,-116.072 -420.611,-0c-116.069,116.069 -116.072,304.538 0,420.61c116.073,116.072 304.542,116.069 420.611,0c116.072,-116.072 116.072,-304.538 -0,-420.61Z"/></svg>'),
+            80
+        );
+    }
+
+    //Settings
+    function on_admin_init()
+    {
+        add_settings_section(
+            'mptab_general_settings_section',
+            __('Museum Settings', 'mptab-domain'),
+            array($this, 'mptab_general_settings_section'),
+            'mptab-settings'
+        );
+        // Phone
+        register_setting('mptab_general_settings_group', 'mptab_phone', array(
+            'sanitize_callback' => array($this, 'sanitize_tel'),
+            'default' => '0000-000 000'
+        ));
+        add_settings_field(
+            'mptab_phone',
+            __('Phone number', 'mptab-domain'),
+            array($this, 'mptab_phone'),
+            'mptab-settings',
+            'mptab_general_settings_section'
+        );
+
+        add_settings_section(
+            'mptab_adress_settings_section',
+            __('Adress Settings', 'mptab-domain'),
+            array($this, 'mptab_adress_settings_section'),
+            'mptab-settings'
+        );
+        //Adress
+        register_setting('mptab_adress_settings_group', 'mptab_adress', array(
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        add_settings_field(
+            'mptab_adress',
+            __('Adress', 'mptab-domain'),
+            array($this, 'mptab_adress'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
+        );
+        //City
+        register_setting('mptab_adress_settings_group', 'mptab_city', array(
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        add_settings_field(
+            'mptab_city',
+            __('City', 'mptab-domain'),
+            array($this, 'mptab_city'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
+        );
+        //Area code
+        register_setting('mptab_adress_settings_group', 'mptab_areacode', array(
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        add_settings_field(
+            'mptab_areacode',
+            __('Area code', 'mptab-domain'),
+            array($this, 'mptab_areacode'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
+        );
+        //Lat lng
+        register_setting('mptab_adress_settings_group', 'mptab_latlng', array(
+            'description' => __('Area code', 'mptab-domain')
+        ));
+        add_settings_field(
+            'mptab_latlng',
+            __('Map', 'mptab-domain'),
+            array($this, 'mptab_latlng'),
+            'mptab-settings',
+            'mptab_adress_settings_section'
+        );
+    }
+
+    function sanitize_tel($input)
+    {
+        $sanitized = preg_replace('/[^0-9 \- ]/', '', $input); // removes anything that isn't numbers spaces or dashes
+        return $sanitized;
+    }
+
+    function mptab_settings()
+    {
+    ?>
+        <div class="wrap">
+            <form action="options.php" method="POST">
+                <?php
+                settings_errors();
+                settings_fields('mptab_general_settings_group');
+                settings_fields('mptab_adress_settings_group');
+                do_settings_sections('mptab-settings');
+                submit_button();
+                ?>
+            </form>
+        </div>
+    <?php
+    }
+
+    function mptab_general_settings_section() {}
+    function mptab_adress_settings_section()
+    {
+    ?>
+        <h3><?php __('Adress Settings', 'mptab-domain') ?></h3>
+    <?php
+    }
+    function mptab_phone()
+    {
+    ?>
+        <input name="mptab_phone" type="tel" value="<?php echo esc_attr(get_option('mptab_phone')) ?>">
+    <?php
+    }
+    function mptab_adress()
+    {
+    ?>
+        <input name="mptab_adress" type="text" value="<?php echo esc_attr(get_option('mptab_adress')) ?>">
+    <?php
+    }
+    function mptab_city()
+    {
+    ?>
+        <input name="mptab_city" type="text" value="<?php echo esc_attr(get_option('mptab_city')) ?>">
+    <?php
+    }
+    function mptab_areacode()
+    {
+    ?>
+        <input name="mptab_areacode" type="text" value="<?php echo esc_attr(get_option('mptab_areacode')) ?>">
+    <?php
+    }
+    function mptab_latlng()
+    {
+    ?>
+        <p id="mptab-settings-map-description" class="description"><?php _e('Mark the location by clicking on the map or searching.', 'mptab-domain') ?></p>
+        <input name="mptab_latlng" type="text" value="<?php echo esc_attr(get_option('mptab_latlng')) ?>" style="display:none;">
+        <div id="mptab-settings-adress-map"></div>
+<?php
     }
 }
 
