@@ -23,7 +23,7 @@ domReady(() => {
 
 	root.render(
 		<>
-			<MPTABMap searchable={false} location={latlng} searchInput={search} />
+			<MPTABMap searchable={true} location={latlng} searchInput={search} />
 		</>
 	)
 })

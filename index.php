@@ -488,7 +488,7 @@ class PluginBoilerplate
             'mptab-settings'
         );
         // Phone
-        register_setting('mptab_general_settings_group', 'mptab_phone', array(
+        register_setting('mptab_adress_settings_group', 'mptab_phone', array(
             'sanitize_callback' => array($this, 'sanitize_tel'),
             'default' => '0000-000 000'
         ));
@@ -565,7 +565,6 @@ class PluginBoilerplate
             <form action="options.php" method="POST">
                 <?php
                 settings_errors();
-                settings_fields('mptab_general_settings_group');
                 settings_fields('mptab_adress_settings_group');
                 do_settings_sections('mptab-settings');
                 submit_button();
