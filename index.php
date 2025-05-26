@@ -405,7 +405,7 @@ class PluginBoilerplate
                     ),
                     'alias' => array(
                         get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
-                        get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true)
+                        get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias', true)
                     )
                 );
             }

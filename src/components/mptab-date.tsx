@@ -20,6 +20,9 @@ export function MPTABDate({ post_type, dates, alias }: Props) {
 			let date = `${new Date(parseInt(item.date)).getDate()}/${new Date(
 				parseInt(item.date)
 			).getMonth()}` // change formating to 12 september insted of 12/9
+			if (alias[index]) {
+				date = alias[index]
+			}
 			if (post_type == 'mptab_exhibition' && !index) {
 				date = date + ' - '
 			}
@@ -29,5 +32,5 @@ export function MPTABDate({ post_type, dates, alias }: Props) {
 			displayDates += date
 		})
 
-	return <>{displayDates}</>
+	return <>{alias[0] && post_type == 'mptab_event' ? alias[0] : displayDates}</>
 }
