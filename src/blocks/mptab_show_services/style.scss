@@ -11,12 +11,6 @@ $border: 3px solid $secondary;
 .wp-block-mptab-show-services {
 	.mptab_event_display_min {
 		position: relative;
-		left: 50%;
-		right: 50%;
-		width: 100vw;
-		min-height: 20rem;
-		margin-left: -50vw;
-		margin-right: -50vw;
 		margin-bottom: 1rem;
 		padding: 1rem 0;
 		&:nth-of-type(even) {
@@ -27,7 +21,6 @@ $border: 3px solid $secondary;
 		// should have the same focal point as chosen
 		background-size: cover;
 		background-position: center center;
-		border: 2px solid blue;
 	}
 	.mptab_event_display_info {
 		display: flex;
