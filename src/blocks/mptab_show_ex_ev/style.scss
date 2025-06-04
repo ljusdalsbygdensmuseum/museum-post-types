@@ -4,7 +4,7 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@use '../../tailwind.css';
 
 $border: 3px solid var(--wp--preset--color--secondary);
 //quick fix for overflowing
