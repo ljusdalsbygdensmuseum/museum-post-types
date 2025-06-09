@@ -7,18 +7,28 @@
 @use '../../tailwind.css';
 
 .wp-block-mptab-show-services {
+	section {
+		margin-bottom: var(--wp--custom--gapo--xl);
+	}
 	.mptab_event_display_min {
 		position: relative;
-		margin-bottom: 1rem;
+		margin-bottom: var(--wp--custom--gapo--s);
 		padding: 1rem 0;
-		&:nth-of-type(even) {
-			flex-direction: row-reverse;
+		gap: var(--wp--custom--gapo--m);
+		display: flex;
+		flex-direction: column;
+		@media screen and (min-width: 780px) {
+			flex-direction: row;
+			&:nth-of-type(even) {
+				flex-direction: row-reverse;
+			}
 		}
 	}
 	.mptab_event_display_img {
 		// should have the same focal point as chosen
 		background-size: cover;
 		background-position: center center;
+		width: 100%;
 	}
 	.mptab_event_display_info {
 		display: flex;
@@ -26,8 +36,15 @@
 		justify-content: space-between;
 		padding-top: 1rem;
 		padding-bottom: 2rem;
+		width: 100%;
+		p {
+			margin-bottom: var(--wp--custom--gapo--s);
+		}
 	}
 	.mptab_event_display_button {
 		width: fit-content;
+		font-weight: 700;
+		text-decoration: none;
+		text-transform: uppercase;
 	}
 }

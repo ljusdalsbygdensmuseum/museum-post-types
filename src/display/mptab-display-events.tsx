@@ -39,13 +39,19 @@ export function MPTABDisplayEvent({ path }: Props) {
 	})
 	return (
 		<section>
-			<h2>{__('Right now', 'mptab-domain')}</h2>
-			{current}
+			{current.length ? (
+				<div className='mptab_event_display_current'>
+					<h2>{__('Right now', 'mptab-domain')}</h2>
+					{current}
+				</div>
+			) : (
+				''
+			)}
 			{comming.length ? (
-				<>
+				<div className='mptab_event_display_comming'>
 					<h2>{__('Coming', 'mptab-domain')}</h2>
 					{comming}
-				</>
+				</div>
 			) : (
 				''
 			)}
