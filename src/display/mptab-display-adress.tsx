@@ -31,11 +31,9 @@ export function MPTABDisplayAdress() {
 
 	return (
 		<span>
-			<strong>{data.adress.adress}</strong>
+			<strong className='adress-main-line'>{data.adress.adress}</strong>
 			<br />
-			{data.adress.areacode}
-			<br />
-			<strong>{data.adress.city}</strong>
+			{data.adress.areacode} {data.adress.city}
 		</span>
 	)
 }
