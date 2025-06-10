@@ -10,6 +10,18 @@
 	section {
 		margin-bottom: var(--wp--custom--gapo--xl);
 	}
+	position: relative;
+	&:before {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-color: var(--wp--preset--color--primary);
+		border-radius: 100%;
+		filter: blur(100px);
+		opacity: 0.3;
+	}
 	.mptab_event_display_min {
 		position: relative;
 		margin-bottom: var(--wp--custom--gapo--s);
