@@ -17,9 +17,9 @@ export function MPTABDate({ post_type, dates, alias }: Props) {
 			)
 		})
 		.forEach((item, index) => {
-			let date = `${new Date(parseInt(item.date)).getDate()}/${new Date(
-				parseInt(item.date)
-			).getMonth()}` // change formating to 12 september insted of 12/9
+			let date = `${new Date(parseInt(item.date)).getDate()}/${
+				new Date(parseInt(item.date)).getMonth() + 1
+			}` // change formating to 12 september insted of 12/9
 			if (alias[index]) {
 				date = alias[index]
 			}
