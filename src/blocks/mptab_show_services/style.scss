@@ -24,12 +24,14 @@
 	}
 	.mptab_event_display_min {
 		position: relative;
-		margin-bottom: var(--wp--custom--gapo--s);
-		padding: 1rem 0;
+		margin-bottom: var(--wp--custom--gapo--l);
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 		gap: var(--wp--custom--gapo--m);
 		display: flex;
 		flex-direction: column;
-		@media screen and (min-width: 780px) {
+		@media screen and (min-width: 781px) {
 			flex-direction: row;
 			&:nth-of-type(even) {
 				flex-direction: row-reverse;
@@ -40,15 +42,23 @@
 		// should have the same focal point as chosen
 		background-size: cover;
 		background-position: center center;
+		min-height: 350px;
 		width: 100%;
 	}
 	.mptab_event_display_info {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding-top: 1rem;
-		padding-bottom: 2rem;
+		padding: 0;
 		width: 100%;
+		@media screen and (min-width: 781px) {
+			padding-top: 1rem;
+			padding-bottom: 2rem;
+		}
+		.mptab_event_display_heading {
+			font-size: 1.6rem;
+			margin-bottom: 1rem;
+		}
 		p {
 			margin-bottom: var(--wp--custom--gapo--s);
 		}
