@@ -37,12 +37,14 @@ export function MPTABEvent({ item }: Props) {
 					)}
 					<p>{item.exerpt}</p>
 				</div>
-				<a
-					href={item.url}
-					className='btn btn-primary mptab_event_display_button'
-				>
-					{__('Read more', 'mptab-domain')}
-				</a>
+				<div className='corner-mask'>
+					<a
+						href={item.url}
+						className='btn btn-primary mptab_event_display_button'
+					>
+						{__('Read more', 'mptab-domain')}
+					</a>
+				</div>
 			</div>
 		</div>
 	)
