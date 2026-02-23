@@ -108,6 +108,7 @@ class PluginBoilerplate
         register_block_type(__DIR__ . '/build/blocks/mptab_phone');
         register_block_type(__DIR__ . '/build/blocks/mptab_map');
         register_block_type(__DIR__ . '/build/blocks/mptab_adress');
+        register_block_type(__DIR__ . '/build/blocks/mptab_dates');
     }
 
     //Metaboxes
