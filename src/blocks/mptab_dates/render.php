@@ -7,21 +7,21 @@
 /**
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
-$data;
+/*$data;
 
 if (get_post_type() == 'mptab_exhibition') {
-    $start = get_post_meta(get_the_ID(), 'mptab-exhibition-date-start');
-    $end = get_post_meta(get_the_ID(), 'mptab-exhibition-date-end');
-    $aliasStart = get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias');
-    $aliasEnd = get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias');
+    $start = get_post_meta(get_the_ID(), 'mptab-exhibition-date-start')[0];
+    $end = get_post_meta(get_the_ID(), 'mptab-exhibition-date-end')[0];
+    $aliasStart = get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias')[0];
+    $aliasEnd = get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias')[0];
 
-    $data = 'data-dates="[{date:"' . json_encode($start) . '"}, {date:"' . json_encode($end) . '"}]" data-alias="[' . $aliasStart . ', ' . $aliasEnd . ']"';
+    $data = 'data-dates=[{date:' . json_encode($start) . '}, {date:"' . json_encode($end) . '"}]" data-alias="[' . $aliasStart . ', ' . $aliasEnd . ']"';
 } elseif ((get_post_type() == 'mptab_event')) {
     $dates = get_post_meta(get_the_ID(), 'mptab-event-date-start');
     $alias = get_post_meta(get_the_ID(), 'mptab-event-date-alias');
 
     $data = 'data-dates="' . json_encode($dates) . '" data-alias="' . json_encode($alias) . '"';
-}
+}*/
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?> data-post-type="<?php echo get_post_type(); ?>" <?php echo $data; ?>>
+<div <?php echo get_block_wrapper_attributes(); ?> data-route="<?php echo rest_get_route_for_post(get_the_ID()) ?>">
 </div>
