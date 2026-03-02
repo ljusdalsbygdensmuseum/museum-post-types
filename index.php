@@ -285,6 +285,15 @@ class PluginBoilerplate
     //RestAPI
     function custom_rest()
     {
+        //Fields
+        register_rest_field('mptab_exhibition', 'mptab_date', array(
+            'get_callback' => array($this, 'rest_exhibition_date')
+        ));
+        register_rest_field('mptab_event', 'mptab_date', array(
+            'get_callback' => array($this, 'rest_event_date')
+        ));
+
+        //Routes
         register_rest_route('mptab/v1', 'current_exhibition_event', array(
             'methods' => WP_REST_Server::READABLE,
             'callback' => array($this, 'rest_exhibition_event')
@@ -297,6 +306,34 @@ class PluginBoilerplate
             'methods' => WP_REST_Server::READABLE,
             'callback' => array($this, 'rest_settings')
         ));
+    }
+    function rest_exhibition_date()
+    {
+        $meta = array(
+            'permanent' => get_post_meta(get_the_ID(), 'mptab-exhibition-is-permanent', true),
+            'dates' => array(
+                array(
+                    'date' => get_post_meta(get_the_ID(), 'mptab-exhibition-date-start', true)
+                ),
+                array(
+                    'date' => get_post_meta(get_the_ID(), 'mptab-exhibition-date-end', true)
+                )
+            ),
+            'alias' => array(
+                get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
+                get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias', true)
+            )
+        );
+        return $meta;
+    }
+    function rest_event_date()
+    {
+        $meta = array(
+            'hours' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-time', true)),
+            'dates' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-date-all', true)),
+            'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true))
+        );
+        return $meta;
     }
     function rest_exhibition_event()
     {
