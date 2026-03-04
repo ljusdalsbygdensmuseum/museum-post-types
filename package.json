@@ -28,7 +28,8 @@
 		"@wordpress/scripts": "^30.7.0",
 		"tailwindcss": "^4.1.8",
 		"ts-loader": "^9.5.1",
-		"typescript": "^5.7.2"
+		"typescript": "^5.7.2",
+		"wp-types": "^4.69.0"
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "^14.4.0",
