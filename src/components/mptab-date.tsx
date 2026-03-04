@@ -4,10 +4,13 @@ import { Dates } from '../types/mptab-date-types'
 
 interface Props {
 	post_type: string
-	dates: Dates
+	dates: Dates | undefined
 	alias: string[]
 }
 export function MPTABDate({ post_type, dates, alias }: Props) {
+	if (!dates) {
+		return
+	}
 	let displayDates = ''
 	dates
 		.sort((dateA, dateB) => {
