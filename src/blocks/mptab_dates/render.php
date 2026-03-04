@@ -23,5 +23,5 @@ if (get_post_type() == 'mptab_exhibition') {
     $data = 'data-dates="' . json_encode($dates) . '" data-alias="' . json_encode($alias) . '"';
 }*/
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?> data-route="<?php echo rest_get_route_for_post(get_the_ID()) ?>">
+<div <?php echo get_block_wrapper_attributes(); ?> data-route="<?php echo rest_get_route_for_post(get_the_ID()) ?>" style="font-weight: bold; color:#F5DDA2">
 </div>
