@@ -2,8 +2,9 @@ import z from 'zod'
 
 //Exhib event
 
-import { DatesSchema } from './mptab-date-types'
+import { Dates, DatesSchema } from './mptab-date-types'
 import { HoursSchema } from './mptab-hour-types'
+import { WP_REST_API_Post } from 'wp-types'
 
 export const EventObjectSchema = z.object({
 	ID: z.number(),
@@ -25,6 +26,15 @@ export const CurentCommingEventSchema = z.object({
 export type EventObject = z.infer<typeof EventObjectSchema>
 
 export type CurentCommingEvent = z.infer<typeof CurentCommingEventSchema>
+
+//extend restAPI
+export interface WP_REST_API_Exhib extends WP_REST_API_Post {
+	mptab_date: {
+		permanent: string | null | undefined
+		dates: Dates | null | undefined
+		alias: string[] | null | undefined
+	}
+}
 
 //Service
 
