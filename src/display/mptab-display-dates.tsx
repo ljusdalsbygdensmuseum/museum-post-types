@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import apiFetch from '@wordpress/api-fetch'
 import { MPTABDate } from '../../src/components/mptab-date'
-import { WP_REST_API_Exhib } from '../../src/types/mptab-rest-types'
+import {
+	WP_REST_API_Exhib,
+	WP_REST_API_Event,
+} from '../../src/types/mptab-rest-types'
 import { Dates } from '../../src/types/mptab-date-types'
 
 interface Props {
@@ -14,8 +17,8 @@ const MptabDisplayDates = ({ route }: Props) => {
 	const [postType, setPostType] = useState('')
 
 	useEffect(() => {
-		apiFetch<WP_REST_API_Exhib>({ path: route }).then(
-			(data: WP_REST_API_Exhib) => {
+		apiFetch<WP_REST_API_Exhib | WP_REST_API_Event>({ path: route }).then(
+			(data: WP_REST_API_Exhib | WP_REST_API_Event) => {
 				setPostType(data.type)
 				if (!data.mptab_date.dates) {
 					return
