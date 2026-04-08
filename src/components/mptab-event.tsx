@@ -35,7 +35,7 @@ export function MPTABEvent({ item }: Props) {
 					) : (
 						''
 					)}
-					<p>{item.exerpt}</p>
+					<p>{item.exerpt} ...</p>
 				</div>
 				<div className='corner-mask'>
 					<a
