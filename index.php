@@ -360,7 +360,8 @@ class PluginBoilerplate
             'alias' => array(
                 get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
                 get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias', true)
-            )
+            ),
+            'prio' => get_post_meta(get_the_ID(), 'mptab-exhibition-prio', true)
         );
         return $meta;
     }
@@ -369,7 +370,8 @@ class PluginBoilerplate
         $meta = array(
             'hours' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-time', true)),
             'dates' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-date-all', true)),
-            'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true))
+            'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true)),
+            'prio' => get_post_meta(get_the_ID(), 'mptab-event-prio', true)
         );
         return $meta;
     }
@@ -482,7 +484,8 @@ class PluginBoilerplate
                     'alias' => array(
                         get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
                         get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias', true)
-                    )
+                    ),
+                    'prio' => get_post_meta(get_the_ID(), 'mptab-exhibition-prio', true)
                 );
             }
             if (get_post_type() == 'mptab_event') {
@@ -490,7 +493,8 @@ class PluginBoilerplate
                 $specialData = array(
                     'hours' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-time', true)),
                     'dates' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-date-all', true)),
-                    'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true))
+                    'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true)),
+                    'prio' => get_post_meta(get_the_ID(), 'mptab-event-prio', true)
                 );
             }
             array_push($posts, array(
