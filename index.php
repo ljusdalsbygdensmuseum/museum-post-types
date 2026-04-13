@@ -129,7 +129,7 @@ class PluginBoilerplate
         $prio = get_post_meta($post->ID, 'mptab-exhibition-prio', true);
 ?>
         <div class="exhibition-date-meta">
-            <select name="mptab-exhibition-prio" id="mptab-exhibition-prio">
+            <select name="mptab-exhibition-prio-field" id="mptab-exhibition-prio-field">
                 <option value="">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
                 <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
                 <option value="2" <?php if ($prio == 2) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
@@ -165,7 +165,7 @@ class PluginBoilerplate
         $prio = get_post_meta($post->ID, 'mptab-event-prio', true);
     ?>
         <div class="event-date-meta">
-            <select name="mptab-event-prio" id="mptab-event-prio">
+            <select name="mptab-event-prio-field" id="mptab-event-prio-field">
                 <option value="">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
                 <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
                 <option value="2" <?php if ($prio == 2) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
@@ -214,7 +214,7 @@ class PluginBoilerplate
         if (! isset($_POST['mptab-exhibition-date-nonce'])) {
             return;
         }
-        if (! wp_verify_nonce($_POST['mptab-exhibition-date-nonce'], 'save_exhibition_post')) {
+        if (! wp_verify_nonce($_POST['mptab-exhibition-date-nonce'], 'save_exhibition_post') || ! wp_verify_nonce($_POST['mptab-exhibition-prio-nonce'], 'save_exhibition_post')) {
             return;
         }
         if (! current_user_can('edit_post', $postID)) {
@@ -224,12 +224,14 @@ class PluginBoilerplate
             return;
         }
 
+        $prio = (int) sanitize_text_field($_POST['mptab-exhibition-prio-field']);
         $startDate = (int) sanitize_text_field($_POST['mptab-exhibition-date-start-field']);
         $endDate = (int) sanitize_text_field($_POST['mptab-exhibition-date-end-field']);
         $startAlias = sanitize_text_field($_POST['mptab-exhibition-date-start-alias-field']);
         $endAlias = sanitize_text_field($_POST['mptab-exhibition-date-end-alias-field']);
         $permanent = isset($_POST['mptab-exhibition-is-permanent']);
 
+        update_post_meta($postID, 'mptab-exhibition-prio', $prio);
         update_post_meta($postID, 'mptab-exhibition-date-start', $startDate);
         update_post_meta($postID, 'mptab-exhibition-date-end', $endDate);
         update_post_meta($postID, 'mptab-exhibition-date-start-alias', $startAlias);
@@ -241,7 +243,7 @@ class PluginBoilerplate
         if (! isset($_POST['mptab-event-date-nonce']) || ! isset($_POST['mptab-event-hour-nonce'])) {
             return;
         }
-        if (! wp_verify_nonce($_POST['mptab-event-date-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-hour-nonce'], 'save_event_post')) {
+        if (! wp_verify_nonce($_POST['mptab-event-date-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-hour-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-prio-nonce'], 'save_event_post')) {
             return;
         }
         if (! current_user_can('edit_post', $postID)) {
@@ -251,12 +253,14 @@ class PluginBoilerplate
             return;
         }
 
+        $prio = (int) sanitize_text_field($_POST['mptab-event-prio-field']);
         $startDate = (int) sanitize_text_field($_POST['mptab-event-date-start-field']);
         $endDate = (int) sanitize_text_field($_POST['mptab-event-date-end-field']);
         $allDates = sanitize_text_field($_POST['mptab-event-date-all-field']);
         $alias = sanitize_text_field($_POST['mptab-event-date-alias-field']);
         $time = sanitize_text_field($_POST['mptab-event-time-field']);
 
+        update_post_meta($postID, 'mptab-event-prio', $prio);
         update_post_meta($postID, 'mptab-event-date-start', $startDate);
         update_post_meta($postID, 'mptab-event-date-end', $endDate);
         update_post_meta($postID, 'mptab-event-date-all', $allDates);
