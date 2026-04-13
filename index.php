@@ -128,7 +128,7 @@ class PluginBoilerplate
 
         $prio = get_post_meta($post->ID, 'mptab-exhibition-prio', true);
 ?>
-        <div class="exhibition-date-meta">
+        <div class="exhibition-prio-meta">
             <select name="mptab-exhibition-prio-field" id="mptab-exhibition-prio-field">
                 <option value="0">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
                 <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
@@ -164,7 +164,7 @@ class PluginBoilerplate
 
         $prio = get_post_meta($post->ID, 'mptab-event-prio', true);
     ?>
-        <div class="event-date-meta">
+        <div class="event-prio-meta">
             <select name="mptab-event-prio-field" id="mptab-event-prio-field">
                 <option value="0">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
                 <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
