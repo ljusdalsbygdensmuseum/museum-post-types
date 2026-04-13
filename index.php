@@ -115,10 +115,28 @@ class PluginBoilerplate
 
     function init_meta_boxes()
     {
+        add_meta_box('mptab-exhibition-prio', __('Priority', 'mptab-domain'), array($this, 'metabox_exhibition_prio'), 'mptab_exhibition', 'side', 'default');
+
         add_meta_box('mptab-exhibition-date', __('Dates', 'mptab-domain'), array($this, 'metabox_exhibition_date'), 'mptab_exhibition', 'side', 'default');
 
         add_meta_box('mptab-event-hour', __('Hours', 'mptab-domain'), array($this, 'metabox_event_hour'), 'mptab_event', 'side', 'default');
         add_meta_box('mptab-event-date', __('Dates', 'mptab-domain'), array($this, 'metabox_event_date'), 'mptab_event', 'side', 'default');
+    }
+    function metabox_exhibition_prio($post)
+    {
+        wp_nonce_field('save_exhibition_post', 'mptab-exhibition-prio-nonce');
+
+        $prio = get_post_meta($post->ID, 'mptab-exhibition-prio', true);
+?>
+        <div class="exhibition-date-meta">
+            <select name="mptab-exhibition-prio" id="mptab-exhibition-prio">
+                <option value="">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
+                <option value="2" <?php if ($prio == 2) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
+                <option value="3" <?php if ($prio == 3) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
+            </select>
+        </div>
+    <?php
     }
     function metabox_exhibition_date($post)
     {
@@ -129,7 +147,7 @@ class PluginBoilerplate
         $startAlias = get_post_meta($post->ID, 'mptab-exhibition-date-start-alias', true);
         $endAlias = get_post_meta($post->ID, 'mptab-exhibition-date-end-alias', true);
         $permanent = get_post_meta($post->ID, 'mptab-exhibition-is-permanent', true);
-?>
+    ?>
         <div class="exhibition-date-meta">
             <div class="mptab-exhibition-daterange" id="mptab-exhibition-daterange"></div>
             <input type="number" name="mptab-exhibition-date-start-field" id="mptab-exhibition-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>" style="display:none;">
