@@ -467,6 +467,42 @@ class PluginBoilerplate
     {
         $posts = [];
 
+        // sort post by priority
+        usort($allPosts->posts, function ($a, $b) {
+            /*
+            sort by priority num
+            events before exhib in respective prio num
+            no prio num sorts as medium priority
+            permanent exhib lowest priority if nothing else is stated
+            */
+            $sort = 0;
+
+            $aPrio = get_post_meta($a->ID, 'mptab-exhibition-prio'); //change so that prio is not post type specific also change prio num to be -1 to 1 not 1 to 3
+            $bPrio = get_post_meta($b->ID, 'mptab-exhibition-prio');
+
+            //set negative prio if permanent exhibition and no prio stated
+            if ($aPrio == 0 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent')) {
+                $aPrio  = -2;
+            }
+            if ($bPrio == 0 && $b->post_type == 'mptab_exhibition' && get_post_meta($b->ID, 'mptab-exhibition-is-permanent')) {
+                $bPrio  = -2;
+            }
+
+            //add more prio if event post type
+            if ($a->post_type == 'mptab_event') {
+                $aPrio = $aPrio + 0.5;
+            }
+            if ($b->post_type == 'mptab_event') {
+                $bPrio = $bPrio + 0.5;
+            }
+
+            if ($aPrio > $bPrio) {
+                $sort = 1;
+            }
+
+            return $sort;
+        });
+
         while ($allPosts->have_posts()) {
             $allPosts->the_post();
             $specialData = [];
