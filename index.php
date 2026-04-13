@@ -126,7 +126,7 @@ class PluginBoilerplate
     {
         wp_nonce_field('save_exhibition_post', 'mptab-exhibition-prio-nonce');
 
-        $prio = get_post_meta($post->ID, 'mptab-exhibition-prio', true);
+        $prio = get_post_meta($post->ID, 'mptab-exhib-ev-prio', true);
 ?>
         <div class="exhibition-prio-meta">
             <select name="mptab-exhibition-prio-field" id="mptab-exhibition-prio-field">
@@ -162,7 +162,7 @@ class PluginBoilerplate
     {
         wp_nonce_field('save_event_post', 'mptab-event-prio-nonce');
 
-        $prio = get_post_meta($post->ID, 'mptab-event-prio', true);
+        $prio = get_post_meta($post->ID, 'mptab-exhib-ev-prio', true);
     ?>
         <div class="event-prio-meta">
             <select name="mptab-event-prio-field" id="mptab-event-prio-field">
@@ -231,7 +231,7 @@ class PluginBoilerplate
         $endAlias = sanitize_text_field($_POST['mptab-exhibition-date-end-alias-field']);
         $permanent = isset($_POST['mptab-exhibition-is-permanent']);
 
-        update_post_meta($postID, 'mptab-exhibition-prio', $prio);
+        update_post_meta($postID, 'mptab-exhib-ev-prio', $prio);
         update_post_meta($postID, 'mptab-exhibition-date-start', $startDate);
         update_post_meta($postID, 'mptab-exhibition-date-end', $endDate);
         update_post_meta($postID, 'mptab-exhibition-date-start-alias', $startAlias);
@@ -260,7 +260,7 @@ class PluginBoilerplate
         $alias = sanitize_text_field($_POST['mptab-event-date-alias-field']);
         $time = sanitize_text_field($_POST['mptab-event-time-field']);
 
-        update_post_meta($postID, 'mptab-event-prio', $prio);
+        update_post_meta($postID, 'mptab-exhib-ev-prio', $prio);
         update_post_meta($postID, 'mptab-event-date-start', $startDate);
         update_post_meta($postID, 'mptab-event-date-end', $endDate);
         update_post_meta($postID, 'mptab-event-date-all', $allDates);
@@ -477,8 +477,8 @@ class PluginBoilerplate
             */
             $sort = 0;
 
-            $aPrio = get_post_meta($a->ID, 'mptab-exhibition-prio'); //change so that prio is not post type specific
-            $bPrio = get_post_meta($b->ID, 'mptab-exhibition-prio');
+            $aPrio = get_post_meta($a->ID, 'mptab-exhib-ev-prio');
+            $bPrio = get_post_meta($b->ID, 'mptab-exhib-ev-prio');
 
             //set negative prio if permanent exhibition and no prio stated
             if ($aPrio == 0 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent')) {
