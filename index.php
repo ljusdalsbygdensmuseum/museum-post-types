@@ -412,7 +412,7 @@ class PluginBoilerplate
         ));
 
         $allCurrentQuery = new WP_Query();
-        $allCurrentQuery->posts = array_merge($exhibitionsCurrentQuery->posts, $eventsCurrentQuery->posts);
+        $allCurrentQuery->posts = array_merge($eventsCurrentQuery->posts, $exhibitionsCurrentQuery->posts);
         $allCurrentQuery->post_count = count($allCurrentQuery->posts);
 
         $currentPosts = $this->exhibition_event_data($allCurrentQuery);
@@ -454,7 +454,7 @@ class PluginBoilerplate
         ));
 
         $allCommingQuery = new WP_Query();
-        $allCommingQuery->posts = array_merge($exhibitionsCommingQuery->posts, $eventsCommingQuery->posts);
+        $allCommingQuery->posts = array_merge($eventsCommingQuery->posts, $exhibitionsCommingQuery->posts);
         $allCommingQuery->post_count = count($allCommingQuery->posts);
 
         $commingPosts = $this->exhibition_event_data($allCommingQuery);
