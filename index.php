@@ -130,10 +130,10 @@ class PluginBoilerplate
 ?>
         <div class="exhibition-date-meta">
             <select name="mptab-exhibition-prio-field" id="mptab-exhibition-prio-field">
-                <option value="">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
-                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
-                <option value="2" <?php if ($prio == 2) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
-                <option value="3" <?php if ($prio == 3) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
+                <option value="0">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
+                <option value="0" <?php if ($prio == 0) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
+                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
             </select>
         </div>
     <?php
@@ -166,10 +166,10 @@ class PluginBoilerplate
     ?>
         <div class="event-date-meta">
             <select name="mptab-event-prio-field" id="mptab-event-prio-field">
-                <option value="">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
-                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
-                <option value="2" <?php if ($prio == 2) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
-                <option value="3" <?php if ($prio == 3) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
+                <option value="0">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
+                <option value="0" <?php if ($prio == 0) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
+                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
             </select>
         </div>
     <?php
@@ -477,7 +477,7 @@ class PluginBoilerplate
             */
             $sort = 0;
 
-            $aPrio = get_post_meta($a->ID, 'mptab-exhibition-prio'); //change so that prio is not post type specific also change prio num to be -1 to 1 not 1 to 3
+            $aPrio = get_post_meta($a->ID, 'mptab-exhibition-prio'); //change so that prio is not post type specific
             $bPrio = get_post_meta($b->ID, 'mptab-exhibition-prio');
 
             //set negative prio if permanent exhibition and no prio stated
