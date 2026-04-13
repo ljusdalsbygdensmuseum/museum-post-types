@@ -116,9 +116,9 @@ class PluginBoilerplate
     function init_meta_boxes()
     {
         add_meta_box('mptab-exhibition-prio', __('Priority', 'mptab-domain'), array($this, 'metabox_exhibition_prio'), 'mptab_exhibition', 'side', 'default');
-
         add_meta_box('mptab-exhibition-date', __('Dates', 'mptab-domain'), array($this, 'metabox_exhibition_date'), 'mptab_exhibition', 'side', 'default');
 
+        add_meta_box('mptab-event-prio', __('Priority', 'mptab-domain'), array($this, 'metabox_event_prio'), 'mptab_event', 'side', 'default');
         add_meta_box('mptab-event-hour', __('Hours', 'mptab-domain'), array($this, 'metabox_event_hour'), 'mptab_event', 'side', 'default');
         add_meta_box('mptab-event-date', __('Dates', 'mptab-domain'), array($this, 'metabox_event_date'), 'mptab_event', 'side', 'default');
     }
@@ -155,6 +155,22 @@ class PluginBoilerplate
             <input type="text" name="mptab-exhibition-date-start-alias-field" id="mptab-exhibition-date-start-alias-field" value="<?php esc_attr_e($startAlias, 'mptab-domain') ?>" style="display:none;">
             <input type="text" name="mptab-exhibition-date-end-alias-field" id="mptab-exhibition-date-end-alias-field" value="<?php esc_attr_e($endAlias, 'mptab-domain') ?>" style="display:none;">
             <input type="checkbox" name="mptab-exhibition-is-permanent" id="mptab-exhibition-is-permanent" <?php echo ($permanent) ? 'checked' : '' ?> style="display:none;">
+        </div>
+    <?php
+    }
+    function metabox_event_prio($post)
+    {
+        wp_nonce_field('save_event_post', 'mptab-event-prio-nonce');
+
+        $prio = get_post_meta($post->ID, 'mptab-event-prio', true);
+    ?>
+        <div class="event-date-meta">
+            <select name="mptab-event-prio" id="mptab-event-prio">
+                <option value="">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
+                <option value="2" <?php if ($prio == 2) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
+                <option value="3" <?php if ($prio == 3) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
+            </select>
         </div>
     <?php
     }
