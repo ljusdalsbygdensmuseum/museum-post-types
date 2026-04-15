@@ -24,7 +24,8 @@ export function MPTABEvent({ item }: Props) {
 					{(item.post_type == 'mptab_exhibition' ||
 						item.post_type == 'mptab_event') &&
 					item.dates != null &&
-					item.alias != null ? (
+					item.alias != null &&
+					!item.permanent ? (
 						<p className='mptab_event_display_date'>
 							<MPTABDate
 								post_type={item.post_type}
