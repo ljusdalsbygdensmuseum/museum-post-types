@@ -469,12 +469,10 @@ class PluginBoilerplate
 
         // sort post by priority
         usort($allPosts->posts, function ($a, $b) {
-            /*
-            sort by priority num
-            events before exhib in respective prio num
-            no prio num sorts as medium priority
-            permanent exhib lowest priority if nothing else is stated
-            */
+            //sort by priority num
+            //events before exhib in respective prio num
+            //no prio num sorts as medium priority
+            //permanent exhib lowest priority if nothing else is stated
             $sort = 0;
 
             $aPrio = get_post_meta($a->ID, 'mptab-exhib-ev-prio', true);
@@ -497,6 +495,8 @@ class PluginBoilerplate
             }
 
             if ($aPrio > $bPrio) {
+                $sort = -1;
+            } elseif ($aPrio < $bPrio) {
                 $sort = 1;
             }
 
