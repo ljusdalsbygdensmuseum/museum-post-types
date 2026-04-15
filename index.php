@@ -115,10 +115,28 @@ class PluginBoilerplate
 
     function init_meta_boxes()
     {
+        add_meta_box('mptab-exhibition-prio', __('Priority', 'mptab-domain'), array($this, 'metabox_exhibition_prio'), 'mptab_exhibition', 'side', 'default');
         add_meta_box('mptab-exhibition-date', __('Dates', 'mptab-domain'), array($this, 'metabox_exhibition_date'), 'mptab_exhibition', 'side', 'default');
 
+        add_meta_box('mptab-event-prio', __('Priority', 'mptab-domain'), array($this, 'metabox_event_prio'), 'mptab_event', 'side', 'default');
         add_meta_box('mptab-event-hour', __('Hours', 'mptab-domain'), array($this, 'metabox_event_hour'), 'mptab_event', 'side', 'default');
         add_meta_box('mptab-event-date', __('Dates', 'mptab-domain'), array($this, 'metabox_event_date'), 'mptab_event', 'side', 'default');
+    }
+    function metabox_exhibition_prio($post)
+    {
+        wp_nonce_field('save_exhibition_post', 'mptab-exhibition-prio-nonce');
+
+        $prio = get_post_meta($post->ID, 'mptab-exhib-ev-prio', true);
+?>
+        <div class="exhibition-prio-meta">
+            <select name="mptab-exhibition-prio-field" id="mptab-exhibition-prio-field">
+                <option value="-10">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
+                <option value="0" <?php if ($prio == 0) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
+                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
+            </select>
+        </div>
+    <?php
     }
     function metabox_exhibition_date($post)
     {
@@ -129,7 +147,7 @@ class PluginBoilerplate
         $startAlias = get_post_meta($post->ID, 'mptab-exhibition-date-start-alias', true);
         $endAlias = get_post_meta($post->ID, 'mptab-exhibition-date-end-alias', true);
         $permanent = get_post_meta($post->ID, 'mptab-exhibition-is-permanent', true);
-?>
+    ?>
         <div class="exhibition-date-meta">
             <div class="mptab-exhibition-daterange" id="mptab-exhibition-daterange"></div>
             <input type="number" name="mptab-exhibition-date-start-field" id="mptab-exhibition-date-start-field" value="<?php esc_attr_e($startDate, 'mptab-domain') ?>" style="display:none;">
@@ -137,6 +155,22 @@ class PluginBoilerplate
             <input type="text" name="mptab-exhibition-date-start-alias-field" id="mptab-exhibition-date-start-alias-field" value="<?php esc_attr_e($startAlias, 'mptab-domain') ?>" style="display:none;">
             <input type="text" name="mptab-exhibition-date-end-alias-field" id="mptab-exhibition-date-end-alias-field" value="<?php esc_attr_e($endAlias, 'mptab-domain') ?>" style="display:none;">
             <input type="checkbox" name="mptab-exhibition-is-permanent" id="mptab-exhibition-is-permanent" <?php echo ($permanent) ? 'checked' : '' ?> style="display:none;">
+        </div>
+    <?php
+    }
+    function metabox_event_prio($post)
+    {
+        wp_nonce_field('save_event_post', 'mptab-event-prio-nonce');
+
+        $prio = get_post_meta($post->ID, 'mptab-exhib-ev-prio', true);
+    ?>
+        <div class="event-prio-meta">
+            <select name="mptab-event-prio-field" id="mptab-event-prio-field">
+                <option value="-10">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
+                <option value="0" <?php if ($prio == 0) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
+                <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
+            </select>
         </div>
     <?php
     }
@@ -180,7 +214,7 @@ class PluginBoilerplate
         if (! isset($_POST['mptab-exhibition-date-nonce'])) {
             return;
         }
-        if (! wp_verify_nonce($_POST['mptab-exhibition-date-nonce'], 'save_exhibition_post')) {
+        if (! wp_verify_nonce($_POST['mptab-exhibition-date-nonce'], 'save_exhibition_post') || ! wp_verify_nonce($_POST['mptab-exhibition-prio-nonce'], 'save_exhibition_post')) {
             return;
         }
         if (! current_user_can('edit_post', $postID)) {
@@ -190,12 +224,14 @@ class PluginBoilerplate
             return;
         }
 
+        $prio = (int) sanitize_text_field($_POST['mptab-exhibition-prio-field']);
         $startDate = (int) sanitize_text_field($_POST['mptab-exhibition-date-start-field']);
         $endDate = (int) sanitize_text_field($_POST['mptab-exhibition-date-end-field']);
         $startAlias = sanitize_text_field($_POST['mptab-exhibition-date-start-alias-field']);
         $endAlias = sanitize_text_field($_POST['mptab-exhibition-date-end-alias-field']);
         $permanent = isset($_POST['mptab-exhibition-is-permanent']);
 
+        update_post_meta($postID, 'mptab-exhib-ev-prio', $prio);
         update_post_meta($postID, 'mptab-exhibition-date-start', $startDate);
         update_post_meta($postID, 'mptab-exhibition-date-end', $endDate);
         update_post_meta($postID, 'mptab-exhibition-date-start-alias', $startAlias);
@@ -207,7 +243,7 @@ class PluginBoilerplate
         if (! isset($_POST['mptab-event-date-nonce']) || ! isset($_POST['mptab-event-hour-nonce'])) {
             return;
         }
-        if (! wp_verify_nonce($_POST['mptab-event-date-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-hour-nonce'], 'save_event_post')) {
+        if (! wp_verify_nonce($_POST['mptab-event-date-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-hour-nonce'], 'save_event_post') || ! wp_verify_nonce($_POST['mptab-event-prio-nonce'], 'save_event_post')) {
             return;
         }
         if (! current_user_can('edit_post', $postID)) {
@@ -217,12 +253,14 @@ class PluginBoilerplate
             return;
         }
 
+        $prio = (int) sanitize_text_field($_POST['mptab-event-prio-field']);
         $startDate = (int) sanitize_text_field($_POST['mptab-event-date-start-field']);
         $endDate = (int) sanitize_text_field($_POST['mptab-event-date-end-field']);
         $allDates = sanitize_text_field($_POST['mptab-event-date-all-field']);
         $alias = sanitize_text_field($_POST['mptab-event-date-alias-field']);
         $time = sanitize_text_field($_POST['mptab-event-time-field']);
 
+        update_post_meta($postID, 'mptab-exhib-ev-prio', $prio);
         update_post_meta($postID, 'mptab-event-date-start', $startDate);
         update_post_meta($postID, 'mptab-event-date-end', $endDate);
         update_post_meta($postID, 'mptab-event-date-all', $allDates);
@@ -322,7 +360,8 @@ class PluginBoilerplate
             'alias' => array(
                 get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
                 get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias', true)
-            )
+            ),
+            'prio' => get_post_meta(get_the_ID(), 'mptab-exhibition-prio', true)
         );
         return $meta;
     }
@@ -331,7 +370,8 @@ class PluginBoilerplate
         $meta = array(
             'hours' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-time', true)),
             'dates' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-date-all', true)),
-            'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true))
+            'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true)),
+            'prio' => get_post_meta(get_the_ID(), 'mptab-event-prio', true)
         );
         return $meta;
     }
@@ -372,7 +412,7 @@ class PluginBoilerplate
         ));
 
         $allCurrentQuery = new WP_Query();
-        $allCurrentQuery->posts = array_merge($exhibitionsCurrentQuery->posts, $eventsCurrentQuery->posts);
+        $allCurrentQuery->posts = array_merge($eventsCurrentQuery->posts, $exhibitionsCurrentQuery->posts);
         $allCurrentQuery->post_count = count($allCurrentQuery->posts);
 
         $currentPosts = $this->exhibition_event_data($allCurrentQuery);
@@ -414,7 +454,7 @@ class PluginBoilerplate
         ));
 
         $allCommingQuery = new WP_Query();
-        $allCommingQuery->posts = array_merge($exhibitionsCommingQuery->posts, $eventsCommingQuery->posts);
+        $allCommingQuery->posts = array_merge($eventsCommingQuery->posts, $exhibitionsCommingQuery->posts);
         $allCommingQuery->post_count = count($allCommingQuery->posts);
 
         $commingPosts = $this->exhibition_event_data($allCommingQuery);
@@ -426,6 +466,50 @@ class PluginBoilerplate
     function exhibition_event_data($allPosts)
     {
         $posts = [];
+
+        // sort post by priority
+        usort($allPosts->posts, function ($a, $b) {
+            //sort by priority num
+            //events before exhib in respective prio num
+            //no prio num sorts as medium priority
+            //permanent exhib lowest priority if nothing else is stated
+            $sort = 0;
+
+            $aPrio = get_post_meta($a->ID, 'mptab-exhib-ev-prio', true);
+            $bPrio = get_post_meta($b->ID, 'mptab-exhib-ev-prio', true);
+
+            //set negative prio if permanent exhibition and no prio stated
+            if ($aPrio == -10 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent', true)) {
+                $aPrio  = -2;
+            }
+            if ($bPrio == -10 && $b->post_type == 'mptab_exhibition' && get_post_meta($b->ID, 'mptab-exhibition-is-permanent', true)) {
+                $bPrio  = -2;
+            }
+
+            //set neutral prio if no prio stated
+            if ($aPrio == -10) {
+                $aPrio = 0;
+            }
+            if ($bPrio == -10) {
+                $bPrio = 0;
+            }
+
+            //add more prio if event post type
+            if ($a->post_type == 'mptab_event') {
+                $aPrio = $aPrio + 0.5;
+            }
+            if ($b->post_type == 'mptab_event') {
+                $bPrio = $bPrio + 0.5;
+            }
+
+            if ($aPrio > $bPrio) {
+                $sort = -1;
+            } elseif ($aPrio < $bPrio) {
+                $sort = 1;
+            }
+
+            return $sort;
+        });
 
         while ($allPosts->have_posts()) {
             $allPosts->the_post();
@@ -444,7 +528,8 @@ class PluginBoilerplate
                     'alias' => array(
                         get_post_meta(get_the_ID(), 'mptab-exhibition-date-start-alias', true),
                         get_post_meta(get_the_ID(), 'mptab-exhibition-date-end-alias', true)
-                    )
+                    ),
+                    'prio' => get_post_meta(get_the_ID(), 'mptab-exhibition-prio', true)
                 );
             }
             if (get_post_type() == 'mptab_event') {
@@ -452,7 +537,8 @@ class PluginBoilerplate
                 $specialData = array(
                     'hours' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-time', true)),
                     'dates' => json_decode(get_post_meta(get_the_ID(), 'mptab-event-date-all', true)),
-                    'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true))
+                    'alias' => array(get_post_meta(get_the_ID(), 'mptab-event-date-alias', true)),
+                    'prio' => get_post_meta(get_the_ID(), 'mptab-event-prio', true)
                 );
             }
             array_push($posts, array(
