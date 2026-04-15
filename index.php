@@ -130,7 +130,7 @@ class PluginBoilerplate
 ?>
         <div class="exhibition-prio-meta">
             <select name="mptab-exhibition-prio-field" id="mptab-exhibition-prio-field">
-                <option value="0">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="-10">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
                 <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
                 <option value="0" <?php if ($prio == 0) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
                 <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
@@ -166,7 +166,7 @@ class PluginBoilerplate
     ?>
         <div class="event-prio-meta">
             <select name="mptab-event-prio-field" id="mptab-event-prio-field">
-                <option value="0">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
+                <option value="-10">-- <?php _e('Pick an option', 'mptab-domain') ?> --</option>
                 <option value="-1" <?php if ($prio == -1) echo 'selected' ?>><?php _e('Low', 'mptab-domain') ?></option>
                 <option value="0" <?php if ($prio == 0) echo 'selected' ?>><?php _e('Medium', 'mptab-domain') ?></option>
                 <option value="1" <?php if ($prio == 1) echo 'selected' ?>><?php _e('High', 'mptab-domain') ?></option>
@@ -479,11 +479,19 @@ class PluginBoilerplate
             $bPrio = get_post_meta($b->ID, 'mptab-exhib-ev-prio', true);
 
             //set negative prio if permanent exhibition and no prio stated
-            if ($aPrio == 0 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent', true)) {
+            if ($aPrio == -10 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent', true)) {
                 $aPrio  = -2;
             }
-            if ($bPrio == 0 && $b->post_type == 'mptab_exhibition' && get_post_meta($b->ID, 'mptab-exhibition-is-permanent', true)) {
+            if ($bPrio == -10 && $b->post_type == 'mptab_exhibition' && get_post_meta($b->ID, 'mptab-exhibition-is-permanent', true)) {
                 $bPrio  = -2;
+            }
+
+            //set neutral prio if no prio stated
+            if ($aPrio == -10) {
+                $aPrio = 0;
+            }
+            if ($bPrio == -10) {
+                $bPrio = 0;
             }
 
             //add more prio if event post type
