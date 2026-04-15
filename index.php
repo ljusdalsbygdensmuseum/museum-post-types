@@ -477,14 +477,14 @@ class PluginBoilerplate
             */
             $sort = 0;
 
-            $aPrio = get_post_meta($a->ID, 'mptab-exhib-ev-prio');
-            $bPrio = get_post_meta($b->ID, 'mptab-exhib-ev-prio');
+            $aPrio = get_post_meta($a->ID, 'mptab-exhib-ev-prio', true);
+            $bPrio = get_post_meta($b->ID, 'mptab-exhib-ev-prio', true);
 
             //set negative prio if permanent exhibition and no prio stated
-            if ($aPrio == 0 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent')) {
+            if ($aPrio == 0 && $a->post_type == 'mptab_exhibition' && get_post_meta($a->ID, 'mptab-exhibition-is-permanent', true)) {
                 $aPrio  = -2;
             }
-            if ($bPrio == 0 && $b->post_type == 'mptab_exhibition' && get_post_meta($b->ID, 'mptab-exhibition-is-permanent')) {
+            if ($bPrio == 0 && $b->post_type == 'mptab_exhibition' && get_post_meta($b->ID, 'mptab-exhibition-is-permanent', true)) {
                 $bPrio  = -2;
             }
 
