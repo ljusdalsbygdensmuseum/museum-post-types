@@ -6,12 +6,12 @@ import { MPTABExhibitionDate } from './input/mptab-exhibition-date'
 
 domReady(() => {
 	const root = createRoot(
-		document.getElementById('mptab-exhibition-daterange')!
+		document.getElementById('mptab-exhibition-daterange')!,
 	)
 
 	//permanent
 	const isPermanentInput: HTMLInputElement | null = document.querySelector(
-		'#mptab-exhibition-is-permanent'
+		'#mptab-exhibition-is-permanent',
 	)
 	if (!isPermanentInput) {
 		throw new Error('mptab-exhibition-is-permanent not found')
@@ -19,10 +19,10 @@ domReady(() => {
 
 	//date
 	const mindateInput: HTMLInputElement | null = document.querySelector(
-		'#mptab-exhibition-date-start-field'
+		'#mptab-exhibition_date_start_field',
 	)
 	const maxdateInput: HTMLInputElement | null = document.querySelector(
-		'#mptab-exhibition-date-end-field'
+		'#mptab-exhibition_date_end_field',
 	)
 	if (!mindateInput || !maxdateInput) {
 		throw new Error('dates_field not found')
@@ -30,10 +30,10 @@ domReady(() => {
 
 	//alias
 	const startAliasInput: HTMLInputElement | null = document.querySelector(
-		'#mptab-exhibition-date-start-alias-field'
+		'#mptab-exhibition_date_start_alias_field',
 	)
 	const endAliasInput: HTMLInputElement | null = document.querySelector(
-		'#mptab-exhibition-date-end-alias-field'
+		'#mptab-exhibition_date_end_alias_field',
 	)
 	if (!startAliasInput || !endAliasInput) {
 		throw new Error('alias_field not found')
@@ -46,6 +46,6 @@ domReady(() => {
 				datesInput={[mindateInput, maxdateInput]}
 				aliasInput={[startAliasInput, endAliasInput]}
 			/>
-		</>
+		</>,
 	)
 })

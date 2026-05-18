@@ -1,17 +1,17 @@
-# Copyright (C) 2025 Ina Eklund
+# Copyright (C) 2026 Ina Eklund
 # This file is distributed under the same license as the Museum post types plugin.
 msgid ""
 msgstr ""
 "Project-Id-Version: Museum post types 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/museum-post-types-and-blocks\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/museum-post-types\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-16T12:43:45+02:00\n"
+"POT-Creation-Date: 2026-05-18T09:15:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: mptab-domain\n"
 
 #. Plugin Name of the plugin
@@ -90,7 +90,7 @@ msgstr ""
 #: index.php:55
 #: index.php:75
 #: index.php:95
-msgid "archives"
+msgid "archive"
 msgstr ""
 
 #: index.php:67
@@ -116,10 +116,10 @@ msgid "events"
 msgstr ""
 
 #: index.php:87
-#: build/blocks/mptab_show_services/index.js:4814
-#: build/blocks/mptab_show_services/view.js:4687
-#: build/blocks/mptab_show_services/index.js:4528
-#: build/blocks/mptab_show_services/view.js:4465
+#: build/blocks/mptab_show_services/index.js:254
+#: build/blocks/mptab_show_services/view.js:161
+#: build/blocks/mptab_show_services/index.js:125
+#: build/blocks/mptab_show_services/view.js:66
 msgid "Services"
 msgstr ""
 
@@ -141,112 +141,137 @@ msgstr ""
 msgid "services"
 msgstr ""
 
-#: index.php:117
-#: index.php:120
-msgid "Dates"
+#: index.php:118
+#: index.php:121
+msgid "Priority"
 msgstr ""
 
 #: index.php:119
+#: index.php:123
+msgid "Dates"
+msgstr ""
+
+#: index.php:122
 msgid "Hours"
 msgstr ""
 
-#: index.php:471
-#: index.php:472
+#: index.php:133
+#: index.php:169
+msgid "Pick an option"
+msgstr ""
+
+#: index.php:134
+#: index.php:170
+msgid "Low"
+msgstr ""
+
+#: index.php:135
+#: index.php:171
+msgid "Medium"
+msgstr ""
+
+#: index.php:136
+#: index.php:172
+msgid "High"
+msgstr ""
+
+#: index.php:595
+#: index.php:596
 msgid "Museum settings"
 msgstr ""
 
-#: index.php:486
+#: index.php:610
 msgid "Museum Settings"
 msgstr ""
 
-#: index.php:497
+#: index.php:621
 msgid "Phone number"
 msgstr ""
 
-#: index.php:505
-#: index.php:582
+#: index.php:629
+#: index.php:705
 msgid "Adress Settings"
 msgstr ""
 
-#: index.php:515
+#: index.php:639
 msgid "Adress"
 msgstr ""
 
-#: index.php:526
+#: index.php:650
 msgid "City"
 msgstr ""
 
-#: index.php:537
-#: index.php:544
+#: index.php:661
+#: index.php:668
 msgid "Area code"
 msgstr ""
 
-#: index.php:548
+#: index.php:672
 msgid "Map"
 msgstr ""
 
-#: index.php:612
+#: index.php:735
 msgid "Mark the location by clicking on the map or searching."
 msgstr ""
 
-#: build/blocks/mptab_show_ex_ev/index.js:4758
-#: build/blocks/mptab_show_ex_ev/view.js:4629
-#: build/blocks/mptab_show_services/index.js:4756
-#: build/blocks/mptab_show_services/view.js:4629
-#: build/blocks/mptab_show_ex_ev/index.js:4500
-#: build/blocks/mptab_show_ex_ev/view.js:4437
-#: build/blocks/mptab_show_services/index.js:4500
-#: build/blocks/mptab_show_services/view.js:4437
+#: build/blocks/mptab_show_ex_ev/index.js:197
+#: build/blocks/mptab_show_ex_ev/view.js:102
+#: build/blocks/mptab_show_services/index.js:195
+#: build/blocks/mptab_show_services/view.js:102
+#: build/blocks/mptab_show_ex_ev/index.js:97
+#: build/blocks/mptab_show_ex_ev/view.js:38
+#: build/blocks/mptab_show_services/index.js:97
+#: build/blocks/mptab_show_services/view.js:38
 msgid "Read more"
 msgstr ""
 
-#: build/blocks/mptab_show_ex_ev/index.js:4826
-#: build/blocks/mptab_show_ex_ev/view.js:4697
-#: build/blocks/mptab_show_ex_ev/index.js:4534
-#: build/blocks/mptab_show_ex_ev/view.js:4471
+#: build/blocks/mptab_show_ex_ev/index.js:268
+#: build/blocks/mptab_show_ex_ev/view.js:173
+#: build/blocks/mptab_show_ex_ev/index.js:131
+#: build/blocks/mptab_show_ex_ev/view.js:72
 msgid "Right now"
 msgstr ""
 
-#: build/blocks/mptab_show_ex_ev/index.js:4829
-#: build/blocks/mptab_show_ex_ev/view.js:4700
-#: build/blocks/mptab_show_ex_ev/index.js:4534
-#: build/blocks/mptab_show_ex_ev/view.js:4471
+#: build/blocks/mptab_show_ex_ev/index.js:273
+#: build/blocks/mptab_show_ex_ev/view.js:178
+#: build/blocks/mptab_show_ex_ev/index.js:131
+#: build/blocks/mptab_show_ex_ev/view.js:72
 msgid "Coming"
 msgstr ""
 
-#: build/event_meta.js:4576
+#: build/event_meta.js:49
 #: build/exhibition_meta.js:49
-#: build/event_meta.js:4424
+#: build/event_meta.js:18
 #: build/exhibition_meta.js:18
 msgid "Name Alias"
 msgstr ""
 
-#: build/event_meta.js:4577
+#: build/event_meta.js:50
 #: build/exhibition_meta.js:50
-#: build/event_meta.js:4424
+#: build/event_meta.js:18
 #: build/exhibition_meta.js:18
 msgid "Ex. october, autumn or 3:rd quarter"
 msgstr ""
 
-#: build/event_meta.js:4579
+#: build/event_meta.js:52
 #: build/exhibition_meta.js:52
-#: build/event_meta.js:4424
+#: build/event_meta.js:18
 #: build/exhibition_meta.js:18
 msgid "Use alias"
 msgstr ""
 
-#: build/event_meta.js:4762
-#: build/event_meta.js:4546
+#: build/event_meta.js:235
+#: build/event_meta.js:140
 msgid "Start"
 msgstr ""
 
-#: build/event_meta.js:4770
-#: build/event_meta.js:4548
+#: build/event_meta.js:243
+#: build/event_meta.js:142
 msgid "End"
 msgstr ""
 
-#: build/event_meta.js:4808
-#: build/event_meta.js:4572
+#: build/event_meta.js:281
+#: build/event_meta.js:166
 msgid "Add More"
 msgstr ""
 
@@ -280,6 +305,18 @@ msgstr ""
 #: src/blocks/mptab_adress/block.json
 msgctxt "block description"
 msgid "Display Your adress"
+msgstr ""
+
+#: build/blocks/mptab_dates/block.json
+#: src/blocks/mptab_dates/block.json
+msgctxt "block title"
+msgid "Event dates"
+msgstr ""
+
+#: build/blocks/mptab_dates/block.json
+#: src/blocks/mptab_dates/block.json
+msgctxt "block description"
+msgid "Display dates for this Event"
 msgstr ""
 
 #: build/blocks/mptab_map/block.json
