@@ -59,7 +59,7 @@ export function MPTABMap({
 				) : (
 					''
 				)}
-				<Marker position={location} icon={customIcon}>
+				<Marker position={marker} icon={customIcon}>
 					{!searchable ? <Popup>{visibleAdress}</Popup> : ''}
 				</Marker>
 			</MapContainer>
