@@ -234,7 +234,7 @@ function MPTABMap({
           setMarker: geocodeMarker
         })]
       }) : '', (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_leaflet__WEBPACK_IMPORTED_MODULE_3__.Marker, {
-        position: location,
+        position: marker,
         icon: customIcon,
         children: !searchable ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_leaflet__WEBPACK_IMPORTED_MODULE_4__.Popup, {
           children: visibleAdress
@@ -15170,21 +15170,19 @@ __webpack_require__.r(__webpack_exports__);
 
 function createContainerComponent(useElement) {
     function ContainerComponent(props, forwardedRef) {
-        const { instance, context } = useElement(props).current;
+        const { instance , context  } = useElement(props).current;
         (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(forwardedRef, ()=>instance);
-        const { children } = props;
-        return children == null ? null : /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(_context_js__WEBPACK_IMPORTED_MODULE_2__.LeafletContext, {
+        return props.children == null ? null : /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(_context_js__WEBPACK_IMPORTED_MODULE_2__.LeafletProvider, {
             value: context
-        }, children);
+        }, props.children);
     }
     return /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(ContainerComponent);
 }
 function createDivOverlayComponent(useElement) {
     function OverlayComponent(props, forwardedRef) {
         const [isOpen, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-        const { instance } = useElement(props, setOpen).current;
+        const { instance  } = useElement(props, setOpen).current;
         (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(forwardedRef, ()=>instance);
-        // biome-ignore lint/correctness/useExhaustiveDependencies: update overlay when children change
         (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function updateOverlay() {
             if (isOpen) {
                 instance.update();
@@ -15202,7 +15200,7 @@ function createDivOverlayComponent(useElement) {
 }
 function createLeafComponent(useElement) {
     function LeafComponent(props, forwardedRef) {
-        const { instance } = useElement(props).current;
+        const { instance  } = useElement(props).current;
         (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(forwardedRef, ()=>instance);
         return null;
     }
@@ -15223,6 +15221,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CONTEXT_VERSION: () => (/* binding */ CONTEXT_VERSION),
 /* harmony export */   LeafletContext: () => (/* binding */ LeafletContext),
+/* harmony export */   LeafletProvider: () => (/* binding */ LeafletProvider),
 /* harmony export */   createLeafletContext: () => (/* binding */ createLeafletContext),
 /* harmony export */   extendContext: () => (/* binding */ extendContext),
 /* harmony export */   useLeafletContext: () => (/* binding */ useLeafletContext)
@@ -15243,8 +15242,9 @@ function extendContext(source, extra) {
     });
 }
 const LeafletContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+const LeafletProvider = LeafletContext.Provider;
 function useLeafletContext() {
-    const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.use)(LeafletContext);
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(LeafletContext);
     if (context == null) {
         throw new Error('No context provided: useLeafletContext() can only be used in a descendant of <MapContainer>');
     }
@@ -15273,9 +15273,9 @@ function createControlHook(useElement) {
     return function useLeafletControl(props) {
         const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.useLeafletContext)();
         const elementRef = useElement(props, context);
-        const { instance } = elementRef.current;
+        const { instance  } = elementRef.current;
         const positionRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(props.position);
-        const { position } = props;
+        const { position  } = props;
         (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function addControl() {
             instance.addTo(context.map);
             return function removeControl() {
@@ -15358,16 +15358,16 @@ function createElementObject(instance, context, container) {
 function createElementHook(createElement, updateElement) {
     if (updateElement == null) {
         return function useImmutableLeafletElement(props, context) {
-            const elementRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(undefined);
+            const elementRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
             if (!elementRef.current) elementRef.current = createElement(props, context);
             return elementRef;
         };
     }
     return function useMutableLeafletElement(props, context) {
-        const elementRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(undefined);
+        const elementRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
         if (!elementRef.current) elementRef.current = createElement(props, context);
         const propsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(props);
-        const { instance } = elementRef.current;
+        const { instance  } = elementRef.current;
         (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function updateElementProps() {
             if (propsRef.current !== props) {
                 updateElement(instance, props, propsRef.current);
@@ -15376,7 +15376,7 @@ function createElementHook(createElement, updateElement) {
         }, [
             instance,
             props,
-            updateElement
+            context
         ]);
         return elementRef;
     };
@@ -15399,7 +15399,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
 function useEventHandlers(element, eventHandlers) {
-    const eventHandlersRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(undefined);
+    const eventHandlersRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function addEventHandlers() {
         if (eventHandlers != null) {
             element.instance.on(eventHandlers);
@@ -15437,9 +15437,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./component.js */ "./node_modules/@react-leaflet/core/lib/component.js");
 /* harmony import */ var _control_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./control.js */ "./node_modules/@react-leaflet/core/lib/control.js");
-/* harmony import */ var _div_overlay_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./div-overlay.js */ "./node_modules/@react-leaflet/core/lib/div-overlay.js");
-/* harmony import */ var _element_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./element.js */ "./node_modules/@react-leaflet/core/lib/element.js");
-/* harmony import */ var _layer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layer.js */ "./node_modules/@react-leaflet/core/lib/layer.js");
+/* harmony import */ var _element_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./element.js */ "./node_modules/@react-leaflet/core/lib/element.js");
+/* harmony import */ var _layer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layer.js */ "./node_modules/@react-leaflet/core/lib/layer.js");
+/* harmony import */ var _div_overlay_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./div-overlay.js */ "./node_modules/@react-leaflet/core/lib/div-overlay.js");
 /* harmony import */ var _path_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./path.js */ "./node_modules/@react-leaflet/core/lib/path.js");
 
 
@@ -15449,30 +15449,30 @@ __webpack_require__.r(__webpack_exports__);
 
 function createControlComponent(createInstance) {
     function createElement(props, context) {
-        return (0,_element_js__WEBPACK_IMPORTED_MODULE_3__.createElementObject)(createInstance(props), context);
+        return (0,_element_js__WEBPACK_IMPORTED_MODULE_2__.createElementObject)(createInstance(props), context);
     }
-    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_3__.createElementHook)(createElement);
+    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_2__.createElementHook)(createElement);
     const useControl = (0,_control_js__WEBPACK_IMPORTED_MODULE_1__.createControlHook)(useElement);
     return (0,_component_js__WEBPACK_IMPORTED_MODULE_0__.createLeafComponent)(useControl);
 }
 function createLayerComponent(createElement, updateElement) {
-    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_3__.createElementHook)(createElement, updateElement);
-    const useLayer = (0,_layer_js__WEBPACK_IMPORTED_MODULE_4__.createLayerHook)(useElement);
+    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_2__.createElementHook)(createElement, updateElement);
+    const useLayer = (0,_layer_js__WEBPACK_IMPORTED_MODULE_3__.createLayerHook)(useElement);
     return (0,_component_js__WEBPACK_IMPORTED_MODULE_0__.createContainerComponent)(useLayer);
 }
 function createOverlayComponent(createElement, useLifecycle) {
-    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_3__.createElementHook)(createElement);
-    const useOverlay = (0,_div_overlay_js__WEBPACK_IMPORTED_MODULE_2__.createDivOverlayHook)(useElement, useLifecycle);
+    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_2__.createElementHook)(createElement);
+    const useOverlay = (0,_div_overlay_js__WEBPACK_IMPORTED_MODULE_4__.createDivOverlayHook)(useElement, useLifecycle);
     return (0,_component_js__WEBPACK_IMPORTED_MODULE_0__.createDivOverlayComponent)(useOverlay);
 }
 function createPathComponent(createElement, updateElement) {
-    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_3__.createElementHook)(createElement, updateElement);
+    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_2__.createElementHook)(createElement, updateElement);
     const usePath = (0,_path_js__WEBPACK_IMPORTED_MODULE_5__.createPathHook)(useElement);
     return (0,_component_js__WEBPACK_IMPORTED_MODULE_0__.createContainerComponent)(usePath);
 }
 function createTileLayerComponent(createElement, updateElement) {
-    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_3__.createElementHook)(createElement, updateElement);
-    const useLayer = (0,_layer_js__WEBPACK_IMPORTED_MODULE_4__.createLayerHook)(useElement);
+    const useElement = (0,_element_js__WEBPACK_IMPORTED_MODULE_2__.createElementHook)(createElement, updateElement);
+    const useLayer = (0,_layer_js__WEBPACK_IMPORTED_MODULE_3__.createLayerHook)(useElement);
     return (0,_component_js__WEBPACK_IMPORTED_MODULE_0__.createLeafComponent)(useLayer);
 }
 
@@ -15491,7 +15491,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateGridLayer: () => (/* binding */ updateGridLayer)
 /* harmony export */ });
 function updateGridLayer(layer, props, prevProps) {
-    const { opacity, zIndex } = props;
+    const { opacity , zIndex  } = props;
     if (opacity != null && opacity !== prevProps.opacity) {
         layer.setOpacity(opacity);
     }
@@ -15597,7 +15597,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function usePathOptions(element, props) {
-    const optionsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(undefined);
+    const optionsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function updatePathOptions() {
         if (props.pathOptions !== optionsRef.current) {
             const options = props.pathOptions ?? {};
@@ -16724,25 +16724,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @react-leaflet/core */ "./node_modules/@react-leaflet/core/lib/context.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+function _extends() {
+    _extends = Object.assign || function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source){
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                    target[key] = source[key];
+                }
+            }
+        }
+        return target;
+    };
+    return _extends.apply(this, arguments);
+}
+;
 
 
-
-function MapContainerComponent({ bounds, boundsOptions, center, children, className, id, placeholder, style, whenReady, zoom, ...options }, forwardedRef) {
+function MapContainerComponent({ bounds , boundsOptions , center , children , className , id , placeholder , style , whenReady , zoom , ...options }, forwardedRef) {
     const [props] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)({
         className,
         id,
         style
     });
     const [context, setContext] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
-    const mapInstanceRef = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(undefined);
     (0,react__WEBPACK_IMPORTED_MODULE_2__.useImperativeHandle)(forwardedRef, ()=>context?.map ?? null, [
         context
     ]);
-    // biome-ignore lint/correctness/useExhaustiveDependencies: ref callback
     const mapRef = (0,react__WEBPACK_IMPORTED_MODULE_2__.useCallback)((node)=>{
-        if (node !== null && !mapInstanceRef.current) {
+        if (node !== null && context === null) {
             const map = new leaflet__WEBPACK_IMPORTED_MODULE_1__.Map(node, options);
-            mapInstanceRef.current = map;
             if (center != null && zoom != null) {
                 map.setView(center, zoom);
             } else if (bounds != null) {
@@ -16753,6 +16764,7 @@ function MapContainerComponent({ bounds, boundsOptions, center, children, classN
             }
             setContext((0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__.createLeafletContext)(map));
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
         return ()=>{
@@ -16761,13 +16773,12 @@ function MapContainerComponent({ bounds, boundsOptions, center, children, classN
     }, [
         context
     ]);
-    const contents = context ? /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_2__.createElement(_react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__.LeafletContext, {
+    const contents = context ? /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_2__.createElement(_react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__.LeafletProvider, {
         value: context
     }, children) : placeholder ?? null;
-    return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-        ...props,
+    return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", _extends({}, props, {
         ref: mapRef
-    }, contents);
+    }), contents);
 }
 const MapContainer = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_2__.forwardRef)(MapContainerComponent);
 
@@ -16791,7 +16802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 
 
-const Marker = (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_2__.createLayerComponent)(function createMarker({ position, ...options }, ctx) {
+const Marker = (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_2__.createLayerComponent)(function createMarker({ position , ...options }, ctx) {
     const marker = new leaflet__WEBPACK_IMPORTED_MODULE_3__.Marker(position, options);
     return (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_1__.createElementObject)(marker, (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__.extendContext)(ctx, {
         overlayContainer: marker
@@ -16842,9 +16853,9 @@ __webpack_require__.r(__webpack_exports__);
 const Popup = (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_1__.createOverlayComponent)(function createPopup(props, context) {
     const popup = new leaflet__WEBPACK_IMPORTED_MODULE_2__.Popup(props, context.overlayContainer);
     return (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__.createElementObject)(popup, context);
-}, function usePopupLifecycle(element, context, { position }, setOpen) {
+}, function usePopupLifecycle(element, context, { position  }, setOpen) {
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function addPopup() {
-        const { instance } = element;
+        const { instance  } = element;
         function onPopupOpen(event) {
             if (event.popup === instance) {
                 instance.update();
@@ -16907,12 +16918,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 
 
-const TileLayer = (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_1__.createTileLayerComponent)(function createTileLayer({ url, ...options }, context) {
+const TileLayer = (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_1__.createTileLayerComponent)(function createTileLayer({ url , ...options }, context) {
     const layer = new leaflet__WEBPACK_IMPORTED_MODULE_4__.TileLayer(url, (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_3__.withPane)(options, context));
     return (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_0__.createElementObject)(layer, context);
 }, function updateTileLayer(layer, props, prevProps) {
     (0,_react_leaflet_core__WEBPACK_IMPORTED_MODULE_2__.updateGridLayer)(layer, props, prevProps);
-    const { url } = props;
+    const { url  } = props;
     if (url != null && url !== prevProps.url) {
         layer.setUrl(url);
     }
@@ -21659,17 +21670,17 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
+/******/ 	const __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -21678,7 +21689,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// Execute the module function
 /******/ 		if (!(moduleId in __webpack_modules__)) {
 /******/ 			delete __webpack_module_cache__[moduleId];
-/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			const e = new Error("Cannot find module '" + moduleId + "'");
 /******/ 			e.code = 'MODULE_NOT_FOUND';
 /******/ 			throw e;
 /******/ 		}
@@ -21694,7 +21705,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
-/******/ 		var deferred = [];
+/******/ 		const deferred = [];
 /******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
 /******/ 			if(chunkIds) {
 /******/ 				priority = priority || 0;
@@ -21702,10 +21713,10 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 				deferred[i] = [chunkIds, fn, priority];
 /******/ 				return;
 /******/ 			}
-/******/ 			var notFulfilled = Infinity;
+/******/ 			let notFulfilled = Infinity;
 /******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
+/******/ 				let [chunkIds, fn, priority] = deferred[i];
+/******/ 				let fulfilled = true;
 /******/ 				for (var j = 0; j < chunkIds.length; j++) {
 /******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
 /******/ 						chunkIds.splice(j--, 1);
@@ -21716,7 +21727,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 				}
 /******/ 				if(fulfilled) {
 /******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
+/******/ 					const r = fn();
 /******/ 					if (r !== undefined) result = r;
 /******/ 				}
 /******/ 			}
@@ -21728,7 +21739,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			const getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -21738,11 +21749,26 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
+/******/ 		// define getter/value functions for harmony exports
 /******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			if(Array.isArray(definition)) {
+/******/ 				var i = 0;
+/******/ 				while(i < definition.length) {
+/******/ 					var key = definition[i++];
+/******/ 					var binding = definition[i++];
+/******/ 					if(!__webpack_require__.o(exports, key)) {
+/******/ 						if(binding === 0) {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, value: definition[i++] });
+/******/ 						} else {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, get: binding });
+/******/ 						}
+/******/ 					} else if(binding === 0) { i++; }
+/******/ 				}
+/******/ 			} else {
+/******/ 				for(var key in definition) {
+/******/ 					if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 						Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 					}
 /******/ 				}
 /******/ 			}
 /******/ 		};
@@ -21750,14 +21776,14 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.hasOwn(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
 /******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			if(Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
@@ -21766,16 +21792,16 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		var scriptUrl;
+/******/ 		let scriptUrl;
 /******/ 		if (globalThis.importScripts) scriptUrl = globalThis.location + "";
-/******/ 		var document = globalThis.document;
+/******/ 		const document = globalThis.document;
 /******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 			if (document.currentScript?.tagName.toUpperCase() === 'SCRIPT')
 /******/ 				scriptUrl = document.currentScript.src;
 /******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				const scripts = document.getElementsByTagName("script");
 /******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
+/******/ 					let i = scripts.length - 1;
 /******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
 /******/ 				}
 /******/ 			}
@@ -21794,7 +21820,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
+/******/ 		const installedChunks = {
 /******/ 			"blocks/mptab_map/index": 0,
 /******/ 			"blocks/mptab_map/style-index": 0
 /******/ 		};
@@ -21812,8 +21838,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 		const webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			let [chunkIds, moreModules, runtime] = data;
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0;
@@ -21836,7 +21862,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkmuseum_post_types"] = globalThis["webpackChunkmuseum_post_types"] || [];
+/******/ 		const chunkLoadingGlobal = globalThis["webpackChunkmuseum_post_types"] ||= [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
@@ -21846,7 +21872,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/mptab_map/style-index"], () => (__webpack_require__("./src/blocks/mptab_map/index.tsx")))
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/mptab_map/style-index"], () => (__webpack_require__("./src/blocks/mptab_map/index.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
