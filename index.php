@@ -394,6 +394,14 @@ class PluginBoilerplate
                 )
             )
         ));
+
+        $exhibitionsPermanentQuery = new WP_Query(array(
+            'post_type' => 'mptab_exhibition',
+            'posts_per_page' => -1,
+            'meta_key' => 'mptab-exhibition-is-permanent',
+            'meta_value' => 1
+        ));
+
         $eventsCurrentQuery = new WP_Query(array(
             'post_type' => 'mptab_event',
             'posts_per_page' => -1,
@@ -412,7 +420,7 @@ class PluginBoilerplate
         ));
 
         $allCurrentQuery = new WP_Query();
-        $allCurrentQuery->posts = array_merge($eventsCurrentQuery->posts, $exhibitionsCurrentQuery->posts);
+        $allCurrentQuery->posts = array_merge($eventsCurrentQuery->posts, $exhibitionsCurrentQuery->posts, $exhibitionsPermanentQuery->posts);
         $allCurrentQuery->post_count = count($allCurrentQuery->posts);
 
         $currentPosts = $this->exhibition_event_data($allCurrentQuery);
