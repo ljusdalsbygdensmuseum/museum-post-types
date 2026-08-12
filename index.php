@@ -287,6 +287,23 @@ class PluginBoilerplate
             //Set translation
             wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
         }
+
+        //service order scripts
+        if ($hook == 'mptab_service_page_mptab-service-order') {
+            //Grab dependencies
+            $assets = include plugin_dir_path(__FILE__) . 'build/service_order.asset.php';
+
+            //Enqueue scripts
+            wp_enqueue_script('mptab-settings', plugin_dir_url(__FILE__) . 'build/service_order.js', $assets['dependencies'], $assets['version'], true);
+
+            //Enqueue styles
+            wp_enqueue_style('wp-components');
+            wp_enqueue_style('mptab-settings', plugin_dir_url(__FILE__) . 'build/service_order.css');
+
+            //Set translation
+            wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
+        }
+
         //post editor scripts
         if ($hook != 'post.php' && $hook != 'post-new.php') {
             return;
