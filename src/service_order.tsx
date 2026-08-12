@@ -23,7 +23,7 @@ domReady(() => {
 					id: elem.ID,
 					title: elem.title,
 					url: elem.url,
-					order: 0,
+					order: elem.order,
 				})
 			})
 		} else {
@@ -39,7 +39,7 @@ domReady(() => {
 
 	root.render(
 		<>
-			<DragableOrder />
+			<DragableOrder items={serviceData} />
 		</>,
 	)
 })

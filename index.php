@@ -23,6 +23,7 @@ class PluginBoilerplate
         //Save posts
         add_action('save_post_mptab_exhibition', array($this, 'save_exhibition_post'));
         add_action('save_post_mptab_event', array($this, 'save_event_post'));
+        add_action('save_post_mptab_service', array($this, 'save_service_post'));
 
         //enqueue
         add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
@@ -266,6 +267,17 @@ class PluginBoilerplate
         update_post_meta($postID, 'mptab-event_date_all', $allDates);
         update_post_meta($postID, 'mptab-event_date_alias', $alias);
         update_post_meta($postID, 'mptab-event_hour', $hour);
+    }
+
+    function save_service_post($postID)
+    {
+        $order = get_post_meta($postID, 'mptab-service_order', true);
+
+        if (is_numeric($order)) {
+            update_post_meta($postID, 'mptab-service_order', $order);
+        } else {
+            update_post_meta($postID, 'mptab-service_order', 0);
+        }
     }
 
     //Enqueue
@@ -596,6 +608,7 @@ class PluginBoilerplate
                 'title' => get_the_title(),
                 'exerpt' => str_replace('[&hellip;]', '', get_the_excerpt()), // remove [...]
                 'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
+                'order' => intval(get_post_meta(get_the_ID(), 'mptab-service_order', true)),
             ));
         }
         return $posts;

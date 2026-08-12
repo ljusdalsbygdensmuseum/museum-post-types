@@ -15,9 +15,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-function DragableOrder() {
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "ServiceOrder"
+function DragableOrder({
+  items
+}) {
+  const list = items.map(item => {
+    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+      children: item.title
+    });
+  });
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: list
   });
 }
 
@@ -129,7 +136,8 @@ const ServiceObjectSchema = zod__WEBPACK_IMPORTED_MODULE_0__["default"].object({
   url: zod__WEBPACK_IMPORTED_MODULE_0__["default"].string().url(),
   title: zod__WEBPACK_IMPORTED_MODULE_0__["default"].string(),
   exerpt: zod__WEBPACK_IMPORTED_MODULE_0__["default"].string(),
-  thumbnail: zod__WEBPACK_IMPORTED_MODULE_0__["default"].union([zod__WEBPACK_IMPORTED_MODULE_0__["default"].boolean(), zod__WEBPACK_IMPORTED_MODULE_0__["default"].string().url()])
+  thumbnail: zod__WEBPACK_IMPORTED_MODULE_0__["default"].union([zod__WEBPACK_IMPORTED_MODULE_0__["default"].boolean(), zod__WEBPACK_IMPORTED_MODULE_0__["default"].string().url()]),
+  order: zod__WEBPACK_IMPORTED_MODULE_0__["default"].number()
 });
 const ServicesSchema = zod__WEBPACK_IMPORTED_MODULE_0__["default"].array(ServiceObjectSchema);
 //Settings
@@ -5006,7 +5014,7 @@ _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
           id: elem.ID,
           title: elem.title,
           url: elem.url,
-          order: 0
+          order: elem.order
         });
       });
     } else {
@@ -5021,7 +5029,9 @@ _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
   }
   const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createRoot)(container);
   root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_input_dragable_order__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_input_dragable_order__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      items: serviceData
+    })
   }));
 });
 })();
