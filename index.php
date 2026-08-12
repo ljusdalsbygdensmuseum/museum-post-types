@@ -595,6 +595,9 @@ class PluginBoilerplate
         $servicesQuery = new WP_Query(array(
             'post_type' => 'mptab_service',
             'posts_per_page' => -1,
+            'orderby' => 'meta_value_number',
+            'order' => 'ASC',
+            'meta_key' => 'mptab-service_order'
         ));
 
         $posts = [];
