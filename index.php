@@ -780,6 +780,7 @@ class PluginBoilerplate
         <h1><?php _e('Service order') ?></h1>
         <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows') ?></p>
         <div id="mptab-service-order"></div>
+        <input id="mptab-service-order-data" type="text">
 <?php
     }
 }

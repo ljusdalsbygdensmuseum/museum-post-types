@@ -2,6 +2,27 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/input/dragable-order.tsx"
+/*!**************************************!*\
+  !*** ./src/input/dragable-order.tsx ***!
+  \**************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DragableOrder)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+function DragableOrder() {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: "ServiceOrder"
+  });
+}
+
+/***/ },
+
 /***/ "react/jsx-runtime"
 /*!**********************************!*\
   !*** external "ReactJSXRuntime" ***!
@@ -146,11 +167,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _input_dragable_order__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./input/dragable-order */ "./src/input/dragable-order.tsx");
+
 
 
 
 
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
+  const serviceDataContainer = document.getElementById('mptab-service-order-data');
+  if (!serviceDataContainer) {
+    throw new Error('mptab-service-order-data was not found');
+  }
   const container = document.getElementById('mptab-service-order');
   if (!container) {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
@@ -159,9 +186,7 @@ _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
   }
   const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createRoot)(container);
   root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-      children: "testing"
-    })
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_input_dragable_order__WEBPACK_IMPORTED_MODULE_4__["default"], {})
   }));
 });
 })();
