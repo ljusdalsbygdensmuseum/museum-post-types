@@ -26,6 +26,7 @@
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.1.8",
 		"@types/leaflet": "^1.9.17",
+		"@types/sortablejs": "^1.15.9",
 		"@types/wordpress__block-editor": "^11.5.16",
 		"@types/wordpress__blocks": "^12.5.17",
 		"@wordpress/scripts": "^34.0.0",
@@ -45,6 +46,8 @@
 		"leaflet": "^1.9.4",
 		"leaflet-control-geocoder": "^3.1.0",
 		"react-leaflet": "^4.2.1",
+		"react-sortablejs": "^6.1.4",
+		"sortablejs": "^1.15.7",
 		"zod": "^3.24.2"
 	}
 }
