@@ -16,10 +16,16 @@ export default function DragableOrder({ items, input }: Props) {
 		<ReactSortable
 			list={listItems}
 			setList={(newItems) => {
+				const modifiedItems = newItems.concat([])
+				modifiedItems.forEach((item, index) => {
+					item.order = index
+					return item
+				})
 				if (input) {
-					input.value = JSON.stringify(newItems)
+					input.value = JSON.stringify(modifiedItems)
 				}
-				setListItems(newItems)
+
+				setListItems(modifiedItems)
 			}}
 		>
 			{listItems.map((item) => {

@@ -82,10 +82,15 @@ function DragableOrder({
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_sortablejs_dist__WEBPACK_IMPORTED_MODULE_3__.ReactSortable, {
     list: listItems,
     setList: newItems => {
+      const modifiedItems = newItems.concat([]);
+      modifiedItems.forEach((item, index) => {
+        item.order = index;
+        return item;
+      });
       if (input) {
-        input.value = JSON.stringify(newItems);
+        input.value = JSON.stringify(modifiedItems);
       }
-      setListItems(newItems);
+      setListItems(modifiedItems);
     },
     children: listItems.map(item => {
       return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
