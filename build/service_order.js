@@ -1,6 +1,56 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/mptab-service-order.tsx"
+/*!************************************************!*\
+  !*** ./src/components/mptab-service-order.tsx ***!
+  \************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ServiceOrder: () => (/* binding */ ServiceOrder)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _input_dragable_order__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../input/dragable-order */ "./src/input/dragable-order.tsx");
+/* harmony import */ var _utility_is_JSON__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utility/is-JSON */ "./src/utility/is-JSON.ts");
+/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
+
+
+
+
+const ServiceOrder = () => {
+  const serviceDataContainer = document.getElementById('mptab-service-order-data');
+  if (!serviceDataContainer) {
+    throw new Error('mptab-service-order-data was not found');
+  }
+  let serviceData = [];
+  if ((0,_utility_is_JSON__WEBPACK_IMPORTED_MODULE_2__.isJSON)(serviceDataContainer.value)) {
+    const json = JSON.parse(serviceDataContainer.value);
+    if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.ServicesSchema.safeParse(json)) {
+      const data = _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.ServicesSchema.parse(json);
+      data.forEach(elem => {
+        serviceData.push({
+          id: elem.ID,
+          title: elem.title,
+          url: elem.url,
+          order: elem.order
+        });
+      });
+    } else {
+      console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.ServicesSchema.safeParse(json).error);
+    }
+  }
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_input_dragable_order__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    items: serviceData,
+    input: serviceDataContainer
+  });
+};
+
+/***/ },
+
 /***/ "./src/input/dragable-order.tsx"
 /*!**************************************!*\
   !*** ./src/input/dragable-order.tsx ***!
@@ -25,12 +75,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function DragableOrder({
-  items
+  items,
+  input
 }) {
   const [listItems, setListItems] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(items);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_sortablejs_dist__WEBPACK_IMPORTED_MODULE_3__.ReactSortable, {
     list: listItems,
-    setList: setListItems,
+    setList: newItems => {
+      if (input) {
+        input.value = JSON.stringify(newItems);
+      }
+      setListItems(newItems);
+    },
     children: listItems.map(item => {
       return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
         children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
@@ -8956,38 +9012,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _input_dragable_order__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./input/dragable-order */ "./src/input/dragable-order.tsx");
-/* harmony import */ var _utility_is_JSON__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utility/is-JSON */ "./src/utility/is-JSON.ts");
-/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
-
-
+/* harmony import */ var _components_mptab_service_order__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/mptab-service-order */ "./src/components/mptab-service-order.tsx");
 
 
 
 
 
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
-  const serviceDataContainer = document.getElementById('mptab-service-order-data');
-  if (!serviceDataContainer) {
-    throw new Error('mptab-service-order-data was not found');
-  }
-  let serviceData = [];
-  if ((0,_utility_is_JSON__WEBPACK_IMPORTED_MODULE_5__.isJSON)(serviceDataContainer.value)) {
-    const json = JSON.parse(serviceDataContainer.value);
-    if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__.ServicesSchema.safeParse(json)) {
-      const data = _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__.ServicesSchema.parse(json);
-      data.forEach(elem => {
-        serviceData.push({
-          id: elem.ID,
-          title: elem.title,
-          url: elem.url,
-          order: elem.order
-        });
-      });
-    } else {
-      console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__.ServicesSchema.safeParse(json).error);
-    }
-  }
   const container = document.getElementById('mptab-service-order');
   if (!container) {
     return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
@@ -8996,9 +9027,7 @@ _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
   }
   const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createRoot)(container);
   root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_input_dragable_order__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      items: serviceData
-    })
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_service_order__WEBPACK_IMPORTED_MODULE_4__.ServiceOrder, {})
   }));
 });
 })();
