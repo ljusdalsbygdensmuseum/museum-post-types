@@ -79,25 +79,32 @@ function DragableOrder({
   input
 }) {
   const [listItems, setListItems] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(items);
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_sortablejs_dist__WEBPACK_IMPORTED_MODULE_3__.ReactSortable, {
-    list: listItems,
-    setList: newItems => {
-      const modifiedItems = newItems.concat([]);
-      modifiedItems.forEach((item, index) => {
-        item.order = index;
-        return item;
-      });
-      if (input) {
-        input.value = JSON.stringify(modifiedItems);
-      }
-      setListItems(modifiedItems);
-    },
-    children: listItems.map(item => {
-      return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
-        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-          children: item.title
-        })
-      }, item.id);
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
+    children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_sortablejs_dist__WEBPACK_IMPORTED_MODULE_3__.ReactSortable, {
+      list: listItems,
+      setList: newItems => {
+        const modifiedItems = newItems.concat([]);
+        modifiedItems.forEach((item, index) => {
+          item.order = index;
+          return item;
+        });
+        if (input) {
+          input.value = JSON.stringify(modifiedItems);
+        }
+        setListItems(modifiedItems);
+      },
+      children: listItems.map(item => {
+        return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+          children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
+            children: item.url ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+              href: item.url ? item.url : '#',
+              children: item.title
+            }) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              children: item.title
+            })
+          })
+        }, item.id);
+      })
     })
   });
 }
