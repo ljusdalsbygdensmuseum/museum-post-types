@@ -792,12 +792,81 @@ class PluginBoilerplate
 
     function service_order()
     {
+        if (isset($_POST['submit']) && $_POST['submit'] === 'Save changes') {
+            $this->service_order_save();
+        }
+
     ?>
         <h1><?php _e('Service order') ?></h1>
         <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows') ?></p>
         <div id="mptab-service-order"></div>
-        <input id="mptab-service-order-data" type="text" value='<?php echo json_encode($this->rest_services()) ?>' style="display:none;">
+        <form method="POST">
+            <?php wp_nonce_field('service_order_save', 'mptab_service_order_nonce') ?>
+            <input id="mptab-service-order-data" name="mptab-service-order-data" type="text" value='<?php echo json_encode($this->rest_services()) ?>' style="display:none;">
+            <p class="submit">
+                <input type="submit" name="submit" id="submit" value="<?php _e('Save changes', 'mptab-domain') ?>" class="button button-primary">
+            </p>
+
+        </form>
+
+        <?php
+    }
+    function service_order_save()
+    {
+        // check nonce and premissions
+        if (!isset($_POST['mptab_service_order_nonce']) || !wp_verify_nonce($_POST['mptab_service_order_nonce'], 'service_order_save') || !current_user_can('manage_options')) {
+        ?>
+            <div class="error">
+                <p><?php _e('You do not have access to edit this data', 'mptab-domain') ?></p>
+            </div>
+        <?php
+            return;
+        }
+
+        // check if there is any service order data and if it is valid json
+        if (!isset($_POST['mptab-service-order-data']) || !json_validate(stripslashes($_POST['mptab-service-order-data']))) {
+        ?>
+            <div class="error">
+                <p><?php _e('No valid data found', 'mptab-domain') ?></p>
+            </div>
+            <?php
+            return;
+        }
+
+        $data = $_POST['mptab-service-order-data'];
+        $data = stripslashes($data);
+        $data = json_decode($data, true);
+        foreach ($data as $item) {
+            // check if current service has valid id and order number
+            if (!isset($item['order']) || !($item['order'] || $item['order'] == 0) || !is_int($item['order']) || !isset($item['id']) || !$item['id'] || !is_int($item['id'])) {
+            ?>
+                <div class="error">
+                    <p><?php _e('No valid data found for', 'mptab-domain') ?>: <?php echo esc_html($item['title']) ?></p>
+                </div>
+            <?php
+                return;
+            }
+
+            // check if post exist and is service
+            if (!get_post_status($item['id']) || get_post_type($item['id']) != 'mptab_service') {
+            ?>
+                <div class="error">
+                    <p><?php echo esc_html($item['title']) ?> <?php _e('is not a service', 'mptab-domain') ?></p>
+                </div>
+        <?php
+                return;
+            }
+
+            // set order for current service
+            update_post_meta($item['id'], 'mptab-service_order', $item['order']);
+        }
+
+        ?>
+        <div class="updated">
+            <p><?php _e('Saved', 'mptab-domain') ?></p>
+        </div>
 <?php
+
     }
 }
 
