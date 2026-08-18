@@ -42,6 +42,8 @@
 		"@wordpress/dom-ready": "^4.46.0",
 		"@wordpress/element": "^6.46.0",
 		"@wordpress/i18n": "^6.19.0",
+		"@wordpress/icons": "^15.4.0",
+		"@wordpress/ui": "^0.20.0",
 		"bootstrap": "^5.3.3",
 		"leaflet": "^1.9.4",
 		"leaflet-control-geocoder": "^3.1.0",
