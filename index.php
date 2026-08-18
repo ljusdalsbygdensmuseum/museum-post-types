@@ -797,17 +797,20 @@ class PluginBoilerplate
         }
 
     ?>
-        <h1><?php _e('Service order') ?></h1>
-        <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows') ?></p>
-        <div id="mptab-service-order"></div>
-        <form method="POST">
-            <?php wp_nonce_field('service_order_save', 'mptab_service_order_nonce') ?>
-            <input id="mptab-service-order-data" name="mptab-service-order-data" type="text" value='<?php echo json_encode($this->rest_services()) ?>' style="display:none;">
-            <p class="submit">
-                <input type="submit" name="submit" id="submit" value="<?php _e('Save changes', 'mptab-domain') ?>" class="button button-primary">
-            </p>
+        <div class="wrap">
+            <h1><?php _e('Service order') ?></h1>
+            <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows') ?></p>
+            <div id="mptab-service-order"></div>
+            <form method="POST">
+                <?php wp_nonce_field('service_order_save', 'mptab_service_order_nonce') ?>
+                <input id="mptab-service-order-data" name="mptab-service-order-data" type="text" value='<?php echo json_encode($this->rest_services()) ?>' style="display:none;">
+                <p class="submit">
+                    <input type="submit" name="submit" id="submit" value="<?php _e('Save changes', 'mptab-domain') ?>" class="button button-primary">
+                </p>
 
-        </form>
+            </form>
+        </div>
+
 
         <?php
     }
