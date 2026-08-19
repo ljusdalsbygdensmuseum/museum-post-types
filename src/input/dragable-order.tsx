@@ -5,6 +5,7 @@ import { __ } from '@wordpress/i18n'
 import { DragList } from '../types/mptab-list-types'
 
 import { useState, type DragEvent } from 'react'
+import { motion } from 'motion/react'
 import { ReactSortable } from 'react-sortablejs/dist'
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
 
 export default function DragableOrder({ items, input }: Props) {
 	const [listItems, setListItems] = useState<DragList>(items)
+	const [layoutState, setLayoutState] = useState(true)
 
 	function setInput(list: DragList) {
 		list.forEach((item, index) => {
@@ -46,41 +48,50 @@ export default function DragableOrder({ items, input }: Props) {
 					setInput(modifiedItems)
 					setListItems(modifiedItems)
 				}}
+				animation={100}
+				onStart={() => setLayoutState(false)}
+				onEnd={() => setLayoutState(true)}
 			>
 				{listItems.map((item, index) => {
 					//remove up and down btn if first or last
 
 					return (
-						<PanelBody key={item.id}>
-							<PanelRow>
-								<Stack gap='sm' align='center'>
-									<Stack direction='column'>
-										<IconButton
-											tone='neutral'
-											variant='minimal'
-											size='small'
-											icon={chevronUp}
-											label={item.title + ' ' + __('up', 'mptab-domain')}
-											onClick={() => moveItem(index, index - 1)}
-										/>
-										<IconButton
-											tone='neutral'
-											variant='minimal'
-											size='small'
-											icon={chevronDown}
-											label={item.title + ' ' + __('down', 'mptab-domain')}
-											onClick={() => moveItem(index, index + 1)}
-										/>
-									</Stack>
+						<motion.div
+							layout={layoutState}
+							transition={{ layout: { duration: 0.1 } }}
+							key={item.id}
+						>
+							<PanelBody>
+								<PanelRow>
+									<Stack gap='sm' align='center'>
+										<Stack direction='column'>
+											<IconButton
+												tone='neutral'
+												variant='minimal'
+												size='small'
+												icon={chevronUp}
+												label={item.title + ' ' + __('up', 'mptab-domain')}
+												onClick={() => moveItem(index, index - 1)}
+											/>
+											<IconButton
+												tone='neutral'
+												variant='minimal'
+												size='small'
+												icon={chevronDown}
+												label={item.title + ' ' + __('down', 'mptab-domain')}
+												onClick={() => moveItem(index, index + 1)}
+											/>
+										</Stack>
 
-									{item.url ? (
-										<a href={item.url ? item.url : '#'}>{item.title}</a>
-									) : (
-										<p>{item.title}</p>
-									)}
-								</Stack>
-							</PanelRow>
-						</PanelBody>
+										{item.url ? (
+											<a href={item.url ? item.url : '#'}>{item.title}</a>
+										) : (
+											<p>{item.title}</p>
+										)}
+									</Stack>
+								</PanelRow>
+							</PanelBody>
+						</motion.div>
 					)
 				})}
 			</ReactSortable>
