@@ -1,6 +1,6 @@
 import { Panel, PanelBody, PanelRow } from '@wordpress/components'
-import { IconButton, Stack } from '@wordpress/ui'
-import { chevronUp, chevronDown } from '@wordpress/icons'
+import { Icon, IconButton, Link, Stack, Text } from '@wordpress/ui'
+import { chevronUp, chevronDown, link } from '@wordpress/icons'
 import { __ } from '@wordpress/i18n'
 import { DragList } from '../types/mptab-list-types'
 
@@ -63,8 +63,14 @@ export default function DragableOrder({ items, input }: Props) {
 						>
 							<PanelBody>
 								<PanelRow>
-									<Stack gap='sm' align='center'>
-										<Stack direction='column'>
+									<Stack gap='md' align='center'>
+										<Stack
+											direction='column'
+											style={{
+												paddingRight: '0.5rem',
+												borderRight: '2px solid #F0F0F0',
+											}}
+										>
 											<IconButton
 												tone='neutral'
 												variant='minimal'
@@ -83,10 +89,16 @@ export default function DragableOrder({ items, input }: Props) {
 											/>
 										</Stack>
 
-										{item.url ? (
-											<a href={item.url ? item.url : '#'}>{item.title}</a>
-										) : (
-											<p>{item.title}</p>
+										<Text variant='heading-xl'>{item.title}</Text>
+
+										{item.url && (
+											<Link href={item.url} style={{ position: 'relative' }}>
+												<Icon
+													icon={link}
+													size={20}
+													style={{ position: 'absolute', top: '-0.5em' }}
+												/>
+											</Link>
 										)}
 									</Stack>
 								</PanelRow>
