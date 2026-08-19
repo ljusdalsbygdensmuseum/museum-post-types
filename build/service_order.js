@@ -88,21 +88,32 @@ function DragableOrder({
   input
 }) {
   const [listItems, setListItems] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(items);
+  function setInput(list) {
+    list.forEach((item, index) => {
+      item.order = index;
+      return item;
+    });
+    if (input) {
+      input.value = JSON.stringify(list);
+    }
+  }
+  function moveItem(index, newIndex) {
+    const modifiedItems = listItems.concat([]);
+    modifiedItems.splice(index, 1);
+    modifiedItems.splice(newIndex, 0, listItems[index]);
+    setInput(modifiedItems);
+    setListItems(modifiedItems);
+  }
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
     children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_sortablejs_dist__WEBPACK_IMPORTED_MODULE_8__.ReactSortable, {
       list: listItems,
       setList: newItems => {
         const modifiedItems = newItems.concat([]);
-        modifiedItems.forEach((item, index) => {
-          item.order = index;
-          return item;
-        });
-        if (input) {
-          input.value = JSON.stringify(modifiedItems);
-        }
+        setInput(modifiedItems);
         setListItems(modifiedItems);
       },
-      children: listItems.map(item => {
+      children: listItems.map((item, index) => {
+        //remove up and down btn if first or last
         return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
           children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
             children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_wordpress_ui__WEBPACK_IMPORTED_MODULE_2__.Stack, {
@@ -115,13 +126,15 @@ function DragableOrder({
                   variant: 'minimal',
                   size: 'small',
                   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
-                  label: item.title + ' ' + (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('up', 'mptab-domain')
+                  label: item.title + ' ' + (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('up', 'mptab-domain'),
+                  onClick: () => moveItem(index, index - 1)
                 }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_ui__WEBPACK_IMPORTED_MODULE_3__.IconButton, {
                   tone: 'neutral',
                   variant: 'minimal',
                   size: 'small',
                   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"],
-                  label: item.title + ' ' + (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('down', 'mptab-domain')
+                  label: item.title + ' ' + (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('down', 'mptab-domain'),
+                  onClick: () => moveItem(index, index + 1)
                 })]
               }), item.url ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
                 href: item.url ? item.url : '#',

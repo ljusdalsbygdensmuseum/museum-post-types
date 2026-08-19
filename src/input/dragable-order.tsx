@@ -15,24 +15,41 @@ interface Props {
 export default function DragableOrder({ items, input }: Props) {
 	const [listItems, setListItems] = useState<DragList>(items)
 
+	function setInput(list: DragList) {
+		list.forEach((item, index) => {
+			item.order = index
+			return item
+		})
+		if (input) {
+			input.value = JSON.stringify(list)
+		}
+	}
+
+	function moveItem(index: number, newIndex: number) {
+		const modifiedItems = listItems.concat([])
+
+		modifiedItems.splice(index, 1)
+
+		modifiedItems.splice(newIndex, 0, listItems[index])
+
+		setInput(modifiedItems)
+		setListItems(modifiedItems)
+	}
+
 	return (
 		<Panel>
 			<ReactSortable
 				list={listItems}
 				setList={(newItems) => {
 					const modifiedItems = newItems.concat([])
-					modifiedItems.forEach((item, index) => {
-						item.order = index
-						return item
-					})
-					if (input) {
-						input.value = JSON.stringify(modifiedItems)
-					}
 
+					setInput(modifiedItems)
 					setListItems(modifiedItems)
 				}}
 			>
-				{listItems.map((item) => {
+				{listItems.map((item, index) => {
+					//remove up and down btn if first or last
+
 					return (
 						<PanelBody key={item.id}>
 							<PanelRow>
@@ -44,6 +61,7 @@ export default function DragableOrder({ items, input }: Props) {
 											size='small'
 											icon={chevronUp}
 											label={item.title + ' ' + __('up', 'mptab-domain')}
+											onClick={() => moveItem(index, index - 1)}
 										/>
 										<IconButton
 											tone='neutral'
@@ -51,6 +69,7 @@ export default function DragableOrder({ items, input }: Props) {
 											size='small'
 											icon={chevronDown}
 											label={item.title + ' ' + __('down', 'mptab-domain')}
+											onClick={() => moveItem(index, index + 1)}
 										/>
 									</Stack>
 
