@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-19T09:49:44+00:00\n"
+"POT-Creation-Date: 2026-08-19T10:02:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: mptab-domain\n"
@@ -65,6 +65,8 @@ msgstr ""
 #: index.php:53
 #: index.php:73
 #: index.php:93
+#: build/service_order.js:165
+#: build/service_order.js:66
 msgid "View"
 msgstr ""
 
@@ -329,18 +331,18 @@ msgstr ""
 msgid "End alias"
 msgstr ""
 
-#: build/service_order.js:150
+#: build/service_order.js:148
 #: build/service_order.js:66
 msgid "up"
 msgstr ""
 
-#: build/service_order.js:158
+#: build/service_order.js:156
 #: build/service_order.js:66
 msgid "down"
 msgstr ""
 
-#: build/service_order.js:40810
-#: build/service_order.js:33060
+#: build/service_order.js:40776
+#: build/service_order.js:33051
 msgid "Loading ..."
 msgstr ""
 

@@ -1,6 +1,6 @@
 import { Panel, PanelBody, PanelRow } from '@wordpress/components'
-import { Icon, IconButton, Link, Stack, Text } from '@wordpress/ui'
-import { chevronUp, chevronDown, link } from '@wordpress/icons'
+import { IconButton, Link, Stack, Text } from '@wordpress/ui'
+import { chevronUp, chevronDown } from '@wordpress/icons'
 import { __ } from '@wordpress/i18n'
 
 import { useState } from 'react'
@@ -93,12 +93,8 @@ export default function DragableOrder({ items, input }: Props) {
 										<Text variant='heading-xl'>{item.title}</Text>
 
 										{item.url && (
-											<Link href={item.url} style={{ position: 'relative' }}>
-												<Icon
-													icon={link}
-													size={20}
-													style={{ position: 'absolute', top: '-0.5em' }}
-												/>
+											<Link href={item.url} openInNewTab>
+												{__('View', 'mptab-domain')}
 											</Link>
 										)}
 									</Stack>
