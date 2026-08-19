@@ -52,9 +52,7 @@ export default function DragableOrder({ items, input }: Props) {
 				onStart={() => setLayoutState(false)}
 				onEnd={() => setLayoutState(true)}
 			>
-				{listItems.map((item, index) => {
-					//remove up and down btn if first or last
-
+				{listItems.map((item, index, array) => {
 					return (
 						<motion.div
 							layout={layoutState}
@@ -76,6 +74,7 @@ export default function DragableOrder({ items, input }: Props) {
 												variant='minimal'
 												size='small'
 												icon={chevronUp}
+												disabled={index == 0}
 												label={item.title + ' ' + __('up', 'mptab-domain')}
 												onClick={() => moveItem(index, index - 1)}
 											/>
@@ -84,6 +83,7 @@ export default function DragableOrder({ items, input }: Props) {
 												variant='minimal'
 												size='small'
 												icon={chevronDown}
+												disabled={index == array.length - 1}
 												label={item.title + ' ' + __('down', 'mptab-domain')}
 												onClick={() => moveItem(index, index + 1)}
 											/>

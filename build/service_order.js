@@ -122,8 +122,7 @@ function DragableOrder({
       animation: 100,
       onStart: () => setLayoutState(false),
       onEnd: () => setLayoutState(true),
-      children: listItems.map((item, index) => {
-        //remove up and down btn if first or last
+      children: listItems.map((item, index, array) => {
         return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_12__.motion.div, {
           layout: layoutState,
           transition: {
@@ -147,6 +146,7 @@ function DragableOrder({
                     variant: 'minimal',
                     size: 'small',
                     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"],
+                    disabled: index == 0,
                     label: item.title + ' ' + (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_10__.__)('up', 'mptab-domain'),
                     onClick: () => moveItem(index, index - 1)
                   }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_wordpress_ui__WEBPACK_IMPORTED_MODULE_3__.IconButton, {
@@ -154,6 +154,7 @@ function DragableOrder({
                     variant: 'minimal',
                     size: 'small',
                     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
+                    disabled: index == array.length - 1,
                     label: item.title + ' ' + (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_10__.__)('down', 'mptab-domain'),
                     onClick: () => moveItem(index, index + 1)
                   })]
