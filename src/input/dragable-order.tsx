@@ -2,11 +2,12 @@ import { Panel, PanelBody, PanelRow } from '@wordpress/components'
 import { Icon, IconButton, Link, Stack, Text } from '@wordpress/ui'
 import { chevronUp, chevronDown, link } from '@wordpress/icons'
 import { __ } from '@wordpress/i18n'
-import { DragList } from '../types/mptab-list-types'
 
-import { useState, type DragEvent } from 'react'
+import { useState } from 'react'
 import { motion } from 'motion/react'
 import { ReactSortable } from 'react-sortablejs/dist'
+
+import { DragList } from '../types/mptab-list-types'
 
 interface Props {
 	items: DragList
