@@ -310,7 +310,6 @@ class PluginBoilerplate
 
             //Enqueue styles
             wp_enqueue_style('wp-components');
-            wp_enqueue_style('mptab-settings', plugin_dir_url(__FILE__) . 'build/service_order.css');
 
             //Set translation
             wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
