@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-18T09:15:38+00:00\n"
+"POT-Creation-Date: 2026-08-19T09:49:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: mptab-domain\n"
@@ -29,93 +29,93 @@ msgstr ""
 msgid "Ina Eklund"
 msgstr ""
 
-#: index.php:47
+#: index.php:48
 msgid "Exhibitions"
 msgstr ""
 
-#: index.php:48
-#: index.php:55
+#: index.php:49
+#: index.php:56
 msgid "Exhibition"
-msgstr ""
-
-#: index.php:49
-#: index.php:69
-#: index.php:89
-msgid "Add new"
-msgstr ""
-
-#: index.php:49
-#: index.php:50
-#: index.php:51
-msgid "exhibition"
 msgstr ""
 
 #: index.php:50
 #: index.php:70
 #: index.php:90
-msgid "Edit"
+msgid "Add new"
+msgstr ""
+
+#: index.php:50
+#: index.php:51
+#: index.php:52
+msgid "exhibition"
 msgstr ""
 
 #: index.php:51
 #: index.php:71
 #: index.php:91
-msgid "New"
+msgid "Edit"
 msgstr ""
 
 #: index.php:52
 #: index.php:72
 #: index.php:92
-msgid "View"
-msgstr ""
-
-#: index.php:52
-#: index.php:53
-#: index.php:54
-#: index.php:57
-msgid "exhibitions"
+msgid "New"
 msgstr ""
 
 #: index.php:53
 #: index.php:73
 #: index.php:93
-msgid "Search"
+msgid "View"
+msgstr ""
+
+#: index.php:53
+#: index.php:54
+#: index.php:55
+#: index.php:58
+msgid "exhibitions"
 msgstr ""
 
 #: index.php:54
 #: index.php:74
 #: index.php:94
-msgid "All"
+msgid "Search"
 msgstr ""
 
 #: index.php:55
 #: index.php:75
 #: index.php:95
+msgid "All"
+msgstr ""
+
+#: index.php:56
+#: index.php:76
+#: index.php:96
 msgid "archive"
 msgstr ""
 
-#: index.php:67
+#: index.php:68
 msgid "Events"
 msgstr ""
 
-#: index.php:68
-#: index.php:75
+#: index.php:69
+#: index.php:76
 msgid "Event"
 msgstr ""
 
-#: index.php:69
 #: index.php:70
 #: index.php:71
+#: index.php:72
 msgid "event"
 msgstr ""
 
-#: index.php:72
 #: index.php:73
 #: index.php:74
-#: index.php:77
+#: index.php:75
+#: index.php:78
 msgid "events"
 msgstr ""
 
-#: index.php:87
+#: index.php:88
 #: build/blocks/mptab_show_services/index.js:254
 #: build/blocks/mptab_show_services/view.js:161
 #: build/blocks/mptab_show_services/index.js:125
@@ -123,95 +123,129 @@ msgstr ""
 msgid "Services"
 msgstr ""
 
-#: index.php:88
-#: index.php:95
+#: index.php:89
+#: index.php:96
 msgid "Service"
 msgstr ""
 
-#: index.php:89
 #: index.php:90
 #: index.php:91
+#: index.php:92
 msgid "service"
 msgstr ""
 
-#: index.php:92
 #: index.php:93
 #: index.php:94
-#: index.php:97
+#: index.php:95
+#: index.php:98
 msgid "services"
 msgstr ""
 
-#: index.php:118
-#: index.php:121
+#: index.php:119
+#: index.php:122
 msgid "Priority"
 msgstr ""
 
-#: index.php:119
-#: index.php:123
+#: index.php:120
+#: index.php:124
 msgid "Dates"
 msgstr ""
 
-#: index.php:122
+#: index.php:123
 msgid "Hours"
-msgstr ""
-
-#: index.php:133
-#: index.php:169
-msgid "Pick an option"
 msgstr ""
 
 #: index.php:134
 #: index.php:170
-msgid "Low"
+msgid "Pick an option"
 msgstr ""
 
 #: index.php:135
 #: index.php:171
-msgid "Medium"
+msgid "Low"
 msgstr ""
 
 #: index.php:136
 #: index.php:172
+msgid "Medium"
+msgstr ""
+
+#: index.php:137
+#: index.php:173
 msgid "High"
 msgstr ""
 
-#: index.php:595
-#: index.php:596
+#: index.php:636
+#: index.php:637
 msgid "Museum settings"
 msgstr ""
 
-#: index.php:610
-msgid "Museum Settings"
-msgstr ""
-
-#: index.php:621
-msgid "Phone number"
-msgstr ""
-
-#: index.php:629
-#: index.php:705
-msgid "Adress Settings"
-msgstr ""
-
-#: index.php:639
-msgid "Adress"
-msgstr ""
-
-#: index.php:650
-msgid "City"
+#: index.php:648
+#: index.php:649
+msgid "Order"
 msgstr ""
 
 #: index.php:661
-#: index.php:668
-msgid "Area code"
+msgid "Museum Settings"
 msgstr ""
 
 #: index.php:672
+msgid "Phone number"
+msgstr ""
+
+#: index.php:680
+#: index.php:756
+msgid "Adress Settings"
+msgstr ""
+
+#: index.php:690
+msgid "Adress"
+msgstr ""
+
+#: index.php:701
+msgid "City"
+msgstr ""
+
+#: index.php:712
+#: index.php:719
+msgid "Area code"
+msgstr ""
+
+#: index.php:723
 msgid "Map"
 msgstr ""
 
-#: index.php:735
+#: index.php:786
 msgid "Mark the location by clicking on the map or searching."
+msgstr ""
+
+#: index.php:794
+#: index.php:807
+msgid "Save changes"
+msgstr ""
+
+#: index.php:801
+msgid "Change the order of services by draging or clicking the arrows"
+msgstr ""
+
+#: index.php:822
+msgid "You do not have access to edit this data"
+msgstr ""
+
+#: index.php:832
+msgid "No valid data found"
+msgstr ""
+
+#: index.php:846
+msgid "No valid data found for"
+msgstr ""
+
+#: index.php:856
+msgid "is not a service"
+msgstr ""
+
+#: index.php:868
+msgid "Saved"
 msgstr ""
 
 #: build/blocks/mptab_show_ex_ev/index.js:197
@@ -293,6 +327,21 @@ msgstr ""
 #: build/exhibition_meta.js:216
 #: build/exhibition_meta.js:119
 msgid "End alias"
+msgstr ""
+
+#: build/service_order.js:150
+#: build/service_order.js:66
+msgid "up"
+msgstr ""
+
+#: build/service_order.js:158
+#: build/service_order.js:66
+msgid "down"
+msgstr ""
+
+#: build/service_order.js:40810
+#: build/service_order.js:33060
+msgid "Loading ..."
 msgstr ""
 
 #: build/blocks/mptab_adress/block.json

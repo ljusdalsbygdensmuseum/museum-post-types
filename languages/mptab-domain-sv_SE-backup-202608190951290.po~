@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-04-16T11:20:29+02:00\n"
-"PO-Revision-Date: 2026-08-19 09:51+0000\n"
+"PO-Revision-Date: 2026-08-19 09:46+0000\n"
 "Language: sv_SE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: mptab-domain\n"
@@ -107,10 +107,6 @@ msgstr "Telefonnummer"
 msgctxt "block title"
 msgid "Services"
 msgstr "Verksamheter"
-
-#: index.php:801
-msgid "Change the order of services by draging or clicking the arrows"
-msgstr "Ändra ordningen av verksamheter genom att dra eller klicka på pilarna"
 
 #: index.php:701
 msgid "City"
@@ -294,7 +290,7 @@ msgstr "Läs mer"
 msgid "Right now"
 msgstr "Just nu"
 
-#: index.php:794 index.php:807
+#: index.php:807
 msgid "Save changes"
 msgstr "Spara ändringar"
 

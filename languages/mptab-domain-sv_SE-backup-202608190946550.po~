@@ -9,38 +9,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-04-16T11:20:29+02:00\n"
-"PO-Revision-Date: 2026-08-19 09:51+0000\n"
+"PO-Revision-Date: 2026-05-18 09:25+0000\n"
 "Language: sv_SE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: mptab-domain\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.8.4; wp-6.9.4; php-8.3.29"
 
-#: build/event_meta.js:281 build/event_meta.js:166
-msgid "Add More"
-msgstr "Lägg till mer"
-
-#: index.php:50 index.php:70 index.php:90
+#: index.php:49 index.php:69 index.php:89
 msgid "Add new"
 msgstr "Lägg till ny"
 
-#: index.php:690
+#: index.php:639
 msgid "Adress"
 msgstr "Adress"
 
-#: index.php:680 index.php:756
+#: index.php:629 index.php:705
 msgid "Adress Settings"
 msgstr "Adress inställningar"
 
-#: index.php:55 index.php:75 index.php:95
+#: index.php:54 index.php:74 index.php:94
 msgid "All"
 msgstr "Alla"
 
-#: index.php:56 index.php:76 index.php:96
-msgid "archive"
-msgstr "arkiv"
-
-#: index.php:712 index.php:719
+#: index.php:661 index.php:668
 msgid "Area code"
 msgstr "Post nummer"
 
@@ -54,11 +46,6 @@ msgstr "Visa en karta"
 msgctxt "block description"
 msgid "Display current and comming Events and exhibitions"
 msgstr "Visa event och utställningar som händer nu eller senare"
-
-#: build/blocks/mptab_dates/block.json src/blocks/mptab_dates/block.json
-msgctxt "block description"
-msgid "Display dates for this Event"
-msgstr "Visa datum för event"
 
 #: build/blocks/mptab_adress/block.json src/blocks/mptab_adress/block.json
 msgctxt "block description"
@@ -80,11 +67,6 @@ msgstr "Visa dina verksamheter"
 msgctxt "block title"
 msgid "Adress"
 msgstr "Adress"
-
-#: build/blocks/mptab_dates/block.json src/blocks/mptab_dates/block.json
-msgctxt "block title"
-msgid "Event dates"
-msgstr "Event datum"
 
 #: build/blocks/mptab_show_ex_ev/block.json
 #: src/blocks/mptab_show_ex_ev/block.json
@@ -108,87 +90,51 @@ msgctxt "block title"
 msgid "Services"
 msgstr "Verksamheter"
 
-#: index.php:801
-msgid "Change the order of services by draging or clicking the arrows"
-msgstr "Ändra ordningen av verksamheter genom att dra eller klicka på pilarna"
-
-#: index.php:701
+#: index.php:650
 msgid "City"
 msgstr "Ort"
 
-#: build/blocks/mptab_show_ex_ev/index.js:273
-#: build/blocks/mptab_show_ex_ev/view.js:178
-#: build/blocks/mptab_show_ex_ev/index.js:131
-#: build/blocks/mptab_show_ex_ev/view.js:72
-msgid "Coming"
-msgstr "Kommande"
-
-#: index.php:120 index.php:124
+#: index.php:119 index.php:123
 msgid "Dates"
 msgstr "Datum"
 
-#: build/service_order.js:158 build/service_order.js:66
-msgid "down"
-msgstr "ned"
-
-#: index.php:51 index.php:71 index.php:91
+#: index.php:50 index.php:70 index.php:90
 msgid "Edit"
 msgstr "Ändra"
 
-#: build/event_meta.js:243 build/event_meta.js:142
-msgid "End"
-msgstr "Slut"
-
-#: build/exhibition_meta.js:216 build/exhibition_meta.js:119
-msgid "End alias"
-msgstr "Slut Alias"
-
-#: index.php:69 index.php:76
+#: index.php:68 index.php:75
 msgid "Event"
 msgstr "Event"
 
-#: index.php:70 index.php:71 index.php:72
+#: index.php:69 index.php:70 index.php:71
 msgid "event"
 msgstr "event"
 
-#: index.php:68
+#: index.php:67
 msgid "Events"
 msgstr "Event"
 
-#: index.php:73 index.php:74 index.php:75 index.php:78
+#: index.php:72 index.php:73 index.php:74 index.php:77
 msgid "events"
 msgstr "event"
 
-#: build/event_meta.js:50 build/exhibition_meta.js:50 build/event_meta.js:18
-#: build/exhibition_meta.js:18
-msgid "Ex. october, autumn or 3:rd quarter"
-msgstr "Ex. oktober, hösten, 3e kvartalet"
-
-#: index.php:49 index.php:56
+#: index.php:48 index.php:55
 msgid "Exhibition"
 msgstr "Utställning"
 
-#: index.php:50 index.php:51 index.php:52
+#: index.php:49 index.php:50 index.php:51
 msgid "exhibition"
 msgstr "utställning"
 
-#: build/exhibition_meta.js:204 build/exhibition_meta.js:107
-msgid "Exhibition Dates"
-msgstr "Utställnings datum"
-
-#: index.php:48
+#: index.php:47
 msgid "Exhibitions"
 msgstr "Utställningar"
 
-#: index.php:53 index.php:54 index.php:55 index.php:58
+#: index.php:52 index.php:53 index.php:54 index.php:57
 msgid "exhibitions"
 msgstr "utställningar"
 
-#: index.php:137 index.php:173
-msgid "High"
-msgstr "Hög"
-
-#: index.php:123
+#: index.php:122
 msgid "Hours"
 msgstr "Tider"
 
@@ -197,84 +143,90 @@ msgstr "Tider"
 msgid "Ina Eklund"
 msgstr "Ina Eklund"
 
-#: index.php:856
-msgid "is not a service"
-msgstr "är inte en verksamhet"
-
-#: build/service_order.js:40810 build/service_order.js:33060
-msgid "Loading ..."
-msgstr "Laddar ..."
-
-#: index.php:135 index.php:171
-msgid "Low"
-msgstr "Låg"
-
-#: index.php:723
+#: index.php:672
 msgid "Map"
 msgstr "Karta"
 
-#: index.php:786
+#: index.php:735
 msgid "Mark the location by clicking on the map or searching."
 msgstr "Markera platsen genom att klicka på kartan eller söka."
-
-#: index.php:136 index.php:172
-msgid "Medium"
-msgstr "Mellan"
 
 #. Plugin Name of the plugin
 #: index.php
 msgid "Museum post types"
 msgstr "Museums post typer"
 
-#: index.php:661
+#: index.php:610
 msgid "Museum Settings"
 msgstr "Museums Inställningar"
 
-#: index.php:636 index.php:637
+#: index.php:595 index.php:596
 msgid "Museum settings"
 msgstr "Museums inställningar"
 
-#: build/event_meta.js:49 build/exhibition_meta.js:49 build/event_meta.js:18
-#: build/exhibition_meta.js:18
-msgid "Name Alias"
-msgstr "Namn alias"
-
-#: index.php:52 index.php:72 index.php:92
+#: index.php:51 index.php:71 index.php:91
 msgid "New"
 msgstr "Ny"
 
-#: index.php:832
-msgid "No valid data found"
-msgstr "Ingen data funnen"
-
-#: index.php:846
-msgid "No valid data found for"
-msgstr "Ingen data funnen för"
-
-#: index.php:648 index.php:649
-msgid "Order"
-msgstr "Ordning"
-
-#: build/exhibition_meta.js:194 build/exhibition_meta.js:102
-msgid "Permanent exhibition"
-msgstr "Permanent utställning"
-
-#: index.php:672
+#: index.php:621
 msgid "Phone number"
 msgstr "Telefonnummer"
-
-#: index.php:134 index.php:170
-msgid "Pick an option"
-msgstr "Välj"
 
 #. Description of the plugin
 #: index.php
 msgid "Posttypes and blocks that fit any museum"
 msgstr "Post typer och block som passar vilket museum som helst"
 
-#: index.php:119 index.php:122
+#: index.php:53 index.php:73 index.php:93
+msgid "Search"
+msgstr "Sök"
+
+#: index.php:88 index.php:95
+msgid "Service"
+msgstr "Verksamhet"
+
+#: index.php:89 index.php:90 index.php:91
+msgid "service"
+msgstr "verksamhet"
+
+#: index.php:87 build/blocks/mptab_show_services/index.js:254
+#: build/blocks/mptab_show_services/view.js:161
+#: build/blocks/mptab_show_services/index.js:125
+#: build/blocks/mptab_show_services/view.js:66
+msgid "Services"
+msgstr "Verksamheter"
+
+#: index.php:92 index.php:93 index.php:94 index.php:97
+msgid "services"
+msgstr "verksamheter"
+
+#: index.php:52 index.php:72 index.php:92
+msgid "View"
+msgstr "Kolla"
+
+#: index.php:55 index.php:75 index.php:95
+msgid "archive"
+msgstr "arkiv"
+
+#: index.php:118 index.php:121
 msgid "Priority"
 msgstr "Prioritet"
+
+#: index.php:133 index.php:169
+msgid "Pick an option"
+msgstr "Välj"
+
+#: index.php:134 index.php:170
+msgid "Low"
+msgstr "Låg"
+
+#: index.php:135 index.php:171
+msgid "Medium"
+msgstr "Mellan"
+
+#: index.php:136 index.php:172
+msgid "High"
+msgstr "Hög"
 
 #: build/blocks/mptab_show_ex_ev/index.js:197
 #: build/blocks/mptab_show_ex_ev/view.js:102
@@ -294,58 +246,62 @@ msgstr "Läs mer"
 msgid "Right now"
 msgstr "Just nu"
 
-#: index.php:794 index.php:807
-msgid "Save changes"
-msgstr "Spara ändringar"
+#: build/blocks/mptab_show_ex_ev/index.js:273
+#: build/blocks/mptab_show_ex_ev/view.js:178
+#: build/blocks/mptab_show_ex_ev/index.js:131
+#: build/blocks/mptab_show_ex_ev/view.js:72
+msgid "Coming"
+msgstr "Kommande"
 
-#: index.php:868
-msgid "Saved"
-msgstr "Sparad"
+#: build/event_meta.js:49 build/exhibition_meta.js:49 build/event_meta.js:18
+#: build/exhibition_meta.js:18
+msgid "Name Alias"
+msgstr "Namn alias"
 
-#: index.php:54 index.php:74 index.php:94
-msgid "Search"
-msgstr "Sök"
-
-#: index.php:89 index.php:96
-msgid "Service"
-msgstr "Verksamhet"
-
-#: index.php:90 index.php:91 index.php:92
-msgid "service"
-msgstr "verksamhet"
-
-#: index.php:88 build/blocks/mptab_show_services/index.js:254
-#: build/blocks/mptab_show_services/view.js:161
-#: build/blocks/mptab_show_services/index.js:125
-#: build/blocks/mptab_show_services/view.js:66
-msgid "Services"
-msgstr "Verksamheter"
-
-#: index.php:93 index.php:94 index.php:95 index.php:98
-msgid "services"
-msgstr "verksamheter"
-
-#: build/event_meta.js:235 build/event_meta.js:140
-msgid "Start"
-msgstr "Början"
-
-#: build/exhibition_meta.js:211 build/exhibition_meta.js:113
-msgid "Start alias"
-msgstr "Börja alias"
-
-#: build/service_order.js:150 build/service_order.js:66
-msgid "up"
-msgstr "upp"
+#: build/event_meta.js:50 build/exhibition_meta.js:50 build/event_meta.js:18
+#: build/exhibition_meta.js:18
+msgid "Ex. october, autumn or 3:rd quarter"
+msgstr "Ex. oktober, hösten, 3e kvartalet"
 
 #: build/event_meta.js:52 build/exhibition_meta.js:52 build/event_meta.js:18
 #: build/exhibition_meta.js:18
 msgid "Use alias"
 msgstr "Använd alias"
 
-#: index.php:53 index.php:73 index.php:93
-msgid "View"
-msgstr "Kolla"
+#: build/event_meta.js:235 build/event_meta.js:140
+msgid "Start"
+msgstr "Början"
 
-#: index.php:822
-msgid "You do not have access to edit this data"
-msgstr "Du kan inte ändra den här datan"
+#: build/event_meta.js:243 build/event_meta.js:142
+msgid "End"
+msgstr "Slut"
+
+#: build/event_meta.js:281 build/event_meta.js:166
+msgid "Add More"
+msgstr "Lägg till mer"
+
+#: build/exhibition_meta.js:194 build/exhibition_meta.js:102
+msgid "Permanent exhibition"
+msgstr "Permanent utställning"
+
+#: build/exhibition_meta.js:204 build/exhibition_meta.js:107
+msgid "Exhibition Dates"
+msgstr "Utställnings datum"
+
+#: build/exhibition_meta.js:211 build/exhibition_meta.js:113
+msgid "Start alias"
+msgstr "Börja alias"
+
+#: build/exhibition_meta.js:216 build/exhibition_meta.js:119
+msgid "End alias"
+msgstr "Slut Alias"
+
+#: build/blocks/mptab_dates/block.json src/blocks/mptab_dates/block.json
+msgctxt "block title"
+msgid "Event dates"
+msgstr "Event datum"
+
+#: build/blocks/mptab_dates/block.json src/blocks/mptab_dates/block.json
+msgctxt "block description"
+msgid "Display dates for this Event"
+msgstr "Visa datum för event"

@@ -791,14 +791,14 @@ class PluginBoilerplate
 
     function service_order()
     {
-        if (isset($_POST['submit']) && $_POST['submit'] === 'Save changes') {
+        if (isset($_POST['submit']) && $_POST['submit'] === __('Save changes', 'mptab-domain')) {
             $this->service_order_save();
         }
 
     ?>
         <div class="wrap">
             <h1><?php _e('Service order') ?></h1>
-            <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows') ?></p>
+            <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows', 'mptab-domain') ?></p>
             <div id="mptab-service-order"></div>
             <form method="POST">
                 <?php wp_nonce_field('service_order_save', 'mptab_service_order_nonce') ?>
