@@ -8,6 +8,7 @@ module.exports = {
 		exhibition_meta: path.resolve(process.cwd(), 'src', 'exhibition_meta.tsx'),
 		event_meta: path.resolve(process.cwd(), 'src', 'event_meta.tsx'),
 		mptab_settings: path.resolve(process.cwd(), 'src', 'mptab_settings.tsx'),
+		service_order: path.resolve(process.cwd(), 'src', 'service_order.tsx'),
 	},
 	output: {
 		filename: '[name].js',

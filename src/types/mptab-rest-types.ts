@@ -53,6 +53,7 @@ export const ServiceObjectSchema = z.object({
 	title: z.string(),
 	exerpt: z.string(),
 	thumbnail: z.union([z.boolean(), z.string().url()]),
+	order: z.number(),
 })
 
 export const ServicesSchema = z.array(ServiceObjectSchema)

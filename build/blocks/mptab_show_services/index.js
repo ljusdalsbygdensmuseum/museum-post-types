@@ -364,7 +364,8 @@ const ServiceObjectSchema = zod__WEBPACK_IMPORTED_MODULE_0__["default"].object({
   url: zod__WEBPACK_IMPORTED_MODULE_0__["default"].string().url(),
   title: zod__WEBPACK_IMPORTED_MODULE_0__["default"].string(),
   exerpt: zod__WEBPACK_IMPORTED_MODULE_0__["default"].string(),
-  thumbnail: zod__WEBPACK_IMPORTED_MODULE_0__["default"].union([zod__WEBPACK_IMPORTED_MODULE_0__["default"].boolean(), zod__WEBPACK_IMPORTED_MODULE_0__["default"].string().url()])
+  thumbnail: zod__WEBPACK_IMPORTED_MODULE_0__["default"].union([zod__WEBPACK_IMPORTED_MODULE_0__["default"].boolean(), zod__WEBPACK_IMPORTED_MODULE_0__["default"].string().url()]),
+  order: zod__WEBPACK_IMPORTED_MODULE_0__["default"].number()
 });
 const ServicesSchema = zod__WEBPACK_IMPORTED_MODULE_0__["default"].array(ServiceObjectSchema);
 //Settings

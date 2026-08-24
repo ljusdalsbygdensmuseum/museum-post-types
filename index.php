@@ -23,6 +23,7 @@ class PluginBoilerplate
         //Save posts
         add_action('save_post_mptab_exhibition', array($this, 'save_exhibition_post'));
         add_action('save_post_mptab_event', array($this, 'save_event_post'));
+        add_action('save_post_mptab_service', array($this, 'save_service_post'));
 
         //enqueue
         add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
@@ -268,6 +269,17 @@ class PluginBoilerplate
         update_post_meta($postID, 'mptab-event_hour', $hour);
     }
 
+    function save_service_post($postID)
+    {
+        $order = get_post_meta($postID, 'mptab-service_order', true);
+
+        if (is_numeric($order)) {
+            update_post_meta($postID, 'mptab-service_order', $order);
+        } else {
+            update_post_meta($postID, 'mptab-service_order', 0);
+        }
+    }
+
     //Enqueue
 
     function admin_scripts($hook)
@@ -287,6 +299,22 @@ class PluginBoilerplate
             //Set translation
             wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
         }
+
+        //service order scripts
+        if ($hook == 'mptab_service_page_mptab-service-order') {
+            //Grab dependencies
+            $assets = include plugin_dir_path(__FILE__) . 'build/service_order.asset.php';
+
+            //Enqueue scripts
+            wp_enqueue_script('mptab-settings', plugin_dir_url(__FILE__) . 'build/service_order.js', $assets['dependencies'], $assets['version'], true);
+
+            //Enqueue styles
+            wp_enqueue_style('wp-components');
+
+            //Set translation
+            wp_set_script_translations('mptab-settings', 'mptab-domain', plugin_dir_path(__FILE__) . '/languages');
+        }
+
         //post editor scripts
         if ($hook != 'post.php' && $hook != 'post-new.php') {
             return;
@@ -566,6 +594,9 @@ class PluginBoilerplate
         $servicesQuery = new WP_Query(array(
             'post_type' => 'mptab_service',
             'posts_per_page' => -1,
+            'orderby' => 'meta_value',
+            'order' => 'ASC',
+            'meta_key' => 'mptab-service_order'
         ));
 
         $posts = [];
@@ -579,6 +610,7 @@ class PluginBoilerplate
                 'title' => get_the_title(),
                 'exerpt' => str_replace('[&hellip;]', '', get_the_excerpt()), // remove [...]
                 'thumbnail' => get_the_post_thumbnail_url(), // get image obj insted
+                'order' => intval(get_post_meta(get_the_ID(), 'mptab-service_order', true)),
             ));
         }
         return $posts;
@@ -599,6 +631,7 @@ class PluginBoilerplate
     //Sub page
     function init_admin_menu()
     {
+        // General settings
         add_menu_page(
             __('Museum settings', 'mptab-domain'),
             __('Museum settings', 'mptab-domain'),
@@ -607,6 +640,16 @@ class PluginBoilerplate
             array($this, 'mptab_settings'),
             'data:image/svg+xml;base64,' . base64_encode('<svg width="100%" height="100%" viewBox="0 0 2084 2084" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M1198.93,1187.78l-777.181,777.18c-12.429,12.43 -32.588,12.43 -45.017,0l-156.223,-156.222c-5.968,-5.968 -9.322,-14.068 -9.322,-22.509c-0.004,-8.444 3.354,-16.54 9.322,-22.509l78.675,-78.674l-288.04,-288.04c-12.432,-12.432 -12.432,-32.591 -0.003,-45.02l156.222,-156.223c5.969,-5.968 14.068,-9.323 22.509,-9.323c8.444,-0.003 16.54,3.355 22.512,9.327l288.04,288.039l40.687,-40.688l-287.917,-288.297c-12.426,-12.439 -12.41,-32.594 0.029,-45.021l156.322,-156.116c12.439,-12.426 32.595,-12.41 45.021,0.029l287.788,288.162l255.336,-255.335c-133.424,-223.292 -104.026,-517.078 88.197,-709.3c226.932,-226.933 595.411,-226.933 822.343,-0c226.933,226.932 226.933,595.41 0,822.343c-192.223,192.222 -486.009,221.62 -709.3,88.197Zm508.434,-709.674c-116.072,-116.072 -304.538,-116.072 -420.611,-0c-116.069,116.069 -116.072,304.538 0,420.61c116.073,116.072 304.542,116.069 420.611,0c116.072,-116.072 116.072,-304.538 -0,-420.61Z"/></svg>'),
             80
+        );
+
+        //Service order menu
+        add_submenu_page(
+            'edit.php?post_type=mptab_service',
+            __('Order', 'mptab-domain'),
+            __('Order', 'mptab-domain'),
+            'manage_options',
+            'mptab-service-order',
+            array($this, 'service_order')
         );
     }
 
@@ -743,7 +786,89 @@ class PluginBoilerplate
         <p id="mptab-settings-map-description" class="description"><?php _e('Mark the location by clicking on the map or searching.', 'mptab-domain') ?></p>
         <input name="mptab_latlng" type="text" value="<?php echo esc_attr(get_option('mptab_latlng')) ?>" style="display:none;">
         <div id="mptab-settings-adress-map"></div>
+    <?php
+    }
+
+    function service_order()
+    {
+        if (isset($_POST['submit']) && $_POST['submit'] === __('Save changes', 'mptab-domain')) {
+            $this->service_order_save();
+        }
+
+    ?>
+        <div class="wrap">
+            <h1><?php _e('Service order') ?></h1>
+            <p id="mptab-service-order-description" class="description"><?php _e('Change the order of services by draging or clicking the arrows', 'mptab-domain') ?></p>
+            <div id="mptab-service-order"></div>
+            <form method="POST">
+                <?php wp_nonce_field('service_order_save', 'mptab_service_order_nonce') ?>
+                <input id="mptab-service-order-data" name="mptab-service-order-data" type="text" value='<?php echo json_encode($this->rest_services()) ?>' style="display:none;">
+                <p class="submit">
+                    <input type="submit" name="submit" id="submit" value="<?php _e('Save changes', 'mptab-domain') ?>" class="button button-primary">
+                </p>
+
+            </form>
+        </div>
+
+
+        <?php
+    }
+    function service_order_save()
+    {
+        // check nonce and premissions
+        if (!isset($_POST['mptab_service_order_nonce']) || !wp_verify_nonce($_POST['mptab_service_order_nonce'], 'service_order_save') || !current_user_can('manage_options')) {
+        ?>
+            <div class="error">
+                <p><?php _e('You do not have access to edit this data', 'mptab-domain') ?></p>
+            </div>
+        <?php
+            return;
+        }
+
+        // check if there is any service order data and if it is valid json
+        if (!isset($_POST['mptab-service-order-data']) || !json_validate(stripslashes($_POST['mptab-service-order-data']))) {
+        ?>
+            <div class="error">
+                <p><?php _e('No valid data found', 'mptab-domain') ?></p>
+            </div>
+            <?php
+            return;
+        }
+
+        $data = $_POST['mptab-service-order-data'];
+        $data = stripslashes($data);
+        $data = json_decode($data, true);
+        foreach ($data as $item) {
+            // check if current service has valid id and order number
+            if (!isset($item['order']) || !($item['order'] || $item['order'] == 0) || !is_int($item['order']) || !isset($item['id']) || !$item['id'] || !is_int($item['id'])) {
+            ?>
+                <div class="error">
+                    <p><?php _e('No valid data found for', 'mptab-domain') ?>: <?php echo esc_html($item['title']) ?></p>
+                </div>
+            <?php
+                return;
+            }
+
+            // check if post exist and is service
+            if (!get_post_status($item['id']) || get_post_type($item['id']) != 'mptab_service') {
+            ?>
+                <div class="error">
+                    <p><?php echo esc_html($item['title']) ?> <?php _e('is not a service', 'mptab-domain') ?></p>
+                </div>
+        <?php
+                return;
+            }
+
+            // set order for current service
+            update_post_meta($item['id'], 'mptab-service_order', $item['order']);
+        }
+
+        ?>
+        <div class="updated">
+            <p><?php _e('Saved', 'mptab-domain') ?></p>
+        </div>
 <?php
+
     }
 }
 

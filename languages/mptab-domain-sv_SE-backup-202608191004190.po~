@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-04-16T11:20:29+02:00\n"
-"PO-Revision-Date: 2026-08-19 10:04+0000\n"
+"PO-Revision-Date: 2026-08-19 09:51+0000\n"
 "Language: sv_SE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: mptab-domain\n"
@@ -127,7 +127,7 @@ msgstr "Kommande"
 msgid "Dates"
 msgstr "Datum"
 
-#: build/service_order.js:156 build/service_order.js:66
+#: build/service_order.js:158 build/service_order.js:66
 msgid "down"
 msgstr "ned"
 
@@ -201,7 +201,7 @@ msgstr "Ina Eklund"
 msgid "is not a service"
 msgstr "är inte en verksamhet"
 
-#: build/service_order.js:40776 build/service_order.js:33051
+#: build/service_order.js:40810 build/service_order.js:33060
 msgid "Loading ..."
 msgstr "Laddar ..."
 
@@ -333,7 +333,7 @@ msgstr "Början"
 msgid "Start alias"
 msgstr "Börja alias"
 
-#: build/service_order.js:148 build/service_order.js:66
+#: build/service_order.js:150 build/service_order.js:66
 msgid "up"
 msgstr "upp"
 
@@ -342,10 +342,9 @@ msgstr "upp"
 msgid "Use alias"
 msgstr "Använd alias"
 
-#: index.php:53 index.php:73 index.php:93 build/service_order.js:165
-#: build/service_order.js:66
+#: index.php:53 index.php:73 index.php:93
 msgid "View"
-msgstr "Visa"
+msgstr "Kolla"
 
 #: index.php:822
 msgid "You do not have access to edit this data"
