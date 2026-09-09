@@ -22,7 +22,7 @@ export function MPTABDisplayAdress() {
 	}, [])
 
 	return (
-		<AnimatePresence>
+		<AnimatePresence mode='wait'>
 			{data ? (
 				<motion.span
 					initial={{ opacity: 0, y: 15 }}
@@ -34,10 +34,15 @@ export function MPTABDisplayAdress() {
 					{data.adress.areacode} {data.adress.city}
 				</motion.span>
 			) : (
-				<div className='mptab-adress__skeleton'>
+				<motion.div
+					initial={{ opacity: 1 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					className='mptab-adress__skeleton'
+				>
 					<div className='mptab-adress__skeleton-main'></div>
 					<div className='mptab-adress__skeleton-secondary'></div>
-				</div>
+				</motion.div>
 			)}
 		</AnimatePresence>
 	)

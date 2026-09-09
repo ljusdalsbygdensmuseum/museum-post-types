@@ -138,6 +138,7 @@ function MPTABDisplayAdress() {
     });
   }, []);
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_4__.AnimatePresence, {
+    mode: 'wait',
     children: data ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.span, {
       initial: {
         opacity: 0,
@@ -152,7 +153,16 @@ function MPTABDisplayAdress() {
         className: 'adress-main-line',
         children: data.adress.adress
       }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), data.adress.areacode, " ", data.adress.city]
-    }) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    }) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.div, {
+      initial: {
+        opacity: 1
+      },
+      animate: {
+        opacity: 1
+      },
+      exit: {
+        opacity: 0
+      },
       className: 'mptab-adress__skeleton',
       children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: 'mptab-adress__skeleton-main'
