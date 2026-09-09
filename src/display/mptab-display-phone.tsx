@@ -19,5 +19,13 @@ export function MPTABDisplayPhone() {
 			}
 		})
 	}, [])
-	return <>{data ? data.phone : null}</>
+	return (
+		<>
+			{data ? (
+				<span>{data.phone}</span>
+			) : (
+				<div className='mptab-phone__skeleton'></div>
+			)}
+		</>
+	)
 }
