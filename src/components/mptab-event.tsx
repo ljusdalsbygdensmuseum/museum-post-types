@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n'
+import { motion } from 'motion/react'
 
 import { EventObject } from '../types/mptab-rest-types'
 import { Dates } from '../types/mptab-date-types'
@@ -13,7 +14,12 @@ export function MPTABEvent({ item }: Props) {
 	const img =
 		item.thumbnail && item.thumbnail != true ? item.thumbnail : defaultImg
 	return (
-		<div className='mptab_event mptab_event_display mptab_event_display_min'>
+		<motion.div
+			initial={{ opacity: 0, y: 15 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: '-20px' }}
+			className='mptab_event mptab_event_display mptab_event_display_min'
+		>
 			<div
 				className=' mptab_event_display_img'
 				style={{ backgroundImage: `url(${img})` }}
@@ -47,6 +53,6 @@ export function MPTABEvent({ item }: Props) {
 					</a>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }

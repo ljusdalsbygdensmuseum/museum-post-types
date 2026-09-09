@@ -190,8 +190,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mptab_date__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mptab-date */ "./src/components/mptab-date.tsx");
-/* harmony import */ var _img_default_event_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../img/default_event.png */ "./img/default_event.png");
+/* harmony import */ var motion_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion/react */ "./node_modules/motion/dist/es/react.mjs");
+/* harmony import */ var _mptab_date__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mptab-date */ "./src/components/mptab-date.tsx");
+/* harmony import */ var _img_default_event_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../img/default_event.png */ "./img/default_event.png");
+
 
 
 
@@ -199,8 +201,20 @@ __webpack_require__.r(__webpack_exports__);
 function MPTABEvent({
   item
 }) {
-  const img = item.thumbnail && item.thumbnail != true ? item.thumbnail : _img_default_event_png__WEBPACK_IMPORTED_MODULE_3__;
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  const img = item.thumbnail && item.thumbnail != true ? item.thumbnail : _img_default_event_png__WEBPACK_IMPORTED_MODULE_4__;
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_2__.motion.div, {
+    initial: {
+      opacity: 0,
+      y: 15
+    },
+    whileInView: {
+      opacity: 1,
+      y: 0
+    },
+    viewport: {
+      once: true,
+      margin: '-20px'
+    },
     className: 'mptab_event mptab_event_display mptab_event_display_min',
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: ' mptab_event_display_img',
@@ -216,7 +230,7 @@ function MPTABEvent({
           children: item.title
         }), (item.post_type == 'mptab_exhibition' || item.post_type == 'mptab_event') && item.dates != null && item.alias != null && !item.permanent ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
           className: 'mptab_event_display_date',
-          children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mptab_date__WEBPACK_IMPORTED_MODULE_2__.MPTABDate, {
+          children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mptab_date__WEBPACK_IMPORTED_MODULE_3__.MPTABDate, {
             post_type: item.post_type,
             dates: item.dates,
             alias: item.alias
