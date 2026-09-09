@@ -5,6 +5,7 @@ import { __ } from '@wordpress/i18n'
 import { MPTABEvent } from '../components/mptab-event'
 
 import { ServicesSchema, Services } from '../types/mptab-rest-types'
+import { AnimatedTitle } from '../components/mptab-animated-title'
 
 export function MPTABDisplayServices() {
 	const defaultData: Services = []
@@ -28,7 +29,7 @@ export function MPTABDisplayServices() {
 
 	return (
 		<section>
-			<h2>{__('Services', 'mptab-domain')}</h2>
+			<AnimatedTitle text={__('Services', 'mptab-domain')} />
 			{services}
 		</section>
 	)
