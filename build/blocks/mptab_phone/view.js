@@ -12,43 +12,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   MPTABDisplayPhone: () => (/* binding */ MPTABDisplayPhone)
 /* harmony export */ });
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
+
 
 
 
 function MPTABDisplayPhone() {
-  const defaultData = {
-    phone: '',
-    adress: {
-      adress: '',
-      city: '',
-      areacode: '',
-      latlng: {
-        lat: 0,
-        lng: 0
-      }
-    }
-  };
-  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(defaultData);
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
   //get the rest data
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
       path: 'mptab/v1/settings'
     }).then(restData => {
       if (typeof restData == 'object' && restData != undefined) {
-        if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_2__.SettingsSchema.safeParse(restData).success) {
-          setData(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_2__.SettingsSchema.parse(restData));
+        if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.SettingsSchema.safeParse(restData).success) {
+          setData(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.SettingsSchema.parse(restData));
         } else {
-          console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_2__.SettingsSchema.safeParse(restData));
+          console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.SettingsSchema.safeParse(restData));
         }
       }
     });
   }, []);
-  return data.phone;
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: data ? data.phone : null
+  });
 }
 
 /***/ },

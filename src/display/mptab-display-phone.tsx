@@ -5,16 +5,7 @@ import { __ } from '@wordpress/i18n'
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
 export function MPTABDisplayPhone() {
-	const defaultData: Settings = {
-		phone: '',
-		adress: {
-			adress: '',
-			city: '',
-			areacode: '',
-			latlng: { lat: 0, lng: 0 },
-		},
-	}
-	const [data, setData] = useState(defaultData)
+	const [data, setData] = useState<Settings | null>(null)
 
 	//get the rest data
 	useEffect(() => {
@@ -28,5 +19,5 @@ export function MPTABDisplayPhone() {
 			}
 		})
 	}, [])
-	return data.phone
+	return <>{data ? data.phone : null}</>
 }
