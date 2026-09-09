@@ -9,6 +9,7 @@ import {
 	CurentCommingEventSchema,
 	CurentCommingEvent,
 } from '../types/mptab-rest-types'
+import { AnimatedTitle } from '../components/mptab-animated-title'
 
 interface Props {
 	path: string
@@ -39,24 +40,11 @@ export function MPTABDisplayEvent({ path }: Props) {
 		return <MPTABEvent item={item} />
 	})
 
-	//motion variants
-	const motionHeading = {
-		initial: { opacity: 0, y: 15 },
-		visible: { opacity: 1, y: 0 },
-	}
-
 	return (
 		<section>
 			{current.length ? (
 				<div className='mptab_event_display_current'>
-					<motion.h2
-						variants={motionHeading}
-						initial={'initial'}
-						whileInView={'visible'}
-						viewport={{ once: true, margin: '-20px' }}
-					>
-						{__('Right now', 'mptab-domain')}
-					</motion.h2>
+					<AnimatedTitle text={__('Right now', 'mptab-domain')} />
 					{current}
 				</div>
 			) : (
@@ -64,14 +52,7 @@ export function MPTABDisplayEvent({ path }: Props) {
 			)}
 			{comming.length ? (
 				<div className='mptab_event_display_comming'>
-					<motion.h2
-						variants={motionHeading}
-						initial={'initial'}
-						whileInView={'visible'}
-						viewport={{ once: true, margin: '-20px' }}
-					>
-						{__('Coming', 'mptab-domain')}
-					</motion.h2>
+					<AnimatedTitle text={__('Coming', 'mptab-domain')} />
 					{comming}
 				</div>
 			) : (

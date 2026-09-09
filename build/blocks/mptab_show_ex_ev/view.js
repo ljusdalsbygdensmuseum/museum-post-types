@@ -2,6 +2,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/mptab-animated-title.tsx"
+/*!*************************************************!*\
+  !*** ./src/components/mptab-animated-title.tsx ***!
+  \*************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnimatedTitle: () => (/* binding */ AnimatedTitle)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var motion_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion/react */ "./node_modules/motion/dist/es/react.mjs");
+
+
+function AnimatedTitle({
+  text
+}) {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_1__.motion.h2, {
+    initial: {
+      opacity: 0,
+      y: 15
+    },
+    whileInView: {
+      opacity: 1,
+      y: 0
+    },
+    viewport: {
+      once: true,
+      margin: '-20px'
+    },
+    children: text
+  });
+}
+
+/***/ },
+
 /***/ "./src/components/mptab-date.tsx"
 /*!***************************************!*\
   !*** ./src/components/mptab-date.tsx ***!
@@ -126,9 +163,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var motion_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! motion/react */ "./node_modules/motion/dist/es/react.mjs");
-/* harmony import */ var _components_mptab_event__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/mptab-event */ "./src/components/mptab-event.tsx");
-/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
+/* harmony import */ var _components_mptab_event__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/mptab-event */ "./src/components/mptab-event.tsx");
+/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
+/* harmony import */ var _components_mptab_animated_title__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/mptab-animated-title */ "./src/components/mptab-animated-title.tsx");
 
 
 
@@ -150,59 +187,34 @@ function MPTABDisplayEvent({
       path: path
     }).then(restData => {
       if (typeof restData == 'object' && restData != undefined) {
-        if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__.CurentCommingEventSchema.safeParse(restData).success) {
-          setData(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__.CurentCommingEventSchema.parse(restData));
+        if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__.CurentCommingEventSchema.safeParse(restData).success) {
+          setData(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__.CurentCommingEventSchema.parse(restData));
         } else {
-          console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_6__.CurentCommingEventSchema.safeParse(restData));
+          console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__.CurentCommingEventSchema.safeParse(restData));
         }
       }
     });
   }, []);
   const current = data.current.map(item => {
-    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_event__WEBPACK_IMPORTED_MODULE_5__.MPTABEvent, {
+    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_event__WEBPACK_IMPORTED_MODULE_4__.MPTABEvent, {
       item: item
     });
   });
   const comming = data.comming.map(item => {
-    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_event__WEBPACK_IMPORTED_MODULE_5__.MPTABEvent, {
+    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_event__WEBPACK_IMPORTED_MODULE_4__.MPTABEvent, {
       item: item
     });
   });
-  //motion variants
-  const motionHeading = {
-    initial: {
-      opacity: 0,
-      y: 15
-    },
-    visible: {
-      opacity: 1,
-      y: 0
-    }
-  };
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
     children: [current.length ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: 'mptab_event_display_current',
-      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_4__.motion.h2, {
-        variants: motionHeading,
-        initial: 'initial',
-        whileInView: 'visible',
-        viewport: {
-          once: true,
-          margin: '-20px'
-        },
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Right now', 'mptab-domain')
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_animated_title__WEBPACK_IMPORTED_MODULE_6__.AnimatedTitle, {
+        text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Right now', 'mptab-domain')
       }), current]
     }) : '', comming.length ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: 'mptab_event_display_comming',
-      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_4__.motion.h2, {
-        variants: motionHeading,
-        initial: 'initial',
-        whileInView: 'visible',
-        viewport: {
-          once: true,
-          margin: '-20px'
-        },
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Coming', 'mptab-domain')
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_animated_title__WEBPACK_IMPORTED_MODULE_6__.AnimatedTitle, {
+        text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Coming', 'mptab-domain')
       }), comming]
     }) : '']
   });
