@@ -137,7 +137,14 @@ function MPTABDisplayAdress() {
     });
   }, []);
   if (!data) {
-    return;
+    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: 'mptab-adress__skeleton',
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: 'mptab-adress__skeleton-main'
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: 'mptab-adress__skeleton-secondary'
+      })]
+    });
   }
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.span, {
     initial: {

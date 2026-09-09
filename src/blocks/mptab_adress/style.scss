@@ -11,4 +11,19 @@
 	.adress-main-line {
 		font-size: var(--wp--preset--font-size--l);
 	}
+	.mptab-adress__skeleton {
+		div {
+			background-color: blue;
+			border-radius: 4px;
+		}
+		.mptab-adress__skeleton-main {
+			height: var(--wp--preset--font-size--l);
+			width: 80%;
+			margin-bottom: var(--wp--custom--gapo--xs);
+		}
+		.mptab-adress__skeleton-secondary {
+			height: var(--wp--preset--font-size--m);
+			width: 45%;
+		}
+	}
 }

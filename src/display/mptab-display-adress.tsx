@@ -22,7 +22,12 @@ export function MPTABDisplayAdress() {
 	}, [])
 
 	if (!data) {
-		return
+		return (
+			<div className='mptab-adress__skeleton'>
+				<div className='mptab-adress__skeleton-main'></div>
+				<div className='mptab-adress__skeleton-secondary'></div>
+			</div>
+		)
 	}
 
 	return (
