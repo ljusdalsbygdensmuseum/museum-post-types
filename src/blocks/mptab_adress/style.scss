@@ -13,7 +13,7 @@
 	}
 	.mptab-adress__skeleton {
 		div {
-			background-color: blue;
+			animation: skeleton 1s infinite;
 			border-radius: 4px;
 		}
 		.mptab-adress__skeleton-main {
@@ -24,6 +24,17 @@
 		.mptab-adress__skeleton-secondary {
 			height: var(--wp--preset--font-size--m);
 			width: 45%;
+		}
+	}
+	@keyframes skeleton {
+		0% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
+		}
+		50% {
+			background-color: rgba($color: #fff, $alpha: 0.2);
+		}
+		100% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
 		}
 	}
 }
