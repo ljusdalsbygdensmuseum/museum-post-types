@@ -1,7 +1,7 @@
 import apiFetch from '@wordpress/api-fetch'
 import { useState, useEffect } from 'react'
 import { __ } from '@wordpress/i18n'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
@@ -21,24 +21,24 @@ export function MPTABDisplayAdress() {
 		})
 	}, [])
 
-	if (!data) {
-		return (
-			<div className='mptab-adress__skeleton'>
-				<div className='mptab-adress__skeleton-main'></div>
-				<div className='mptab-adress__skeleton-secondary'></div>
-			</div>
-		)
-	}
-
 	return (
-		<motion.span
-			initial={{ opacity: 0, y: 15 }}
-			animate={{ opacity: 1, y: 0 }}
-			className='mptab-adress__text'
-		>
-			<strong className='adress-main-line'>{data.adress.adress}</strong>
-			<br />
-			{data.adress.areacode} {data.adress.city}
-		</motion.span>
+		<AnimatePresence>
+			{data ? (
+				<motion.span
+					initial={{ opacity: 0, y: 15 }}
+					animate={{ opacity: 1, y: 0 }}
+					className='mptab-adress__text'
+				>
+					<strong className='adress-main-line'>{data.adress.adress}</strong>
+					<br />
+					{data.adress.areacode} {data.adress.city}
+				</motion.span>
+			) : (
+				<div className='mptab-adress__skeleton'>
+					<div className='mptab-adress__skeleton-main'></div>
+					<div className='mptab-adress__skeleton-secondary'></div>
+				</div>
+			)}
+		</AnimatePresence>
 	)
 }

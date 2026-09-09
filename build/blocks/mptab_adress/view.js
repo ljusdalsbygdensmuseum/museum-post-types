@@ -19,7 +19,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var motion_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion/react */ "./node_modules/motion/dist/es/react.mjs");
-/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
+/* harmony import */ var motion_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! motion/react */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs");
+/* harmony import */ var _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../types/mptab-rest-types */ "./src/types/mptab-rest-types.ts");
 
 
 
@@ -33,38 +34,37 @@ function MPTABDisplayAdress() {
       path: 'mptab/v1/settings'
     }).then(restData => {
       if (typeof restData == 'object' && restData != undefined) {
-        if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_4__.SettingsSchema.safeParse(restData).success) {
-          setData(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_4__.SettingsSchema.parse(restData));
+        if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__.SettingsSchema.safeParse(restData).success) {
+          setData(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__.SettingsSchema.parse(restData));
         } else {
-          console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_4__.SettingsSchema.safeParse(restData));
+          console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_5__.SettingsSchema.safeParse(restData));
         }
       }
     });
   }, []);
-  if (!data) {
-    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_4__.AnimatePresence, {
+    children: data ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.span, {
+      initial: {
+        opacity: 0,
+        y: 15
+      },
+      animate: {
+        opacity: 1,
+        y: 0
+      },
+      className: 'mptab-adress__text',
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+        className: 'adress-main-line',
+        children: data.adress.adress
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), data.adress.areacode, " ", data.adress.city]
+    }) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: 'mptab-adress__skeleton',
       children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: 'mptab-adress__skeleton-main'
       }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: 'mptab-adress__skeleton-secondary'
       })]
-    });
-  }
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.span, {
-    initial: {
-      opacity: 0,
-      y: 15
-    },
-    animate: {
-      opacity: 1,
-      y: 0
-    },
-    className: 'mptab-adress__text',
-    children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
-      className: 'adress-main-line',
-      children: data.adress.adress
-    }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), data.adress.areacode, " ", data.adress.city]
+    })
   });
 }
 
@@ -259,13 +259,394 @@ module.exports = window["wp"]["element"];
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* empty/unused harmony star reexport */
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnimatePresence: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.AnimatePresence),
+/* harmony export */   AnimateSharedLayout: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.AnimateSharedLayout),
+/* harmony export */   AsyncMotionValueAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.AsyncMotionValueAnimation),
+/* harmony export */   DOMKeyframesResolver: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.DOMKeyframesResolver),
+/* harmony export */   DOMVisualElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.DOMVisualElement),
+/* harmony export */   DeprecatedLayoutGroupContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.DeprecatedLayoutGroupContext),
+/* harmony export */   DocumentProjectionNode: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.DocumentProjectionNode),
+/* harmony export */   DragControls: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.DragControls),
+/* harmony export */   Feature: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.Feature),
+/* harmony export */   FlatTree: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.FlatTree),
+/* harmony export */   GroupAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.GroupAnimation),
+/* harmony export */   GroupAnimationWithThen: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.GroupAnimationWithThen),
+/* harmony export */   HTMLProjectionNode: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.HTMLProjectionNode),
+/* harmony export */   HTMLVisualElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.HTMLVisualElement),
+/* harmony export */   JSAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.JSAnimation),
+/* harmony export */   KeyframeResolver: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.KeyframeResolver),
+/* harmony export */   LayoutAnimationBuilder: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.LayoutAnimationBuilder),
+/* harmony export */   LayoutGroup: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.LayoutGroup),
+/* harmony export */   LayoutGroupContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.LayoutGroupContext),
+/* harmony export */   LazyMotion: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.LazyMotion),
+/* harmony export */   MotionConfig: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.MotionConfig),
+/* harmony export */   MotionConfigContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.MotionConfigContext),
+/* harmony export */   MotionContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.MotionContext),
+/* harmony export */   MotionGlobalConfig: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.MotionGlobalConfig),
+/* harmony export */   MotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.MotionValue),
+/* harmony export */   NativeAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.NativeAnimation),
+/* harmony export */   NativeAnimationExtended: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.NativeAnimationExtended),
+/* harmony export */   NativeAnimationWrapper: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.NativeAnimationWrapper),
+/* harmony export */   NodeStack: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.NodeStack),
+/* harmony export */   ObjectVisualElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.ObjectVisualElement),
+/* harmony export */   PopChild: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.PopChild),
+/* harmony export */   PresenceChild: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.PresenceChild),
+/* harmony export */   PresenceContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.PresenceContext),
+/* harmony export */   Reorder: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.Reorder),
+/* harmony export */   SVGVisualElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.SVGVisualElement),
+/* harmony export */   SubscriptionManager: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.SubscriptionManager),
+/* harmony export */   SwitchLayoutGroupContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.SwitchLayoutGroupContext),
+/* harmony export */   ViewTransitionBuilder: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.ViewTransitionBuilder),
+/* harmony export */   VisualElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.VisualElement),
+/* harmony export */   WillChangeMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.WillChangeMotionValue),
+/* harmony export */   acceleratedValues: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.acceleratedValues),
+/* harmony export */   addAttrValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addAttrValue),
+/* harmony export */   addDomEvent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addDomEvent),
+/* harmony export */   addPointerEvent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addPointerEvent),
+/* harmony export */   addPointerInfo: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addPointerInfo),
+/* harmony export */   addScaleCorrector: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addScaleCorrector),
+/* harmony export */   addStyleValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addStyleValue),
+/* harmony export */   addUniqueItem: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addUniqueItem),
+/* harmony export */   addValueToWillChange: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.addValueToWillChange),
+/* harmony export */   alpha: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.alpha),
+/* harmony export */   analyseComplexValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.analyseComplexValue),
+/* harmony export */   animate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animate),
+/* harmony export */   animateMini: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateMini),
+/* harmony export */   animateMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateMotionValue),
+/* harmony export */   animateSingleValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateSingleValue),
+/* harmony export */   animateTarget: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateTarget),
+/* harmony export */   animateValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateValue),
+/* harmony export */   animateVariant: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateVariant),
+/* harmony export */   animateView: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateView),
+/* harmony export */   animateVisualElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animateVisualElement),
+/* harmony export */   animationControls: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animationControls),
+/* harmony export */   animationMapKey: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animationMapKey),
+/* harmony export */   animations: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.animations),
+/* harmony export */   anticipate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.anticipate),
+/* harmony export */   applyAxisDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.applyAxisDelta),
+/* harmony export */   applyBoxDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.applyBoxDelta),
+/* harmony export */   applyGeneratorOptions: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.applyGeneratorOptions),
+/* harmony export */   applyPointDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.applyPointDelta),
+/* harmony export */   applyPxDefaults: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.applyPxDefaults),
+/* harmony export */   applyTreeDeltas: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.applyTreeDeltas),
+/* harmony export */   arc: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.arc),
+/* harmony export */   aspectRatio: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.aspectRatio),
+/* harmony export */   attachFollow: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.attachFollow),
+/* harmony export */   attachSpring: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.attachSpring),
+/* harmony export */   attrEffect: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.attrEffect),
+/* harmony export */   axisDeltaEquals: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.axisDeltaEquals),
+/* harmony export */   axisEquals: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.axisEquals),
+/* harmony export */   axisEqualsRounded: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.axisEqualsRounded),
+/* harmony export */   backIn: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.backIn),
+/* harmony export */   backInOut: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.backInOut),
+/* harmony export */   backOut: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.backOut),
+/* harmony export */   boxEquals: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.boxEquals),
+/* harmony export */   boxEqualsRounded: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.boxEqualsRounded),
+/* harmony export */   buildHTMLStyles: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.buildHTMLStyles),
+/* harmony export */   buildProjectionTransform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.buildProjectionTransform),
+/* harmony export */   buildSVGAttrs: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.buildSVGAttrs),
+/* harmony export */   buildSVGPath: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.buildSVGPath),
+/* harmony export */   buildTransform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.buildTransform),
+/* harmony export */   calcAxisDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcAxisDelta),
+/* harmony export */   calcBoxDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcBoxDelta),
+/* harmony export */   calcChildStagger: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcChildStagger),
+/* harmony export */   calcGeneratorDuration: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcGeneratorDuration),
+/* harmony export */   calcLength: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcLength),
+/* harmony export */   calcRelativeAxis: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcRelativeAxis),
+/* harmony export */   calcRelativeAxisPosition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcRelativeAxisPosition),
+/* harmony export */   calcRelativeBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcRelativeBox),
+/* harmony export */   calcRelativePosition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.calcRelativePosition),
+/* harmony export */   camelCaseAttributes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.camelCaseAttributes),
+/* harmony export */   camelToDash: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.camelToDash),
+/* harmony export */   cancelFrame: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.cancelFrame),
+/* harmony export */   cancelMicrotask: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.cancelMicrotask),
+/* harmony export */   cancelSync: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.cancelSync),
+/* harmony export */   checkVariantsDidChange: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.checkVariantsDidChange),
+/* harmony export */   circIn: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.circIn),
+/* harmony export */   circInOut: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.circInOut),
+/* harmony export */   circOut: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.circOut),
+/* harmony export */   clamp: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.clamp),
+/* harmony export */   cleanDirtyNodes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.cleanDirtyNodes),
+/* harmony export */   collectMotionValues: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.collectMotionValues),
+/* harmony export */   color: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.color),
+/* harmony export */   compareByDepth: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.compareByDepth),
+/* harmony export */   complex: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.complex),
+/* harmony export */   containsCSSVariable: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.containsCSSVariable),
+/* harmony export */   convertBoundingBoxToBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.convertBoundingBoxToBox),
+/* harmony export */   convertBoxToBoundingBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.convertBoxToBoundingBox),
+/* harmony export */   convertOffsetToTimes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.convertOffsetToTimes),
+/* harmony export */   copyAxisDeltaInto: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.copyAxisDeltaInto),
+/* harmony export */   copyAxisInto: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.copyAxisInto),
+/* harmony export */   copyBoxInto: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.copyBoxInto),
+/* harmony export */   correctBorderRadius: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.correctBorderRadius),
+/* harmony export */   correctBoxShadow: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.correctBoxShadow),
+/* harmony export */   correctParentTransform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.correctParentTransform),
+/* harmony export */   createAnimationState: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createAnimationState),
+/* harmony export */   createAxis: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createAxis),
+/* harmony export */   createAxisDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createAxisDelta),
+/* harmony export */   createBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createBox),
+/* harmony export */   createDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createDelta),
+/* harmony export */   createGeneratorEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createGeneratorEasing),
+/* harmony export */   createProjectionNode: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createProjectionNode),
+/* harmony export */   createRenderBatcher: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createRenderBatcher),
+/* harmony export */   createScopedAnimate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.createScopedAnimate),
+/* harmony export */   cubicBezier: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.cubicBezier),
+/* harmony export */   cubicBezierAsString: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.cubicBezierAsString),
+/* harmony export */   defaultEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.defaultEasing),
+/* harmony export */   defaultOffset: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.defaultOffset),
+/* harmony export */   defaultTransformValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.defaultTransformValue),
+/* harmony export */   defaultValueTypes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.defaultValueTypes),
+/* harmony export */   degrees: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.degrees),
+/* harmony export */   delay: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.delay),
+/* harmony export */   delayInSeconds: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.delayInSeconds),
+/* harmony export */   dimensionValueTypes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.dimensionValueTypes),
+/* harmony export */   disableInstantTransitions: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.disableInstantTransitions),
+/* harmony export */   distance: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.distance),
+/* harmony export */   distance2D: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.distance2D),
+/* harmony export */   domAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.domAnimation),
+/* harmony export */   domMax: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.domMax),
+/* harmony export */   domMin: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.domMin),
+/* harmony export */   eachAxis: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.eachAxis),
+/* harmony export */   easeIn: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.easeIn),
+/* harmony export */   easeInOut: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.easeInOut),
+/* harmony export */   easeOut: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.easeOut),
+/* harmony export */   easingDefinitionToFunction: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.easingDefinitionToFunction),
+/* harmony export */   fillOffset: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.fillOffset),
+/* harmony export */   fillWildcards: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.fillWildcards),
+/* harmony export */   filterProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.filterProps),
+/* harmony export */   findDimensionValueType: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.findDimensionValueType),
+/* harmony export */   findValueType: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.findValueType),
+/* harmony export */   flushKeyframeResolvers: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.flushKeyframeResolvers),
+/* harmony export */   followValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.followValue),
+/* harmony export */   frame: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.frame),
+/* harmony export */   frameData: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.frameData),
+/* harmony export */   frameSteps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.frameSteps),
+/* harmony export */   generateLinearEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.generateLinearEasing),
+/* harmony export */   getAnimatableNone: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getAnimatableNone),
+/* harmony export */   getAnimationMap: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getAnimationMap),
+/* harmony export */   getComputedStyle: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getComputedStyle),
+/* harmony export */   getDefaultTransition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getDefaultTransition),
+/* harmony export */   getDefaultValueType: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getDefaultValueType),
+/* harmony export */   getEasingForSegment: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getEasingForSegment),
+/* harmony export */   getFeatureDefinitions: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getFeatureDefinitions),
+/* harmony export */   getFinalKeyframe: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getFinalKeyframe),
+/* harmony export */   getMixer: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getMixer),
+/* harmony export */   getOptimisedAppearId: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getOptimisedAppearId),
+/* harmony export */   getOriginIndex: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getOriginIndex),
+/* harmony export */   getValueAsType: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getValueAsType),
+/* harmony export */   getValueTransition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getValueTransition),
+/* harmony export */   getVariableValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getVariableValue),
+/* harmony export */   getVariantContext: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getVariantContext),
+/* harmony export */   getViewAnimationLayerInfo: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getViewAnimationLayerInfo),
+/* harmony export */   getViewAnimations: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.getViewAnimations),
+/* harmony export */   globalProjectionState: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.globalProjectionState),
+/* harmony export */   has2DTranslate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.has2DTranslate),
+/* harmony export */   hasReducedMotionListener: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hasReducedMotionListener),
+/* harmony export */   hasScale: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hasScale),
+/* harmony export */   hasTransform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hasTransform),
+/* harmony export */   hasWarned: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hasWarned),
+/* harmony export */   hex: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hex),
+/* harmony export */   hover: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hover),
+/* harmony export */   hsla: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hsla),
+/* harmony export */   hslaToRgba: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.hslaToRgba),
+/* harmony export */   inView: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.inView),
+/* harmony export */   inertia: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.inertia),
+/* harmony export */   initPrefersReducedMotion: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.initPrefersReducedMotion),
+/* harmony export */   interpolate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.interpolate),
+/* harmony export */   invariant: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.invariant),
+/* harmony export */   invisibleValues: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.invisibleValues),
+/* harmony export */   isAnimationControls: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isAnimationControls),
+/* harmony export */   isBezierDefinition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isBezierDefinition),
+/* harmony export */   isBrowser: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isBrowser),
+/* harmony export */   isCSSVariableName: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isCSSVariableName),
+/* harmony export */   isCSSVariableToken: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isCSSVariableToken),
+/* harmony export */   isControllingVariants: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isControllingVariants),
+/* harmony export */   isDeltaZero: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isDeltaZero),
+/* harmony export */   isDragActive: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isDragActive),
+/* harmony export */   isDragging: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isDragging),
+/* harmony export */   isEasingArray: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isEasingArray),
+/* harmony export */   isElementKeyboardAccessible: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isElementKeyboardAccessible),
+/* harmony export */   isElementTextInput: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isElementTextInput),
+/* harmony export */   isForcedMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isForcedMotionValue),
+/* harmony export */   isGenerator: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isGenerator),
+/* harmony export */   isHTMLElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isHTMLElement),
+/* harmony export */   isKeyframesTarget: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isKeyframesTarget),
+/* harmony export */   isMotionComponent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isMotionComponent),
+/* harmony export */   isMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isMotionValue),
+/* harmony export */   isNear: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isNear),
+/* harmony export */   isNodeOrChild: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isNodeOrChild),
+/* harmony export */   isNumericalString: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isNumericalString),
+/* harmony export */   isObject: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isObject),
+/* harmony export */   isPrimaryPointer: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isPrimaryPointer),
+/* harmony export */   isSVGElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isSVGElement),
+/* harmony export */   isSVGSVGElement: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isSVGSVGElement),
+/* harmony export */   isSVGTag: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isSVGTag),
+/* harmony export */   isTransitionDefined: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isTransitionDefined),
+/* harmony export */   isValidMotionProp: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isValidMotionProp),
+/* harmony export */   isVariantLabel: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isVariantLabel),
+/* harmony export */   isVariantNode: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isVariantNode),
+/* harmony export */   isWaapiSupportedEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isWaapiSupportedEasing),
+/* harmony export */   isWillChangeMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isWillChangeMotionValue),
+/* harmony export */   isZeroValueString: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.isZeroValueString),
+/* harmony export */   keyframes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.keyframes),
 /* harmony export */   m: () => (/* binding */ m),
-/* harmony export */   motion: () => (/* binding */ motion)
+/* harmony export */   makeAnimationInstant: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.makeAnimationInstant),
+/* harmony export */   makeUseVisualState: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.makeUseVisualState),
+/* harmony export */   mapEasingToNativeEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mapEasingToNativeEasing),
+/* harmony export */   mapValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mapValue),
+/* harmony export */   maxGeneratorDuration: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.maxGeneratorDuration),
+/* harmony export */   measurePageBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.measurePageBox),
+/* harmony export */   measureViewportBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.measureViewportBox),
+/* harmony export */   memo: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.memo),
+/* harmony export */   microtask: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.microtask),
+/* harmony export */   millisecondsToSeconds: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.millisecondsToSeconds),
+/* harmony export */   mirrorEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mirrorEasing),
+/* harmony export */   mix: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mix),
+/* harmony export */   mixArray: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixArray),
+/* harmony export */   mixColor: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixColor),
+/* harmony export */   mixComplex: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixComplex),
+/* harmony export */   mixImmediate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixImmediate),
+/* harmony export */   mixLinearColor: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixLinearColor),
+/* harmony export */   mixNumber: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixNumber),
+/* harmony export */   mixObject: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixObject),
+/* harmony export */   mixValues: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixValues),
+/* harmony export */   mixVisibility: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.mixVisibility),
+/* harmony export */   motion: () => (/* binding */ motion),
+/* harmony export */   motionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.motionValue),
+/* harmony export */   moveItem: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.moveItem),
+/* harmony export */   nodeGroup: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.nodeGroup),
+/* harmony export */   noop: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.noop),
+/* harmony export */   number: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.number),
+/* harmony export */   numberValueTypes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.numberValueTypes),
+/* harmony export */   observeTimeline: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.observeTimeline),
+/* harmony export */   optimizedAppearDataAttribute: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.optimizedAppearDataAttribute),
+/* harmony export */   optimizedAppearDataId: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.optimizedAppearDataId),
+/* harmony export */   parseAnimateLayoutArgs: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.parseAnimateLayoutArgs),
+/* harmony export */   parseCSSVariable: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.parseCSSVariable),
+/* harmony export */   parseValueFromTransform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.parseValueFromTransform),
+/* harmony export */   percent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.percent),
+/* harmony export */   pipe: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.pipe),
+/* harmony export */   pixelsToPercent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.pixelsToPercent),
+/* harmony export */   positionalKeys: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.positionalKeys),
+/* harmony export */   prefersReducedMotion: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.prefersReducedMotion),
+/* harmony export */   press: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.press),
+/* harmony export */   progress: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.progress),
+/* harmony export */   progressPercentage: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.progressPercentage),
+/* harmony export */   propEffect: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.propEffect),
+/* harmony export */   propagateDirtyNodes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.propagateDirtyNodes),
+/* harmony export */   px: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.px),
+/* harmony export */   readTransformValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.readTransformValue),
+/* harmony export */   recordStats: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.recordStats),
+/* harmony export */   removeAxisDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.removeAxisDelta),
+/* harmony export */   removeAxisTransforms: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.removeAxisTransforms),
+/* harmony export */   removeBoxTransforms: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.removeBoxTransforms),
+/* harmony export */   removeItem: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.removeItem),
+/* harmony export */   removePointDelta: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.removePointDelta),
+/* harmony export */   renderHTML: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.renderHTML),
+/* harmony export */   renderSVG: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.renderSVG),
+/* harmony export */   resize: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.resize),
+/* harmony export */   resolveElements: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.resolveElements),
+/* harmony export */   resolveMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.resolveMotionValue),
+/* harmony export */   resolveTransition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.resolveTransition),
+/* harmony export */   resolveVariant: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.resolveVariant),
+/* harmony export */   resolveVariantFromProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.resolveVariantFromProps),
+/* harmony export */   reverseEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.reverseEasing),
+/* harmony export */   rgbUnit: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.rgbUnit),
+/* harmony export */   rgba: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.rgba),
+/* harmony export */   rootProjectionNode: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.rootProjectionNode),
+/* harmony export */   scale: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scale),
+/* harmony export */   scaleCorrectors: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scaleCorrectors),
+/* harmony export */   scalePoint: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scalePoint),
+/* harmony export */   scrapeHTMLMotionValuesFromProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scrapeHTMLMotionValuesFromProps),
+/* harmony export */   scrapeSVGMotionValuesFromProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scrapeSVGMotionValuesFromProps),
+/* harmony export */   scroll: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scroll),
+/* harmony export */   scrollInfo: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.scrollInfo),
+/* harmony export */   secondsToMilliseconds: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.secondsToMilliseconds),
+/* harmony export */   setDragLock: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.setDragLock),
+/* harmony export */   setFeatureDefinitions: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.setFeatureDefinitions),
+/* harmony export */   setStyle: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.setStyle),
+/* harmony export */   setTarget: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.setTarget),
+/* harmony export */   spring: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.spring),
+/* harmony export */   springValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.springValue),
+/* harmony export */   stagger: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.stagger),
+/* harmony export */   startOptimizedAppearAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.startOptimizedAppearAnimation),
+/* harmony export */   startWaapiAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.startWaapiAnimation),
+/* harmony export */   statsBuffer: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.statsBuffer),
+/* harmony export */   steps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.steps),
+/* harmony export */   styleEffect: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.styleEffect),
+/* harmony export */   supportedWaapiEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportedWaapiEasing),
+/* harmony export */   supportsBrowserAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportsBrowserAnimation),
+/* harmony export */   supportsFlags: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportsFlags),
+/* harmony export */   supportsLinearEasing: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportsLinearEasing),
+/* harmony export */   supportsPartialKeyframes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportsPartialKeyframes),
+/* harmony export */   supportsScrollTimeline: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportsScrollTimeline),
+/* harmony export */   supportsViewTimeline: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.supportsViewTimeline),
+/* harmony export */   svgEffect: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.svgEffect),
+/* harmony export */   sync: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.sync),
+/* harmony export */   testValueType: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.testValueType),
+/* harmony export */   time: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.time),
+/* harmony export */   transform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transform),
+/* harmony export */   transformAxis: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformAxis),
+/* harmony export */   transformBox: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformBox),
+/* harmony export */   transformBoxPoints: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformBoxPoints),
+/* harmony export */   transformPropOrder: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformPropOrder),
+/* harmony export */   transformProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformProps),
+/* harmony export */   transformValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformValue),
+/* harmony export */   transformValueTypes: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformValueTypes),
+/* harmony export */   transformViewBoxPoint: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.transformViewBoxPoint),
+/* harmony export */   translateAxis: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.translateAxis),
+/* harmony export */   unwrapMotionComponent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.unwrapMotionComponent),
+/* harmony export */   updateMotionValuesFromProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.updateMotionValuesFromProps),
+/* harmony export */   useAnimate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useAnimate),
+/* harmony export */   useAnimateMini: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useAnimateMini),
+/* harmony export */   useAnimation: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useAnimation),
+/* harmony export */   useAnimationControls: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useAnimationControls),
+/* harmony export */   useAnimationFrame: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useAnimationFrame),
+/* harmony export */   useComposedRefs: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useComposedRefs),
+/* harmony export */   useCycle: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useCycle),
+/* harmony export */   useDeprecatedAnimatedState: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useDeprecatedAnimatedState),
+/* harmony export */   useDeprecatedInvertedScale: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useDeprecatedInvertedScale),
+/* harmony export */   useDomEvent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useDomEvent),
+/* harmony export */   useDragControls: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useDragControls),
+/* harmony export */   useElementScroll: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useElementScroll),
+/* harmony export */   useFollowValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useFollowValue),
+/* harmony export */   useForceUpdate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useForceUpdate),
+/* harmony export */   useInView: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useInView),
+/* harmony export */   useInstantLayoutTransition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useInstantLayoutTransition),
+/* harmony export */   useInstantTransition: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useInstantTransition),
+/* harmony export */   useIsPresent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useIsPresent),
+/* harmony export */   useIsomorphicLayoutEffect: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect),
+/* harmony export */   useMotionTemplate: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useMotionTemplate),
+/* harmony export */   useMotionValue: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useMotionValue),
+/* harmony export */   useMotionValueEvent: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useMotionValueEvent),
+/* harmony export */   usePageInView: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.usePageInView),
+/* harmony export */   usePresence: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.usePresence),
+/* harmony export */   usePresenceData: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.usePresenceData),
+/* harmony export */   useReducedMotion: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useReducedMotion),
+/* harmony export */   useReducedMotionConfig: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useReducedMotionConfig),
+/* harmony export */   useResetProjection: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useResetProjection),
+/* harmony export */   useScroll: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useScroll),
+/* harmony export */   useSpring: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useSpring),
+/* harmony export */   useTime: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useTime),
+/* harmony export */   useTransform: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useTransform),
+/* harmony export */   useUnmountEffect: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useUnmountEffect),
+/* harmony export */   useVelocity: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useVelocity),
+/* harmony export */   useViewportScroll: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useViewportScroll),
+/* harmony export */   useWillChange: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.useWillChange),
+/* harmony export */   variantPriorityOrder: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.variantPriorityOrder),
+/* harmony export */   variantProps: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.variantProps),
+/* harmony export */   velocityPerSecond: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.velocityPerSecond),
+/* harmony export */   vh: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.vh),
+/* harmony export */   visualElementStore: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.visualElementStore),
+/* harmony export */   vw: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.vw),
+/* harmony export */   warnOnce: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.warnOnce),
+/* harmony export */   warning: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.warning),
+/* harmony export */   wrap: () => (/* reexport safe */ framer_motion__WEBPACK_IMPORTED_MODULE_2__.wrap)
 /* harmony export */ });
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framer-motion */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/m/proxy.mjs");
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framer-motion */ "./node_modules/motion/node_modules/framer-motion/dist/es/index.mjs");
 
 
 
@@ -283,6 +664,2082 @@ const motion = framer_motion__WEBPACK_IMPORTED_MODULE_1__.motion;
 const m = framer_motion__WEBPACK_IMPORTED_MODULE_0__.m;
 
 
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/index.mjs"
+/*!********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/index.mjs ***!
+  \********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animate: () => (/* binding */ animate),
+/* harmony export */   createScopedAnimate: () => (/* binding */ createScopedAnimate)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimationWithThen.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs");
+/* harmony import */ var _sequence_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sequence.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/sequence.mjs");
+/* harmony import */ var _subject_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./subject.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/subject.mjs");
+
+
+
+
+
+function isSequence(value) {
+    return Array.isArray(value) && value.some(Array.isArray);
+}
+/**
+ * Creates an animation function that is optionally scoped
+ * to a specific element.
+ */
+function createScopedAnimate(options = {}) {
+    const { scope, reduceMotion, skipAnimations } = options;
+    /**
+     * Implementation
+     */
+    function scopedAnimate(subjectOrSequence, optionsOrKeyframes, options) {
+        let animations = [];
+        let animationOnComplete;
+        const inherited = {};
+        if (reduceMotion !== undefined)
+            inherited.reduceMotion = reduceMotion;
+        if (skipAnimations !== undefined)
+            inherited.skipAnimations = skipAnimations;
+        if (isSequence(subjectOrSequence)) {
+            const { onComplete, ...sequenceOptions } = optionsOrKeyframes || {};
+            if (typeof onComplete === "function") {
+                animationOnComplete = onComplete;
+            }
+            animations = (0,_sequence_mjs__WEBPACK_IMPORTED_MODULE_2__.animateSequence)(subjectOrSequence, { ...inherited, ...sequenceOptions }, scope);
+        }
+        else {
+            // Extract top-level onComplete so it doesn't get applied per-value
+            const { onComplete, ...rest } = options || {};
+            if (typeof onComplete === "function") {
+                animationOnComplete = onComplete;
+            }
+            animations = (0,_subject_mjs__WEBPACK_IMPORTED_MODULE_3__.animateSubject)(subjectOrSequence, optionsOrKeyframes, { ...inherited, ...rest }, scope);
+        }
+        const animation = new motion_dom__WEBPACK_IMPORTED_MODULE_0__.GroupAnimationWithThen(animations);
+        if (animationOnComplete) {
+            animation.finished.then(animationOnComplete);
+        }
+        if (scope) {
+            scope.animations.push(animation);
+            animation.finished.then(() => {
+                (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.removeItem)(scope.animations, animation);
+            });
+        }
+        return animation;
+    }
+    return scopedAnimate;
+}
+const animate = createScopedAnimate();
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/resolve-subjects.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/resolve-subjects.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   resolveSubjects: () => (/* binding */ resolveSubjects)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+/* harmony import */ var _utils_is_dom_keyframes_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/is-dom-keyframes.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/is-dom-keyframes.mjs");
+
+
+
+function resolveSubjects(subject, keyframes, scope, selectorCache) {
+    if (subject == null) {
+        return [];
+    }
+    if (typeof subject === "string" && (0,_utils_is_dom_keyframes_mjs__WEBPACK_IMPORTED_MODULE_1__.isDOMKeyframes)(keyframes)) {
+        return (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.resolveElements)(subject, scope, selectorCache);
+    }
+    else if (subject instanceof NodeList) {
+        return Array.from(subject);
+    }
+    else if (Array.isArray(subject)) {
+        return subject.filter((s) => s != null);
+    }
+    else {
+        return [subject];
+    }
+}
+
+
+//# sourceMappingURL=resolve-subjects.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/sequence.mjs"
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/sequence.mjs ***!
+  \***********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animateSequence: () => (/* binding */ animateSequence)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/spring.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _sequence_create_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sequence/create.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/create.mjs");
+/* harmony import */ var _subject_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./subject.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/subject.mjs");
+
+
+
+
+function animateSequence(sequence, options, scope) {
+    const animations = [];
+    /**
+     * Pre-process: replace function segments with MotionValue segments,
+     * subscribe callbacks immediately
+     */
+    const processedSequence = sequence.map((segment) => {
+        if (Array.isArray(segment) && typeof segment[0] === "function") {
+            const callback = segment[0];
+            const mv = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.motionValue)(0);
+            mv.on("change", callback);
+            if (segment.length === 1) {
+                return [mv, [0, 1]];
+            }
+            else if (segment.length === 2) {
+                return [mv, [0, 1], segment[1]];
+            }
+            else {
+                return [mv, segment[1], segment[2]];
+            }
+        }
+        return segment;
+    });
+    const animationDefinitions = (0,_sequence_create_mjs__WEBPACK_IMPORTED_MODULE_2__.createAnimationsFromSequence)(processedSequence, options, scope, { spring: motion_dom__WEBPACK_IMPORTED_MODULE_0__.spring });
+    animationDefinitions.forEach(({ keyframes, transition }, subject) => {
+        animations.push(...(0,_subject_mjs__WEBPACK_IMPORTED_MODULE_3__.animateSubject)(subject, keyframes, transition));
+    });
+    return animations;
+}
+
+
+//# sourceMappingURL=sequence.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/subject.mjs"
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/subject.mjs ***!
+  \**********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animateSubject: () => (/* binding */ animateSubject)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element-target.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/store.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/animate/single-value.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var _utils_create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/create-visual-element.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/create-visual-element.mjs");
+/* harmony import */ var _utils_is_dom_keyframes_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/is-dom-keyframes.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/is-dom-keyframes.mjs");
+/* harmony import */ var _resolve_subjects_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./resolve-subjects.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/resolve-subjects.mjs");
+
+
+
+
+
+
+function isSingleValue(subject, keyframes) {
+    return ((0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isMotionValue)(subject) ||
+        typeof subject === "number" ||
+        (typeof subject === "string" && !(0,_utils_is_dom_keyframes_mjs__WEBPACK_IMPORTED_MODULE_6__.isDOMKeyframes)(keyframes)));
+}
+/**
+ * Implementation
+ */
+function animateSubject(subject, keyframes, options, scope) {
+    const animations = [];
+    if (isSingleValue(subject, keyframes)) {
+        animations.push((0,motion_dom__WEBPACK_IMPORTED_MODULE_3__.animateSingleValue)(subject, (0,_utils_is_dom_keyframes_mjs__WEBPACK_IMPORTED_MODULE_6__.isDOMKeyframes)(keyframes)
+            ? keyframes.default || keyframes
+            : keyframes, options ? options.default || options : options));
+    }
+    else {
+        // Gracefully handle null/undefined subjects (e.g., from querySelector returning null)
+        if (subject == null) {
+            return animations;
+        }
+        const subjects = (0,_resolve_subjects_mjs__WEBPACK_IMPORTED_MODULE_7__.resolveSubjects)(subject, keyframes, scope);
+        const numSubjects = subjects.length;
+        (0,motion_utils__WEBPACK_IMPORTED_MODULE_4__.invariant)(Boolean(numSubjects), "No valid elements provided.", "no-valid-elements");
+        for (let i = 0; i < numSubjects; i++) {
+            const thisSubject = subjects[i];
+            const createVisualElement = thisSubject instanceof Element
+                ? _utils_create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_5__.createDOMVisualElement
+                : _utils_create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_5__.createObjectVisualElement;
+            if (!motion_dom__WEBPACK_IMPORTED_MODULE_2__.visualElementStore.has(thisSubject)) {
+                createVisualElement(thisSubject);
+            }
+            const visualElement = motion_dom__WEBPACK_IMPORTED_MODULE_2__.visualElementStore.get(thisSubject);
+            const transition = { ...options };
+            /**
+             * Resolve stagger function if provided.
+             */
+            if ("delay" in transition &&
+                typeof transition.delay === "function") {
+                transition.delay = transition.delay(i, numSubjects);
+            }
+            animations.push(...(0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.animateTarget)(visualElement, { ...keyframes, transition }, {}));
+        }
+    }
+    return animations;
+}
+
+
+//# sourceMappingURL=subject.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-elements.mjs"
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-elements.mjs ***!
+  \***************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animateElements: () => (/* binding */ animateElements)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/active-animations.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/get-value-transition.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/apply-px-defaults.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/fill-wildcards.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-computed.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/time-conversion.mjs");
+
+
+
+function animateElements(elementOrSelector, keyframes, options, scope) {
+    // Gracefully handle null/undefined elements (e.g., from querySelector returning null)
+    if (elementOrSelector == null) {
+        return [];
+    }
+    const elements = (0,motion_dom__WEBPACK_IMPORTED_MODULE_6__.resolveElements)(elementOrSelector, scope);
+    const numElements = elements.length;
+    (0,motion_utils__WEBPACK_IMPORTED_MODULE_7__.invariant)(Boolean(numElements), "No valid elements provided.", "no-valid-elements");
+    /**
+     * WAAPI doesn't support interrupting animations.
+     *
+     * Therefore, starting animations requires a three-step process:
+     * 1. Stop existing animations (write styles to DOM)
+     * 2. Resolve keyframes (read styles from DOM)
+     * 3. Create new animations (write styles to DOM)
+     *
+     * The hybrid `animate()` function uses AsyncAnimation to resolve
+     * keyframes before creating new animations, which removes style
+     * thrashing. Here, we have much stricter filesize constraints.
+     * Therefore we do this in a synchronous way that ensures that
+     * at least within `animate()` calls there is no style thrashing.
+     *
+     * In the motion-native-animate-mini-interrupt benchmark this
+     * was 80% faster than a single loop.
+     */
+    const animationDefinitions = [];
+    /**
+     * Step 1: Build options and stop existing animations (write)
+     */
+    for (let i = 0; i < numElements; i++) {
+        const element = elements[i];
+        const elementTransition = { ...options };
+        /**
+         * Resolve stagger function if provided.
+         */
+        if (typeof elementTransition.delay === "function") {
+            elementTransition.delay = elementTransition.delay(i, numElements);
+        }
+        for (const valueName in keyframes) {
+            let valueKeyframes = keyframes[valueName];
+            if (!Array.isArray(valueKeyframes)) {
+                valueKeyframes = [valueKeyframes];
+            }
+            const valueOptions = {
+                ...(0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.getValueTransition)(elementTransition, valueName),
+            };
+            valueOptions.duration && (valueOptions.duration = (0,motion_utils__WEBPACK_IMPORTED_MODULE_8__.secondsToMilliseconds)(valueOptions.duration));
+            valueOptions.delay && (valueOptions.delay = (0,motion_utils__WEBPACK_IMPORTED_MODULE_8__.secondsToMilliseconds)(valueOptions.delay));
+            /**
+             * If there's an existing animation playing on this element then stop it
+             * before creating a new one.
+             */
+            const map = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.getAnimationMap)(element);
+            const key = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.animationMapKey)(valueName, valueOptions.pseudoElement || "");
+            const currentAnimation = map.get(key);
+            currentAnimation && currentAnimation.stop();
+            animationDefinitions.push({
+                map,
+                key,
+                unresolvedKeyframes: valueKeyframes,
+                options: {
+                    ...valueOptions,
+                    element,
+                    name: valueName,
+                    allowFlatten: !elementTransition.type && !elementTransition.ease,
+                },
+            });
+        }
+    }
+    /**
+     * Step 2: Resolve keyframes (read)
+     */
+    for (let i = 0; i < animationDefinitions.length; i++) {
+        const { unresolvedKeyframes, options: animationOptions } = animationDefinitions[i];
+        const { element, name, pseudoElement } = animationOptions;
+        if (!pseudoElement && unresolvedKeyframes[0] === null) {
+            unresolvedKeyframes[0] = (0,motion_dom__WEBPACK_IMPORTED_MODULE_5__.getComputedStyle)(element, name);
+        }
+        ;(0,motion_dom__WEBPACK_IMPORTED_MODULE_4__.fillWildcards)(unresolvedKeyframes);
+        (0,motion_dom__WEBPACK_IMPORTED_MODULE_3__.applyPxDefaults)(unresolvedKeyframes, name);
+        /**
+         * If we only have one keyframe, explicitly read the initial keyframe
+         * from the computed style. This is to ensure consistency with WAAPI behaviour
+         * for restarting animations, for instance .play() after finish, when it
+         * has one vs two keyframes.
+         */
+        if (!pseudoElement && unresolvedKeyframes.length < 2) {
+            unresolvedKeyframes.unshift((0,motion_dom__WEBPACK_IMPORTED_MODULE_5__.getComputedStyle)(element, name));
+        }
+        animationOptions.keyframes = unresolvedKeyframes;
+    }
+    /**
+     * Step 3: Create new animations (write)
+     */
+    const animations = [];
+    for (let i = 0; i < animationDefinitions.length; i++) {
+        const { map, key, options: animationOptions } = animationDefinitions[i];
+        const animation = new motion_dom__WEBPACK_IMPORTED_MODULE_0__.NativeAnimation(animationOptions);
+        map.set(key, animation);
+        animation.finished.finally(() => map.delete(key));
+        animations.push(animation);
+    }
+    return animations;
+}
+
+
+//# sourceMappingURL=animate-elements.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-style.mjs"
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-style.mjs ***!
+  \************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animateMini: () => (/* binding */ animateMini),
+/* harmony export */   createScopedWaapiAnimate: () => (/* binding */ createScopedWaapiAnimate)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimationWithThen.mjs");
+/* harmony import */ var _animate_elements_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./animate-elements.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-elements.mjs");
+
+
+
+const createScopedWaapiAnimate = (scope) => {
+    function scopedAnimate(elementOrSelector, keyframes, options) {
+        return new motion_dom__WEBPACK_IMPORTED_MODULE_0__.GroupAnimationWithThen((0,_animate_elements_mjs__WEBPACK_IMPORTED_MODULE_1__.animateElements)(elementOrSelector, keyframes, options, scope));
+    }
+    return scopedAnimate;
+};
+const animateMini = /*@__PURE__*/ createScopedWaapiAnimate();
+
+
+//# sourceMappingURL=animate-style.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/animation-controls.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/animation-controls.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animationControls: () => (/* binding */ animationControls),
+/* harmony export */   setValues: () => (/* binding */ setValues)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/setters.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+
+
+
+function stopAnimation(visualElement) {
+    visualElement.values.forEach((value) => value.stop());
+}
+function setVariants(visualElement, variantLabels) {
+    const reversedLabels = [...variantLabels].reverse();
+    reversedLabels.forEach((key) => {
+        const variant = visualElement.getVariant(key);
+        variant && (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.setTarget)(visualElement, variant);
+        if (visualElement.variantChildren) {
+            visualElement.variantChildren.forEach((child) => {
+                setVariants(child, variantLabels);
+            });
+        }
+    });
+}
+function setValues(visualElement, definition) {
+    if (Array.isArray(definition)) {
+        return setVariants(visualElement, definition);
+    }
+    else if (typeof definition === "string") {
+        return setVariants(visualElement, [definition]);
+    }
+    else {
+        (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.setTarget)(visualElement, definition);
+    }
+}
+/**
+ * @public
+ */
+function animationControls() {
+    /**
+     * Track whether the host component has mounted.
+     */
+    let hasMounted = false;
+    /**
+     * A collection of linked component animation controls.
+     */
+    const subscribers = new Set();
+    const controls = {
+        subscribe(visualElement) {
+            subscribers.add(visualElement);
+            return () => void subscribers.delete(visualElement);
+        },
+        start(definition, transitionOverride) {
+            (0,motion_utils__WEBPACK_IMPORTED_MODULE_2__.invariant)(hasMounted, "controls.start() should only be called after a component has mounted. Consider calling within a useEffect hook.");
+            const animations = [];
+            subscribers.forEach((visualElement) => {
+                animations.push((0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.animateVisualElement)(visualElement, definition, {
+                    transitionOverride,
+                }));
+            });
+            return Promise.all(animations);
+        },
+        set(definition) {
+            (0,motion_utils__WEBPACK_IMPORTED_MODULE_2__.invariant)(hasMounted, "controls.set() should only be called after a component has mounted. Consider calling within a useEffect hook.");
+            return subscribers.forEach((visualElement) => {
+                setValues(visualElement, definition);
+            });
+        },
+        stop() {
+            subscribers.forEach((visualElement) => {
+                stopAnimation(visualElement);
+            });
+        },
+        mount() {
+            hasMounted = true;
+            return () => {
+                hasMounted = false;
+                controls.stop();
+            };
+        },
+    };
+    return controls;
+}
+
+
+//# sourceMappingURL=animation-controls.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animate-style.mjs"
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animate-style.mjs ***!
+  \******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useAnimateMini: () => (/* binding */ useAnimateMini)
+/* harmony export */ });
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/use-unmount-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs");
+/* harmony import */ var _animators_waapi_animate_style_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animators/waapi/animate-style.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-style.mjs");
+"use client";
+
+
+
+
+function useAnimateMini() {
+    const scope = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__.useConstant)(() => ({
+        current: null, // Will be hydrated by React
+        animations: [],
+    }));
+    const animate = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__.useConstant)(() => (0,_animators_waapi_animate_style_mjs__WEBPACK_IMPORTED_MODULE_2__.createScopedWaapiAnimate)(scope));
+    (0,_utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_1__.useUnmountEffect)(() => {
+        scope.animations.forEach((animation) => animation.stop());
+    });
+    return [scope, animate];
+}
+
+
+//# sourceMappingURL=use-animate-style.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animate.mjs"
+/*!************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animate.mjs ***!
+  \************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useAnimate: () => (/* binding */ useAnimate)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/use-unmount-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs");
+/* harmony import */ var _utils_reduced_motion_use_reduced_motion_config_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/reduced-motion/use-reduced-motion-config.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion-config.mjs");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _animate_index_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../animate/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/index.mjs");
+"use client";
+
+
+
+
+
+
+
+function useAnimate() {
+    const scope = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_1__.useConstant)(() => ({
+        current: null, // Will be hydrated by React
+        animations: [],
+    }));
+    const reduceMotion = (0,_utils_reduced_motion_use_reduced_motion_config_mjs__WEBPACK_IMPORTED_MODULE_3__.useReducedMotionConfig)() ?? undefined;
+    const { skipAnimations } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_4__.MotionConfigContext);
+    const animate = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (0,_animate_index_mjs__WEBPACK_IMPORTED_MODULE_5__.createScopedAnimate)({ scope, reduceMotion, skipAnimations }), [scope, reduceMotion, skipAnimations]);
+    (0,_utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_2__.useUnmountEffect)(() => {
+        scope.animations.forEach((animation) => animation.stop());
+        scope.animations.length = 0;
+    });
+    return [scope, animate];
+}
+
+
+//# sourceMappingURL=use-animate.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animated-state.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animated-state.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useAnimatedState: () => (/* binding */ useAnimatedState)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/VisualElement.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/models.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _motion_utils_use_visual_state_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../motion/utils/use-visual-state.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+"use client";
+
+
+
+
+
+const createObject = () => ({});
+class StateVisualElement extends motion_dom__WEBPACK_IMPORTED_MODULE_1__.VisualElement {
+    constructor() {
+        super(...arguments);
+        this.measureInstanceViewportBox = motion_dom__WEBPACK_IMPORTED_MODULE_2__.createBox;
+    }
+    build() { }
+    resetTransform() { }
+    restoreTransform() { }
+    removeValueFromRenderState() { }
+    renderInstance() { }
+    scrapeMotionValuesFromProps() {
+        return createObject();
+    }
+    getBaseTargetFromProps() {
+        return undefined;
+    }
+    readValueFromInstance(_state, key, options) {
+        return options.initialState[key] || 0;
+    }
+    sortInstanceNodePosition() {
+        return 0;
+    }
+}
+const useVisualState = (0,_motion_utils_use_visual_state_mjs__WEBPACK_IMPORTED_MODULE_4__.makeUseVisualState)({
+    scrapeMotionValuesFromProps: createObject,
+    createRenderState: createObject,
+});
+/**
+ * This is not an officially supported API and may be removed
+ * on any version.
+ */
+function useAnimatedState(initialState) {
+    const [animationState, setAnimationState] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(initialState);
+    const visualState = useVisualState({}, false);
+    const element = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_5__.useConstant)(() => {
+        return new StateVisualElement({
+            props: {
+                onUpdate: (v) => {
+                    setAnimationState({ ...v });
+                },
+            },
+            visualState,
+            presenceContext: null,
+        }, { initialState });
+    });
+    (0,react__WEBPACK_IMPORTED_MODULE_3__.useLayoutEffect)(() => {
+        element.mount({});
+        return () => element.unmount();
+    }, [element]);
+    const startAnimation = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_5__.useConstant)(() => (animationDefinition) => {
+        return (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.animateVisualElement)(element, animationDefinition);
+    });
+    return [animationState, startAnimation];
+}
+
+
+//# sourceMappingURL=use-animated-state.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animation.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animation.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useAnimation: () => (/* binding */ useAnimation),
+/* harmony export */   useAnimationControls: () => (/* binding */ useAnimationControls)
+/* harmony export */ });
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+/* harmony import */ var _animation_controls_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animation-controls.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/animation-controls.mjs");
+"use client";
+
+
+
+
+/**
+ * Creates `LegacyAnimationControls`, which can be used to manually start, stop
+ * and sequence animations on one or more components.
+ *
+ * The returned `LegacyAnimationControls` should be passed to the `animate` property
+ * of the components you want to animate.
+ *
+ * These components can then be animated with the `start` method.
+ *
+ * ```jsx
+ * import * as React from 'react'
+ * import { motion, useAnimation } from 'framer-motion'
+ *
+ * export function MyComponent(props) {
+ *    const controls = useAnimation()
+ *
+ *    controls.start({
+ *        x: 100,
+ *        transition: { duration: 0.5 },
+ *    })
+ *
+ *    return <motion.div animate={controls} />
+ * }
+ * ```
+ *
+ * @returns Animation controller with `start` and `stop` methods
+ *
+ * @public
+ */
+function useAnimationControls() {
+    const controls = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__.useConstant)(_animation_controls_mjs__WEBPACK_IMPORTED_MODULE_2__.animationControls);
+    (0,_utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_1__.useIsomorphicLayoutEffect)(controls.mount, []);
+    return controls;
+}
+const useAnimation = useAnimationControls;
+
+
+//# sourceMappingURL=use-animation.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/handoff.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/handoff.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   handoffOptimizedAppearAnimation: () => (/* binding */ handoffOptimizedAppearAnimation)
+/* harmony export */ });
+/* harmony import */ var _store_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store.mjs");
+/* harmony import */ var _store_id_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store-id.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store-id.mjs");
+
+
+
+function handoffOptimizedAppearAnimation(elementId, valueName, frame) {
+    const storeId = (0,_store_id_mjs__WEBPACK_IMPORTED_MODULE_1__.appearStoreId)(elementId, valueName);
+    const optimisedAnimation = _store_mjs__WEBPACK_IMPORTED_MODULE_0__.appearAnimationStore.get(storeId);
+    if (!optimisedAnimation) {
+        return null;
+    }
+    const { animation, startTime } = optimisedAnimation;
+    function cancelAnimation() {
+        window.MotionCancelOptimisedAnimation?.(elementId, valueName, frame);
+    }
+    /**
+     * We can cancel the animation once it's finished now that we've synced
+     * with Motion.
+     *
+     * Prefer onfinish over finished as onfinish is backwards compatible with
+     * older browsers.
+     */
+    animation.onfinish = cancelAnimation;
+    if (startTime === null || window.MotionHandoffIsComplete?.(elementId)) {
+        /**
+         * If the startTime is null, this animation is the Paint Ready detection animation
+         * and we can cancel it immediately without handoff.
+         *
+         * Or if we've already handed off the animation then we're now interrupting it.
+         * In which case we need to cancel it.
+         */
+        cancelAnimation();
+        return null;
+    }
+    else {
+        return startTime;
+    }
+}
+
+
+//# sourceMappingURL=handoff.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/start.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/start.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   startOptimizedAppearAnimation: () => (/* binding */ startOptimizedAppearAnimation)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/optimized-appear/data-id.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/optimized-appear/get-appear-id.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/start-waapi-animation.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/noop.mjs");
+/* harmony import */ var _handoff_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./handoff.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/handoff.mjs");
+/* harmony import */ var _store_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store.mjs");
+/* harmony import */ var _store_id_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store-id.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store-id.mjs");
+
+
+
+
+
+
+/**
+ * A single time to use across all animations to manually set startTime
+ * and ensure they're all in sync.
+ */
+let startFrameTime;
+/**
+ * A dummy animation to detect when Chrome is ready to start
+ * painting the page and hold off from triggering the real animation
+ * until then. We only need one animation to detect paint ready.
+ *
+ * https://bugs.chromium.org/p/chromium/issues/detail?id=1406850
+ */
+let readyAnimation;
+/**
+ * Keep track of animations that were suspended vs cancelled so we
+ * can easily resume them when we're done measuring layout.
+ */
+const suspendedAnimations = new Set();
+function resumeSuspendedAnimations() {
+    suspendedAnimations.forEach((data) => {
+        data.animation.play();
+        data.animation.startTime = data.startTime;
+    });
+    suspendedAnimations.clear();
+}
+function startOptimizedAppearAnimation(element, name, keyframes, options, onReady) {
+    // Prevent optimised appear animations if Motion has already started animating.
+    if (window.MotionIsMounted) {
+        return;
+    }
+    const id = element.dataset[motion_dom__WEBPACK_IMPORTED_MODULE_0__.optimizedAppearDataId];
+    if (!id)
+        return;
+    window.MotionHandoffAnimation = _handoff_mjs__WEBPACK_IMPORTED_MODULE_4__.handoffOptimizedAppearAnimation;
+    const storeId = (0,_store_id_mjs__WEBPACK_IMPORTED_MODULE_6__.appearStoreId)(id, name);
+    if (!readyAnimation) {
+        readyAnimation = (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.startWaapiAnimation)(element, name, [keyframes[0], keyframes[0]], 
+        /**
+         * 10 secs is basically just a super-safe duration to give Chrome
+         * long enough to get the animation ready.
+         */
+        { duration: 10000, ease: "linear" });
+        _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearAnimationStore.set(storeId, {
+            animation: readyAnimation,
+            startTime: null,
+        });
+        /**
+         * If there's no readyAnimation then there's been no instantiation
+         * of handoff animations.
+         */
+        window.MotionHandoffAnimation = _handoff_mjs__WEBPACK_IMPORTED_MODULE_4__.handoffOptimizedAppearAnimation;
+        window.MotionHasOptimisedAnimation = (elementId, valueName) => {
+            if (!elementId)
+                return false;
+            /**
+             * Keep a map of elementIds that have started animating. We check
+             * via ID instead of Element because of hydration errors and
+             * pre-hydration checks. We also actively record IDs as they start
+             * animating rather than simply checking for data-appear-id as
+             * this attrbute might be present but not lead to an animation, for
+             * instance if the element's appear animation is on a different
+             * breakpoint.
+             */
+            if (!valueName) {
+                return _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearComplete.has(elementId);
+            }
+            const animationId = (0,_store_id_mjs__WEBPACK_IMPORTED_MODULE_6__.appearStoreId)(elementId, valueName);
+            return Boolean(_store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearAnimationStore.get(animationId));
+        };
+        window.MotionHandoffMarkAsComplete = (elementId) => {
+            if (_store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearComplete.has(elementId)) {
+                _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearComplete.set(elementId, true);
+            }
+        };
+        window.MotionHandoffIsComplete = (elementId) => {
+            return _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearComplete.get(elementId) === true;
+        };
+        /**
+         * We only need to cancel transform animations as
+         * they're the ones that will interfere with the
+         * layout animation measurements.
+         */
+        window.MotionCancelOptimisedAnimation = (elementId, valueName, frame, canResume) => {
+            const animationId = (0,_store_id_mjs__WEBPACK_IMPORTED_MODULE_6__.appearStoreId)(elementId, valueName);
+            const data = _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearAnimationStore.get(animationId);
+            if (!data)
+                return;
+            if (frame && canResume === undefined) {
+                /**
+                 * Wait until the end of the subsequent frame to cancel the animation
+                 * to ensure we don't remove the animation before the main thread has
+                 * had a chance to resolve keyframes and render.
+                 */
+                frame.postRender(() => {
+                    frame.postRender(() => {
+                        data.animation.cancel();
+                    });
+                });
+            }
+            else {
+                data.animation.cancel();
+            }
+            if (frame && canResume) {
+                suspendedAnimations.add(data);
+                frame.render(resumeSuspendedAnimations);
+            }
+            else {
+                _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearAnimationStore.delete(animationId);
+                /**
+                 * If there are no more animations left, we can remove the cancel function.
+                 * This will let us know when we can stop checking for conflicting layout animations.
+                 */
+                if (!_store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearAnimationStore.size) {
+                    window.MotionCancelOptimisedAnimation = undefined;
+                }
+            }
+        };
+        window.MotionCheckAppearSync = (visualElement, valueName, value) => {
+            const appearId = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.getOptimisedAppearId)(visualElement);
+            if (!appearId)
+                return;
+            const valueIsOptimised = window.MotionHasOptimisedAnimation?.(appearId, valueName);
+            const externalAnimationValue = visualElement.props.values?.[valueName];
+            if (!valueIsOptimised || !externalAnimationValue)
+                return;
+            const removeSyncCheck = value.on("change", (latestValue) => {
+                if (externalAnimationValue.get() !== latestValue) {
+                    window.MotionCancelOptimisedAnimation?.(appearId, valueName);
+                    removeSyncCheck();
+                }
+            });
+            return removeSyncCheck;
+        };
+    }
+    const startAnimation = () => {
+        readyAnimation.cancel();
+        const appearAnimation = (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.startWaapiAnimation)(element, name, keyframes, options);
+        /**
+         * Record the time of the first started animation. We call performance.now() once
+         * here and once in handoff to ensure we're getting
+         * close to a frame-locked time. This keeps all animations in sync.
+         */
+        if (startFrameTime === undefined) {
+            startFrameTime = performance.now();
+        }
+        appearAnimation.startTime = startFrameTime;
+        _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearAnimationStore.set(storeId, {
+            animation: appearAnimation,
+            startTime: startFrameTime,
+        });
+        if (onReady)
+            onReady(appearAnimation);
+    };
+    _store_mjs__WEBPACK_IMPORTED_MODULE_5__.appearComplete.set(id, false);
+    if (readyAnimation.ready) {
+        readyAnimation.ready.then(startAnimation).catch(motion_utils__WEBPACK_IMPORTED_MODULE_3__.noop);
+    }
+    else {
+        startAnimation();
+    }
+}
+
+
+//# sourceMappingURL=start.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store-id.mjs"
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store-id.mjs ***!
+  \********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   appearStoreId: () => (/* binding */ appearStoreId)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs");
+
+
+const appearStoreId = (elementId, valueName) => {
+    const key = motion_dom__WEBPACK_IMPORTED_MODULE_0__.transformProps.has(valueName) ? "transform" : valueName;
+    return `${elementId}: ${key}`;
+};
+
+
+//# sourceMappingURL=store-id.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/store.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   appearAnimationStore: () => (/* binding */ appearAnimationStore),
+/* harmony export */   appearComplete: () => (/* binding */ appearComplete)
+/* harmony export */ });
+const appearAnimationStore = new Map();
+const appearComplete = new Map();
+
+
+//# sourceMappingURL=store.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/create.mjs"
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/create.mjs ***!
+  \**********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createAnimationsFromSequence: () => (/* binding */ createAnimationsFromSequence),
+/* harmony export */   getValueTransition: () => (/* binding */ getValueTransition)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/utils/create-generator-easing.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/utils/is-generator.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/offsets/default.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/offsets/fill.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/progress.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/time-conversion.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/modifiers/reverse.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/get-easing-for-segment.mjs");
+/* harmony import */ var _animate_resolve_subjects_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../animate/resolve-subjects.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/resolve-subjects.mjs");
+/* harmony import */ var _utils_calc_repeat_duration_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./utils/calc-repeat-duration.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/calc-repeat-duration.mjs");
+/* harmony import */ var _utils_calc_time_mjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils/calc-time.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/calc-time.mjs");
+/* harmony import */ var _utils_edit_mjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./utils/edit.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/edit.mjs");
+/* harmony import */ var _utils_normalize_times_mjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./utils/normalize-times.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/normalize-times.mjs");
+/* harmony import */ var _utils_sort_mjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./utils/sort.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/sort.mjs");
+
+
+
+
+
+
+
+
+
+const defaultSegmentEasing = "easeInOut";
+const MAX_REPEAT = 20;
+function createAnimationsFromSequence(sequence, { defaultTransition = {}, ...sequenceTransition } = {}, scope, generators) {
+    const defaultDuration = defaultTransition.duration || 0.3;
+    const animationDefinitions = new Map();
+    const sequences = new Map();
+    const elementCache = {};
+    const timeLabels = new Map();
+    let prevTime = 0;
+    let currentTime = 0;
+    let totalDuration = 0;
+    /**
+     * Build the timeline by mapping over the sequence array and converting
+     * the definitions into keyframes and offsets with absolute time values.
+     * These will later get converted into relative offsets in a second pass.
+     */
+    for (let i = 0; i < sequence.length; i++) {
+        const segment = sequence[i];
+        /**
+         * If this is a timeline label, mark it and skip the rest of this iteration.
+         */
+        if (typeof segment === "string") {
+            timeLabels.set(segment, currentTime);
+            continue;
+        }
+        else if (!Array.isArray(segment)) {
+            timeLabels.set(segment.name, (0,_utils_calc_time_mjs__WEBPACK_IMPORTED_MODULE_12__.calcNextTime)(currentTime, segment.at, prevTime, timeLabels));
+            continue;
+        }
+        let [subject, keyframes, transition = {}] = segment;
+        /**
+         * If a relative or absolute time value has been specified we need to resolve
+         * it in relation to the currentTime.
+         */
+        if (transition.at !== undefined) {
+            currentTime = (0,_utils_calc_time_mjs__WEBPACK_IMPORTED_MODULE_12__.calcNextTime)(currentTime, transition.at, prevTime, timeLabels);
+        }
+        /**
+         * Keep track of the maximum duration in this definition. This will be
+         * applied to currentTime once the definition has been parsed.
+         */
+        let maxDuration = 0;
+        const resolveValueSequence = (valueKeyframes, valueTransition, valueSequence, elementIndex = 0, numSubjects = 0) => {
+            const valueKeyframesAsList = keyframesAsList(valueKeyframes);
+            const { delay = 0, times = (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.defaultOffset)(valueKeyframesAsList), type = defaultTransition.type || "keyframes", repeat, repeatType, repeatDelay = 0, ...remainingTransition } = valueTransition;
+            let { ease = defaultTransition.ease || "easeOut", duration } = valueTransition;
+            /**
+             * Resolve stagger() if defined.
+             */
+            const calculatedDelay = typeof delay === "function"
+                ? delay(elementIndex, numSubjects)
+                : delay;
+            /**
+             * If this animation should and can use a spring, generate a spring easing function.
+             */
+            const numKeyframes = valueKeyframesAsList.length;
+            const createGenerator = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isGenerator)(type)
+                ? type
+                : generators?.[type || "keyframes"];
+            if (numKeyframes <= 2 && createGenerator) {
+                /**
+                 * As we're creating an easing function from a spring,
+                 * ideally we want to generate it using the real distance
+                 * between the two keyframes. However this isn't always
+                 * possible - in these situations we use 0-100.
+                 */
+                let absoluteDelta = 100;
+                if (numKeyframes === 2 &&
+                    isNumberKeyframesArray(valueKeyframesAsList)) {
+                    const delta = valueKeyframesAsList[1] - valueKeyframesAsList[0];
+                    absoluteDelta = Math.abs(delta);
+                }
+                const springTransition = {
+                    ...defaultTransition,
+                    ...remainingTransition,
+                };
+                if (duration !== undefined) {
+                    springTransition.duration = (0,motion_utils__WEBPACK_IMPORTED_MODULE_7__.secondsToMilliseconds)(duration);
+                }
+                const springEasing = (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.createGeneratorEasing)(springTransition, absoluteDelta, createGenerator);
+                ease = springEasing.ease;
+                duration = springEasing.duration;
+            }
+            duration ?? (duration = defaultDuration);
+            const startTime = currentTime + calculatedDelay;
+            /**
+             * If there's only one time offset of 0, fill in a second with length 1
+             */
+            if (times.length === 1 && times[0] === 0) {
+                times[1] = 1;
+            }
+            /**
+             * Fill out if offset if fewer offsets than keyframes
+             */
+            const remainder = times.length - valueKeyframesAsList.length;
+            remainder > 0 && (0,motion_dom__WEBPACK_IMPORTED_MODULE_3__.fillOffset)(times, remainder);
+            /**
+             * If only one value has been set, ie [1], push a null to the start of
+             * the keyframe array. This will let us mark a keyframe at this point
+             * that will later be hydrated with the previous value.
+             */
+            valueKeyframesAsList.length === 1 &&
+                valueKeyframesAsList.unshift(null);
+            /**
+             * Segments can't express `repeat: Infinity` or very large
+             * counts — they'd leave dead time after the segment or
+             * explode the keyframe array. Ignore with a warning.
+             */
+            if (repeat) {
+                (0,motion_utils__WEBPACK_IMPORTED_MODULE_5__.warning)(repeat < MAX_REPEAT, `Sequence segments can't repeat ${repeat} times — ignoring repeat option. Use a value below ${MAX_REPEAT} or apply repeat at the sequence level instead.`);
+            }
+            if (repeat && repeat < MAX_REPEAT) {
+                /**
+                 * Express repeatDelay in units of a single iteration's duration
+                 * so it can be added to the per-iteration time offsets below
+                 * before they're normalized to 0-1.
+                 */
+                const repeatDelayUnits = duration > 0 ? repeatDelay / duration : 0;
+                duration = (0,_utils_calc_repeat_duration_mjs__WEBPACK_IMPORTED_MODULE_11__.calculateRepeatDuration)(duration, repeat, repeatDelay);
+                const originalKeyframes = [...valueKeyframesAsList];
+                const originalTimes = [...times];
+                ease = Array.isArray(ease) ? [...ease] : [ease];
+                const originalEase = [...ease];
+                /**
+                 * For reverse/mirror, alternate iterations play the segment
+                 * backwards. mirror matches JSAnimation's mirroredGenerator:
+                 * reversed keyframes, easings unchanged. reverse matches
+                 * JSAnimation's iterationProgress = 1 - p: reversed
+                 * keyframes, easing array reversed AND each function easing
+                 * mapped through reverseEasing (string easings unchanged —
+                 * they're resolved later by the keyframes engine).
+                 */
+                const isFlipping = repeatType === "reverse" || repeatType === "mirror";
+                let flippedKeyframes = originalKeyframes;
+                let flippedEases = originalEase;
+                if (isFlipping) {
+                    flippedKeyframes = [...originalKeyframes].reverse();
+                    if (repeatType === "reverse") {
+                        flippedEases = [...originalEase]
+                            .reverse()
+                            .map((e) => typeof e === "function"
+                            ? (0,motion_utils__WEBPACK_IMPORTED_MODULE_8__.reverseEasing)(e)
+                            : e);
+                    }
+                }
+                for (let repeatIndex = 0; repeatIndex < repeat; repeatIndex++) {
+                    const isFlipped = isFlipping && repeatIndex % 2 === 0;
+                    const iterKeyframes = isFlipped
+                        ? flippedKeyframes
+                        : originalKeyframes;
+                    const iterEase = isFlipped ? flippedEases : originalEase;
+                    const iterStartOffset = (repeatIndex + 1) * (1 + repeatDelayUnits);
+                    /**
+                     * If repeatDelay is set, hold the previous iteration's
+                     * final value through the delay by inserting a keyframe
+                     * at the moment the next iteration begins.
+                     */
+                    if (repeatDelayUnits > 0) {
+                        valueKeyframesAsList.push(valueKeyframesAsList[valueKeyframesAsList.length - 1]);
+                        times.push(iterStartOffset);
+                        ease.push("linear");
+                    }
+                    valueKeyframesAsList.push(...iterKeyframes);
+                    for (let keyframeIndex = 0; keyframeIndex < iterKeyframes.length; keyframeIndex++) {
+                        times.push(originalTimes[keyframeIndex] + iterStartOffset);
+                        ease.push(keyframeIndex === 0
+                            ? "linear"
+                            : (0,motion_utils__WEBPACK_IMPORTED_MODULE_9__.getEasingForSegment)(iterEase, keyframeIndex - 1));
+                    }
+                }
+                ;(0,_utils_normalize_times_mjs__WEBPACK_IMPORTED_MODULE_14__.normalizeTimes)(times, repeat, repeatDelayUnits);
+            }
+            const targetTime = startTime + duration;
+            /**
+             * Add keyframes, mapping offsets to absolute time.
+             */
+            (0,_utils_edit_mjs__WEBPACK_IMPORTED_MODULE_13__.addKeyframes)(valueSequence, valueKeyframesAsList, ease, times, startTime, targetTime);
+            maxDuration = Math.max(calculatedDelay + duration, maxDuration);
+            totalDuration = Math.max(targetTime, totalDuration);
+        };
+        if ((0,motion_dom__WEBPACK_IMPORTED_MODULE_4__.isMotionValue)(subject)) {
+            const subjectSequence = getSubjectSequence(subject, sequences);
+            resolveValueSequence(keyframes, transition, getValueSequence("default", subjectSequence));
+        }
+        else {
+            const subjects = (0,_animate_resolve_subjects_mjs__WEBPACK_IMPORTED_MODULE_10__.resolveSubjects)(subject, keyframes, scope, elementCache);
+            const numSubjects = subjects.length;
+            /**
+             * For every element in this segment, process the defined values.
+             */
+            for (let subjectIndex = 0; subjectIndex < numSubjects; subjectIndex++) {
+                /**
+                 * Cast necessary, but we know these are of this type
+                 */
+                keyframes = keyframes;
+                transition = transition;
+                const thisSubject = subjects[subjectIndex];
+                const subjectSequence = getSubjectSequence(thisSubject, sequences);
+                for (const key in keyframes) {
+                    resolveValueSequence(keyframes[key], getValueTransition(transition, key), getValueSequence(key, subjectSequence), subjectIndex, numSubjects);
+                }
+            }
+        }
+        prevTime = currentTime;
+        currentTime += maxDuration;
+    }
+    /**
+     * For every element and value combination create a new animation.
+     */
+    sequences.forEach((valueSequences, element) => {
+        for (const key in valueSequences) {
+            const valueSequence = valueSequences[key];
+            /**
+             * Arrange all the keyframes in ascending time order.
+             */
+            valueSequence.sort(_utils_sort_mjs__WEBPACK_IMPORTED_MODULE_15__.compareByTime);
+            const keyframes = [];
+            const valueOffset = [];
+            const valueEasing = [];
+            /**
+             * For each keyframe, translate absolute times into
+             * relative offsets based on the total duration of the timeline.
+             */
+            for (let i = 0; i < valueSequence.length; i++) {
+                const { at, value, easing } = valueSequence[i];
+                keyframes.push(value);
+                valueOffset.push((0,motion_utils__WEBPACK_IMPORTED_MODULE_6__.progress)(0, totalDuration, at));
+                valueEasing.push(easing || "easeOut");
+            }
+            /**
+             * If the first keyframe doesn't land on offset: 0
+             * provide one by duplicating the initial keyframe. This ensures
+             * it snaps to the first keyframe when the animation starts.
+             */
+            if (valueOffset[0] !== 0) {
+                valueOffset.unshift(0);
+                keyframes.unshift(keyframes[0]);
+                valueEasing.unshift(defaultSegmentEasing);
+            }
+            /**
+             * If the last keyframe doesn't land on offset: 1
+             * provide one with a null wildcard value. This will ensure it
+             * stays static until the end of the animation.
+             */
+            if (valueOffset[valueOffset.length - 1] !== 1) {
+                valueOffset.push(1);
+                keyframes.push(null);
+            }
+            if (!animationDefinitions.has(element)) {
+                animationDefinitions.set(element, {
+                    keyframes: {},
+                    transition: {},
+                });
+            }
+            const definition = animationDefinitions.get(element);
+            definition.keyframes[key] = keyframes;
+            /**
+             * Exclude `type` from defaultTransition since springs have been
+             * converted to duration-based easing functions in resolveValueSequence.
+             * Including `type: "spring"` would cause JSAnimation to error when
+             * the merged keyframes array has more than 2 keyframes.
+             */
+            const { type: _type, ...remainingDefaultTransition } = defaultTransition;
+            definition.transition[key] = {
+                ...remainingDefaultTransition,
+                duration: totalDuration,
+                ease: valueEasing,
+                times: valueOffset,
+                ...sequenceTransition,
+            };
+        }
+    });
+    return animationDefinitions;
+}
+function getSubjectSequence(subject, sequences) {
+    !sequences.has(subject) && sequences.set(subject, {});
+    return sequences.get(subject);
+}
+function getValueSequence(name, sequences) {
+    if (!sequences[name])
+        sequences[name] = [];
+    return sequences[name];
+}
+function keyframesAsList(keyframes) {
+    return Array.isArray(keyframes) ? keyframes : [keyframes];
+}
+function getValueTransition(transition, key) {
+    return transition && transition[key]
+        ? {
+            ...transition,
+            ...transition[key],
+        }
+        : { ...transition };
+}
+const isNumber = (keyframe) => typeof keyframe === "number";
+const isNumberKeyframesArray = (keyframes) => keyframes.every(isNumber);
+
+
+//# sourceMappingURL=create.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/calc-repeat-duration.mjs"
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/calc-repeat-duration.mjs ***!
+  \******************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   calculateRepeatDuration: () => (/* binding */ calculateRepeatDuration)
+/* harmony export */ });
+function calculateRepeatDuration(duration, repeat, repeatDelay) {
+    return duration * (repeat + 1) + repeatDelay * repeat;
+}
+
+
+//# sourceMappingURL=calc-repeat-duration.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/calc-time.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/calc-time.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   calcNextTime: () => (/* binding */ calcNextTime)
+/* harmony export */ });
+/**
+ * Given a absolute or relative time definition and current/prev time state of the sequence,
+ * calculate an absolute time for the next keyframes.
+ */
+function calcNextTime(current, next, prev, labels) {
+    if (typeof next === "number") {
+        return next;
+    }
+    else if (next.startsWith("-") || next.startsWith("+")) {
+        return Math.max(0, current + parseFloat(next));
+    }
+    else if (next === "<") {
+        return prev;
+    }
+    else if (next.startsWith("<")) {
+        return Math.max(0, prev + parseFloat(next.slice(1)));
+    }
+    else {
+        return labels.get(next) ?? current;
+    }
+}
+
+
+//# sourceMappingURL=calc-time.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/edit.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/edit.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addKeyframes: () => (/* binding */ addKeyframes),
+/* harmony export */   eraseKeyframes: () => (/* binding */ eraseKeyframes)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/number.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/get-easing-for-segment.mjs");
+
+
+
+function eraseKeyframes(sequence, startTime, endTime) {
+    for (let i = 0; i < sequence.length; i++) {
+        const keyframe = sequence[i];
+        if (keyframe.at > startTime && keyframe.at < endTime) {
+            (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.removeItem)(sequence, keyframe);
+            // If we remove this item we have to push the pointer back one
+            i--;
+        }
+    }
+}
+function addKeyframes(sequence, keyframes, easing, offset, startTime, endTime) {
+    /**
+     * Erase every existing value between currentTime and targetTime,
+     * this will essentially splice this timeline into any currently
+     * defined ones.
+     */
+    eraseKeyframes(sequence, startTime, endTime);
+    for (let i = 0; i < keyframes.length; i++) {
+        sequence.push({
+            value: keyframes[i],
+            at: (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.mixNumber)(startTime, endTime, offset[i]),
+            easing: (0,motion_utils__WEBPACK_IMPORTED_MODULE_2__.getEasingForSegment)(easing, i),
+        });
+    }
+}
+
+
+//# sourceMappingURL=edit.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/normalize-times.mjs"
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/normalize-times.mjs ***!
+  \*************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   normalizeTimes: () => (/* binding */ normalizeTimes)
+/* harmony export */ });
+/**
+ * Take an array of times that represent repeated keyframes. For instance
+ * if we have original times of [0, 0.5, 1] then our repeated times will
+ * be [0, 0.5, 1, 1, 1.5, 2]. Loop over the times and scale them back
+ * down to a 0-1 scale.
+ *
+ * `repeatDelayUnits` is the repeatDelay expressed in units of a single
+ * iteration's duration, so the total span equals `(repeat + 1) + repeat * repeatDelayUnits`.
+ */
+function normalizeTimes(times, repeat, repeatDelayUnits = 0) {
+    const totalUnits = repeat + 1 + repeat * repeatDelayUnits;
+    for (let i = 0; i < times.length; i++) {
+        times[i] = times[i] / totalUnits;
+    }
+}
+
+
+//# sourceMappingURL=normalize-times.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/sort.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/sequence/utils/sort.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   compareByTime: () => (/* binding */ compareByTime)
+/* harmony export */ });
+function compareByTime(a, b) {
+    if (a.at === b.at) {
+        if (a.value === null)
+            return 1;
+        if (b.value === null)
+            return -1;
+        return 0;
+    }
+    else {
+        return a.at - b.at;
+    }
+}
+
+
+//# sourceMappingURL=sort.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/create-visual-element.mjs"
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/create-visual-element.mjs ***!
+  \**********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createDOMVisualElement: () => (/* binding */ createDOMVisualElement),
+/* harmony export */   createObjectVisualElement: () => (/* binding */ createObjectVisualElement)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-svg-element.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-svg-svg-element.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/HTMLVisualElement.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/object/ObjectVisualElement.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/store.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/SVGVisualElement.mjs");
+
+
+function createDOMVisualElement(element) {
+    const options = {
+        presenceContext: null,
+        props: {},
+        visualState: {
+            renderState: {
+                transform: {},
+                transformOrigin: {},
+                style: {},
+                vars: {},
+                attrs: {},
+            },
+            latestValues: {},
+        },
+    };
+    const node = (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.isSVGElement)(element) && !(0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isSVGSVGElement)(element)
+        ? new motion_dom__WEBPACK_IMPORTED_MODULE_5__.SVGVisualElement(options)
+        : new motion_dom__WEBPACK_IMPORTED_MODULE_2__.HTMLVisualElement(options);
+    node.mount(element);
+    motion_dom__WEBPACK_IMPORTED_MODULE_4__.visualElementStore.set(element, node);
+}
+function createObjectVisualElement(subject) {
+    const options = {
+        presenceContext: null,
+        props: {},
+        visualState: {
+            renderState: {
+                output: {},
+            },
+            latestValues: {},
+        },
+    };
+    const node = new motion_dom__WEBPACK_IMPORTED_MODULE_3__.ObjectVisualElement(options);
+    node.mount(subject);
+    motion_dom__WEBPACK_IMPORTED_MODULE_4__.visualElementStore.set(subject, node);
+}
+
+
+//# sourceMappingURL=create-visual-element.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/is-dom-keyframes.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/animation/utils/is-dom-keyframes.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isDOMKeyframes: () => (/* binding */ isDOMKeyframes)
+/* harmony export */ });
+function isDOMKeyframes(keyframes) {
+    return typeof keyframes === "object" && !Array.isArray(keyframes);
+}
+
+
+//# sourceMappingURL=is-dom-keyframes.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs"
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs ***!
+  \********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   PopChild: () => (/* binding */ PopChild)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-html-element.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _utils_use_composed_ref_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/use-composed-ref.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs");
+"use client";
+
+
+
+
+
+
+
+/**
+ * Measurement functionality has to be within a separate component
+ * to leverage snapshot lifecycle.
+ */
+class PopChildMeasure extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
+    getSnapshotBeforeUpdate(prevProps) {
+        const element = this.props.childRef.current;
+        if ((0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
+            const parent = element.offsetParent;
+            const parentWidth = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(parent)
+                ? parent.offsetWidth || 0
+                : 0;
+            const parentHeight = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(parent)
+                ? parent.offsetHeight || 0
+                : 0;
+            const computedStyle = getComputedStyle(element);
+            const size = this.props.sizeRef.current;
+            size.height = parseFloat(computedStyle.height);
+            size.width = parseFloat(computedStyle.width);
+            size.top = element.offsetTop;
+            size.left = element.offsetLeft;
+            size.right = parentWidth - size.width - size.left;
+            size.bottom = parentHeight - size.height - size.top;
+            size.direction = computedStyle.direction;
+        }
+        return null;
+    }
+    /**
+     * Required with getSnapshotBeforeUpdate to stop React complaining.
+     */
+    componentDidUpdate() { }
+    render() {
+        return this.props.children;
+    }
+}
+function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
+    const id = (0,react__WEBPACK_IMPORTED_MODULE_2__.useId)();
+    const ref = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
+    const size = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)({
+        width: 0,
+        height: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        direction: "ltr",
+    });
+    const { nonce } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionConfigContext);
+    /**
+     * In React 19, refs are passed via props.ref instead of element.ref.
+     * We check props.ref first (React 19) and fall back to element.ref (React 18).
+     *
+     * The composed ref is only used when popping the child out (pop !== false),
+     * so we avoid reading children.props.ref otherwise. In React 18.3 that read
+     * triggers a spurious "`ref` is not a prop" warning getter (#3745).
+     */
+    const childRef = pop !== false
+        ? (children.props?.ref ??
+            children?.ref)
+        : undefined;
+    const composedRef = (0,_utils_use_composed_ref_mjs__WEBPACK_IMPORTED_MODULE_4__.useComposedRefs)(ref, childRef);
+    /**
+     * We create and inject a style block so we can apply this explicit
+     * sizing in a non-destructive manner by just deleting the style block.
+     *
+     * We can't apply size via render as the measurement happens
+     * in getSnapshotBeforeUpdate (post-render), likewise if we apply the
+     * styles directly on the DOM node, we might be overwriting
+     * styles set via the style prop.
+     */
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useInsertionEffect)(() => {
+        const { width, height, top, left, right, bottom, direction } = size.current;
+        if (isPresent || pop === false || !ref.current || !width || !height)
+            return;
+        const isRTL = direction === "rtl";
+        const x = anchorX === "left"
+            ? (isRTL ? `right: ${right}` : `left: ${left}`)
+            : (isRTL ? `left: ${left}` : `right: ${right}`);
+        const y = anchorY === "bottom" ? `bottom: ${bottom}` : `top: ${top}`;
+        ref.current.dataset.motionPopId = id;
+        const style = document.createElement("style");
+        if (nonce)
+            style.nonce = nonce;
+        const parent = root ?? document.head;
+        parent.appendChild(style);
+        if (style.sheet) {
+            style.sheet.insertRule(`
+          [data-motion-pop-id="${id}"] {
+            position: absolute !important;
+            width: ${width}px !important;
+            height: ${height}px !important;
+            ${x}px !important;
+            ${y}px !important;
+          }
+        `);
+        }
+        return () => {
+            ref.current?.removeAttribute("data-motion-pop-id");
+            if (parent.contains(style)) {
+                parent.removeChild(style);
+            }
+        };
+    }, [isPresent]);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(PopChildMeasure, { isPresent: isPresent, childRef: ref, sizeRef: size, pop: pop, children: pop === false
+            ? children
+            : react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(children, { ref: composedRef }) }));
+}
+
+
+//# sourceMappingURL=PopChild.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs"
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs ***!
+  \*************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   PresenceChild: () => (/* binding */ PresenceChild)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_PresenceContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/PresenceContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/PresenceContext.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+/* harmony import */ var _PopChild_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PopChild.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs");
+"use client";
+
+
+
+
+
+
+
+
+const PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, presenceAffectsLayout, mode, anchorX, anchorY, root }) => {
+    const presenceChildren = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__.useConstant)(newChildrenMap);
+    const id = (0,react__WEBPACK_IMPORTED_MODULE_1__.useId)();
+    // Written in a layout effect (not render) so discarded concurrent
+    // renders can't leave the refs pointing at uncommitted state.
+    const isPresentRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(isPresent);
+    const onExitCompleteRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(onExitComplete);
+    (0,_utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_4__.useIsomorphicLayoutEffect)(() => {
+        isPresentRef.current = isPresent;
+        onExitCompleteRef.current = onExitComplete;
+    });
+    let isReusedContext = true;
+    let context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => {
+        isReusedContext = false;
+        return {
+            id,
+            initial,
+            isPresent,
+            custom,
+            onExitComplete: (childId) => {
+                presenceChildren.set(childId, true);
+                for (const isComplete of presenceChildren.values()) {
+                    if (!isComplete)
+                        return; // can stop searching when any is incomplete
+                }
+                onExitComplete && onExitComplete();
+            },
+            register: (childId) => {
+                presenceChildren.set(childId, false);
+                return () => {
+                    presenceChildren.delete(childId);
+                    !isPresentRef.current &&
+                        !presenceChildren.size &&
+                        onExitCompleteRef.current?.();
+                };
+            },
+        };
+    }, [isPresent, presenceChildren, onExitComplete]);
+    /**
+     * If the presence of a child affects the layout of the components around it,
+     * we want to make a new context value to ensure they get re-rendered
+     * so they can detect that layout change.
+     */
+    if (presenceAffectsLayout && isReusedContext) {
+        context = { ...context };
+    }
+    ;(0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => {
+        presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
+    }, [isPresent]);
+    /**
+     * If there's no `motion` components to fire exit animations, we want to remove this
+     * component immediately.
+     */
+    react__WEBPACK_IMPORTED_MODULE_1__.useEffect(() => {
+        !isPresent &&
+            !presenceChildren.size &&
+            onExitComplete &&
+            onExitComplete();
+    }, [isPresent]);
+    children = ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_PopChild_mjs__WEBPACK_IMPORTED_MODULE_5__.PopChild, { pop: mode === "popLayout", isPresent: isPresent, anchorX: anchorX, anchorY: anchorY, root: root, children: children }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_context_PresenceContext_mjs__WEBPACK_IMPORTED_MODULE_2__.PresenceContext.Provider, { value: context, children: children }));
+};
+function newChildrenMap() {
+    return new Map();
+}
+
+
+//# sourceMappingURL=PresenceChild.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnimatePresence: () => (/* binding */ AnimatePresence)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/LayoutGroupContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+/* harmony import */ var _PresenceChild_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PresenceChild.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs");
+/* harmony import */ var _use_presence_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./use-presence.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs");
+/* harmony import */ var _utils_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs");
+"use client";
+
+
+
+
+
+
+
+
+
+/**
+ * `AnimatePresence` enables the animation of components that have been removed from the tree.
+ *
+ * When adding/removing more than a single child, every child **must** be given a unique `key` prop.
+ *
+ * Any `motion` components that have an `exit` property defined will animate out when removed from
+ * the tree.
+ *
+ * ```jsx
+ * import { motion, AnimatePresence } from 'framer-motion'
+ *
+ * export const Items = ({ items }) => (
+ *   <AnimatePresence>
+ *     {items.map(item => (
+ *       <motion.div
+ *         key={item.id}
+ *         initial={{ opacity: 0 }}
+ *         animate={{ opacity: 1 }}
+ *         exit={{ opacity: 0 }}
+ *       />
+ *     ))}
+ *   </AnimatePresence>
+ * )
+ * ```
+ *
+ * You can sequence exit animations throughout a tree using variants.
+ *
+ * If a child contains multiple `motion` components with `exit` props, it will only unmount the child
+ * once all `motion` components have finished animating out. Likewise, any components using
+ * `usePresence` all need to call `safeToRemove`.
+ *
+ * @public
+ */
+const AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root }) => {
+    const [isParentPresent, safeToRemove] = (0,_use_presence_mjs__WEBPACK_IMPORTED_MODULE_6__.usePresence)(propagate);
+    /**
+     * Filter any children that aren't ReactElements. We can only track components
+     * between renders with a props.key.
+     */
+    const presentChildren = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => (0,_utils_mjs__WEBPACK_IMPORTED_MODULE_7__.onlyElements)(children), [children]);
+    /**
+     * Track the keys of the currently rendered children. This is used to
+     * determine which children are exiting.
+     */
+    const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(_utils_mjs__WEBPACK_IMPORTED_MODULE_7__.getChildKey);
+    /**
+     * If `initial={false}` we only want to pass this to components in the first render.
+     */
+    const isInitialRender = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(true);
+    /**
+     * A ref containing the currently present children. When all exit animations
+     * are complete, we use this to re-render the component with the latest children
+     * *committed* rather than the latest children *rendered*.
+     */
+    const pendingPresentChildren = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(presentChildren);
+    /**
+     * Track which exiting children have finished animating out.
+     */
+    const exitComplete = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__.useConstant)(() => new Map());
+    /**
+     * Track which components are currently processing exit to prevent duplicate processing.
+     */
+    const exitingComponents = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(new Set());
+    /**
+     * Save children to render as React state. To ensure this component is concurrent-safe,
+     * we check for exiting children via an effect.
+     */
+    const [diffedChildren, setDiffedChildren] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(presentChildren);
+    const [renderedChildren, setRenderedChildren] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(presentChildren);
+    (0,_utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_4__.useIsomorphicLayoutEffect)(() => {
+        if (propagate && !isParentPresent && !renderedChildren.length) {
+            safeToRemove?.();
+        }
+    }, [isParentPresent, propagate, renderedChildren.length, safeToRemove]);
+    (0,_utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_4__.useIsomorphicLayoutEffect)(() => {
+        isInitialRender.current = false;
+        pendingPresentChildren.current = presentChildren;
+        /**
+         * Update complete status of exiting children.
+         */
+        for (let i = 0; i < renderedChildren.length; i++) {
+            const key = (0,_utils_mjs__WEBPACK_IMPORTED_MODULE_7__.getChildKey)(renderedChildren[i]);
+            if (!presentKeys.includes(key)) {
+                if (exitComplete.get(key) !== true) {
+                    exitComplete.set(key, false);
+                }
+            }
+            else {
+                exitComplete.delete(key);
+                exitingComponents.current.delete(key);
+            }
+        }
+    }, [renderedChildren, presentKeys.length, presentKeys.join("-")]);
+    const exitingChildren = [];
+    if (presentChildren !== diffedChildren) {
+        let nextChildren = [...presentChildren];
+        /**
+         * Loop through all the currently rendered components and decide which
+         * are exiting.
+         */
+        for (let i = 0; i < renderedChildren.length; i++) {
+            const child = renderedChildren[i];
+            const key = (0,_utils_mjs__WEBPACK_IMPORTED_MODULE_7__.getChildKey)(child);
+            if (!presentKeys.includes(key)) {
+                nextChildren.splice(i, 0, child);
+                exitingChildren.push(child);
+            }
+        }
+        /**
+         * If we're in "wait" mode, and we have exiting children, we want to
+         * only render these until they've all exited.
+         */
+        if (mode === "wait" && exitingChildren.length) {
+            nextChildren = exitingChildren;
+        }
+        setRenderedChildren((0,_utils_mjs__WEBPACK_IMPORTED_MODULE_7__.onlyElements)(nextChildren));
+        setDiffedChildren(presentChildren);
+        /**
+         * Early return to ensure once we've set state with the latest diffed
+         * children, we can immediately re-render.
+         */
+        return null;
+    }
+    if ( true &&
+        mode === "wait" &&
+        renderedChildren.length > 1) {
+        console.warn(`You're attempting to animate multiple children within AnimatePresence, but its mode is set to "wait". This will lead to odd visual behaviour.`);
+    }
+    /**
+     * If we've been provided a forceRender function by the LayoutGroupContext,
+     * we can use it to force a re-render amongst all surrounding components once
+     * all components have finished animating out.
+     */
+    const { forceRender } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_2__.LayoutGroupContext);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: renderedChildren.map((child) => {
+            const key = (0,_utils_mjs__WEBPACK_IMPORTED_MODULE_7__.getChildKey)(child);
+            const isPresent = propagate && !isParentPresent
+                ? false
+                : presentChildren === renderedChildren ||
+                    presentKeys.includes(key);
+            const onExit = () => {
+                if (exitingComponents.current.has(key)) {
+                    return;
+                }
+                if (exitComplete.has(key)) {
+                    exitingComponents.current.add(key);
+                    exitComplete.set(key, true);
+                }
+                else {
+                    return;
+                }
+                let isEveryExitComplete = true;
+                exitComplete.forEach((isExitComplete) => {
+                    if (!isExitComplete)
+                        isEveryExitComplete = false;
+                });
+                if (isEveryExitComplete) {
+                    forceRender?.();
+                    setRenderedChildren(pendingPresentChildren.current);
+                    propagate && safeToRemove?.();
+                    onExitComplete && onExitComplete();
+                }
+            };
+            return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_PresenceChild_mjs__WEBPACK_IMPORTED_MODULE_5__.PresenceChild, { isPresent: isPresent, initial: !isInitialRender.current || initial
+                    ? undefined
+                    : false, custom: custom, presenceAffectsLayout: presenceAffectsLayout, mode: mode, root: root, onExitComplete: isPresent ? undefined : onExit, anchorX: anchorX, anchorY: anchorY, children: child }, key));
+        }) }));
+};
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence-data.mjs"
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence-data.mjs ***!
+  \*****************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   usePresenceData: () => (/* binding */ usePresenceData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_PresenceContext_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/PresenceContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/PresenceContext.mjs");
+"use client";
+
+
+
+function usePresenceData() {
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_PresenceContext_mjs__WEBPACK_IMPORTED_MODULE_1__.PresenceContext);
+    return context ? context.custom : undefined;
+}
+
+
+//# sourceMappingURL=use-presence-data.mjs.map
 
 
 /***/ },
@@ -373,6 +2830,796 @@ function isPresent(context) {
 
 
 //# sourceMappingURL=use-presence.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getChildKey: () => (/* binding */ getChildKey),
+/* harmony export */   onlyElements: () => (/* binding */ onlyElements)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+
+
+const getChildKey = (child) => child.key || "";
+function onlyElements(children) {
+    const filtered = [];
+    // We use forEach here instead of map as map mutates the component key by preprending `.$`
+    react__WEBPACK_IMPORTED_MODULE_0__.Children.forEach(children, (child) => {
+        if ((0,react__WEBPACK_IMPORTED_MODULE_0__.isValidElement)(child))
+            filtered.push(child);
+    });
+    return filtered;
+}
+
+
+//# sourceMappingURL=utils.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimateSharedLayout.mjs"
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimateSharedLayout.mjs ***!
+  \***************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnimateSharedLayout: () => (/* binding */ AnimateSharedLayout)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _LayoutGroup_index_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LayoutGroup/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs");
+"use client";
+
+
+
+
+
+
+let id = 0;
+const AnimateSharedLayout = ({ children }) => {
+    react__WEBPACK_IMPORTED_MODULE_2__.useEffect(() => {
+        (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.invariant)(false, "AnimateSharedLayout is deprecated: https://www.framer.com/docs/guide-upgrade/##shared-layout-animations");
+    }, []);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_LayoutGroup_index_mjs__WEBPACK_IMPORTED_MODULE_4__.LayoutGroup, { id: (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__.useConstant)(() => `asl-${id++}`), children: children }));
+};
+
+
+//# sourceMappingURL=AnimateSharedLayout.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs ***!
+  \*************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LayoutGroup: () => (/* binding */ LayoutGroup)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/LayoutGroupContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs");
+/* harmony import */ var _context_DeprecatedLayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/DeprecatedLayoutGroupContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/DeprecatedLayoutGroupContext.mjs");
+/* harmony import */ var _utils_use_force_update_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/use-force-update.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-force-update.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/group.mjs");
+"use client";
+
+
+
+
+
+
+
+const shouldInheritGroup = (inherit) => inherit === true;
+const shouldInheritId = (inherit) => shouldInheritGroup(inherit === true) || inherit === "id";
+const LayoutGroup = ({ children, id, inherit = true }) => {
+    const layoutGroupContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_2__.LayoutGroupContext);
+    const deprecatedLayoutGroupContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_DeprecatedLayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_3__.DeprecatedLayoutGroupContext);
+    const [forceRender, key] = (0,_utils_use_force_update_mjs__WEBPACK_IMPORTED_MODULE_4__.useForceUpdate)();
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    const upstreamId = layoutGroupContext.id || deprecatedLayoutGroupContext;
+    if (context.current === null) {
+        if (shouldInheritId(inherit) && upstreamId) {
+            id = id ? upstreamId + "-" + id : upstreamId;
+        }
+        context.current = {
+            id,
+            group: shouldInheritGroup(inherit)
+                ? layoutGroupContext.group || (0,motion_dom__WEBPACK_IMPORTED_MODULE_5__.nodeGroup)()
+                : (0,motion_dom__WEBPACK_IMPORTED_MODULE_5__.nodeGroup)(),
+        };
+    }
+    const memoizedContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => ({ ...context.current, forceRender }), [key]);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_2__.LayoutGroupContext.Provider, { value: memoizedContext, children: children }));
+};
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/LazyMotion/index.mjs"
+/*!************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/LazyMotion/index.mjs ***!
+  \************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LazyMotion: () => (/* binding */ LazyMotion)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_LazyContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/LazyContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/LazyContext.mjs");
+/* harmony import */ var _motion_features_load_features_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../motion/features/load-features.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/load-features.mjs");
+"use client";
+
+
+
+
+
+/**
+ * Used in conjunction with the `m` component to reduce bundle size.
+ *
+ * `m` is a version of the `motion` component that only loads functionality
+ * critical for the initial render.
+ *
+ * `LazyMotion` can then be used to either synchronously or asynchronously
+ * load animation and gesture support.
+ *
+ * ```jsx
+ * // Synchronous loading
+ * import { LazyMotion, m, domAnimation } from "framer-motion"
+ *
+ * function App() {
+ *   return (
+ *     <LazyMotion features={domAnimation}>
+ *       <m.div animate={{ scale: 2 }} />
+ *     </LazyMotion>
+ *   )
+ * }
+ *
+ * // Asynchronous loading
+ * import { LazyMotion, m } from "framer-motion"
+ *
+ * function App() {
+ *   return (
+ *     <LazyMotion features={() => import('./path/to/domAnimation')}>
+ *       <m.div animate={{ scale: 2 }} />
+ *     </LazyMotion>
+ *   )
+ * }
+ * ```
+ *
+ * @public
+ */
+function LazyMotion({ children, features, strict = false }) {
+    const [, setIsLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(!isLazyBundle(features));
+    const loadedRenderer = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(undefined);
+    /**
+     * If this is a synchronous load, load features immediately
+     */
+    if (!isLazyBundle(features)) {
+        const { renderer, ...loadedFeatures } = features;
+        loadedRenderer.current = renderer;
+        (0,_motion_features_load_features_mjs__WEBPACK_IMPORTED_MODULE_3__.loadFeatures)(loadedFeatures);
+    }
+    ;(0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        if (isLazyBundle(features)) {
+            features().then(({ renderer, ...loadedFeatures }) => {
+                (0,_motion_features_load_features_mjs__WEBPACK_IMPORTED_MODULE_3__.loadFeatures)(loadedFeatures);
+                loadedRenderer.current = renderer;
+                setIsLoaded(true);
+            });
+        }
+    }, []);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_context_LazyContext_mjs__WEBPACK_IMPORTED_MODULE_2__.LazyContext.Provider, { value: { renderer: loadedRenderer.current, strict }, children: children }));
+}
+function isLazyBundle(features) {
+    return typeof features === "function";
+}
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/MotionConfig/index.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/MotionConfig/index.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MotionConfig: () => (/* binding */ MotionConfig)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/resolve-transition.mjs");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+"use client";
+
+
+
+
+
+
+/**
+ * `MotionConfig` is used to set configuration options for all children `motion` components.
+ *
+ * ```jsx
+ * import { motion, MotionConfig } from "framer-motion"
+ *
+ * export function App() {
+ *   return (
+ *     <MotionConfig transition={{ type: "spring" }}>
+ *       <motion.div animate={{ x: 100 }} />
+ *     </MotionConfig>
+ *   )
+ * }
+ * ```
+ *
+ * @public
+ */
+function MotionConfig({ children, ...config }) {
+    /**
+     * Inherit props from any parent MotionConfig components
+     */
+    const parentConfig = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionConfigContext);
+    config = { ...parentConfig, ...config };
+    config.transition = (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.resolveTransition)(config.transition, parentConfig.transition);
+    /**
+     * Don't allow isStatic to change between renders as it affects how many hooks
+     * motion components fire.
+     */
+    config.isStatic = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_4__.useConstant)(() => config.isStatic);
+    /**
+     * Creating a new config context object will re-render every `motion` component
+     * every time it renders. So we only want to create a new one sparingly.
+     */
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => config, [
+        JSON.stringify(config.transition),
+        config.transformPagePoint,
+        config.reducedMotion,
+        config.skipAnimations,
+        config.isValidProp,
+    ]);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionConfigContext.Provider, { value: context, children: children }));
+}
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/Group.mjs"
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/Group.mjs ***!
+  \*********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReorderGroup: () => (/* binding */ ReorderGroup),
+/* harmony export */   ReorderGroupComponent: () => (/* binding */ ReorderGroupComponent)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_ReorderContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/ReorderContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/ReorderContext.mjs");
+/* harmony import */ var _render_components_motion_proxy_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../render/components/motion/proxy.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_check_reorder_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/check-reorder.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/check-reorder.mjs");
+/* harmony import */ var _utils_detect_axis_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/detect-axis.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/detect-axis.mjs");
+"use client";
+
+
+
+
+
+
+
+
+
+function ReorderGroupComponent({ children, as = "ul", axis: axisOverride, onReorder, values, ...props }, externalRef) {
+    const Component = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_5__.useConstant)(() => _render_components_motion_proxy_mjs__WEBPACK_IMPORTED_MODULE_4__.motion[as]);
+    const itemLayouts = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(new Map());
+    const [detectedAxis, setDetectedAxis] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("y");
+    const isReordering = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(false);
+    const groupRef = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
+    const axis = axisOverride || detectedAxis;
+    (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.invariant)(Boolean(values), "Reorder.Group must be provided a values prop", "reorder-values");
+    const valuesSet = new Set(values);
+    itemLayouts.current.forEach((_, value) => {
+        if (!valuesSet.has(value))
+            itemLayouts.current.delete(value);
+    });
+    const context = {
+        axis,
+        groupRef,
+        registerItem: (value, layout) => {
+            itemLayouts.current.set(value, layout);
+            if (!axisOverride) {
+                const nextAxis = (0,_utils_detect_axis_mjs__WEBPACK_IMPORTED_MODULE_7__.detectAxis)(values.flatMap((itemValue) => {
+                    const itemLayout = itemLayouts.current.get(itemValue);
+                    return itemLayout ? [itemLayout] : [];
+                }));
+                if (nextAxis !== detectedAxis)
+                    setDetectedAxis(nextAxis);
+            }
+        },
+        updateOrder: (item, offset, velocity) => {
+            if (isReordering.current)
+                return;
+            const order = values.flatMap((value) => {
+                const layout = itemLayouts.current.get(value);
+                return layout ? [{ value, layout }] : [];
+            });
+            const direction = groupRef.current?.ownerDocument.defaultView?.getComputedStyle(groupRef.current).direction === "rtl"
+                ? "rtl"
+                : "ltr";
+            const newOrder = (0,_utils_check_reorder_mjs__WEBPACK_IMPORTED_MODULE_6__.checkReorder)(order, item, offset, velocity, axis, direction);
+            if (order !== newOrder) {
+                isReordering.current = true;
+                const newValues = [...values];
+                const measuredIndexes = order.map(({ value }) => values.indexOf(value));
+                newOrder.forEach(({ value }, index) => {
+                    newValues[measuredIndexes[index]] = value;
+                });
+                onReorder(newValues);
+            }
+        },
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+        isReordering.current = false;
+    });
+    // Combine refs if external ref is provided
+    const setRef = (element) => {
+        groupRef.current = element;
+        if (typeof externalRef === "function") {
+            externalRef(element);
+        }
+        else if (externalRef) {
+            externalRef.current =
+                element;
+        }
+    };
+    /**
+     * Disable browser scroll anchoring on the group container.
+     * When items reorder, scroll anchoring can cause the browser to adjust
+     * the scroll position, which interferes with drag position calculations.
+     */
+    const groupStyle = {
+        overflowAnchor: "none",
+        ...props.style,
+    };
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Component, { ...props, style: groupStyle, ref: setRef, ignoreStrict: true, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_context_ReorderContext_mjs__WEBPACK_IMPORTED_MODULE_3__.ReorderContext.Provider, { value: context, children: children }) }));
+}
+const ReorderGroup = /*@__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_2__.forwardRef)(ReorderGroupComponent);
+
+
+//# sourceMappingURL=Group.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/Item.mjs"
+/*!********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/Item.mjs ***!
+  \********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReorderItem: () => (/* binding */ ReorderItem),
+/* harmony export */   ReorderItemComponent: () => (/* binding */ ReorderItemComponent)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_ReorderContext_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/ReorderContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/ReorderContext.mjs");
+/* harmony import */ var _render_components_motion_proxy_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../render/components/motion/proxy.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _value_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../value/use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+/* harmony import */ var _value_use_transform_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../value/use-transform.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-transform.mjs");
+/* harmony import */ var _utils_auto_scroll_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/auto-scroll.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/auto-scroll.mjs");
+"use client";
+
+
+
+
+
+
+
+
+
+
+
+function useDefaultMotionValue(value, defaultValue = 0) {
+    return (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isMotionValue)(value) ? value : (0,_value_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_7__.useMotionValue)(defaultValue);
+}
+function ReorderItemComponent({ children, style = {}, value, as = "li", onDrag, onDragEnd, layout = true, ...props }, externalRef) {
+    const Component = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_6__.useConstant)(() => _render_components_motion_proxy_mjs__WEBPACK_IMPORTED_MODULE_5__.motion[as]);
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_3__.useContext)(_context_ReorderContext_mjs__WEBPACK_IMPORTED_MODULE_4__.ReorderContext);
+    const point = {
+        x: useDefaultMotionValue(style.x),
+        y: useDefaultMotionValue(style.y),
+    };
+    const zIndex = (0,_value_use_transform_mjs__WEBPACK_IMPORTED_MODULE_8__.useTransform)([point.x, point.y], ([latestX, latestY]) => latestX || latestY ? 1 : "unset");
+    (0,motion_utils__WEBPACK_IMPORTED_MODULE_2__.invariant)(Boolean(context), "Reorder.Item must be a child of Reorder.Group", "reorder-item-child");
+    const { axis, registerItem, updateOrder, groupRef } = context;
+    const dragAxis = axis === "xy" ? true : axis;
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Component, { drag: dragAxis, ...props, dragSnapToOrigin: true, style: { ...style, x: point.x, y: point.y, zIndex }, layout: layout, onDrag: (event, gesturePoint) => {
+            const { velocity, point: pointerPoint } = gesturePoint;
+            const offset = { x: point.x.get(), y: point.y.get() };
+            updateOrder(value, offset, velocity);
+            const scrollAxis = axis === "xy"
+                ? Math.abs(velocity.x) > Math.abs(velocity.y)
+                    ? "x"
+                    : "y"
+                : axis;
+            (0,_utils_auto_scroll_mjs__WEBPACK_IMPORTED_MODULE_9__.autoScrollIfNeeded)(groupRef.current, pointerPoint[scrollAxis], scrollAxis, velocity[scrollAxis]);
+            onDrag && onDrag(event, gesturePoint);
+        }, onDragEnd: (event, gesturePoint) => {
+            (0,_utils_auto_scroll_mjs__WEBPACK_IMPORTED_MODULE_9__.resetAutoScrollState)();
+            onDragEnd && onDragEnd(event, gesturePoint);
+        }, onLayoutMeasure: (measured) => {
+            registerItem(value, measured);
+        }, ref: externalRef, ignoreStrict: true, children: children }));
+}
+const ReorderItem = /*@__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_3__.forwardRef)(ReorderItemComponent);
+
+
+//# sourceMappingURL=Item.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/namespace.mjs"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/namespace.mjs ***!
+  \*************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Group: () => (/* reexport safe */ _Group_mjs__WEBPACK_IMPORTED_MODULE_0__.ReorderGroup),
+/* harmony export */   Item: () => (/* reexport safe */ _Item_mjs__WEBPACK_IMPORTED_MODULE_1__.ReorderItem)
+/* harmony export */ });
+/* harmony import */ var _Group_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Group.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/Group.mjs");
+/* harmony import */ var _Item_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Item.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/Item.mjs");
+
+
+//# sourceMappingURL=namespace.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/auto-scroll.mjs"
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/auto-scroll.mjs ***!
+  \*********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   autoScrollIfNeeded: () => (/* binding */ autoScrollIfNeeded),
+/* harmony export */   resetAutoScrollState: () => (/* binding */ resetAutoScrollState)
+/* harmony export */ });
+const threshold = 50;
+const maxSpeed = 25;
+const overflowStyles = new Set(["auto", "scroll"]);
+// Track initial scroll limits per scrollable element (Bug 1 fix)
+const initialScrollLimits = new WeakMap();
+const activeScrollEdge = new WeakMap();
+// Track which group element is currently dragging to clear state on end
+let currentGroupElement = null;
+function resetAutoScrollState() {
+    if (currentGroupElement) {
+        const scrollableAncestor = findScrollableAncestor(currentGroupElement, "y");
+        if (scrollableAncestor) {
+            activeScrollEdge.delete(scrollableAncestor);
+            initialScrollLimits.delete(scrollableAncestor);
+        }
+        // Also try x axis
+        const scrollableAncestorX = findScrollableAncestor(currentGroupElement, "x");
+        if (scrollableAncestorX && scrollableAncestorX !== scrollableAncestor) {
+            activeScrollEdge.delete(scrollableAncestorX);
+            initialScrollLimits.delete(scrollableAncestorX);
+        }
+        currentGroupElement = null;
+    }
+}
+function isScrollableElement(element, axis) {
+    const style = getComputedStyle(element);
+    const overflow = axis === "x" ? style.overflowX : style.overflowY;
+    const isDocumentScroll = element === document.body ||
+        element === document.documentElement;
+    return overflowStyles.has(overflow) || isDocumentScroll;
+}
+function findScrollableAncestor(element, axis) {
+    let current = element?.parentElement;
+    while (current) {
+        if (isScrollableElement(current, axis)) {
+            return current;
+        }
+        current = current.parentElement;
+    }
+    return null;
+}
+function getScrollAmount(pointerPosition, scrollElement, axis) {
+    const rect = scrollElement.getBoundingClientRect();
+    const start = axis === "x" ? Math.max(0, rect.left) : Math.max(0, rect.top);
+    const end = axis === "x" ? Math.min(window.innerWidth, rect.right) : Math.min(window.innerHeight, rect.bottom);
+    const distanceFromStart = pointerPosition - start;
+    const distanceFromEnd = end - pointerPosition;
+    if (distanceFromStart < threshold) {
+        const intensity = 1 - distanceFromStart / threshold;
+        return { amount: -maxSpeed * intensity * intensity, edge: "start" };
+    }
+    else if (distanceFromEnd < threshold) {
+        const intensity = 1 - distanceFromEnd / threshold;
+        return { amount: maxSpeed * intensity * intensity, edge: "end" };
+    }
+    return { amount: 0, edge: null };
+}
+function autoScrollIfNeeded(groupElement, pointerPosition, axis, velocity) {
+    if (!groupElement)
+        return;
+    // Track the group element for cleanup
+    currentGroupElement = groupElement;
+    const scrollableAncestor = findScrollableAncestor(groupElement, axis);
+    if (!scrollableAncestor)
+        return;
+    // Convert pointer position from page coordinates to viewport coordinates.
+    // The gesture system uses pageX/pageY but getBoundingClientRect() returns
+    // viewport-relative coordinates, so we need to account for page scroll.
+    const viewportPointerPosition = pointerPosition - (axis === "x" ? window.scrollX : window.scrollY);
+    const { amount: scrollAmount, edge } = getScrollAmount(viewportPointerPosition, scrollableAncestor, axis);
+    // If not in any threshold zone, clear all state
+    if (edge === null) {
+        activeScrollEdge.delete(scrollableAncestor);
+        initialScrollLimits.delete(scrollableAncestor);
+        return;
+    }
+    const currentActiveEdge = activeScrollEdge.get(scrollableAncestor);
+    const isDocumentScroll = scrollableAncestor === document.body ||
+        scrollableAncestor === document.documentElement;
+    // If not currently scrolling this edge, check velocity to see if we should start
+    if (currentActiveEdge !== edge) {
+        // Only start scrolling if velocity is towards the edge
+        const shouldStart = (edge === "start" && velocity < 0) ||
+            (edge === "end" && velocity > 0);
+        if (!shouldStart)
+            return;
+        // Activate this edge
+        activeScrollEdge.set(scrollableAncestor, edge);
+        // Record initial scroll limit (prevents infinite scroll)
+        const maxScroll = axis === "x"
+            ? scrollableAncestor.scrollWidth - (isDocumentScroll ? window.innerWidth : scrollableAncestor.clientWidth)
+            : scrollableAncestor.scrollHeight - (isDocumentScroll ? window.innerHeight : scrollableAncestor.clientHeight);
+        initialScrollLimits.set(scrollableAncestor, maxScroll);
+    }
+    // Cap scrolling at initial limit (prevents infinite scroll)
+    if (scrollAmount > 0) {
+        const initialLimit = initialScrollLimits.get(scrollableAncestor);
+        const currentScroll = axis === "x"
+            ? (isDocumentScroll ? window.scrollX : scrollableAncestor.scrollLeft)
+            : (isDocumentScroll ? window.scrollY : scrollableAncestor.scrollTop);
+        if (currentScroll >= initialLimit)
+            return;
+    }
+    // Apply scroll
+    if (axis === "x") {
+        if (isDocumentScroll) {
+            window.scrollBy({ left: scrollAmount });
+        }
+        else {
+            scrollableAncestor.scrollLeft += scrollAmount;
+        }
+    }
+    else {
+        if (isDocumentScroll) {
+            window.scrollBy({ top: scrollAmount });
+        }
+        else {
+            scrollableAncestor.scrollTop += scrollAmount;
+        }
+    }
+}
+
+
+//# sourceMappingURL=auto-scroll.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/check-reorder.mjs"
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/check-reorder.mjs ***!
+  \***********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   checkReorder: () => (/* binding */ checkReorder)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/number.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs");
+
+
+
+function checkReorder(order, value, offset, velocity, axis, direction = "ltr") {
+    const index = order.findIndex((item) => item.value === value);
+    if (index === -1)
+        return order;
+    if (axis === "xy") {
+        const { layout } = order[index];
+        const center = {
+            x: (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.mixNumber)(layout.x.min, layout.x.max, 0.5) + offset.x,
+            y: (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.mixNumber)(layout.y.min, layout.y.max, 0.5) + offset.y,
+        };
+        const lines = getLines(order);
+        const sourceLine = lines.find((line) => line.items.includes(order[index]));
+        const targetLine = lines.reduce((closest, line) => distanceToLine(center.y, line) < distanceToLine(center.y, closest)
+            ? line
+            : closest);
+        if (targetLine !== sourceLine) {
+            return moveToLine(order, index, center.x, targetLine, direction);
+        }
+        const currentDistance = distanceToBox(center, layout);
+        let target = -1;
+        let targetDistance = currentDistance;
+        order.forEach((item, targetIndex) => {
+            if (targetIndex === index)
+                return;
+            const distance = distanceToBox(center, item.layout);
+            if (distance < targetDistance) {
+                target = targetIndex;
+                targetDistance = distance;
+            }
+        });
+        return target === -1
+            ? order
+            : (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.moveItem)(order, index, index + Math.sign(target - index));
+    }
+    if (!velocity[axis])
+        return order;
+    const nextOffset = velocity[axis] > 0 ? 1 : -1;
+    const nextItem = order[index + nextOffset];
+    if (!nextItem)
+        return order;
+    const item = order[index];
+    const itemLayout = item.layout[axis];
+    const nextLayout = nextItem.layout[axis];
+    const nextItemCenter = (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.mixNumber)(nextLayout.min, nextLayout.max, 0.5);
+    if ((nextOffset === 1 && itemLayout.max + offset[axis] > nextItemCenter) ||
+        (nextOffset === -1 && itemLayout.min + offset[axis] < nextItemCenter)) {
+        return (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.moveItem)(order, index, index + nextOffset);
+    }
+    return order;
+}
+function getLines(order) {
+    const lines = [];
+    order.forEach((item) => {
+        const { min, max } = item.layout.y;
+        const line = lines[lines.length - 1];
+        if (!line || min >= line.max || max <= line.min) {
+            lines.push({ items: [item], min, max });
+        }
+        else {
+            line.items.push(item);
+            line.min = Math.min(line.min, min);
+            line.max = Math.max(line.max, max);
+        }
+    });
+    return lines;
+}
+function distanceToLine(y, line) {
+    return y < line.min ? line.min - y : y > line.max ? y - line.max : 0;
+}
+function moveToLine(order, index, x, line, direction) {
+    const remaining = order.filter((_, itemIndex) => itemIndex !== index);
+    const before = line.items.find((item) => {
+        const center = (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.mixNumber)(item.layout.x.min, item.layout.x.max, 0.5);
+        return direction === "ltr" ? x < center : x > center;
+    });
+    const targetIndex = before
+        ? remaining.indexOf(before)
+        : remaining.indexOf(line.items[line.items.length - 1]) + 1;
+    const nextOrder = [...remaining];
+    nextOrder.splice(targetIndex, 0, order[index]);
+    return nextOrder.every((item, itemIndex) => item === order[itemIndex])
+        ? order
+        : nextOrder;
+}
+function distanceToBox(point, box) {
+    const x = Math.max(box.x.min - point.x, 0, point.x - box.x.max);
+    const y = Math.max(box.y.min - point.y, 0, point.y - box.y.max);
+    return x * x + y * y;
+}
+
+
+//# sourceMappingURL=check-reorder.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/detect-axis.mjs"
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/utils/detect-axis.mjs ***!
+  \*********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   detectAxis: () => (/* binding */ detectAxis)
+/* harmony export */ });
+const isSeparated = (a, b) => a.max <= b.min || b.max <= a.min;
+function detectAxis(layouts) {
+    let x = false;
+    let y = false;
+    for (let i = 0; i < layouts.length; i++) {
+        for (let j = i + 1; j < layouts.length; j++) {
+            x || (x = isSeparated(layouts[i].x, layouts[j].x));
+            y || (y = isSeparated(layouts[i].y, layouts[j].y));
+            if (x && y)
+                return "xy";
+        }
+    }
+    return x ? "x" : "y";
+}
+
+
+//# sourceMappingURL=detect-axis.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/context/DeprecatedLayoutGroupContext.mjs"
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/context/DeprecatedLayoutGroupContext.mjs ***!
+  \*********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DeprecatedLayoutGroupContext: () => (/* binding */ DeprecatedLayoutGroupContext)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+/**
+ * Note: Still used by components generated by old versions of Framer
+ *
+ * @deprecated
+ */
+const DeprecatedLayoutGroupContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+
+
+//# sourceMappingURL=DeprecatedLayoutGroupContext.mjs.map
 
 
 /***/ },
@@ -563,6 +3810,28 @@ const PresenceContext =
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/context/ReorderContext.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/context/ReorderContext.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReorderContext: () => (/* binding */ ReorderContext)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+const ReorderContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+
+
+//# sourceMappingURL=ReorderContext.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs"
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs ***!
@@ -639,6 +3908,58 @@ const addPointerInfo = (handler) => (event) => (0,motion_dom__WEBPACK_IMPORTED_M
 
 
 //# sourceMappingURL=event-info.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/events/use-dom-event.mjs"
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/events/use-dom-event.mjs ***!
+  \*****************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useDomEvent: () => (/* binding */ useDomEvent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/events/add-dom-event.mjs");
+"use client";
+
+
+
+/**
+ * Attaches an event listener directly to the provided DOM element.
+ *
+ * Bypassing React's event system can be desirable, for instance when attaching non-passive
+ * event handlers.
+ *
+ * ```jsx
+ * const ref = useRef(null)
+ *
+ * useDomEvent(ref, 'wheel', onWheel, { passive: false })
+ *
+ * return <div ref={ref} />
+ * ```
+ *
+ * @param ref - React.RefObject that's been provided to the element you want to bind the listener to.
+ * @param eventName - Name of the event you want listen for.
+ * @param handler - Function to fire when receiving the event.
+ * @param options - Options to pass to `Event.addEventListener`.
+ *
+ * @public
+ */
+function useDomEvent(ref, eventName, handler, options) {
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        const element = ref.current;
+        if (handler && element) {
+            return (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.addDomEvent)(element, eventName, handler, options);
+        }
+    }, [ref, eventName, handler, options]);
+}
+
+
+//# sourceMappingURL=use-dom-event.mjs.map
 
 
 /***/ },
@@ -1316,6 +4637,139 @@ class DragGesture extends motion_dom__WEBPACK_IMPORTED_MODULE_0__.Feature {
 
 
 //# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/gestures/drag/use-drag-controls.mjs"
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/gestures/drag/use-drag-controls.mjs ***!
+  \****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DragControls: () => (/* binding */ DragControls),
+/* harmony export */   useDragControls: () => (/* binding */ useDragControls)
+/* harmony export */ });
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+
+
+/**
+ * Can manually trigger a drag gesture on one or more `drag`-enabled `motion` components.
+ *
+ * ```jsx
+ * const dragControls = useDragControls()
+ *
+ * function startDrag(event) {
+ *   dragControls.start(event, { snapToCursor: true })
+ * }
+ *
+ * return (
+ *   <>
+ *     <div onPointerDown={startDrag} />
+ *     <motion.div drag="x" dragControls={dragControls} />
+ *   </>
+ * )
+ * ```
+ *
+ * @public
+ */
+class DragControls {
+    constructor() {
+        this.componentControls = new Set();
+    }
+    /**
+     * Subscribe a component's internal `VisualElementDragControls` to the user-facing API.
+     *
+     * @internal
+     */
+    subscribe(controls) {
+        this.componentControls.add(controls);
+        return () => this.componentControls.delete(controls);
+    }
+    /**
+     * Start a drag gesture on every `motion` component that has this set of drag controls
+     * passed into it via the `dragControls` prop.
+     *
+     * ```jsx
+     * dragControls.start(e, {
+     *   snapToCursor: true
+     * })
+     * ```
+     *
+     * @param event - PointerEvent
+     * @param options - Options
+     *
+     * @public
+     */
+    start(event, options) {
+        this.componentControls.forEach((controls) => {
+            controls.start(event.nativeEvent || event, options);
+        });
+    }
+    /**
+     * Cancels a drag gesture.
+     *
+     * ```jsx
+     * dragControls.cancel()
+     * ```
+     *
+     * @public
+     */
+    cancel() {
+        this.componentControls.forEach((controls) => {
+            controls.cancel();
+        });
+    }
+    /**
+     * Stops a drag gesture.
+     *
+     * ```jsx
+     * dragControls.stop()
+     * ```
+     *
+     * @public
+     */
+    stop() {
+        this.componentControls.forEach((controls) => {
+            controls.stop();
+        });
+    }
+}
+const createDragControls = () => new DragControls();
+/**
+ * Usually, dragging is initiated by pressing down on a `motion` component with a `drag` prop
+ * and moving it. For some use-cases, for instance clicking at an arbitrary point on a video scrubber, we
+ * might want to initiate that dragging from a different component than the draggable one.
+ *
+ * By creating a `dragControls` using the `useDragControls` hook, we can pass this into
+ * the draggable component's `dragControls` prop. It exposes a `start` method
+ * that can start dragging from pointer events on other components.
+ *
+ * ```jsx
+ * const dragControls = useDragControls()
+ *
+ * function startDrag(event) {
+ *   dragControls.start(event, { snapToCursor: true })
+ * }
+ *
+ * return (
+ *   <>
+ *     <div onPointerDown={startDrag} />
+ *     <motion.div drag="x" dragControls={dragControls} />
+ *   </>
+ * )
+ * ```
+ *
+ * @public
+ */
+function useDragControls() {
+    return (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__.useConstant)(createDragControls);
+}
+
+
+//# sourceMappingURL=use-drag-controls.mjs.map
 
 
 /***/ },
@@ -2005,6 +5459,568 @@ class PressGesture extends motion_dom__WEBPACK_IMPORTED_MODULE_1__.Feature {
 
 
 //# sourceMappingURL=press.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/index.mjs"
+/*!**************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/index.mjs ***!
+  \**************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnimatePresence: () => (/* reexport safe */ _components_AnimatePresence_index_mjs__WEBPACK_IMPORTED_MODULE_0__.AnimatePresence),
+/* harmony export */   AnimateSharedLayout: () => (/* reexport safe */ _components_AnimateSharedLayout_mjs__WEBPACK_IMPORTED_MODULE_77__.AnimateSharedLayout),
+/* harmony export */   AsyncMotionValueAnimation: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.AsyncMotionValueAnimation),
+/* harmony export */   DOMKeyframesResolver: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.DOMKeyframesResolver),
+/* harmony export */   DOMVisualElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.DOMVisualElement),
+/* harmony export */   DeprecatedLayoutGroupContext: () => (/* reexport safe */ _context_DeprecatedLayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_78__.DeprecatedLayoutGroupContext),
+/* harmony export */   DocumentProjectionNode: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.DocumentProjectionNode),
+/* harmony export */   DragControls: () => (/* reexport safe */ _gestures_drag_use_drag_controls_mjs__WEBPACK_IMPORTED_MODULE_57__.DragControls),
+/* harmony export */   Feature: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.Feature),
+/* harmony export */   FlatTree: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.FlatTree),
+/* harmony export */   GroupAnimation: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.GroupAnimation),
+/* harmony export */   GroupAnimationWithThen: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.GroupAnimationWithThen),
+/* harmony export */   HTMLProjectionNode: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.HTMLProjectionNode),
+/* harmony export */   HTMLVisualElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.HTMLVisualElement),
+/* harmony export */   JSAnimation: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.JSAnimation),
+/* harmony export */   KeyframeResolver: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.KeyframeResolver),
+/* harmony export */   LayoutAnimationBuilder: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.LayoutAnimationBuilder),
+/* harmony export */   LayoutGroup: () => (/* reexport safe */ _components_LayoutGroup_index_mjs__WEBPACK_IMPORTED_MODULE_3__.LayoutGroup),
+/* harmony export */   LayoutGroupContext: () => (/* reexport safe */ _context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_71__.LayoutGroupContext),
+/* harmony export */   LazyMotion: () => (/* reexport safe */ _components_LazyMotion_index_mjs__WEBPACK_IMPORTED_MODULE_4__.LazyMotion),
+/* harmony export */   MotionConfig: () => (/* reexport safe */ _components_MotionConfig_index_mjs__WEBPACK_IMPORTED_MODULE_5__.MotionConfig),
+/* harmony export */   MotionConfigContext: () => (/* reexport safe */ _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_72__.MotionConfigContext),
+/* harmony export */   MotionContext: () => (/* reexport safe */ _context_MotionContext_index_mjs__WEBPACK_IMPORTED_MODULE_73__.MotionContext),
+/* harmony export */   MotionGlobalConfig: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_49__.MotionGlobalConfig),
+/* harmony export */   MotionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.MotionValue),
+/* harmony export */   NativeAnimation: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.NativeAnimation),
+/* harmony export */   NativeAnimationExtended: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.NativeAnimationExtended),
+/* harmony export */   NativeAnimationWrapper: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.NativeAnimationWrapper),
+/* harmony export */   NodeStack: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.NodeStack),
+/* harmony export */   ObjectVisualElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.ObjectVisualElement),
+/* harmony export */   PopChild: () => (/* reexport safe */ _components_AnimatePresence_PopChild_mjs__WEBPACK_IMPORTED_MODULE_1__.PopChild),
+/* harmony export */   PresenceChild: () => (/* reexport safe */ _components_AnimatePresence_PresenceChild_mjs__WEBPACK_IMPORTED_MODULE_2__.PresenceChild),
+/* harmony export */   PresenceContext: () => (/* reexport safe */ _context_PresenceContext_mjs__WEBPACK_IMPORTED_MODULE_74__.PresenceContext),
+/* harmony export */   Reorder: () => (/* reexport module object */ _components_Reorder_namespace_mjs__WEBPACK_IMPORTED_MODULE_80__),
+/* harmony export */   SVGVisualElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.SVGVisualElement),
+/* harmony export */   SubscriptionManager: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.SubscriptionManager),
+/* harmony export */   SwitchLayoutGroupContext: () => (/* reexport safe */ _context_SwitchLayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_75__.SwitchLayoutGroupContext),
+/* harmony export */   ViewTransitionBuilder: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.ViewTransitionBuilder),
+/* harmony export */   VisualElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_17__.VisualElement),
+/* harmony export */   WillChangeMotionValue: () => (/* reexport safe */ _value_use_will_change_WillChangeMotionValue_mjs__WEBPACK_IMPORTED_MODULE_45__.WillChangeMotionValue),
+/* harmony export */   acceleratedValues: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.acceleratedValues),
+/* harmony export */   addAttrValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.addAttrValue),
+/* harmony export */   addDomEvent: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.addDomEvent),
+/* harmony export */   addPointerEvent: () => (/* reexport safe */ _events_add_pointer_event_mjs__WEBPACK_IMPORTED_MODULE_8__.addPointerEvent),
+/* harmony export */   addPointerInfo: () => (/* reexport safe */ _events_event_info_mjs__WEBPACK_IMPORTED_MODULE_9__.addPointerInfo),
+/* harmony export */   addScaleCorrector: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_23__.addScaleCorrector),
+/* harmony export */   addStyleValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.addStyleValue),
+/* harmony export */   addUniqueItem: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.addUniqueItem),
+/* harmony export */   addValueToWillChange: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.addValueToWillChange),
+/* harmony export */   alpha: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.alpha),
+/* harmony export */   analyseComplexValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.analyseComplexValue),
+/* harmony export */   animate: () => (/* reexport safe */ _animation_animate_index_mjs__WEBPACK_IMPORTED_MODULE_81__.animate),
+/* harmony export */   animateMini: () => (/* reexport safe */ _animation_animators_waapi_animate_style_mjs__WEBPACK_IMPORTED_MODULE_82__.animateMini),
+/* harmony export */   animateMotionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animateMotionValue),
+/* harmony export */   animateSingleValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animateSingleValue),
+/* harmony export */   animateTarget: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animateTarget),
+/* harmony export */   animateValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animateValue),
+/* harmony export */   animateVariant: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animateVariant),
+/* harmony export */   animateView: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animateView),
+/* harmony export */   animateVisualElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_14__.animateVisualElement),
+/* harmony export */   animationControls: () => (/* reexport safe */ _animation_hooks_animation_controls_mjs__WEBPACK_IMPORTED_MODULE_50__.animationControls),
+/* harmony export */   animationMapKey: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.animationMapKey),
+/* harmony export */   animations: () => (/* reexport safe */ _motion_features_animations_mjs__WEBPACK_IMPORTED_MODULE_10__.animations),
+/* harmony export */   anticipate: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.anticipate),
+/* harmony export */   applyAxisDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.applyAxisDelta),
+/* harmony export */   applyBoxDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.applyBoxDelta),
+/* harmony export */   applyGeneratorOptions: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.applyGeneratorOptions),
+/* harmony export */   applyPointDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.applyPointDelta),
+/* harmony export */   applyPxDefaults: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.applyPxDefaults),
+/* harmony export */   applyTreeDeltas: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.applyTreeDeltas),
+/* harmony export */   arc: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_13__.arc),
+/* harmony export */   aspectRatio: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.aspectRatio),
+/* harmony export */   attachFollow: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.attachFollow),
+/* harmony export */   attachSpring: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.attachSpring),
+/* harmony export */   attrEffect: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.attrEffect),
+/* harmony export */   axisDeltaEquals: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.axisDeltaEquals),
+/* harmony export */   axisEquals: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.axisEquals),
+/* harmony export */   axisEqualsRounded: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.axisEqualsRounded),
+/* harmony export */   backIn: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.backIn),
+/* harmony export */   backInOut: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.backInOut),
+/* harmony export */   backOut: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.backOut),
+/* harmony export */   boxEquals: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.boxEquals),
+/* harmony export */   boxEqualsRounded: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.boxEqualsRounded),
+/* harmony export */   buildHTMLStyles: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.buildHTMLStyles),
+/* harmony export */   buildProjectionTransform: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.buildProjectionTransform),
+/* harmony export */   buildSVGAttrs: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.buildSVGAttrs),
+/* harmony export */   buildSVGPath: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.buildSVGPath),
+/* harmony export */   buildTransform: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_22__.buildTransform),
+/* harmony export */   calcAxisDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcAxisDelta),
+/* harmony export */   calcBoxDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcBoxDelta),
+/* harmony export */   calcChildStagger: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcChildStagger),
+/* harmony export */   calcGeneratorDuration: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcGeneratorDuration),
+/* harmony export */   calcLength: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_18__.calcLength),
+/* harmony export */   calcRelativeAxis: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcRelativeAxis),
+/* harmony export */   calcRelativeAxisPosition: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcRelativeAxisPosition),
+/* harmony export */   calcRelativeBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcRelativeBox),
+/* harmony export */   calcRelativePosition: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.calcRelativePosition),
+/* harmony export */   camelCaseAttributes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.camelCaseAttributes),
+/* harmony export */   camelToDash: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.camelToDash),
+/* harmony export */   cancelFrame: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.cancelFrame),
+/* harmony export */   cancelMicrotask: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.cancelMicrotask),
+/* harmony export */   cancelSync: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.cancelSync),
+/* harmony export */   checkVariantsDidChange: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.checkVariantsDidChange),
+/* harmony export */   circIn: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.circIn),
+/* harmony export */   circInOut: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.circInOut),
+/* harmony export */   circOut: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.circOut),
+/* harmony export */   clamp: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.clamp),
+/* harmony export */   cleanDirtyNodes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.cleanDirtyNodes),
+/* harmony export */   collectMotionValues: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.collectMotionValues),
+/* harmony export */   color: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.color),
+/* harmony export */   compareByDepth: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.compareByDepth),
+/* harmony export */   complex: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.complex),
+/* harmony export */   containsCSSVariable: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.containsCSSVariable),
+/* harmony export */   convertBoundingBoxToBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.convertBoundingBoxToBox),
+/* harmony export */   convertBoxToBoundingBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.convertBoxToBoundingBox),
+/* harmony export */   convertOffsetToTimes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.convertOffsetToTimes),
+/* harmony export */   copyAxisDeltaInto: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.copyAxisDeltaInto),
+/* harmony export */   copyAxisInto: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.copyAxisInto),
+/* harmony export */   copyBoxInto: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.copyBoxInto),
+/* harmony export */   correctBorderRadius: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.correctBorderRadius),
+/* harmony export */   correctBoxShadow: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.correctBoxShadow),
+/* harmony export */   correctParentTransform: () => (/* reexport safe */ _utils_transform_rotated_parent_mjs__WEBPACK_IMPORTED_MODULE_69__.correctParentTransform),
+/* harmony export */   createAnimationState: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createAnimationState),
+/* harmony export */   createAxis: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createAxis),
+/* harmony export */   createAxisDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createAxisDelta),
+/* harmony export */   createBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_19__.createBox),
+/* harmony export */   createDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createDelta),
+/* harmony export */   createGeneratorEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createGeneratorEasing),
+/* harmony export */   createProjectionNode: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createProjectionNode),
+/* harmony export */   createRenderBatcher: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.createRenderBatcher),
+/* harmony export */   createScopedAnimate: () => (/* reexport safe */ _animation_animate_index_mjs__WEBPACK_IMPORTED_MODULE_81__.createScopedAnimate),
+/* harmony export */   cubicBezier: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.cubicBezier),
+/* harmony export */   cubicBezierAsString: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.cubicBezierAsString),
+/* harmony export */   defaultEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.defaultEasing),
+/* harmony export */   defaultOffset: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.defaultOffset),
+/* harmony export */   defaultTransformValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.defaultTransformValue),
+/* harmony export */   defaultValueTypes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.defaultValueTypes),
+/* harmony export */   degrees: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.degrees),
+/* harmony export */   delay: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_20__.delay),
+/* harmony export */   delayInSeconds: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.delayInSeconds),
+/* harmony export */   dimensionValueTypes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.dimensionValueTypes),
+/* harmony export */   disableInstantTransitions: () => (/* reexport safe */ _utils_use_instant_transition_mjs__WEBPACK_IMPORTED_MODULE_66__.disableInstantTransitions),
+/* harmony export */   distance: () => (/* reexport safe */ _utils_distance_mjs__WEBPACK_IMPORTED_MODULE_83__.distance),
+/* harmony export */   distance2D: () => (/* reexport safe */ _utils_distance_mjs__WEBPACK_IMPORTED_MODULE_83__.distance2D),
+/* harmony export */   domAnimation: () => (/* reexport safe */ _render_dom_features_animation_mjs__WEBPACK_IMPORTED_MODULE_30__.domAnimation),
+/* harmony export */   domMax: () => (/* reexport safe */ _render_dom_features_max_mjs__WEBPACK_IMPORTED_MODULE_31__.domMax),
+/* harmony export */   domMin: () => (/* reexport safe */ _render_dom_features_min_mjs__WEBPACK_IMPORTED_MODULE_32__.domMin),
+/* harmony export */   eachAxis: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.eachAxis),
+/* harmony export */   easeIn: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.easeIn),
+/* harmony export */   easeInOut: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.easeInOut),
+/* harmony export */   easeOut: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.easeOut),
+/* harmony export */   easingDefinitionToFunction: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.easingDefinitionToFunction),
+/* harmony export */   fillOffset: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.fillOffset),
+/* harmony export */   fillWildcards: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.fillWildcards),
+/* harmony export */   filterProps: () => (/* reexport safe */ _render_dom_utils_filter_props_mjs__WEBPACK_IMPORTED_MODULE_24__.filterProps),
+/* harmony export */   findDimensionValueType: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.findDimensionValueType),
+/* harmony export */   findValueType: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.findValueType),
+/* harmony export */   flushKeyframeResolvers: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.flushKeyframeResolvers),
+/* harmony export */   followValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.followValue),
+/* harmony export */   frame: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.frame),
+/* harmony export */   frameData: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.frameData),
+/* harmony export */   frameSteps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.frameSteps),
+/* harmony export */   generateLinearEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.generateLinearEasing),
+/* harmony export */   getAnimatableNone: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getAnimatableNone),
+/* harmony export */   getAnimationMap: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getAnimationMap),
+/* harmony export */   getComputedStyle: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getComputedStyle),
+/* harmony export */   getDefaultTransition: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getDefaultTransition),
+/* harmony export */   getDefaultValueType: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getDefaultValueType),
+/* harmony export */   getEasingForSegment: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.getEasingForSegment),
+/* harmony export */   getFeatureDefinitions: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getFeatureDefinitions),
+/* harmony export */   getFinalKeyframe: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getFinalKeyframe),
+/* harmony export */   getMixer: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getMixer),
+/* harmony export */   getOptimisedAppearId: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getOptimisedAppearId),
+/* harmony export */   getOriginIndex: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getOriginIndex),
+/* harmony export */   getValueAsType: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getValueAsType),
+/* harmony export */   getValueTransition: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getValueTransition),
+/* harmony export */   getVariableValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getVariableValue),
+/* harmony export */   getVariantContext: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getVariantContext),
+/* harmony export */   getViewAnimationLayerInfo: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getViewAnimationLayerInfo),
+/* harmony export */   getViewAnimations: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.getViewAnimations),
+/* harmony export */   globalProjectionState: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.globalProjectionState),
+/* harmony export */   has2DTranslate: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.has2DTranslate),
+/* harmony export */   hasReducedMotionListener: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hasReducedMotionListener),
+/* harmony export */   hasScale: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hasScale),
+/* harmony export */   hasTransform: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hasTransform),
+/* harmony export */   hasWarned: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.hasWarned),
+/* harmony export */   hex: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hex),
+/* harmony export */   hover: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hover),
+/* harmony export */   hsla: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hsla),
+/* harmony export */   hslaToRgba: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.hslaToRgba),
+/* harmony export */   inView: () => (/* reexport safe */ _render_dom_viewport_index_mjs__WEBPACK_IMPORTED_MODULE_84__.inView),
+/* harmony export */   inertia: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.inertia),
+/* harmony export */   initPrefersReducedMotion: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.initPrefersReducedMotion),
+/* harmony export */   interpolate: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.interpolate),
+/* harmony export */   invariant: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.invariant),
+/* harmony export */   invisibleValues: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.invisibleValues),
+/* harmony export */   isAnimationControls: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isAnimationControls),
+/* harmony export */   isBezierDefinition: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.isBezierDefinition),
+/* harmony export */   isBrowser: () => (/* reexport safe */ _utils_is_browser_mjs__WEBPACK_IMPORTED_MODULE_25__.isBrowser),
+/* harmony export */   isCSSVariableName: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isCSSVariableName),
+/* harmony export */   isCSSVariableToken: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isCSSVariableToken),
+/* harmony export */   isControllingVariants: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isControllingVariants),
+/* harmony export */   isDeltaZero: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isDeltaZero),
+/* harmony export */   isDragActive: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isDragActive),
+/* harmony export */   isDragging: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isDragging),
+/* harmony export */   isEasingArray: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.isEasingArray),
+/* harmony export */   isElementKeyboardAccessible: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isElementKeyboardAccessible),
+/* harmony export */   isElementTextInput: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isElementTextInput),
+/* harmony export */   isForcedMotionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isForcedMotionValue),
+/* harmony export */   isGenerator: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isGenerator),
+/* harmony export */   isHTMLElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isHTMLElement),
+/* harmony export */   isKeyframesTarget: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isKeyframesTarget),
+/* harmony export */   isMotionComponent: () => (/* reexport safe */ _motion_utils_is_motion_component_mjs__WEBPACK_IMPORTED_MODULE_58__.isMotionComponent),
+/* harmony export */   isMotionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isMotionValue),
+/* harmony export */   isNear: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isNear),
+/* harmony export */   isNodeOrChild: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isNodeOrChild),
+/* harmony export */   isNumericalString: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.isNumericalString),
+/* harmony export */   isObject: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.isObject),
+/* harmony export */   isPrimaryPointer: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isPrimaryPointer),
+/* harmony export */   isSVGElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isSVGElement),
+/* harmony export */   isSVGSVGElement: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isSVGSVGElement),
+/* harmony export */   isSVGTag: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isSVGTag),
+/* harmony export */   isTransitionDefined: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isTransitionDefined),
+/* harmony export */   isValidMotionProp: () => (/* reexport safe */ _motion_utils_valid_prop_mjs__WEBPACK_IMPORTED_MODULE_60__.isValidMotionProp),
+/* harmony export */   isVariantLabel: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isVariantLabel),
+/* harmony export */   isVariantNode: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isVariantNode),
+/* harmony export */   isWaapiSupportedEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isWaapiSupportedEasing),
+/* harmony export */   isWillChangeMotionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.isWillChangeMotionValue),
+/* harmony export */   isZeroValueString: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.isZeroValueString),
+/* harmony export */   keyframes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.keyframes),
+/* harmony export */   m: () => (/* reexport safe */ _render_components_m_proxy_mjs__WEBPACK_IMPORTED_MODULE_6__.m),
+/* harmony export */   makeAnimationInstant: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.makeAnimationInstant),
+/* harmony export */   makeUseVisualState: () => (/* reexport safe */ _motion_utils_use_visual_state_mjs__WEBPACK_IMPORTED_MODULE_11__.makeUseVisualState),
+/* harmony export */   mapEasingToNativeEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mapEasingToNativeEasing),
+/* harmony export */   mapValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mapValue),
+/* harmony export */   maxGeneratorDuration: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.maxGeneratorDuration),
+/* harmony export */   measurePageBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.measurePageBox),
+/* harmony export */   measureViewportBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.measureViewportBox),
+/* harmony export */   memo: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.memo),
+/* harmony export */   microtask: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.microtask),
+/* harmony export */   millisecondsToSeconds: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.millisecondsToSeconds),
+/* harmony export */   mirrorEasing: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.mirrorEasing),
+/* harmony export */   mix: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mix),
+/* harmony export */   mixArray: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixArray),
+/* harmony export */   mixColor: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixColor),
+/* harmony export */   mixComplex: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixComplex),
+/* harmony export */   mixImmediate: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixImmediate),
+/* harmony export */   mixLinearColor: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixLinearColor),
+/* harmony export */   mixNumber: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixNumber),
+/* harmony export */   mixObject: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixObject),
+/* harmony export */   mixValues: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixValues),
+/* harmony export */   mixVisibility: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.mixVisibility),
+/* harmony export */   motion: () => (/* reexport safe */ _render_components_motion_proxy_mjs__WEBPACK_IMPORTED_MODULE_7__.motion),
+/* harmony export */   motionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.motionValue),
+/* harmony export */   moveItem: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.moveItem),
+/* harmony export */   nodeGroup: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.nodeGroup),
+/* harmony export */   noop: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.noop),
+/* harmony export */   number: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.number),
+/* harmony export */   numberValueTypes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.numberValueTypes),
+/* harmony export */   observeTimeline: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.observeTimeline),
+/* harmony export */   optimizedAppearDataAttribute: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_15__.optimizedAppearDataAttribute),
+/* harmony export */   optimizedAppearDataId: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.optimizedAppearDataId),
+/* harmony export */   parseAnimateLayoutArgs: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.parseAnimateLayoutArgs),
+/* harmony export */   parseCSSVariable: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.parseCSSVariable),
+/* harmony export */   parseValueFromTransform: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.parseValueFromTransform),
+/* harmony export */   percent: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.percent),
+/* harmony export */   pipe: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.pipe),
+/* harmony export */   pixelsToPercent: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.pixelsToPercent),
+/* harmony export */   positionalKeys: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.positionalKeys),
+/* harmony export */   prefersReducedMotion: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.prefersReducedMotion),
+/* harmony export */   press: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.press),
+/* harmony export */   progress: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.progress),
+/* harmony export */   progressPercentage: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.progressPercentage),
+/* harmony export */   propEffect: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.propEffect),
+/* harmony export */   propagateDirtyNodes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.propagateDirtyNodes),
+/* harmony export */   px: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.px),
+/* harmony export */   readTransformValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.readTransformValue),
+/* harmony export */   recordStats: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.recordStats),
+/* harmony export */   removeAxisDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.removeAxisDelta),
+/* harmony export */   removeAxisTransforms: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.removeAxisTransforms),
+/* harmony export */   removeBoxTransforms: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.removeBoxTransforms),
+/* harmony export */   removeItem: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.removeItem),
+/* harmony export */   removePointDelta: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.removePointDelta),
+/* harmony export */   renderHTML: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.renderHTML),
+/* harmony export */   renderSVG: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.renderSVG),
+/* harmony export */   resize: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.resize),
+/* harmony export */   resolveElements: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.resolveElements),
+/* harmony export */   resolveMotionValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_21__.resolveMotionValue),
+/* harmony export */   resolveTransition: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.resolveTransition),
+/* harmony export */   resolveVariant: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.resolveVariant),
+/* harmony export */   resolveVariantFromProps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.resolveVariantFromProps),
+/* harmony export */   reverseEasing: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.reverseEasing),
+/* harmony export */   rgbUnit: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.rgbUnit),
+/* harmony export */   rgba: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.rgba),
+/* harmony export */   rootProjectionNode: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.rootProjectionNode),
+/* harmony export */   scale: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.scale),
+/* harmony export */   scaleCorrectors: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.scaleCorrectors),
+/* harmony export */   scalePoint: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.scalePoint),
+/* harmony export */   scrapeHTMLMotionValuesFromProps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.scrapeHTMLMotionValuesFromProps),
+/* harmony export */   scrapeSVGMotionValuesFromProps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.scrapeSVGMotionValuesFromProps),
+/* harmony export */   scroll: () => (/* reexport safe */ _render_dom_scroll_index_mjs__WEBPACK_IMPORTED_MODULE_85__.scroll),
+/* harmony export */   scrollInfo: () => (/* reexport safe */ _render_dom_scroll_track_mjs__WEBPACK_IMPORTED_MODULE_86__.scrollInfo),
+/* harmony export */   secondsToMilliseconds: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.secondsToMilliseconds),
+/* harmony export */   setDragLock: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.setDragLock),
+/* harmony export */   setFeatureDefinitions: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.setFeatureDefinitions),
+/* harmony export */   setStyle: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.setStyle),
+/* harmony export */   setTarget: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.setTarget),
+/* harmony export */   spring: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.spring),
+/* harmony export */   springValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.springValue),
+/* harmony export */   stagger: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.stagger),
+/* harmony export */   startOptimizedAppearAnimation: () => (/* reexport safe */ _animation_optimized_appear_start_mjs__WEBPACK_IMPORTED_MODULE_70__.startOptimizedAppearAnimation),
+/* harmony export */   startWaapiAnimation: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.startWaapiAnimation),
+/* harmony export */   statsBuffer: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.statsBuffer),
+/* harmony export */   steps: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.steps),
+/* harmony export */   styleEffect: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.styleEffect),
+/* harmony export */   supportedWaapiEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportedWaapiEasing),
+/* harmony export */   supportsBrowserAnimation: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportsBrowserAnimation),
+/* harmony export */   supportsFlags: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportsFlags),
+/* harmony export */   supportsLinearEasing: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportsLinearEasing),
+/* harmony export */   supportsPartialKeyframes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportsPartialKeyframes),
+/* harmony export */   supportsScrollTimeline: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportsScrollTimeline),
+/* harmony export */   supportsViewTimeline: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.supportsViewTimeline),
+/* harmony export */   svgEffect: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.svgEffect),
+/* harmony export */   sync: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.sync),
+/* harmony export */   testValueType: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.testValueType),
+/* harmony export */   time: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.time),
+/* harmony export */   transform: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transform),
+/* harmony export */   transformAxis: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformAxis),
+/* harmony export */   transformBox: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformBox),
+/* harmony export */   transformBoxPoints: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformBoxPoints),
+/* harmony export */   transformPropOrder: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformPropOrder),
+/* harmony export */   transformProps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformProps),
+/* harmony export */   transformValue: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformValue),
+/* harmony export */   transformValueTypes: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.transformValueTypes),
+/* harmony export */   transformViewBoxPoint: () => (/* reexport safe */ _utils_transform_viewbox_point_mjs__WEBPACK_IMPORTED_MODULE_68__.transformViewBoxPoint),
+/* harmony export */   translateAxis: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.translateAxis),
+/* harmony export */   unwrapMotionComponent: () => (/* reexport safe */ _motion_utils_unwrap_motion_component_mjs__WEBPACK_IMPORTED_MODULE_59__.unwrapMotionComponent),
+/* harmony export */   updateMotionValuesFromProps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.updateMotionValuesFromProps),
+/* harmony export */   useAnimate: () => (/* reexport safe */ _animation_hooks_use_animate_mjs__WEBPACK_IMPORTED_MODULE_51__.useAnimate),
+/* harmony export */   useAnimateMini: () => (/* reexport safe */ _animation_hooks_use_animate_style_mjs__WEBPACK_IMPORTED_MODULE_52__.useAnimateMini),
+/* harmony export */   useAnimation: () => (/* reexport safe */ _animation_hooks_use_animation_mjs__WEBPACK_IMPORTED_MODULE_53__.useAnimation),
+/* harmony export */   useAnimationControls: () => (/* reexport safe */ _animation_hooks_use_animation_mjs__WEBPACK_IMPORTED_MODULE_53__.useAnimationControls),
+/* harmony export */   useAnimationFrame: () => (/* reexport safe */ _utils_use_animation_frame_mjs__WEBPACK_IMPORTED_MODULE_63__.useAnimationFrame),
+/* harmony export */   useComposedRefs: () => (/* reexport safe */ _utils_use_composed_ref_mjs__WEBPACK_IMPORTED_MODULE_26__.useComposedRefs),
+/* harmony export */   useCycle: () => (/* reexport safe */ _utils_use_cycle_mjs__WEBPACK_IMPORTED_MODULE_64__.useCycle),
+/* harmony export */   useDeprecatedAnimatedState: () => (/* reexport safe */ _animation_hooks_use_animated_state_mjs__WEBPACK_IMPORTED_MODULE_76__.useAnimatedState),
+/* harmony export */   useDeprecatedInvertedScale: () => (/* reexport safe */ _value_use_inverted_scale_mjs__WEBPACK_IMPORTED_MODULE_79__.useInvertedScale),
+/* harmony export */   useDomEvent: () => (/* reexport safe */ _events_use_dom_event_mjs__WEBPACK_IMPORTED_MODULE_56__.useDomEvent),
+/* harmony export */   useDragControls: () => (/* reexport safe */ _gestures_drag_use_drag_controls_mjs__WEBPACK_IMPORTED_MODULE_57__.useDragControls),
+/* harmony export */   useElementScroll: () => (/* reexport safe */ _value_scroll_use_element_scroll_mjs__WEBPACK_IMPORTED_MODULE_34__.useElementScroll),
+/* harmony export */   useFollowValue: () => (/* reexport safe */ _value_use_follow_value_mjs__WEBPACK_IMPORTED_MODULE_39__.useFollowValue),
+/* harmony export */   useForceUpdate: () => (/* reexport safe */ _utils_use_force_update_mjs__WEBPACK_IMPORTED_MODULE_27__.useForceUpdate),
+/* harmony export */   useInView: () => (/* reexport safe */ _utils_use_in_view_mjs__WEBPACK_IMPORTED_MODULE_65__.useInView),
+/* harmony export */   useInstantLayoutTransition: () => (/* reexport safe */ _projection_use_instant_layout_transition_mjs__WEBPACK_IMPORTED_MODULE_61__.useInstantLayoutTransition),
+/* harmony export */   useInstantTransition: () => (/* reexport safe */ _utils_use_instant_transition_mjs__WEBPACK_IMPORTED_MODULE_66__.useInstantTransition),
+/* harmony export */   useIsPresent: () => (/* reexport safe */ _components_AnimatePresence_use_presence_mjs__WEBPACK_IMPORTED_MODULE_54__.useIsPresent),
+/* harmony export */   useIsomorphicLayoutEffect: () => (/* reexport safe */ _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_28__.useIsomorphicLayoutEffect),
+/* harmony export */   useMotionTemplate: () => (/* reexport safe */ _value_use_motion_template_mjs__WEBPACK_IMPORTED_MODULE_36__.useMotionTemplate),
+/* harmony export */   useMotionValue: () => (/* reexport safe */ _value_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_37__.useMotionValue),
+/* harmony export */   useMotionValueEvent: () => (/* reexport safe */ _utils_use_motion_value_event_mjs__WEBPACK_IMPORTED_MODULE_33__.useMotionValueEvent),
+/* harmony export */   usePageInView: () => (/* reexport safe */ _utils_use_page_in_view_mjs__WEBPACK_IMPORTED_MODULE_67__.usePageInView),
+/* harmony export */   usePresence: () => (/* reexport safe */ _components_AnimatePresence_use_presence_mjs__WEBPACK_IMPORTED_MODULE_54__.usePresence),
+/* harmony export */   usePresenceData: () => (/* reexport safe */ _components_AnimatePresence_use_presence_data_mjs__WEBPACK_IMPORTED_MODULE_55__.usePresenceData),
+/* harmony export */   useReducedMotion: () => (/* reexport safe */ _utils_reduced_motion_use_reduced_motion_mjs__WEBPACK_IMPORTED_MODULE_46__.useReducedMotion),
+/* harmony export */   useReducedMotionConfig: () => (/* reexport safe */ _utils_reduced_motion_use_reduced_motion_config_mjs__WEBPACK_IMPORTED_MODULE_47__.useReducedMotionConfig),
+/* harmony export */   useResetProjection: () => (/* reexport safe */ _projection_use_reset_projection_mjs__WEBPACK_IMPORTED_MODULE_62__.useResetProjection),
+/* harmony export */   useScroll: () => (/* reexport safe */ _value_use_scroll_mjs__WEBPACK_IMPORTED_MODULE_38__.useScroll),
+/* harmony export */   useSpring: () => (/* reexport safe */ _value_use_spring_mjs__WEBPACK_IMPORTED_MODULE_40__.useSpring),
+/* harmony export */   useTime: () => (/* reexport safe */ _value_use_time_mjs__WEBPACK_IMPORTED_MODULE_41__.useTime),
+/* harmony export */   useTransform: () => (/* reexport safe */ _value_use_transform_mjs__WEBPACK_IMPORTED_MODULE_42__.useTransform),
+/* harmony export */   useUnmountEffect: () => (/* reexport safe */ _utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_29__.useUnmountEffect),
+/* harmony export */   useVelocity: () => (/* reexport safe */ _value_use_velocity_mjs__WEBPACK_IMPORTED_MODULE_43__.useVelocity),
+/* harmony export */   useViewportScroll: () => (/* reexport safe */ _value_scroll_use_viewport_scroll_mjs__WEBPACK_IMPORTED_MODULE_35__.useViewportScroll),
+/* harmony export */   useWillChange: () => (/* reexport safe */ _value_use_will_change_index_mjs__WEBPACK_IMPORTED_MODULE_44__.useWillChange),
+/* harmony export */   variantPriorityOrder: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.variantPriorityOrder),
+/* harmony export */   variantProps: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.variantProps),
+/* harmony export */   velocityPerSecond: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.velocityPerSecond),
+/* harmony export */   vh: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.vh),
+/* harmony export */   visualElementStore: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_16__.visualElementStore),
+/* harmony export */   vw: () => (/* reexport safe */ motion_dom__WEBPACK_IMPORTED_MODULE_12__.vw),
+/* harmony export */   warnOnce: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.warnOnce),
+/* harmony export */   warning: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.warning),
+/* harmony export */   wrap: () => (/* reexport safe */ motion_utils__WEBPACK_IMPORTED_MODULE_48__.wrap)
+/* harmony export */ });
+/* harmony import */ var _components_AnimatePresence_index_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AnimatePresence/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs");
+/* harmony import */ var _components_AnimatePresence_PopChild_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AnimatePresence/PopChild.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs");
+/* harmony import */ var _components_AnimatePresence_PresenceChild_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AnimatePresence/PresenceChild.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs");
+/* harmony import */ var _components_LayoutGroup_index_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LayoutGroup/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs");
+/* harmony import */ var _components_LazyMotion_index_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/LazyMotion/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/LazyMotion/index.mjs");
+/* harmony import */ var _components_MotionConfig_index_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/MotionConfig/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/MotionConfig/index.mjs");
+/* harmony import */ var _render_components_m_proxy_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./render/components/m/proxy.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/m/proxy.mjs");
+/* harmony import */ var _render_components_motion_proxy_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./render/components/motion/proxy.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs");
+/* harmony import */ var _events_add_pointer_event_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/add-pointer-event.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/events/add-pointer-event.mjs");
+/* harmony import */ var _events_event_info_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/event-info.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/events/event-info.mjs");
+/* harmony import */ var _motion_features_animations_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./motion/features/animations.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/animations.mjs");
+/* harmony import */ var _motion_utils_use_visual_state_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./motion/utils/use-visual-state.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/index.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/arc.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/optimized-appear/data-id.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/store.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/VisualElement.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/delta-calc.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/models.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/delay.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/resolve-motion-value.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/utils/build-transform.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/styles/scale-correction.mjs");
+/* harmony import */ var _render_dom_utils_filter_props_mjs__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./render/dom/utils/filter-props.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs");
+/* harmony import */ var _utils_is_browser_mjs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./utils/is-browser.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/is-browser.mjs");
+/* harmony import */ var _utils_use_composed_ref_mjs__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./utils/use-composed-ref.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs");
+/* harmony import */ var _utils_use_force_update_mjs__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./utils/use-force-update.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-force-update.mjs");
+/* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./utils/use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+/* harmony import */ var _utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./utils/use-unmount-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs");
+/* harmony import */ var _render_dom_features_animation_mjs__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./render/dom/features-animation.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-animation.mjs");
+/* harmony import */ var _render_dom_features_max_mjs__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./render/dom/features-max.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-max.mjs");
+/* harmony import */ var _render_dom_features_min_mjs__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./render/dom/features-min.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-min.mjs");
+/* harmony import */ var _utils_use_motion_value_event_mjs__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./utils/use-motion-value-event.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-motion-value-event.mjs");
+/* harmony import */ var _value_scroll_use_element_scroll_mjs__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./value/scroll/use-element-scroll.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/scroll/use-element-scroll.mjs");
+/* harmony import */ var _value_scroll_use_viewport_scroll_mjs__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./value/scroll/use-viewport-scroll.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
+/* harmony import */ var _value_use_motion_template_mjs__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./value/use-motion-template.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-template.mjs");
+/* harmony import */ var _value_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./value/use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+/* harmony import */ var _value_use_scroll_mjs__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./value/use-scroll.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-scroll.mjs");
+/* harmony import */ var _value_use_follow_value_mjs__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./value/use-follow-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-follow-value.mjs");
+/* harmony import */ var _value_use_spring_mjs__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./value/use-spring.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-spring.mjs");
+/* harmony import */ var _value_use_time_mjs__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./value/use-time.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-time.mjs");
+/* harmony import */ var _value_use_transform_mjs__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./value/use-transform.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-transform.mjs");
+/* harmony import */ var _value_use_velocity_mjs__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./value/use-velocity.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-velocity.mjs");
+/* harmony import */ var _value_use_will_change_index_mjs__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./value/use-will-change/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/index.mjs");
+/* harmony import */ var _value_use_will_change_WillChangeMotionValue_mjs__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./value/use-will-change/WillChangeMotionValue.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/WillChangeMotionValue.mjs");
+/* harmony import */ var _utils_reduced_motion_use_reduced_motion_mjs__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./utils/reduced-motion/use-reduced-motion.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion.mjs");
+/* harmony import */ var _utils_reduced_motion_use_reduced_motion_config_mjs__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./utils/reduced-motion/use-reduced-motion-config.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion-config.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/index.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/global-config.mjs");
+/* harmony import */ var _animation_hooks_animation_controls_mjs__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./animation/hooks/animation-controls.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/animation-controls.mjs");
+/* harmony import */ var _animation_hooks_use_animate_mjs__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./animation/hooks/use-animate.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animate.mjs");
+/* harmony import */ var _animation_hooks_use_animate_style_mjs__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./animation/hooks/use-animate-style.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animate-style.mjs");
+/* harmony import */ var _animation_hooks_use_animation_mjs__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./animation/hooks/use-animation.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animation.mjs");
+/* harmony import */ var _components_AnimatePresence_use_presence_mjs__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/AnimatePresence/use-presence.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs");
+/* harmony import */ var _components_AnimatePresence_use_presence_data_mjs__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/AnimatePresence/use-presence-data.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence-data.mjs");
+/* harmony import */ var _events_use_dom_event_mjs__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./events/use-dom-event.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/events/use-dom-event.mjs");
+/* harmony import */ var _gestures_drag_use_drag_controls_mjs__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./gestures/drag/use-drag-controls.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/gestures/drag/use-drag-controls.mjs");
+/* harmony import */ var _motion_utils_is_motion_component_mjs__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./motion/utils/is-motion-component.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/is-motion-component.mjs");
+/* harmony import */ var _motion_utils_unwrap_motion_component_mjs__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./motion/utils/unwrap-motion-component.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/unwrap-motion-component.mjs");
+/* harmony import */ var _motion_utils_valid_prop_mjs__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./motion/utils/valid-prop.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs");
+/* harmony import */ var _projection_use_instant_layout_transition_mjs__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./projection/use-instant-layout-transition.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-instant-layout-transition.mjs");
+/* harmony import */ var _projection_use_reset_projection_mjs__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./projection/use-reset-projection.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-reset-projection.mjs");
+/* harmony import */ var _utils_use_animation_frame_mjs__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./utils/use-animation-frame.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-animation-frame.mjs");
+/* harmony import */ var _utils_use_cycle_mjs__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./utils/use-cycle.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-cycle.mjs");
+/* harmony import */ var _utils_use_in_view_mjs__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./utils/use-in-view.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-in-view.mjs");
+/* harmony import */ var _utils_use_instant_transition_mjs__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./utils/use-instant-transition.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-instant-transition.mjs");
+/* harmony import */ var _utils_use_page_in_view_mjs__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./utils/use-page-in-view.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-page-in-view.mjs");
+/* harmony import */ var _utils_transform_viewbox_point_mjs__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./utils/transform-viewbox-point.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/transform-viewbox-point.mjs");
+/* harmony import */ var _utils_transform_rotated_parent_mjs__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./utils/transform-rotated-parent.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/transform-rotated-parent.mjs");
+/* harmony import */ var _animation_optimized_appear_start_mjs__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./animation/optimized-appear/start.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/optimized-appear/start.mjs");
+/* harmony import */ var _context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./context/LayoutGroupContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _context_MotionContext_index_mjs__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./context/MotionContext/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionContext/index.mjs");
+/* harmony import */ var _context_PresenceContext_mjs__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./context/PresenceContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/PresenceContext.mjs");
+/* harmony import */ var _context_SwitchLayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./context/SwitchLayoutGroupContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs");
+/* harmony import */ var _animation_hooks_use_animated_state_mjs__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./animation/hooks/use-animated-state.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/hooks/use-animated-state.mjs");
+/* harmony import */ var _components_AnimateSharedLayout_mjs__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./components/AnimateSharedLayout.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/AnimateSharedLayout.mjs");
+/* harmony import */ var _context_DeprecatedLayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./context/DeprecatedLayoutGroupContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/DeprecatedLayoutGroupContext.mjs");
+/* harmony import */ var _value_use_inverted_scale_mjs__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./value/use-inverted-scale.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-inverted-scale.mjs");
+/* harmony import */ var _components_Reorder_namespace_mjs__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./components/Reorder/namespace.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/components/Reorder/namespace.mjs");
+/* harmony import */ var _animation_animate_index_mjs__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./animation/animate/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animate/index.mjs");
+/* harmony import */ var _animation_animators_waapi_animate_style_mjs__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./animation/animators/waapi/animate-style.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/animation/animators/waapi/animate-style.mjs");
+/* harmony import */ var _utils_distance_mjs__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./utils/distance.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/distance.mjs");
+/* harmony import */ var _render_dom_viewport_index_mjs__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./render/dom/viewport/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/viewport/index.mjs");
+/* harmony import */ var _render_dom_scroll_index_mjs__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./render/dom/scroll/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/index.mjs");
+/* harmony import */ var _render_dom_scroll_track_mjs__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./render/dom/scroll/track.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/track.mjs");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.mjs.map
 
 
 /***/ },
@@ -2841,6 +6857,34 @@ function getProjectionFunctionality(props) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/is-motion-component.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/is-motion-component.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isMotionComponent: () => (/* binding */ isMotionComponent)
+/* harmony export */ });
+/* harmony import */ var _symbol_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./symbol.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/symbol.mjs");
+
+
+/**
+ * Checks if a component is a `motion` component.
+ */
+function isMotionComponent(component) {
+    return (component !== null &&
+        typeof component === "object" &&
+        _symbol_mjs__WEBPACK_IMPORTED_MODULE_0__.motionComponentSymbol in component);
+}
+
+
+//# sourceMappingURL=is-motion-component.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/symbol.mjs"
 /*!****************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/symbol.mjs ***!
@@ -2855,6 +6899,40 @@ const motionComponentSymbol = Symbol.for("motionComponentSymbol");
 
 
 //# sourceMappingURL=symbol.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/unwrap-motion-component.mjs"
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/unwrap-motion-component.mjs ***!
+  \*********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   unwrapMotionComponent: () => (/* binding */ unwrapMotionComponent)
+/* harmony export */ });
+/* harmony import */ var _is_motion_component_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./is-motion-component.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/is-motion-component.mjs");
+/* harmony import */ var _symbol_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./symbol.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/utils/symbol.mjs");
+
+
+
+/**
+ * Unwraps a `motion` component and returns either a string for `motion.div` or
+ * the React component for `motion(Component)`.
+ *
+ * If the component is not a `motion` component it returns undefined.
+ */
+function unwrapMotionComponent(component) {
+    if ((0,_is_motion_component_mjs__WEBPACK_IMPORTED_MODULE_0__.isMotionComponent)(component)) {
+        return component[_symbol_mjs__WEBPACK_IMPORTED_MODULE_1__.motionComponentSymbol];
+    }
+    return undefined;
+}
+
+
+//# sourceMappingURL=unwrap-motion-component.mjs.map
 
 
 /***/ },
@@ -3288,6 +7366,67 @@ function isValidMotionProp(key) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-instant-layout-transition.mjs"
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-instant-layout-transition.mjs ***!
+  \*************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useInstantLayoutTransition: () => (/* binding */ useInstantLayoutTransition)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/HTMLProjectionNode.mjs");
+
+
+function useInstantLayoutTransition() {
+    return startTransition;
+}
+function startTransition(callback) {
+    if (!motion_dom__WEBPACK_IMPORTED_MODULE_0__.rootProjectionNode.current)
+        return;
+    motion_dom__WEBPACK_IMPORTED_MODULE_0__.rootProjectionNode.current.isUpdating = false;
+    motion_dom__WEBPACK_IMPORTED_MODULE_0__.rootProjectionNode.current.blockUpdate();
+    callback && callback();
+}
+
+
+//# sourceMappingURL=use-instant-layout-transition.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-reset-projection.mjs"
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-reset-projection.mjs ***!
+  \****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useResetProjection: () => (/* binding */ useResetProjection)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/HTMLProjectionNode.mjs");
+
+
+
+function useResetProjection() {
+    const reset = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+        const root = motion_dom__WEBPACK_IMPORTED_MODULE_1__.rootProjectionNode.current;
+        if (!root)
+            return;
+        root.resetTree();
+    }, []);
+    return reset;
+}
+
+
+//# sourceMappingURL=use-reset-projection.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/components/create-proxy.mjs"
 /*!***************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/components/create-proxy.mjs ***!
@@ -3464,6 +7603,1018 @@ const createDomVisualElement = (Component, options) => {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-animation.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-animation.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   domAnimation: () => (/* binding */ domAnimation)
+/* harmony export */ });
+/* harmony import */ var _motion_features_animations_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../motion/features/animations.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/animations.mjs");
+/* harmony import */ var _motion_features_gestures_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../motion/features/gestures.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/gestures.mjs");
+/* harmony import */ var _create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./create-visual-element.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs");
+"use client";
+
+
+
+
+/**
+ * @public
+ */
+const domAnimation = {
+    renderer: _create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_2__.createDomVisualElement,
+    ..._motion_features_animations_mjs__WEBPACK_IMPORTED_MODULE_0__.animations,
+    ..._motion_features_gestures_mjs__WEBPACK_IMPORTED_MODULE_1__.gestureAnimations,
+};
+
+
+//# sourceMappingURL=features-animation.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-max.mjs"
+/*!********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-max.mjs ***!
+  \********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   domMax: () => (/* binding */ domMax)
+/* harmony export */ });
+/* harmony import */ var _motion_features_drag_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../motion/features/drag.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/drag.mjs");
+/* harmony import */ var _motion_features_layout_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../motion/features/layout.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/layout.mjs");
+/* harmony import */ var _features_animation_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./features-animation.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-animation.mjs");
+"use client";
+
+
+
+
+/**
+ * @public
+ */
+const domMax = {
+    ..._features_animation_mjs__WEBPACK_IMPORTED_MODULE_2__.domAnimation,
+    ..._motion_features_drag_mjs__WEBPACK_IMPORTED_MODULE_0__.drag,
+    ..._motion_features_layout_mjs__WEBPACK_IMPORTED_MODULE_1__.layout,
+};
+
+
+//# sourceMappingURL=features-max.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-min.mjs"
+/*!********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/features-min.mjs ***!
+  \********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   domMin: () => (/* binding */ domMin)
+/* harmony export */ });
+/* harmony import */ var _motion_features_animations_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../motion/features/animations.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/motion/features/animations.mjs");
+/* harmony import */ var _create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-visual-element.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs");
+"use client";
+
+
+
+/**
+ * @public
+ */
+const domMin = {
+    renderer: _create_visual_element_mjs__WEBPACK_IMPORTED_MODULE_1__.createDomVisualElement,
+    ..._motion_features_animations_mjs__WEBPACK_IMPORTED_MODULE_0__.animations,
+};
+
+
+//# sourceMappingURL=features-min.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/attach-animation.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/attach-animation.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   attachToAnimation: () => (/* binding */ attachToAnimation)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/scroll/observe.mjs");
+/* harmony import */ var _utils_can_use_native_timeline_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/can-use-native-timeline.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/can-use-native-timeline.mjs");
+/* harmony import */ var _utils_get_timeline_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/get-timeline.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/get-timeline.mjs");
+/* harmony import */ var _utils_offset_to_range_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/offset-to-range.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/offset-to-range.mjs");
+
+
+
+
+
+function attachToAnimation(animation, options) {
+    const timeline = (0,_utils_get_timeline_mjs__WEBPACK_IMPORTED_MODULE_2__.getTimeline)(options);
+    const range = options.target
+        ? (0,_utils_offset_to_range_mjs__WEBPACK_IMPORTED_MODULE_3__.offsetToViewTimelineRange)(options.offset)
+        : undefined;
+    /**
+     * Use native timeline when:
+     * - No target: ScrollTimeline (existing behaviour)
+     * - Target with mappable offset: ViewTimeline with named range
+     * - Target with unmappable offset: fall back to JS observe
+     */
+    const useNative = options.target
+        ? (0,_utils_can_use_native_timeline_mjs__WEBPACK_IMPORTED_MODULE_1__.canUseNativeTimeline)(options.target) && !!range
+        : (0,_utils_can_use_native_timeline_mjs__WEBPACK_IMPORTED_MODULE_1__.canUseNativeTimeline)();
+    return animation.attachTimeline({
+        timeline: useNative ? timeline : undefined,
+        ...(range &&
+            useNative && {
+            rangeStart: range.rangeStart,
+            rangeEnd: range.rangeEnd,
+        }),
+        observe: (valueAnimation) => {
+            valueAnimation.pause();
+            return (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.observeTimeline)((progress) => {
+                valueAnimation.time =
+                    valueAnimation.iterationDuration * progress;
+            }, timeline);
+        },
+    });
+}
+
+
+//# sourceMappingURL=attach-animation.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/attach-function.mjs"
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/attach-function.mjs ***!
+  \******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   attachToFunction: () => (/* binding */ attachToFunction)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/scroll/observe.mjs");
+/* harmony import */ var _track_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./track.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/track.mjs");
+/* harmony import */ var _utils_get_timeline_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/get-timeline.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/get-timeline.mjs");
+/* harmony import */ var _utils_is_element_tracking_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/is-element-tracking.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/is-element-tracking.mjs");
+
+
+
+
+
+/**
+ * If the onScroll function has two arguments, it's expecting
+ * more specific information about the scroll from scrollInfo.
+ */
+function isOnScrollWithInfo(onScroll) {
+    return onScroll.length === 2;
+}
+function attachToFunction(onScroll, options) {
+    if (isOnScrollWithInfo(onScroll) || (0,_utils_is_element_tracking_mjs__WEBPACK_IMPORTED_MODULE_3__.isElementTracking)(options)) {
+        return (0,_track_mjs__WEBPACK_IMPORTED_MODULE_1__.scrollInfo)((info) => {
+            onScroll(info[options.axis].progress, info);
+        }, options);
+    }
+    else {
+        return (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.observeTimeline)(onScroll, (0,_utils_get_timeline_mjs__WEBPACK_IMPORTED_MODULE_2__.getTimeline)(options));
+    }
+}
+
+
+//# sourceMappingURL=attach-function.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/index.mjs"
+/*!********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/index.mjs ***!
+  \********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   scroll: () => (/* binding */ scroll)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/noop.mjs");
+/* harmony import */ var _attach_animation_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./attach-animation.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/attach-animation.mjs");
+/* harmony import */ var _attach_function_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attach-function.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/attach-function.mjs");
+
+
+
+
+function scroll(onScroll, { axis = "y", container = document.scrollingElement, ...options } = {}) {
+    if (!container)
+        return motion_utils__WEBPACK_IMPORTED_MODULE_0__.noop;
+    const optionsWithDefaults = { axis, container, ...options };
+    return typeof onScroll === "function"
+        ? (0,_attach_function_mjs__WEBPACK_IMPORTED_MODULE_2__.attachToFunction)(onScroll, optionsWithDefaults)
+        : (0,_attach_animation_mjs__WEBPACK_IMPORTED_MODULE_1__.attachToAnimation)(onScroll, optionsWithDefaults);
+}
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/info.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/info.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createScrollInfo: () => (/* binding */ createScrollInfo),
+/* harmony export */   updateScrollInfo: () => (/* binding */ updateScrollInfo)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/progress.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/velocity-per-second.mjs");
+
+
+/**
+ * A time in milliseconds, beyond which we consider the scroll velocity to be 0.
+ */
+const maxElapsed = 50;
+const createAxisInfo = () => ({
+    current: 0,
+    offset: [],
+    progress: 0,
+    scrollLength: 0,
+    targetOffset: 0,
+    targetLength: 0,
+    containerLength: 0,
+    velocity: 0,
+});
+const createScrollInfo = () => ({
+    time: 0,
+    x: createAxisInfo(),
+    y: createAxisInfo(),
+});
+const keys = {
+    x: {
+        length: "Width",
+        position: "Left",
+    },
+    y: {
+        length: "Height",
+        position: "Top",
+    },
+};
+function updateAxisInfo(element, axisName, info, time) {
+    const axis = info[axisName];
+    const { length, position } = keys[axisName];
+    const prev = axis.current;
+    const prevTime = info.time;
+    axis.current = Math.abs(element[`scroll${position}`]);
+    axis.scrollLength = element[`scroll${length}`] - element[`client${length}`];
+    axis.offset.length = 0;
+    axis.offset[0] = 0;
+    axis.offset[1] = axis.scrollLength;
+    axis.progress = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.progress)(0, axis.scrollLength, axis.current);
+    const elapsed = time - prevTime;
+    axis.velocity =
+        elapsed > maxElapsed
+            ? 0
+            : (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.velocityPerSecond)(axis.current - prev, elapsed);
+}
+function updateScrollInfo(element, info, time) {
+    updateAxisInfo(element, "x", info, time);
+    updateAxisInfo(element, "y", info, time);
+    info.time = time;
+}
+
+
+//# sourceMappingURL=info.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/edge.mjs"
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/edge.mjs ***!
+  \***************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   namedEdges: () => (/* binding */ namedEdges),
+/* harmony export */   resolveEdge: () => (/* binding */ resolveEdge)
+/* harmony export */ });
+const namedEdges = {
+    start: 0,
+    center: 0.5,
+    end: 1,
+};
+function resolveEdge(edge, length, inset = 0) {
+    let delta = 0;
+    /**
+     * If we have this edge defined as a preset, replace the definition
+     * with the numerical value.
+     */
+    if (edge in namedEdges) {
+        edge = namedEdges[edge];
+    }
+    /**
+     * Handle unit values
+     */
+    if (typeof edge === "string") {
+        const asNumber = parseFloat(edge);
+        if (edge.endsWith("px")) {
+            delta = asNumber;
+        }
+        else if (edge.endsWith("%")) {
+            edge = asNumber / 100;
+        }
+        else if (edge.endsWith("vw")) {
+            delta = (asNumber / 100) * document.documentElement.clientWidth;
+        }
+        else if (edge.endsWith("vh")) {
+            delta = (asNumber / 100) * document.documentElement.clientHeight;
+        }
+        else {
+            edge = asNumber;
+        }
+    }
+    /**
+     * If the edge is defined as a number, handle as a progress value.
+     */
+    if (typeof edge === "number") {
+        delta = length * edge;
+    }
+    return inset + delta;
+}
+
+
+//# sourceMappingURL=edge.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/index.mjs"
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/index.mjs ***!
+  \****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   resolveOffsets: () => (/* binding */ resolveOffsets)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/offsets/default.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/interpolate.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/clamp.mjs");
+/* harmony import */ var _inset_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inset.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/inset.mjs");
+/* harmony import */ var _offset_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./offset.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/offset.mjs");
+/* harmony import */ var _presets_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./presets.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/presets.mjs");
+
+
+
+
+
+
+const point = { x: 0, y: 0 };
+function getTargetSize(target) {
+    return "getBBox" in target && target.tagName !== "svg"
+        ? target.getBBox()
+        : { width: target.clientWidth, height: target.clientHeight };
+}
+function resolveOffsets(container, info, options) {
+    const { offset: offsetDefinition = _presets_mjs__WEBPACK_IMPORTED_MODULE_5__.ScrollOffset.All } = options;
+    const { target = container, axis = "y" } = options;
+    const lengthLabel = axis === "y" ? "height" : "width";
+    const inset = target !== container ? (0,_inset_mjs__WEBPACK_IMPORTED_MODULE_3__.calcInset)(target, container) : point;
+    /**
+     * Measure the target and container. If they're the same thing then we
+     * use the container's scrollWidth/Height as the target, from there
+     * all other calculations can remain the same.
+     */
+    const targetSize = target === container
+        ? { width: container.scrollWidth, height: container.scrollHeight }
+        : getTargetSize(target);
+    const containerSize = {
+        width: container.clientWidth,
+        height: container.clientHeight,
+    };
+    /**
+     * Reset the length of the resolved offset array rather than creating a new one.
+     * TODO: More reusable data structures for targetSize/containerSize would also be good.
+     */
+    info[axis].offset.length = 0;
+    /**
+     * Populate the offset array by resolving the user's offset definition into
+     * a list of pixel scroll offets.
+     */
+    let hasChanged = !info[axis].interpolate;
+    const numOffsets = offsetDefinition.length;
+    for (let i = 0; i < numOffsets; i++) {
+        const offset = (0,_offset_mjs__WEBPACK_IMPORTED_MODULE_4__.resolveOffset)(offsetDefinition[i], containerSize[lengthLabel], targetSize[lengthLabel], inset[axis]);
+        if (!hasChanged && offset !== info[axis].interpolatorOffsets[i]) {
+            hasChanged = true;
+        }
+        info[axis].offset[i] = offset;
+    }
+    /**
+     * If the pixel scroll offsets have changed, create a new interpolator function
+     * to map scroll value into a progress.
+     */
+    if (hasChanged) {
+        info[axis].interpolate = (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.interpolate)(info[axis].offset, (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.defaultOffset)(offsetDefinition), { clamp: false });
+        info[axis].interpolatorOffsets = [...info[axis].offset];
+    }
+    info[axis].progress = (0,motion_utils__WEBPACK_IMPORTED_MODULE_2__.clamp)(0, 1, info[axis].interpolate(info[axis].current));
+}
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/inset.mjs"
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/inset.mjs ***!
+  \****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   calcInset: () => (/* binding */ calcInset)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-html-element.mjs");
+
+
+function calcInset(element, container) {
+    const inset = { x: 0, y: 0 };
+    let current = element;
+    while (current && current !== container) {
+        if ((0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(current)) {
+            inset.x += current.offsetLeft;
+            inset.y += current.offsetTop;
+            current = current.offsetParent;
+        }
+        else if (current.tagName === "svg") {
+            /**
+             * This isn't an ideal approach to measuring the offset of <svg /> tags.
+             * It would be preferable, given they behave like HTMLElements in most ways
+             * to use offsetLeft/Top. But these don't exist on <svg />. Likewise we
+             * can't use .getBBox() like most SVG elements as these provide the offset
+             * relative to the SVG itself, which for <svg /> is usually 0x0.
+             */
+            const svgBoundingBox = current.getBoundingClientRect();
+            current = current.parentElement;
+            const parentBoundingBox = current.getBoundingClientRect();
+            inset.x += svgBoundingBox.left - parentBoundingBox.left;
+            inset.y += svgBoundingBox.top - parentBoundingBox.top;
+        }
+        else if (current instanceof SVGGraphicsElement) {
+            const { x, y } = current.getBBox();
+            inset.x += x;
+            inset.y += y;
+            let svg = null;
+            let parent = current.parentNode;
+            while (!svg) {
+                if (parent.tagName === "svg") {
+                    svg = parent;
+                }
+                parent = current.parentNode;
+            }
+            current = svg;
+        }
+        else {
+            break;
+        }
+    }
+    return inset;
+}
+
+
+//# sourceMappingURL=inset.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/offset.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/offset.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   resolveOffset: () => (/* binding */ resolveOffset)
+/* harmony export */ });
+/* harmony import */ var _edge_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edge.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/edge.mjs");
+
+
+const defaultOffset = [0, 0];
+function resolveOffset(offset, containerLength, targetLength, targetInset) {
+    let offsetDefinition = Array.isArray(offset) ? offset : defaultOffset;
+    let targetPoint = 0;
+    let containerPoint = 0;
+    if (typeof offset === "number") {
+        /**
+         * If we're provided offset: [0, 0.5, 1] then each number x should become
+         * [x, x], so we default to the behaviour of mapping 0 => 0 of both target
+         * and container etc.
+         */
+        offsetDefinition = [offset, offset];
+    }
+    else if (typeof offset === "string") {
+        offset = offset.trim();
+        if (offset.includes(" ")) {
+            offsetDefinition = offset.split(" ");
+        }
+        else {
+            /**
+             * If we're provided a definition like "100px" then we want to apply
+             * that only to the top of the target point, leaving the container at 0.
+             * Whereas a named offset like "end" should be applied to both.
+             */
+            offsetDefinition = [offset, _edge_mjs__WEBPACK_IMPORTED_MODULE_0__.namedEdges[offset] ? offset : `0`];
+        }
+    }
+    targetPoint = (0,_edge_mjs__WEBPACK_IMPORTED_MODULE_0__.resolveEdge)(offsetDefinition[0], targetLength, targetInset);
+    containerPoint = (0,_edge_mjs__WEBPACK_IMPORTED_MODULE_0__.resolveEdge)(offsetDefinition[1], containerLength);
+    return targetPoint - containerPoint;
+}
+
+
+//# sourceMappingURL=offset.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/presets.mjs"
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/presets.mjs ***!
+  \******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ScrollOffset: () => (/* binding */ ScrollOffset)
+/* harmony export */ });
+const ScrollOffset = {
+    Enter: [
+        [0, 1],
+        [1, 1],
+    ],
+    Exit: [
+        [0, 0],
+        [1, 0],
+    ],
+    Any: [
+        [1, 0],
+        [0, 1],
+    ],
+    All: [
+        [0, 0],
+        [1, 1],
+    ],
+};
+
+
+//# sourceMappingURL=presets.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/on-scroll-handler.mjs"
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/on-scroll-handler.mjs ***!
+  \********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createOnScrollHandler: () => (/* binding */ createOnScrollHandler)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/warn-once.mjs");
+/* harmony import */ var _info_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./info.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/info.mjs");
+/* harmony import */ var _offsets_index_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./offsets/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/index.mjs");
+
+
+
+
+function measure(container, target = container, info) {
+    /**
+     * Find inset of target within scrollable container
+     */
+    info.x.targetOffset = 0;
+    info.y.targetOffset = 0;
+    if (target !== container) {
+        let node = target;
+        while (node && node !== container) {
+            info.x.targetOffset += node.offsetLeft;
+            info.y.targetOffset += node.offsetTop;
+            node = node.offsetParent;
+        }
+    }
+    info.x.targetLength =
+        target === container ? target.scrollWidth : target.clientWidth;
+    info.y.targetLength =
+        target === container ? target.scrollHeight : target.clientHeight;
+    info.x.containerLength = container.clientWidth;
+    info.y.containerLength = container.clientHeight;
+    /**
+     * In development mode ensure scroll containers aren't position: static as this makes
+     * it difficult to measure their relative positions. The document scrolling element
+     * is exempt: offsetParent measurements naturally resolve relative to the document.
+     */
+    if (true) {
+        if (container &&
+            target &&
+            target !== container &&
+            container !== document.documentElement &&
+            container !== document.scrollingElement &&
+            container !== document.body) {
+            (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.warnOnce)(getComputedStyle(container).position !== "static", "Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.");
+        }
+    }
+}
+function createOnScrollHandler(element, onScroll, info, options = {}) {
+    return {
+        measure: (time) => {
+            measure(element, options.target, info);
+            (0,_info_mjs__WEBPACK_IMPORTED_MODULE_1__.updateScrollInfo)(element, info, time);
+            if (options.offset || options.target) {
+                (0,_offsets_index_mjs__WEBPACK_IMPORTED_MODULE_2__.resolveOffsets)(element, info, options);
+            }
+        },
+        notify: () => onScroll(info),
+    };
+}
+
+
+//# sourceMappingURL=on-scroll-handler.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/track.mjs"
+/*!********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/track.mjs ***!
+  \********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   scrollInfo: () => (/* binding */ scrollInfo)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/resize/index.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/noop.mjs");
+/* harmony import */ var _info_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./info.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/info.mjs");
+/* harmony import */ var _on_scroll_handler_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./on-scroll-handler.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/on-scroll-handler.mjs");
+
+
+
+
+
+const scrollListeners = new WeakMap();
+const resizeListeners = new WeakMap();
+const onScrollHandlers = new WeakMap();
+const scrollSize = new WeakMap();
+const dimensionCheckProcesses = new WeakMap();
+const getEventTarget = (element) => element === document.scrollingElement ? window : element;
+function scrollInfo(onScroll, { container = document.scrollingElement, trackContentSize = false, ...options } = {}) {
+    if (!container)
+        return motion_utils__WEBPACK_IMPORTED_MODULE_2__.noop;
+    let containerHandlers = onScrollHandlers.get(container);
+    /**
+     * Get the onScroll handlers for this container.
+     * If one isn't found, create a new one.
+     */
+    if (!containerHandlers) {
+        containerHandlers = new Set();
+        onScrollHandlers.set(container, containerHandlers);
+    }
+    /**
+     * Create a new onScroll handler for the provided callback.
+     */
+    const info = (0,_info_mjs__WEBPACK_IMPORTED_MODULE_3__.createScrollInfo)();
+    const containerHandler = (0,_on_scroll_handler_mjs__WEBPACK_IMPORTED_MODULE_4__.createOnScrollHandler)(container, onScroll, info, options);
+    containerHandlers.add(containerHandler);
+    /**
+     * Check if there's a scroll event listener for this container.
+     * If not, create one.
+     */
+    if (!scrollListeners.has(container)) {
+        const measureAll = () => {
+            for (const handler of containerHandlers) {
+                handler.measure(motion_dom__WEBPACK_IMPORTED_MODULE_1__.frameData.timestamp);
+            }
+            motion_dom__WEBPACK_IMPORTED_MODULE_1__.frame.preUpdate(notifyAll);
+        };
+        const notifyAll = () => {
+            for (const handler of containerHandlers) {
+                handler.notify();
+            }
+        };
+        const listener = () => motion_dom__WEBPACK_IMPORTED_MODULE_1__.frame.read(measureAll);
+        scrollListeners.set(container, listener);
+        const target = getEventTarget(container);
+        window.addEventListener("resize", listener);
+        if (container !== document.documentElement) {
+            resizeListeners.set(container, (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.resize)(container, listener));
+        }
+        target.addEventListener("scroll", listener);
+        listener();
+    }
+    /**
+     * Enable content size tracking if requested and not already enabled.
+     */
+    if (trackContentSize && !dimensionCheckProcesses.has(container)) {
+        const listener = scrollListeners.get(container);
+        // Store initial scroll dimensions (object is reused to avoid allocation)
+        const size = {
+            width: container.scrollWidth,
+            height: container.scrollHeight,
+        };
+        scrollSize.set(container, size);
+        // Add frame-based scroll dimension checking to detect content changes
+        const checkScrollDimensions = () => {
+            const newWidth = container.scrollWidth;
+            const newHeight = container.scrollHeight;
+            if (size.width !== newWidth || size.height !== newHeight) {
+                listener();
+                size.width = newWidth;
+                size.height = newHeight;
+            }
+        };
+        // Schedule with keepAlive=true to run every frame
+        const dimensionCheckProcess = motion_dom__WEBPACK_IMPORTED_MODULE_1__.frame.read(checkScrollDimensions, true);
+        dimensionCheckProcesses.set(container, dimensionCheckProcess);
+    }
+    const listener = scrollListeners.get(container);
+    motion_dom__WEBPACK_IMPORTED_MODULE_1__.frame.read(listener, false, true);
+    return () => {
+        (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.cancelFrame)(listener);
+        /**
+         * Check if we even have any handlers for this container.
+         */
+        const currentHandlers = onScrollHandlers.get(container);
+        if (!currentHandlers)
+            return;
+        currentHandlers.delete(containerHandler);
+        if (currentHandlers.size)
+            return;
+        /**
+         * If no more handlers, remove the scroll listener too.
+         */
+        const scrollListener = scrollListeners.get(container);
+        scrollListeners.delete(container);
+        if (scrollListener) {
+            getEventTarget(container).removeEventListener("scroll", scrollListener);
+            resizeListeners.get(container)?.();
+            window.removeEventListener("resize", scrollListener);
+        }
+        // Clean up scroll dimension checking
+        const dimensionCheckProcess = dimensionCheckProcesses.get(container);
+        if (dimensionCheckProcess) {
+            (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.cancelFrame)(dimensionCheckProcess);
+            dimensionCheckProcesses.delete(container);
+        }
+        scrollSize.delete(container);
+    };
+}
+
+
+//# sourceMappingURL=track.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/can-use-native-timeline.mjs"
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/can-use-native-timeline.mjs ***!
+  \********************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   canUseNativeTimeline: () => (/* binding */ canUseNativeTimeline)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/scroll-timeline.mjs");
+
+
+function canUseNativeTimeline(target) {
+    if (typeof window === "undefined")
+        return false;
+    return target ? (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.supportsViewTimeline)() : (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.supportsScrollTimeline)();
+}
+
+
+//# sourceMappingURL=can-use-native-timeline.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/get-timeline.mjs"
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/get-timeline.mjs ***!
+  \*********************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getTimeline: () => (/* binding */ getTimeline)
+/* harmony export */ });
+/* harmony import */ var _track_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../track.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/track.mjs");
+/* harmony import */ var _can_use_native_timeline_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./can-use-native-timeline.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/can-use-native-timeline.mjs");
+/* harmony import */ var _offset_to_range_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./offset-to-range.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/offset-to-range.mjs");
+
+
+
+
+const timelineCache = new Map();
+function scrollTimelineFallback(options) {
+    const currentTime = { value: 0 };
+    const cancel = (0,_track_mjs__WEBPACK_IMPORTED_MODULE_0__.scrollInfo)((info) => {
+        currentTime.value = info[options.axis].progress * 100;
+    }, options);
+    return { currentTime, cancel };
+}
+function getTimeline({ source, container, ...options }) {
+    const { axis } = options;
+    if (source)
+        container = source;
+    let containerCache = timelineCache.get(container);
+    if (!containerCache) {
+        containerCache = new Map();
+        timelineCache.set(container, containerCache);
+    }
+    const targetKey = options.target ?? "self";
+    let targetCache = containerCache.get(targetKey);
+    if (!targetCache) {
+        targetCache = {};
+        containerCache.set(targetKey, targetCache);
+    }
+    const axisKey = axis + (options.offset ?? []).join(",");
+    if (!targetCache[axisKey]) {
+        if (options.target && (0,_can_use_native_timeline_mjs__WEBPACK_IMPORTED_MODULE_1__.canUseNativeTimeline)(options.target)) {
+            const range = (0,_offset_to_range_mjs__WEBPACK_IMPORTED_MODULE_2__.offsetToViewTimelineRange)(options.offset);
+            if (range) {
+                targetCache[axisKey] = new ViewTimeline({
+                    subject: options.target,
+                    axis,
+                });
+            }
+            else {
+                targetCache[axisKey] = scrollTimelineFallback({
+                    container,
+                    ...options,
+                });
+            }
+        }
+        else if ((0,_can_use_native_timeline_mjs__WEBPACK_IMPORTED_MODULE_1__.canUseNativeTimeline)()) {
+            targetCache[axisKey] = new ScrollTimeline({
+                source: container,
+                axis,
+            });
+        }
+        else {
+            targetCache[axisKey] = scrollTimelineFallback({
+                container,
+                ...options,
+            });
+        }
+    }
+    return targetCache[axisKey];
+}
+
+
+//# sourceMappingURL=get-timeline.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/is-element-tracking.mjs"
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/is-element-tracking.mjs ***!
+  \****************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isElementTracking: () => (/* binding */ isElementTracking)
+/* harmony export */ });
+/**
+ * Currently, we only support element tracking with `scrollInfo`, though in
+ * the future we can also offer ViewTimeline support.
+ */
+function isElementTracking(options) {
+    return options && (options.target || options.offset);
+}
+
+
+//# sourceMappingURL=is-element-tracking.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/offset-to-range.mjs"
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/offset-to-range.mjs ***!
+  \************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   offsetToViewTimelineRange: () => (/* binding */ offsetToViewTimelineRange)
+/* harmony export */ });
+/* harmony import */ var _offsets_presets_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../offsets/presets.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/offsets/presets.mjs");
+
+
+/**
+ * Maps from ProgressIntersection pairs used by Motion's preset offsets to
+ * ViewTimeline named ranges. Returns undefined for unrecognised patterns,
+ * which signals the caller to fall back to JS-based scroll tracking.
+ */
+const presets = [
+    [_offsets_presets_mjs__WEBPACK_IMPORTED_MODULE_0__.ScrollOffset.Enter, "entry"],
+    [_offsets_presets_mjs__WEBPACK_IMPORTED_MODULE_0__.ScrollOffset.Exit, "exit"],
+    [_offsets_presets_mjs__WEBPACK_IMPORTED_MODULE_0__.ScrollOffset.Any, "cover"],
+    [_offsets_presets_mjs__WEBPACK_IMPORTED_MODULE_0__.ScrollOffset.All, "contain"],
+];
+const stringToProgress = {
+    start: 0,
+    end: 1,
+};
+function parseStringOffset(s) {
+    const parts = s.trim().split(/\s+/);
+    if (parts.length !== 2)
+        return undefined;
+    const a = stringToProgress[parts[0]];
+    const b = stringToProgress[parts[1]];
+    if (a === undefined || b === undefined)
+        return undefined;
+    return [a, b];
+}
+function normaliseOffset(offset) {
+    if (offset.length !== 2)
+        return undefined;
+    const result = [];
+    for (const item of offset) {
+        if (Array.isArray(item)) {
+            result.push(item);
+        }
+        else if (typeof item === "string") {
+            const parsed = parseStringOffset(item);
+            if (!parsed)
+                return undefined;
+            result.push(parsed);
+        }
+        else {
+            return undefined;
+        }
+    }
+    return result;
+}
+function matchesPreset(offset, preset) {
+    const normalised = normaliseOffset(offset);
+    if (!normalised)
+        return false;
+    for (let i = 0; i < 2; i++) {
+        const o = normalised[i];
+        const p = preset[i];
+        if (o[0] !== p[0] || o[1] !== p[1])
+            return false;
+    }
+    return true;
+}
+function offsetToViewTimelineRange(offset) {
+    if (!offset) {
+        return { rangeStart: "contain 0%", rangeEnd: "contain 100%" };
+    }
+    for (const [preset, name] of presets) {
+        if (matchesPreset(offset, preset)) {
+            return { rangeStart: `${name} 0%`, rangeEnd: `${name} 100%` };
+        }
+    }
+    return undefined;
+}
+
+
+//# sourceMappingURL=offset-to-range.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/use-render.mjs"
 /*!******************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/use-render.mjs ***!
@@ -3607,6 +8758,65 @@ function isSVGComponent(Component) {
 
 
 //# sourceMappingURL=is-svg-component.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/viewport/index.mjs"
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/viewport/index.mjs ***!
+  \**********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   inView: () => (/* binding */ inView)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+
+
+const thresholds = {
+    some: 0,
+    all: 1,
+};
+function inView(elementOrSelector, onStart, { root, margin: rootMargin, amount = "some" } = {}) {
+    const elements = (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.resolveElements)(elementOrSelector);
+    const activeIntersections = new WeakMap();
+    const onIntersectionChange = (entries) => {
+        entries.forEach((entry) => {
+            const onEnd = activeIntersections.get(entry.target);
+            /**
+             * If there's no change to the intersection, we don't need to
+             * do anything here.
+             */
+            if (entry.isIntersecting === Boolean(onEnd))
+                return;
+            if (entry.isIntersecting) {
+                const newOnEnd = onStart(entry.target, entry);
+                if (typeof newOnEnd === "function") {
+                    activeIntersections.set(entry.target, newOnEnd);
+                }
+                else {
+                    observer.unobserve(entry.target);
+                }
+            }
+            else if (typeof onEnd === "function") {
+                onEnd(entry);
+                activeIntersections.delete(entry.target);
+            }
+        });
+    };
+    const observer = new IntersectionObserver(onIntersectionChange, {
+        root,
+        rootMargin,
+        threshold: typeof amount === "number" ? amount : thresholds[amount],
+    });
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+}
+
+
+//# sourceMappingURL=index.mjs.map
 
 
 /***/ },
@@ -3971,6 +9181,389 @@ function isRefObject(ref) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion-config.mjs"
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion-config.mjs ***!
+  \*******************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useReducedMotionConfig: () => (/* binding */ useReducedMotionConfig)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _use_reduced_motion_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-reduced-motion.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion.mjs");
+"use client";
+
+
+
+
+function useReducedMotionConfig() {
+    const reducedMotionPreference = (0,_use_reduced_motion_mjs__WEBPACK_IMPORTED_MODULE_2__.useReducedMotion)();
+    const { reducedMotion } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_1__.MotionConfigContext);
+    if (reducedMotion === "never") {
+        return false;
+    }
+    else if (reducedMotion === "always") {
+        return true;
+    }
+    else {
+        return reducedMotionPreference;
+    }
+}
+
+
+//# sourceMappingURL=use-reduced-motion-config.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion.mjs"
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion.mjs ***!
+  \************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useReducedMotion: () => (/* binding */ useReducedMotion)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/reduced-motion/index.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/reduced-motion/state.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/warn-once.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+
+
+/**
+ * A hook that returns `true` if we should be using reduced motion based on the current device's Reduced Motion setting.
+ *
+ * This can be used to implement changes to your UI based on Reduced Motion. For instance, replacing motion-sickness inducing
+ * `x`/`y` animations with `opacity`, disabling the autoplay of background videos, or turning off parallax motion.
+ *
+ * It will actively respond to changes and re-render your components with the latest setting.
+ *
+ * ```jsx
+ * export function Sidebar({ isOpen }) {
+ *   const shouldReduceMotion = useReducedMotion()
+ *   const closedX = shouldReduceMotion ? 0 : "-100%"
+ *
+ *   return (
+ *     <motion.div animate={{
+ *       opacity: isOpen ? 1 : 0,
+ *       x: isOpen ? 0 : closedX
+ *     }} />
+ *   )
+ * }
+ * ```
+ *
+ * @return boolean
+ *
+ * @public
+ */
+function useReducedMotion() {
+    /**
+     * Lazy initialisation of prefersReducedMotion
+     */
+    !motion_dom__WEBPACK_IMPORTED_MODULE_1__.hasReducedMotionListener.current && (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.initPrefersReducedMotion)();
+    const [shouldReduceMotion] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(motion_dom__WEBPACK_IMPORTED_MODULE_1__.prefersReducedMotion.current);
+    if (true) {
+        (0,motion_utils__WEBPACK_IMPORTED_MODULE_2__.warnOnce)(shouldReduceMotion !== true, "You have Reduced Motion enabled on your device. Animations may not appear as expected.", "reduced-motion-disabled");
+    }
+    /**
+     * TODO See if people miss automatically updating shouldReduceMotion setting
+     */
+    return shouldReduceMotion;
+}
+
+
+//# sourceMappingURL=use-reduced-motion.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/transform-rotated-parent.mjs"
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/transform-rotated-parent.mjs ***!
+  \***************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   correctParentTransform: () => (/* binding */ correctParentTransform)
+/* harmony export */ });
+/**
+ * Creates a `transformPagePoint` function that corrects pointer coordinates
+ * for a parent container with CSS transforms (rotation, scale, skew).
+ *
+ * When dragging elements inside a transformed parent, pointer coordinates
+ * need to be transformed through the inverse of the parent's transform
+ * so the drag offset is in local space.
+ *
+ * Works with both static and continuously animating transforms.
+ *
+ * @example
+ * ```jsx
+ * function App() {
+ *   const ref = useRef(null)
+ *
+ *   return (
+ *     <motion.div ref={ref} style={{ rotate: 90 }}>
+ *       <MotionConfig transformPagePoint={correctParentTransform(ref)}>
+ *         <motion.div drag />
+ *       </MotionConfig>
+ *     </motion.div>
+ *   )
+ * }
+ * ```
+ *
+ * @param parentRef - A React ref to the transformed parent element
+ * @returns A transformPagePoint function for use with MotionConfig
+ *
+ * @public
+ */
+function correctParentTransform(parentRef) {
+    return (point) => {
+        const parent = parentRef.current;
+        if (!parent)
+            return point;
+        const inv = getInverseMatrix(parent);
+        if (!inv)
+            return point;
+        // Get center of rotation in page space
+        const rect = parent.getBoundingClientRect();
+        const cx = rect.left + window.scrollX + rect.width / 2;
+        const cy = rect.top + window.scrollY + rect.height / 2;
+        // Transform (point - center) through inverse, then add center back
+        const dx = point.x - cx;
+        const dy = point.y - cy;
+        return {
+            x: cx + inv.a * dx + inv.c * dy,
+            y: cy + inv.b * dx + inv.d * dy,
+        };
+    };
+}
+function getInverseMatrix(element) {
+    const { transform } = getComputedStyle(element);
+    if (!transform || transform === "none")
+        return null;
+    const match = transform.match(/^matrix3d\((.*)\)$/u) ||
+        transform.match(/^matrix\((.*)\)$/u);
+    if (!match)
+        return null;
+    const v = match[1].split(",").map(Number);
+    const is3d = transform.startsWith("matrix3d");
+    const a = v[0], b = v[1];
+    const c = is3d ? v[4] : v[2];
+    const d = is3d ? v[5] : v[3];
+    const det = a * d - b * c;
+    if (Math.abs(det) < 1e-10)
+        return null;
+    return { a: d / det, b: -b / det, c: -c / det, d: a / det };
+}
+
+
+//# sourceMappingURL=transform-rotated-parent.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/transform-viewbox-point.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/transform-viewbox-point.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   transformViewBoxPoint: () => (/* binding */ transformViewBoxPoint)
+/* harmony export */ });
+/**
+ * Creates a `transformPagePoint` function that accounts for SVG viewBox scaling.
+ *
+ * When dragging SVG elements inside an SVG with a viewBox that differs from
+ * the rendered dimensions (e.g., `viewBox="0 0 100 100"` but rendered at 500x500 pixels),
+ * pointer coordinates need to be transformed to match the SVG's coordinate system.
+ *
+ * @example
+ * ```jsx
+ * function App() {
+ *   const svgRef = useRef<SVGSVGElement>(null)
+ *
+ *   return (
+ *     <MotionConfig transformPagePoint={transformViewBoxPoint(svgRef)}>
+ *       <svg ref={svgRef} viewBox="0 0 100 100" width={500} height={500}>
+ *         <motion.rect drag width={10} height={10} />
+ *       </svg>
+ *     </MotionConfig>
+ *   )
+ * }
+ * ```
+ *
+ * @param svgRef - A React ref to the SVG element
+ * @returns A transformPagePoint function for use with MotionConfig
+ *
+ * @public
+ */
+function transformViewBoxPoint(svgRef) {
+    return (point) => {
+        const svg = svgRef.current;
+        if (!svg) {
+            return point;
+        }
+        // Get the viewBox attribute
+        const viewBox = svg.viewBox?.baseVal;
+        if (!viewBox || (viewBox.width === 0 && viewBox.height === 0)) {
+            // No viewBox or empty viewBox - no transformation needed
+            return point;
+        }
+        // Get the rendered dimensions of the SVG
+        const bbox = svg.getBoundingClientRect();
+        if (bbox.width === 0 || bbox.height === 0) {
+            return point;
+        }
+        // Calculate scale factors
+        const scaleX = viewBox.width / bbox.width;
+        const scaleY = viewBox.height / bbox.height;
+        // Get the SVG's position on the page
+        const svgX = bbox.left + window.scrollX;
+        const svgY = bbox.top + window.scrollY;
+        // Transform the point:
+        // 1. Calculate position relative to SVG
+        // 2. Scale by viewBox/viewport ratio
+        // 3. Add back the SVG position (but in SVG coordinates)
+        return {
+            x: (point.x - svgX) * scaleX + svgX,
+            y: (point.y - svgY) * scaleY + svgY,
+        };
+    };
+}
+
+
+//# sourceMappingURL=transform-viewbox-point.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-animation-frame.mjs"
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-animation-frame.mjs ***!
+  \**********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useAnimationFrame: () => (/* binding */ useAnimationFrame)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+"use client";
+
+
+
+
+function useAnimationFrame(callback) {
+    const initialTimestamp = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(0);
+    const { isStatic } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_2__.MotionConfigContext);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        if (isStatic)
+            return;
+        const provideTimeSinceStart = ({ timestamp, delta }) => {
+            if (!initialTimestamp.current)
+                initialTimestamp.current = timestamp;
+            callback(timestamp - initialTimestamp.current, delta);
+        };
+        motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.update(provideTimeSinceStart, true);
+        return () => (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.cancelFrame)(provideTimeSinceStart);
+    }, [callback]);
+}
+
+
+//# sourceMappingURL=use-animation-frame.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useComposedRefs: () => (/* binding */ useComposedRefs)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+
+
+/**
+ * Taken from https://github.com/radix-ui/primitives/blob/main/packages/react/compose-refs/src/compose-refs.tsx
+ */
+/**
+ * Set a given ref to a given value
+ * This utility takes care of different types of refs: callback refs and RefObject(s)
+ */
+function setRef(ref, value) {
+    if (typeof ref === "function") {
+        return ref(value);
+    }
+    else if (ref !== null && ref !== undefined) {
+        ref.current = value;
+    }
+}
+/**
+ * A utility to compose multiple refs together
+ * Accepts callback refs and RefObject(s)
+ */
+function composeRefs(...refs) {
+    return (node) => {
+        let hasCleanup = false;
+        const cleanups = refs.map((ref) => {
+            const cleanup = setRef(ref, node);
+            if (!hasCleanup && typeof cleanup === "function") {
+                hasCleanup = true;
+            }
+            return cleanup;
+        });
+        // React <19 will log an error to the console if a callback ref returns a
+        // value. We don't use ref cleanups internally so this will only happen if a
+        // user's ref callback returns a value, which we only expect if they are
+        // using the cleanup functionality added in React 19.
+        if (hasCleanup) {
+            return () => {
+                for (let i = 0; i < cleanups.length; i++) {
+                    const cleanup = cleanups[i];
+                    if (typeof cleanup === "function") {
+                        cleanup();
+                    }
+                    else {
+                        setRef(refs[i], null);
+                    }
+                }
+            };
+        }
+    };
+}
+/**
+ * A custom hook that composes multiple refs
+ * Accepts callback refs and RefObject(s)
+ */
+function useComposedRefs(...refs) {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return react__WEBPACK_IMPORTED_MODULE_0__.useCallback(composeRefs(...refs), refs);
+}
+
+
+//# sourceMappingURL=use-composed-ref.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs"
 /*!***************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs ***!
@@ -4006,6 +9599,246 @@ function useConstant(init) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-cycle.mjs"
+/*!************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-cycle.mjs ***!
+  \************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useCycle: () => (/* binding */ useCycle)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/wrap.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+
+/**
+ * Cycles through a series of visual properties. Can be used to toggle between or cycle through animations. It works similar to `useState` in React. It is provided an initial array of possible states, and returns an array of two arguments.
+ *
+ * An index value can be passed to the returned `cycle` function to cycle to a specific index.
+ *
+ * ```jsx
+ * import * as React from "react"
+ * import { motion, useCycle } from "framer-motion"
+ *
+ * export const MyComponent = () => {
+ *   const [x, cycleX] = useCycle(0, 50, 100)
+ *
+ *   return (
+ *     <motion.div
+ *       animate={{ x: x }}
+ *       onTap={() => cycleX()}
+ *      />
+ *    )
+ * }
+ * ```
+ *
+ * @param items - items to cycle through
+ * @returns [currentState, cycleState]
+ *
+ * @public
+ */
+function useCycle(...items) {
+    const index = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(0);
+    const [item, setItem] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(items[index.current]);
+    const runCycle = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)((next) => {
+        index.current =
+            typeof next !== "number"
+                ? (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.wrap)(0, items.length, index.current + 1)
+                : next;
+        setItem(items[index.current]);
+    }, 
+    // The array will change on each call, but by putting items.length at
+    // the front of this array, we guarantee the dependency comparison will match up
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [items.length, ...items]);
+    return [item, runCycle];
+}
+
+
+//# sourceMappingURL=use-cycle.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-force-update.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-force-update.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useForceUpdate: () => (/* binding */ useForceUpdate)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_is_mounted_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-is-mounted.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-is-mounted.mjs");
+"use client";
+
+
+
+
+function useForceUpdate() {
+    const isMounted = (0,_use_is_mounted_mjs__WEBPACK_IMPORTED_MODULE_2__.useIsMounted)();
+    const [forcedRenderCount, setForcedRenderCount] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
+    const forceRender = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(() => {
+        isMounted.current && setForcedRenderCount(forcedRenderCount + 1);
+    }, [forcedRenderCount]);
+    /**
+     * Defer this to the end of the next animation frame in case there are multiple
+     * synchronous calls.
+     */
+    const deferredForceRender = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(() => motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.postRender(forceRender), [forceRender]);
+    return [deferredForceRender, forcedRenderCount];
+}
+
+
+//# sourceMappingURL=use-force-update.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-in-view.mjs"
+/*!**************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-in-view.mjs ***!
+  \**************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useInView: () => (/* binding */ useInView)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _render_dom_viewport_index_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../render/dom/viewport/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/viewport/index.mjs");
+"use client";
+
+
+
+function useInView(ref, { root, margin, amount, once = false, initial = false, } = {}) {
+    const [isInView, setInView] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initial);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (!ref.current || (once && isInView))
+            return;
+        const onEnter = () => {
+            setInView(true);
+            return once ? undefined : () => setInView(false);
+        };
+        const options = {
+            root: (root && root.current) || undefined,
+            margin,
+            amount,
+        };
+        return (0,_render_dom_viewport_index_mjs__WEBPACK_IMPORTED_MODULE_1__.inView)(ref.current, onEnter, options);
+    }, [root, ref, margin, once, amount]);
+    return isInView;
+}
+
+
+//# sourceMappingURL=use-in-view.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-instant-transition.mjs"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-instant-transition.mjs ***!
+  \*************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   disableInstantTransitions: () => (/* binding */ disableInstantTransitions),
+/* harmony export */   useInstantTransition: () => (/* binding */ useInstantTransition)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/global-config.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _projection_use_instant_layout_transition_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../projection/use-instant-layout-transition.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/projection/use-instant-layout-transition.mjs");
+/* harmony import */ var _use_force_update_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./use-force-update.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-force-update.mjs");
+"use client";
+
+
+
+
+
+
+function useInstantTransition() {
+    const [forceUpdate, forcedRenderCount] = (0,_use_force_update_mjs__WEBPACK_IMPORTED_MODULE_4__.useForceUpdate)();
+    const startInstantLayoutTransition = (0,_projection_use_instant_layout_transition_mjs__WEBPACK_IMPORTED_MODULE_3__.useInstantLayoutTransition)();
+    const unlockOnFrameRef = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(-1);
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+        /**
+         * Unblock after two animation frames, otherwise this will unblock too soon.
+         */
+        motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.postRender(() => motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.postRender(() => {
+            /**
+             * If the callback has been called again after the effect
+             * triggered this 2 frame delay, don't unblock animations. This
+             * prevents the previous effect from unblocking the current
+             * instant transition too soon. This becomes more likely when
+             * used in conjunction with React.startTransition().
+             */
+            if (forcedRenderCount !== unlockOnFrameRef.current)
+                return;
+            motion_utils__WEBPACK_IMPORTED_MODULE_1__.MotionGlobalConfig.instantAnimations = false;
+        }));
+    }, [forcedRenderCount]);
+    return (callback) => {
+        startInstantLayoutTransition(() => {
+            motion_utils__WEBPACK_IMPORTED_MODULE_1__.MotionGlobalConfig.instantAnimations = true;
+            forceUpdate();
+            callback();
+            unlockOnFrameRef.current = forcedRenderCount + 1;
+        });
+    };
+}
+function disableInstantTransitions() {
+    motion_utils__WEBPACK_IMPORTED_MODULE_1__.MotionGlobalConfig.instantAnimations = false;
+}
+
+
+//# sourceMappingURL=use-instant-transition.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-is-mounted.mjs"
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-is-mounted.mjs ***!
+  \*****************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useIsMounted: () => (/* binding */ useIsMounted)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+"use client";
+
+
+
+function useIsMounted() {
+    const isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+    (0,_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_1__.useIsomorphicLayoutEffect)(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
+    return isMounted;
+}
+
+
+//# sourceMappingURL=use-is-mounted.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs"
 /*!************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs ***!
@@ -4026,6 +9859,887 @@ const useIsomorphicLayoutEffect = _is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__.i
 
 
 //# sourceMappingURL=use-isomorphic-effect.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-motion-value-event.mjs"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-motion-value-event.mjs ***!
+  \*************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useMotionValueEvent: () => (/* binding */ useMotionValueEvent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+function useMotionValueEvent(value, event, callback) {
+    /**
+     * useInsertionEffect will create subscriptions before any other
+     * effects will run. Effects run upwards through the tree so it
+     * can be that binding a useLayoutEffect higher up the tree can
+     * miss changes from lower down the tree.
+     */
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useInsertionEffect)(() => value.on(event, callback), [value, event, callback]);
+}
+
+
+//# sourceMappingURL=use-motion-value-event.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-page-in-view.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-page-in-view.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   usePageInView: () => (/* binding */ usePageInView)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+function usePageInView() {
+    const [isInView, setIsInView] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        const handleVisibilityChange = () => setIsInView(!document.hidden);
+        if (document.hidden) {
+            handleVisibilityChange();
+        }
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+    }, []);
+    return isInView;
+}
+
+
+//# sourceMappingURL=use-page-in-view.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs"
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs ***!
+  \*********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useUnmountEffect: () => (/* binding */ useUnmountEffect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+"use client";
+
+
+function useUnmountEffect(callback) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => () => callback(), []);
+}
+
+
+//# sourceMappingURL=use-unmount-effect.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/scroll/use-element-scroll.mjs"
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/scroll/use-element-scroll.mjs ***!
+  \****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useElementScroll: () => (/* binding */ useElementScroll)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/warn-once.mjs");
+/* harmony import */ var _use_scroll_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../use-scroll.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-scroll.mjs");
+
+
+
+/**
+ * @deprecated useElementScroll is deprecated. Convert to useScroll({ container: ref })
+ */
+function useElementScroll(ref) {
+    if (true) {
+        (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.warnOnce)(false, "useElementScroll is deprecated. Convert to useScroll({ container: ref }).");
+    }
+    return (0,_use_scroll_mjs__WEBPACK_IMPORTED_MODULE_1__.useScroll)({ container: ref });
+}
+
+
+//# sourceMappingURL=use-element-scroll.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useViewportScroll: () => (/* binding */ useViewportScroll)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/warn-once.mjs");
+/* harmony import */ var _use_scroll_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../use-scroll.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-scroll.mjs");
+
+
+
+/**
+ * @deprecated useViewportScroll is deprecated. Convert to useScroll()
+ */
+function useViewportScroll() {
+    if (true) {
+        (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.warnOnce)(false, "useViewportScroll is deprecated. Convert to useScroll().");
+    }
+    return (0,_use_scroll_mjs__WEBPACK_IMPORTED_MODULE_1__.useScroll)();
+}
+
+
+//# sourceMappingURL=use-viewport-scroll.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-combine-values.mjs"
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-combine-values.mjs ***!
+  \*********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useCombineMotionValues: () => (/* binding */ useCombineMotionValues)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+/* harmony import */ var _use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+"use client";
+
+
+
+
+function useCombineMotionValues(values, combineValues) {
+    /**
+     * Initialise the returned motion value. This remains the same between renders.
+     */
+    const value = (0,_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__.useMotionValue)(combineValues());
+    /**
+     * Create a function that will update the template motion value with the latest values.
+     * This is pre-bound so whenever a motion value updates it can schedule its
+     * execution in Framesync. If it's already been scheduled it won't be fired twice
+     * in a single frame.
+     */
+    const updateValue = () => value.set(combineValues());
+    /**
+     * Synchronously update the motion value with the latest values during the render.
+     * This ensures that within a React render, the styles applied to the DOM are up-to-date.
+     */
+    updateValue();
+    /**
+     * Subscribe to all motion values found within the template. Whenever any of them change,
+     * schedule an update.
+     */
+    (0,_utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_1__.useIsomorphicLayoutEffect)(() => {
+        const scheduleUpdate = () => motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.preRender(updateValue, false, true);
+        const subscriptions = values.map((v) => v.on("change", scheduleUpdate));
+        return () => {
+            subscriptions.forEach((unsubscribe) => unsubscribe());
+            (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.cancelFrame)(updateValue);
+        };
+    });
+    return value;
+}
+
+
+//# sourceMappingURL=use-combine-values.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-computed.mjs"
+/*!***************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-computed.mjs ***!
+  \***************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useComputed: () => (/* binding */ useComputed)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _use_combine_values_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-combine-values.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-combine-values.mjs");
+"use client";
+
+
+
+function useComputed(compute) {
+    /**
+     * Open session of collectMotionValues. Any MotionValue that calls get()
+     * will be saved into this array.
+     */
+    motion_dom__WEBPACK_IMPORTED_MODULE_0__.collectMotionValues.current = [];
+    compute();
+    const value = (0,_use_combine_values_mjs__WEBPACK_IMPORTED_MODULE_1__.useCombineMotionValues)(motion_dom__WEBPACK_IMPORTED_MODULE_0__.collectMotionValues.current, compute);
+    /**
+     * Synchronously close session of collectMotionValues.
+     */
+    motion_dom__WEBPACK_IMPORTED_MODULE_0__.collectMotionValues.current = undefined;
+    return value;
+}
+
+
+//# sourceMappingURL=use-computed.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-follow-value.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-follow-value.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useFollowValue: () => (/* binding */ useFollowValue)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/follow-value.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+/* harmony import */ var _use_transform_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./use-transform.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-transform.mjs");
+"use client";
+
+
+
+
+
+
+function useFollowValue(source, options = {}) {
+    const { isStatic } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionConfigContext);
+    const getFromSource = () => ((0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.isMotionValue)(source) ? source.get() : source);
+    // isStatic will never change, allowing early hooks return
+    if (isStatic) {
+        return (0,_use_transform_mjs__WEBPACK_IMPORTED_MODULE_5__.useTransform)(getFromSource);
+    }
+    const value = (0,_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_4__.useMotionValue)(getFromSource());
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useInsertionEffect)(() => {
+        return (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.attachFollow)(value, source, options);
+    }, [value, JSON.stringify(options)]);
+    return value;
+}
+
+
+//# sourceMappingURL=use-follow-value.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-inverted-scale.mjs"
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-inverted-scale.mjs ***!
+  \*********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   invertScale: () => (/* binding */ invertScale),
+/* harmony export */   useInvertedScale: () => (/* binding */ useInvertedScale)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_MotionContext_index_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/MotionContext/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionContext/index.mjs");
+/* harmony import */ var _use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+/* harmony import */ var _use_transform_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./use-transform.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-transform.mjs");
+"use client";
+
+
+
+
+
+
+// Keep things reasonable and avoid scale: Infinity. In practise we might need
+// to add another value, opacity, that could interpolate scaleX/Y [0,0.01] => [0,1]
+// to simply hide content at unreasonable scales.
+const maxScale = 100000;
+const invertScale = (scale) => scale > 0.001 ? 1 / scale : maxScale;
+let hasWarned = false;
+/**
+ * Returns a `MotionValue` each for `scaleX` and `scaleY` that update with the inverse
+ * of their respective parent scales.
+ *
+ * This is useful for undoing the distortion of content when scaling a parent component.
+ *
+ * By default, `useInvertedScale` will automatically fetch `scaleX` and `scaleY` from the nearest parent.
+ * By passing other `MotionValue`s in as `useInvertedScale({ scaleX, scaleY })`, it will invert the output
+ * of those instead.
+ *
+ * ```jsx
+ * const MyComponent = () => {
+ *   const { scaleX, scaleY } = useInvertedScale()
+ *   return <motion.div style={{ scaleX, scaleY }} />
+ * }
+ * ```
+ *
+ * @deprecated
+ */
+function useInvertedScale(scale) {
+    let parentScaleX = (0,_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_3__.useMotionValue)(1);
+    let parentScaleY = (0,_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_3__.useMotionValue)(1);
+    const { visualElement } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_MotionContext_index_mjs__WEBPACK_IMPORTED_MODULE_2__.MotionContext);
+    (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.invariant)(!!(scale || visualElement), "If no scale values are provided, useInvertedScale must be used within a child of another motion component.");
+    (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.warning)(hasWarned, "useInvertedScale is deprecated and will be removed in 3.0. Use the layout prop instead.");
+    hasWarned = true;
+    if (scale) {
+        parentScaleX = scale.scaleX || parentScaleX;
+        parentScaleY = scale.scaleY || parentScaleY;
+    }
+    else if (visualElement) {
+        parentScaleX = visualElement.getValue("scaleX", 1);
+        parentScaleY = visualElement.getValue("scaleY", 1);
+    }
+    const scaleX = (0,_use_transform_mjs__WEBPACK_IMPORTED_MODULE_4__.useTransform)(parentScaleX, invertScale);
+    const scaleY = (0,_use_transform_mjs__WEBPACK_IMPORTED_MODULE_4__.useTransform)(parentScaleY, invertScale);
+    return { scaleX, scaleY };
+}
+
+
+//# sourceMappingURL=use-inverted-scale.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-template.mjs"
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-template.mjs ***!
+  \**********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useMotionTemplate: () => (/* binding */ useMotionTemplate)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var _use_combine_values_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-combine-values.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-combine-values.mjs");
+"use client";
+
+
+
+/**
+ * Combine multiple motion values into a new one using a string template literal.
+ *
+ * ```jsx
+ * import {
+ *   motion,
+ *   useSpring,
+ *   useMotionValue,
+ *   useMotionTemplate
+ * } from "framer-motion"
+ *
+ * function Component() {
+ *   const shadowX = useSpring(0)
+ *   const shadowY = useMotionValue(0)
+ *   const shadow = useMotionTemplate`drop-shadow(${shadowX}px ${shadowY}px 20px rgba(0,0,0,0.3))`
+ *
+ *   return <motion.div style={{ filter: shadow }} />
+ * }
+ * ```
+ *
+ * @public
+ */
+function useMotionTemplate(fragments, ...values) {
+    /**
+     * Create a function that will build a string from the latest motion values.
+     */
+    const numFragments = fragments.length;
+    function buildValue() {
+        let output = ``;
+        for (let i = 0; i < numFragments; i++) {
+            output += fragments[i];
+            const value = values[i];
+            if (value) {
+                output += (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.isMotionValue)(value) ? value.get() : value;
+            }
+        }
+        return output;
+    }
+    return (0,_use_combine_values_mjs__WEBPACK_IMPORTED_MODULE_1__.useCombineMotionValues)(values.filter(motion_dom__WEBPACK_IMPORTED_MODULE_0__.isMotionValue), buildValue);
+}
+
+
+//# sourceMappingURL=use-motion-template.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useMotionValue: () => (/* binding */ useMotionValue)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/MotionConfigContext.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+"use client";
+
+
+
+
+
+/**
+ * Creates a `MotionValue` to track the state and velocity of a value.
+ *
+ * Usually, these are created automatically. For advanced use-cases, like use with `useTransform`, you can create `MotionValue`s externally and pass them into the animated component via the `style` prop.
+ *
+ * ```jsx
+ * export const MyComponent = () => {
+ *   const scale = useMotionValue(1)
+ *
+ *   return <motion.div style={{ scale }} />
+ * }
+ * ```
+ *
+ * @param initial - The initial state.
+ *
+ * @public
+ */
+function useMotionValue(initial) {
+    const value = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_3__.useConstant)(() => (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.motionValue)(initial));
+    /**
+     * If this motion value is being used in static mode, like on
+     * the Framer canvas, force components to rerender when the motion
+     * value is updated.
+     */
+    const { isStatic } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_2__.MotionConfigContext);
+    if (isStatic) {
+        const [, setLatest] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(initial);
+        (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => value.on("change", setLatest), []);
+    }
+    return value;
+}
+
+
+//# sourceMappingURL=use-motion-value.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-scroll.mjs"
+/*!*************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-scroll.mjs ***!
+  \*************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useScroll: () => (/* binding */ useScroll)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/microtask.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/scroll-timeline.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _render_dom_scroll_index_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../render/dom/scroll/index.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/index.mjs");
+/* harmony import */ var _render_dom_scroll_utils_offset_to_range_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../render/dom/scroll/utils/offset-to-range.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/render/dom/scroll/utils/offset-to-range.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/use-isomorphic-effect.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
+"use client";
+
+
+
+
+
+
+
+
+const createScrollMotionValues = () => ({
+    scrollX: (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.motionValue)(0),
+    scrollY: (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.motionValue)(0),
+    scrollXProgress: (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.motionValue)(0),
+    scrollYProgress: (0,motion_dom__WEBPACK_IMPORTED_MODULE_2__.motionValue)(0),
+});
+const isRefPending = (ref) => {
+    if (!ref)
+        return false;
+    return !ref.current;
+};
+function makeAccelerateConfig(axis, options, container, target) {
+    return {
+        // Refs attach child-first; defer so target.current is populated
+        // before scroll() reads it.
+        factory: (animation) => {
+            let cleanup;
+            const start = () => {
+                // A provided ref may be hydrated by an effect declared after
+                // useScroll (or in a parent). Don't attach to the window
+                // scroll in the meantime — that result gets cached and would
+                // permanently mistrack. Wait until the ref resolves.
+                if (isRefPending(container) || isRefPending(target)) {
+                    motion_dom__WEBPACK_IMPORTED_MODULE_0__.microtask.read(start);
+                    return;
+                }
+                cleanup = (0,_render_dom_scroll_index_mjs__WEBPACK_IMPORTED_MODULE_5__.scroll)(animation, {
+                    ...options,
+                    axis,
+                    container: container?.current || undefined,
+                    target: target?.current || undefined,
+                });
+            };
+            motion_dom__WEBPACK_IMPORTED_MODULE_0__.microtask.read(start);
+            return () => {
+                (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.cancelMicrotask)(start);
+                cleanup?.();
+            };
+        },
+        times: [0, 1],
+        keyframes: [0, 1],
+        ease: (v) => v,
+        duration: 1,
+    };
+}
+function canAccelerateScroll(target, offset) {
+    if (typeof window === "undefined")
+        return false;
+    return target
+        ? (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.supportsViewTimeline)() && !!(0,_render_dom_scroll_utils_offset_to_range_mjs__WEBPACK_IMPORTED_MODULE_6__.offsetToViewTimelineRange)(offset)
+        : (0,motion_dom__WEBPACK_IMPORTED_MODULE_1__.supportsScrollTimeline)();
+}
+function useScroll({ container, target, ...options } = {}) {
+    const values = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_7__.useConstant)(createScrollMotionValues);
+    if (canAccelerateScroll(target, options.offset)) {
+        values.scrollXProgress.accelerate = makeAccelerateConfig("x", options, container, target);
+        values.scrollYProgress.accelerate = makeAccelerateConfig("y", options, container, target);
+    }
+    const scrollAnimation = (0,react__WEBPACK_IMPORTED_MODULE_4__.useRef)(null);
+    const needsStart = (0,react__WEBPACK_IMPORTED_MODULE_4__.useRef)(false);
+    const start = (0,react__WEBPACK_IMPORTED_MODULE_4__.useCallback)(() => {
+        scrollAnimation.current = (0,_render_dom_scroll_index_mjs__WEBPACK_IMPORTED_MODULE_5__.scroll)((_progress, { x, y, }) => {
+            values.scrollX.set(x.current);
+            values.scrollXProgress.set(x.progress);
+            values.scrollY.set(y.current);
+            values.scrollYProgress.set(y.progress);
+        }, {
+            ...options,
+            container: container?.current || undefined,
+            target: target?.current || undefined,
+        });
+        return () => {
+            scrollAnimation.current?.();
+        };
+    }, [container, target, JSON.stringify(options.offset)]);
+    (0,_utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_8__.useIsomorphicLayoutEffect)(() => {
+        needsStart.current = false;
+        if (isRefPending(container) || isRefPending(target)) {
+            needsStart.current = true;
+            return;
+        }
+        else {
+            return start();
+        }
+    }, [start]);
+    (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+        if (!needsStart.current)
+            return;
+        // Defer to a microtask so any sibling/parent effect that hydrates the
+        // ref has a chance to run first.
+        let cleanup;
+        const tryStart = () => {
+            const containerPending = isRefPending(container);
+            const targetPending = isRefPending(target);
+            (0,motion_utils__WEBPACK_IMPORTED_MODULE_3__.invariant)(!containerPending, "Container ref is defined but not hydrated", "use-scroll-ref");
+            (0,motion_utils__WEBPACK_IMPORTED_MODULE_3__.invariant)(!targetPending, "Target ref is defined but not hydrated", "use-scroll-ref");
+            if (!containerPending && !targetPending)
+                cleanup = start();
+        };
+        motion_dom__WEBPACK_IMPORTED_MODULE_0__.microtask.read(tryStart);
+        return () => {
+            (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.cancelMicrotask)(tryStart);
+            cleanup?.();
+        };
+    }, [start]);
+    return values;
+}
+
+
+//# sourceMappingURL=use-scroll.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-spring.mjs"
+/*!*************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-spring.mjs ***!
+  \*************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useSpring: () => (/* binding */ useSpring)
+/* harmony export */ });
+/* harmony import */ var _use_follow_value_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./use-follow-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-follow-value.mjs");
+"use client";
+
+
+function useSpring(source, options = {}) {
+    return (0,_use_follow_value_mjs__WEBPACK_IMPORTED_MODULE_0__.useFollowValue)(source, { type: "spring", ...options });
+}
+
+
+//# sourceMappingURL=use-spring.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-time.mjs"
+/*!***********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-time.mjs ***!
+  \***********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useTime: () => (/* binding */ useTime)
+/* harmony export */ });
+/* harmony import */ var _utils_use_animation_frame_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/use-animation-frame.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-animation-frame.mjs");
+/* harmony import */ var _use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+"use client";
+
+
+
+function useTime() {
+    const time = (0,_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_1__.useMotionValue)(0);
+    (0,_utils_use_animation_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.useAnimationFrame)((t) => time.set(t));
+    return time;
+}
+
+
+//# sourceMappingURL=use-time.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-transform.mjs"
+/*!****************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-transform.mjs ***!
+  \****************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useTransform: () => (/* binding */ useTransform)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/transform.mjs");
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _use_combine_values_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-combine-values.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-combine-values.mjs");
+/* harmony import */ var _use_computed_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./use-computed.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-computed.mjs");
+"use client";
+
+
+
+
+
+function useTransform(input, inputRangeOrTransformer, outputRangeOrMap, options) {
+    if (typeof input === "function") {
+        return (0,_use_computed_mjs__WEBPACK_IMPORTED_MODULE_3__.useComputed)(input);
+    }
+    /**
+     * Detect if outputRangeOrMap is an output map (object with keys)
+     * rather than an output range (array).
+     */
+    const isOutputMap = outputRangeOrMap !== undefined &&
+        !Array.isArray(outputRangeOrMap) &&
+        typeof inputRangeOrTransformer !== "function";
+    if (isOutputMap) {
+        return useMapTransform(input, inputRangeOrTransformer, outputRangeOrMap, options);
+    }
+    const outputRange = outputRangeOrMap;
+    const transformer = typeof inputRangeOrTransformer === "function"
+        ? inputRangeOrTransformer
+        : (0,motion_dom__WEBPACK_IMPORTED_MODULE_0__.transform)(inputRangeOrTransformer, outputRange, options);
+    const result = Array.isArray(input)
+        ? useListTransform(input, transformer)
+        : useListTransform([input], ([latest]) => transformer(latest));
+    const inputAccelerate = !Array.isArray(input)
+        ? input.accelerate
+        : undefined;
+    if (inputAccelerate &&
+        !inputAccelerate.isTransformed &&
+        typeof inputRangeOrTransformer !== "function" &&
+        Array.isArray(outputRangeOrMap) &&
+        options?.clamp !== false) {
+        result.accelerate = {
+            ...inputAccelerate,
+            times: inputRangeOrTransformer,
+            keyframes: outputRangeOrMap,
+            isTransformed: true,
+            ...(options?.ease ? { ease: options.ease } : {}),
+        };
+    }
+    return result;
+}
+function useListTransform(values, transformer) {
+    const latest = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_1__.useConstant)(() => []);
+    return (0,_use_combine_values_mjs__WEBPACK_IMPORTED_MODULE_2__.useCombineMotionValues)(values, () => {
+        latest.length = 0;
+        const numValues = values.length;
+        for (let i = 0; i < numValues; i++) {
+            latest[i] = values[i].get();
+        }
+        return transformer(latest);
+    });
+}
+function useMapTransform(inputValue, inputRange, outputMap, options) {
+    /**
+     * Capture keys once to ensure hooks are called in consistent order.
+     */
+    const keys = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_1__.useConstant)(() => Object.keys(outputMap));
+    const output = (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_1__.useConstant)(() => ({}));
+    for (const key of keys) {
+        output[key] = useTransform(inputValue, inputRange, outputMap[key], options);
+    }
+    return output;
+}
+
+
+//# sourceMappingURL=use-transform.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-velocity.mjs"
+/*!***************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-velocity.mjs ***!
+  \***************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useVelocity: () => (/* binding */ useVelocity)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var _utils_use_motion_value_event_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/use-motion-value-event.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-motion-value-event.mjs");
+/* harmony import */ var _use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-motion-value.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-motion-value.mjs");
+"use client";
+
+
+
+
+/**
+ * Creates a `MotionValue` that updates when the velocity of the provided `MotionValue` changes.
+ *
+ * ```javascript
+ * const x = useMotionValue(0)
+ * const xVelocity = useVelocity(x)
+ * const xAcceleration = useVelocity(xVelocity)
+ * ```
+ *
+ * @public
+ */
+function useVelocity(value) {
+    const velocity = (0,_use_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__.useMotionValue)(value.getVelocity());
+    const updateVelocity = () => {
+        const latest = value.getVelocity();
+        velocity.set(latest);
+        /**
+         * If we still have velocity, schedule an update for the next frame
+         * to keep checking until it is zero.
+         */
+        if (latest)
+            motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.update(updateVelocity);
+    };
+    (0,_utils_use_motion_value_event_mjs__WEBPACK_IMPORTED_MODULE_1__.useMotionValueEvent)(value, "change", () => {
+        // Schedule an update to this value at the end of the current frame.
+        motion_dom__WEBPACK_IMPORTED_MODULE_0__.frame.update(updateVelocity, false, true);
+    });
+    return velocity;
+}
+
+
+//# sourceMappingURL=use-velocity.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/WillChangeMotionValue.mjs"
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/WillChangeMotionValue.mjs ***!
+  \****************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   WillChangeMotionValue: () => (/* binding */ WillChangeMotionValue)
+/* harmony export */ });
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/accelerated-values.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs");
+/* harmony import */ var motion_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! motion-dom */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+
+
+class WillChangeMotionValue extends motion_dom__WEBPACK_IMPORTED_MODULE_2__.MotionValue {
+    constructor() {
+        super(...arguments);
+        this.isEnabled = false;
+    }
+    add(name) {
+        if (motion_dom__WEBPACK_IMPORTED_MODULE_1__.transformProps.has(name) || motion_dom__WEBPACK_IMPORTED_MODULE_0__.acceleratedValues.has(name)) {
+            this.isEnabled = true;
+            this.update();
+        }
+    }
+    update() {
+        this.set(this.isEnabled ? "transform" : "auto");
+    }
+}
+
+
+//# sourceMappingURL=WillChangeMotionValue.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/index.mjs"
+/*!************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/index.mjs ***!
+  \************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useWillChange: () => (/* binding */ useWillChange)
+/* harmony export */ });
+/* harmony import */ var _utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/use-constant.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/utils/use-constant.mjs");
+/* harmony import */ var _WillChangeMotionValue_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WillChangeMotionValue.mjs */ "./node_modules/motion/node_modules/framer-motion/dist/es/value/use-will-change/WillChangeMotionValue.mjs");
+"use client";
+
+
+
+function useWillChange() {
+    return (0,_utils_use_constant_mjs__WEBPACK_IMPORTED_MODULE_0__.useConstant)(() => new _WillChangeMotionValue_mjs__WEBPACK_IMPORTED_MODULE_1__.WillChangeMotionValue("auto"));
+}
+
+
+//# sourceMappingURL=index.mjs.map
 
 
 /***/ },
@@ -4250,6 +10964,127 @@ class AsyncMotionValueAnimation extends _utils_WithPromise_mjs__WEBPACK_IMPORTED
 
 
 //# sourceMappingURL=AsyncMotionValueAnimation.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimation.mjs"
+/*!******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimation.mjs ***!
+  \******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   GroupAnimation: () => (/* binding */ GroupAnimation)
+/* harmony export */ });
+class GroupAnimation {
+    constructor(animations) {
+        // Bound to accomadate common `return animation.stop` pattern
+        this.stop = () => this.runAll("stop");
+        this.animations = animations.filter(Boolean);
+    }
+    get finished() {
+        return Promise.all(this.animations.map((animation) => animation.finished));
+    }
+    /**
+     * TODO: Filter out cancelled or stopped animations before returning
+     */
+    getAll(propName) {
+        return this.animations[0][propName];
+    }
+    setAll(propName, newValue) {
+        for (let i = 0; i < this.animations.length; i++) {
+            this.animations[i][propName] = newValue;
+        }
+    }
+    attachTimeline(timeline) {
+        const subscriptions = this.animations.map((animation) => animation.attachTimeline(timeline));
+        return () => {
+            subscriptions.forEach((cancel, i) => {
+                cancel && cancel();
+                this.animations[i].stop();
+            });
+        };
+    }
+    get time() {
+        return this.getAll("time");
+    }
+    set time(time) {
+        this.setAll("time", time);
+    }
+    get speed() {
+        return this.getAll("speed");
+    }
+    set speed(speed) {
+        this.setAll("speed", speed);
+    }
+    get state() {
+        return this.getAll("state");
+    }
+    get startTime() {
+        return this.getAll("startTime");
+    }
+    get duration() {
+        return getMax(this.animations, "duration");
+    }
+    get iterationDuration() {
+        return getMax(this.animations, "iterationDuration");
+    }
+    runAll(methodName) {
+        this.animations.forEach((controls) => controls[methodName]());
+    }
+    play() {
+        this.runAll("play");
+    }
+    pause() {
+        this.runAll("pause");
+    }
+    cancel() {
+        this.runAll("cancel");
+    }
+    complete() {
+        this.runAll("complete");
+    }
+}
+function getMax(animations, propName) {
+    let max = 0;
+    for (let i = 0; i < animations.length; i++) {
+        const value = animations[i][propName];
+        if (value !== null && value > max) {
+            max = value;
+        }
+    }
+    return max;
+}
+
+
+//# sourceMappingURL=GroupAnimation.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimationWithThen.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimationWithThen.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   GroupAnimationWithThen: () => (/* binding */ GroupAnimationWithThen)
+/* harmony export */ });
+/* harmony import */ var _GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GroupAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimation.mjs");
+
+
+class GroupAnimationWithThen extends _GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_0__.GroupAnimation {
+    then(onResolve, _onReject) {
+        return this.finished.finally(onResolve).then(() => { });
+    }
+}
+
+
+//# sourceMappingURL=GroupAnimationWithThen.mjs.map
 
 
 /***/ },
@@ -4977,6 +11812,36 @@ class NativeAnimationExtended extends _NativeAnimation_mjs__WEBPACK_IMPORTED_MOD
 
 
 //# sourceMappingURL=NativeAnimationExtended.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimationWrapper.mjs"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimationWrapper.mjs ***!
+  \**************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   NativeAnimationWrapper: () => (/* binding */ NativeAnimationWrapper)
+/* harmony export */ });
+/* harmony import */ var _NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NativeAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs");
+
+
+class NativeAnimationWrapper extends _NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_0__.NativeAnimation {
+    constructor(animation) {
+        super();
+        this.animation = animation;
+        animation.onfinish = () => {
+            this.finishedTime = this.time;
+            this.notifyFinished();
+        };
+    }
+}
+
+
+//# sourceMappingURL=NativeAnimationWrapper.mjs.map
 
 
 /***/ },
@@ -6492,6 +13357,33 @@ function convertOffsetToTimes(offset, duration) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/apply-px-defaults.mjs"
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/apply-px-defaults.mjs ***!
+  \*************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   applyPxDefaults: () => (/* binding */ applyPxDefaults)
+/* harmony export */ });
+/* harmony import */ var _waapi_utils_px_values_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../waapi/utils/px-values.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/px-values.mjs");
+
+
+function applyPxDefaults(keyframes, name) {
+    for (let i = 0; i < keyframes.length; i++) {
+        if (typeof keyframes[i] === "number" && _waapi_utils_px_values_mjs__WEBPACK_IMPORTED_MODULE_0__.pxValues.has(name)) {
+            keyframes[i] = keyframes[i] + "px";
+        }
+    }
+}
+
+
+//# sourceMappingURL=apply-px-defaults.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/fill-wildcards.mjs"
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/fill-wildcards.mjs ***!
@@ -6742,6 +13634,241 @@ class WithPromise {
 
 
 //# sourceMappingURL=WithPromise.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/active-animations.mjs"
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/active-animations.mjs ***!
+  \***************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animationMapKey: () => (/* binding */ animationMapKey),
+/* harmony export */   getAnimationMap: () => (/* binding */ getAnimationMap)
+/* harmony export */ });
+const animationMaps = new WeakMap();
+const animationMapKey = (name, pseudoElement = "") => `${name}:${pseudoElement}`;
+function getAnimationMap(element) {
+    let map = animationMaps.get(element);
+    if (!map) {
+        map = new Map();
+        animationMaps.set(element, map);
+    }
+    return map;
+}
+
+
+//# sourceMappingURL=active-animations.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/arc.mjs"
+/*!*************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/arc.mjs ***!
+  \*************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   arc: () => (/* binding */ arc),
+/* harmony export */   createArcPath: () => (/* binding */ createArcPath)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/wrap.mjs");
+/* harmony import */ var _value_index_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../value/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _interfaces_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../interfaces/motion-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/motion-value.mjs");
+/* harmony import */ var _get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./get-value-transition.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/get-value-transition.mjs");
+
+
+
+
+
+const MIN_LAYOUT_DISTANCE = 20;
+function bezierPoint(t, origin, control, target) {
+    const inv = 1 - t;
+    return inv * inv * origin + 2 * inv * t * control + t * t * target;
+}
+function bezierTangentAngle(t, originX, controlX, targetX, originY, controlY, targetY) {
+    const dx = 2 * (1 - t) * (controlX - originX) + 2 * t * (targetX - controlX);
+    const dy = 2 * (1 - t) * (controlY - originY) + 2 * t * (targetY - controlY);
+    return Math.atan2(dy, dx) * (180 / Math.PI);
+}
+function computeArcControlPoint(fromX, fromY, toX, toY, strength, peak) {
+    const deltaX = toX - fromX;
+    const deltaY = toY - fromY;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    if (distance > 0) {
+        const normalPerpX = -deltaY / distance;
+        const normalPerpY = deltaX / distance;
+        const desiredHeight = strength * distance;
+        return {
+            x: fromX + deltaX * peak + normalPerpX * desiredHeight,
+            y: fromY + deltaY * peak + normalPerpY * desiredHeight,
+        };
+    }
+    return { x: fromX, y: fromY };
+}
+/**
+ * The pure sampling factory: `(from, to) => (t) => point`. Internal —
+ * used by {@link arc} and the unit tests. Not part of the public surface.
+ */
+function createArcPath({ strength = 0.5, peak = 0.5, direction, rotate = false, } = {}) {
+    const rotationScale = rotate === true ? 1 : typeof rotate === "number" ? rotate : 0;
+    // Auto-direction only: persists across calls to flip the bulge back
+    // onto the same screen side when the dominant axis changes between
+    // calls. Reuse the factory (module scope / useMemo) to keep this alive.
+    let prevBulgeSign;
+    const createInterpolator = (from, to) => {
+        const dx = to.x - from.x;
+        const dy = to.y - from.y;
+        let signed;
+        if (direction === "cw") {
+            signed = -strength;
+        }
+        else if (direction === "ccw") {
+            signed = strength;
+        }
+        else {
+            const dom = Math.abs(dx) >= Math.abs(dy) ? dx : dy;
+            signed = dom < 0 ? -strength : strength;
+        }
+        let control = computeArcControlPoint(from.x, from.y, to.x, to.y, signed, peak);
+        if (direction === undefined) {
+            const isVertical = Math.abs(dx) < Math.abs(dy);
+            const midX = from.x + dx * peak;
+            const midY = from.y + dy * peak;
+            const bulgeSign = isVertical
+                ? Math.sign(control.x - midX)
+                : Math.sign(control.y - midY);
+            if (prevBulgeSign !== undefined &&
+                bulgeSign !== 0 &&
+                bulgeSign !== prevBulgeSign) {
+                signed = -signed;
+                control = computeArcControlPoint(from.x, from.y, to.x, to.y, signed, peak);
+            }
+            else if (bulgeSign !== 0) {
+                prevBulgeSign = bulgeSign;
+            }
+        }
+        const tangent0 = rotationScale
+            ? bezierTangentAngle(0, from.x, control.x, to.x, from.y, control.y, to.y)
+            : 0;
+        const tangent1 = rotationScale
+            ? bezierTangentAngle(1, from.x, control.x, to.x, from.y, control.y, to.y)
+            : 0;
+        const tangentDelta = rotationScale
+            ? (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.wrap)(-180, 180, tangent1 - tangent0)
+            : 0;
+        return (t) => {
+            const out = {
+                x: bezierPoint(t, from.x, control.x, to.x),
+                y: bezierPoint(t, from.y, control.y, to.y),
+            };
+            if (rotationScale) {
+                const raw = bezierTangentAngle(t, from.x, control.x, to.x, from.y, control.y, to.y);
+                const baseline = tangent0 + tangentDelta * t;
+                out.rotate = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.wrap)(-180, 180, raw - baseline) * rotationScale;
+            }
+            return out;
+        };
+    };
+    return createInterpolator;
+}
+/**
+ * Creates a curved path for `transition.path`:
+ *
+ * ```ts
+ * <motion.div animate={{ x: 200, y: 100 }} transition={{ path: arc() }} />
+ * ```
+ *
+ * Reuse the returned value (module scope / useMemo / useRef) so its
+ * continuity closure survives re-renders — a fresh `arc()` has no memory.
+ */
+function arc(options = {}) {
+    const sample = createArcPath(options);
+    const path = {
+        interpolateProjection(delta) {
+            // `from` is the current translate offset (carries any in-flight
+            // displacement when interrupted); `to` is the new layout origin.
+            // The distance floor avoids visible wobble on tiny shifts.
+            const tx = delta.x.translate;
+            const ty = delta.y.translate;
+            if (Math.sqrt(tx * tx + ty * ty) < MIN_LAYOUT_DISTANCE) {
+                return undefined;
+            }
+            return sample({ x: tx, y: ty }, { x: 0, y: 0 });
+        },
+        animateVisualElement(visualElement, target, transition, delay, animations) {
+            if (!("x" in target || "y" in target))
+                return;
+            const xValue = visualElement.getValue("x", visualElement.latestValues["x"] ?? 0);
+            const yValue = visualElement.getValue("y", visualElement.latestValues["y"] ?? 0);
+            const xRaw = target.x;
+            const yRaw = target.y;
+            const xFrom = (Array.isArray(xRaw) && xRaw[0] != null
+                ? xRaw[0]
+                : xValue?.get()) ?? 0;
+            const yFrom = (Array.isArray(yRaw) && yRaw[0] != null
+                ? yRaw[0]
+                : yValue?.get()) ?? 0;
+            const xTo = (Array.isArray(xRaw)
+                ? xRaw[xRaw.length - 1]
+                : xRaw ?? xFrom);
+            const yTo = (Array.isArray(yRaw)
+                ? yRaw[yRaw.length - 1]
+                : yRaw ?? yFrom);
+            // Interruption needs no flag: x/y already hold the displaced
+            // mid-arc position, so xFrom/yFrom carry the continuity geometry.
+            const interpolate = sample({ x: xFrom, y: yFrom }, { x: xTo, y: yTo });
+            // Drive a dedicated `pathRotation` value (composed onto `rotate`
+            // at the build sites) rather than `rotate` itself, so a
+            // concurrent rotate animation composes and nothing accumulates
+            // on interrupt.
+            const pathRotationValue = interpolate(0).rotate !== undefined
+                ? visualElement.getValue("pathRotation", 0)
+                : undefined;
+            const pathTransition = {
+                delay,
+                ...(0,_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_3__.getValueTransition)(transition || {}, "x"),
+            };
+            delete pathTransition.path;
+            const progress = (0,_value_index_mjs__WEBPACK_IMPORTED_MODULE_1__.motionValue)(0);
+            progress.start((0,_interfaces_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__.animateMotionValue)("", progress, [0, 1000], {
+                ...pathTransition,
+                isSync: true,
+                velocity: 0,
+                onUpdate: (latest) => {
+                    const point = interpolate(latest / 1000);
+                    xValue?.set(point.x);
+                    yValue?.set(point.y);
+                    if (pathRotationValue && point.rotate !== undefined) {
+                        pathRotationValue.set(point.rotate);
+                    }
+                },
+                onComplete: () => {
+                    xValue?.set(xTo);
+                    yValue?.set(yTo);
+                    pathRotationValue?.set(0);
+                },
+                // Interrupt/cancel must clear our additive contribution
+                // so it can't linger on top of the user's `rotate`.
+                onStop: () => pathRotationValue?.set(0),
+                onCancel: () => pathRotationValue?.set(0),
+            }));
+            if (progress.animation)
+                animations.push(progress.animation);
+            delete target.x;
+            delete target.y;
+        },
+    };
+    return path;
+}
+
+
+//# sourceMappingURL=arc.mjs.map
 
 
 /***/ },
@@ -7216,6 +14343,38 @@ const cubicBezierAsString = ([a, b, c, d]) => `cubic-bezier(${a}, ${b}, ${c}, ${
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/is-supported.mjs"
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/is-supported.mjs ***!
+  \*****************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isWaapiSupportedEasing: () => (/* binding */ isWaapiSupportedEasing)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/is-bezier-definition.mjs");
+/* harmony import */ var _utils_supports_linear_easing_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/supports/linear-easing.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/linear-easing.mjs");
+/* harmony import */ var _supported_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./supported.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/supported.mjs");
+
+
+
+
+function isWaapiSupportedEasing(easing) {
+    return Boolean((typeof easing === "function" && (0,_utils_supports_linear_easing_mjs__WEBPACK_IMPORTED_MODULE_1__.supportsLinearEasing)()) ||
+        !easing ||
+        (typeof easing === "string" &&
+            (easing in _supported_mjs__WEBPACK_IMPORTED_MODULE_2__.supportedWaapiEasing || (0,_utils_supports_linear_easing_mjs__WEBPACK_IMPORTED_MODULE_1__.supportsLinearEasing)())) ||
+        (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.isBezierDefinition)(easing) ||
+        (Array.isArray(easing) && easing.every(isWaapiSupportedEasing)));
+}
+
+
+//# sourceMappingURL=is-supported.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/map-easing.mjs"
 /*!***************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/map-easing.mjs ***!
@@ -7335,6 +14494,35 @@ function startWaapiAnimation(element, valueName, keyframes, { delay = 0, duratio
 
 
 //# sourceMappingURL=start-waapi-animation.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/supports/partial-keyframes.mjs"
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/supports/partial-keyframes.mjs ***!
+  \************************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   supportsPartialKeyframes: () => (/* binding */ supportsPartialKeyframes)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/memo.mjs");
+
+
+const supportsPartialKeyframes = /*@__PURE__*/ (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.memo)(() => {
+    try {
+        document.createElement("div").animate({ opacity: [1] });
+    }
+    catch (e) {
+        return false;
+    }
+    return true;
+});
+
+
+//# sourceMappingURL=partial-keyframes.mjs.map
 
 
 /***/ },
@@ -7524,6 +14712,80 @@ resolution = 10 // as milliseconds
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/px-values.mjs"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/px-values.mjs ***!
+  \*************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   pxValues: () => (/* binding */ pxValues)
+/* harmony export */ });
+/* harmony import */ var _utils_border_radius_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/border-radius.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/border-radius.mjs");
+
+
+const pxValues = new Set([
+    // Border props
+    "borderWidth",
+    "borderTopWidth",
+    "borderRightWidth",
+    "borderBottomWidth",
+    "borderLeftWidth",
+    "borderRadius",
+    ..._utils_border_radius_mjs__WEBPACK_IMPORTED_MODULE_0__.cornerRadiusProps,
+    // Positioning props
+    "width",
+    "maxWidth",
+    "height",
+    "maxHeight",
+    "top",
+    "right",
+    "bottom",
+    "left",
+    "inset",
+    "insetBlock",
+    "insetBlockStart",
+    "insetBlockEnd",
+    "insetInline",
+    "insetInlineStart",
+    "insetInlineEnd",
+    // Spacing props
+    "padding",
+    "paddingTop",
+    "paddingRight",
+    "paddingBottom",
+    "paddingLeft",
+    "paddingBlock",
+    "paddingBlockStart",
+    "paddingBlockEnd",
+    "paddingInline",
+    "paddingInlineStart",
+    "paddingInlineEnd",
+    "margin",
+    "marginTop",
+    "marginRight",
+    "marginBottom",
+    "marginLeft",
+    "marginBlock",
+    "marginBlockStart",
+    "marginBlockEnd",
+    "marginInline",
+    "marginInlineStart",
+    "marginInlineEnd",
+    // Typography
+    "fontSize",
+    // Misc
+    "backgroundPositionX",
+    "backgroundPositionY",
+]);
+
+
+//# sourceMappingURL=px-values.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/unsupported-easing.mjs"
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/unsupported-easing.mjs ***!
@@ -7556,6 +14818,425 @@ function replaceStringEasing(transition) {
 
 
 //# sourceMappingURL=unsupported-easing.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/MotionValueState.mjs"
+/*!******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/MotionValueState.mjs ***!
+  \******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MotionValueState: () => (/* binding */ MotionValueState)
+/* harmony export */ });
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var _value_types_maps_number_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../value/types/maps/number.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/maps/number.mjs");
+/* harmony import */ var _value_types_utils_get_as_type_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../value/types/utils/get-as-type.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/utils/get-as-type.mjs");
+
+
+
+
+class MotionValueState {
+    constructor() {
+        this.latest = {};
+        this.values = new Map();
+    }
+    set(name, value, render, computed, useDefaultValueType = true) {
+        const existingValue = this.values.get(name);
+        if (existingValue) {
+            existingValue.onRemove();
+        }
+        const onChange = () => {
+            const v = value.get();
+            if (useDefaultValueType) {
+                this.latest[name] = (0,_value_types_utils_get_as_type_mjs__WEBPACK_IMPORTED_MODULE_2__.getValueAsType)(v, _value_types_maps_number_mjs__WEBPACK_IMPORTED_MODULE_1__.numberValueTypes[name]);
+            }
+            else {
+                this.latest[name] = v;
+            }
+            render && _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.frame.render(render);
+        };
+        onChange();
+        const cancelOnChange = value.on("change", onChange);
+        computed && value.addDependent(computed);
+        const remove = () => {
+            cancelOnChange();
+            render && (0,_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.cancelFrame)(render);
+            this.values.delete(name);
+            computed && value.removeDependent(computed);
+        };
+        this.values.set(name, { value, onRemove: remove });
+        return remove;
+    }
+    get(name) {
+        return this.values.get(name)?.value;
+    }
+}
+
+
+//# sourceMappingURL=MotionValueState.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/attr/index.mjs"
+/*!************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/attr/index.mjs ***!
+  \************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addAttrValue: () => (/* binding */ addAttrValue),
+/* harmony export */   attrEffect: () => (/* binding */ attrEffect)
+/* harmony export */ });
+/* harmony import */ var _render_dom_utils_camel_to_dash_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../render/dom/utils/camel-to-dash.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/utils/camel-to-dash.mjs");
+/* harmony import */ var _utils_create_dom_effect_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/create-dom-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-dom-effect.mjs");
+/* harmony import */ var _utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/create-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-effect.mjs");
+
+
+
+
+function canSetAsProperty(element, name) {
+    if (!(name in element))
+        return false;
+    const descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(element), name) ||
+        Object.getOwnPropertyDescriptor(element, name);
+    // Check if it has a setter
+    return descriptor && typeof descriptor.set === "function";
+}
+const addAttrValue = (element, state, key, value) => {
+    const isProp = canSetAsProperty(element, key);
+    const name = isProp
+        ? key
+        : key.startsWith("data") || key.startsWith("aria")
+            ? (0,_render_dom_utils_camel_to_dash_mjs__WEBPACK_IMPORTED_MODULE_0__.camelToDash)(key)
+            : key;
+    /**
+     * Set attribute directly via property if available
+     */
+    const render = isProp
+        ? () => {
+            element[name] = state.latest[key];
+        }
+        : () => {
+            const v = state.latest[key];
+            if (v === null || v === undefined) {
+                element.removeAttribute(name);
+            }
+            else {
+                element.setAttribute(name, String(v));
+            }
+        };
+    return state.set(key, value, render);
+};
+const attrEffect = /*@__PURE__*/ (0,_utils_create_dom_effect_mjs__WEBPACK_IMPORTED_MODULE_1__.createSelectorEffect)(
+/*@__PURE__*/ (0,_utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_2__.createEffect)(addAttrValue));
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/prop/index.mjs"
+/*!************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/prop/index.mjs ***!
+  \************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   propEffect: () => (/* binding */ propEffect)
+/* harmony export */ });
+/* harmony import */ var _utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/create-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-effect.mjs");
+
+
+const propEffect = /*@__PURE__*/ (0,_utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_0__.createEffect)((subject, state, key, value) => {
+    return state.set(key, value, () => {
+        subject[key] = state.latest[key];
+    }, undefined, false);
+});
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/index.mjs"
+/*!*************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/index.mjs ***!
+  \*************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addStyleValue: () => (/* binding */ addStyleValue),
+/* harmony export */   styleEffect: () => (/* binding */ styleEffect)
+/* harmony export */ });
+/* harmony import */ var _render_dom_is_css_var_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../render/dom/is-css-var.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/is-css-var.mjs");
+/* harmony import */ var _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../render/utils/keys-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs");
+/* harmony import */ var _utils_is_html_element_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/is-html-element.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-html-element.mjs");
+/* harmony import */ var _value_index_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../value/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _utils_create_dom_effect_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/create-dom-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-dom-effect.mjs");
+/* harmony import */ var _utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/create-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-effect.mjs");
+/* harmony import */ var _transform_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/transform.mjs");
+
+
+
+
+
+
+
+
+const originProps = new Set(["originX", "originY", "originZ"]);
+const addStyleValue = (element, state, key, value) => {
+    let render = undefined;
+    let computed = undefined;
+    if (_render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_1__.transformProps.has(key)) {
+        if (!state.get("transform")) {
+            // If this is an HTML element, we need to set the transform-box to fill-box
+            // to normalise the transform relative to the element's bounding box
+            if (!(0,_utils_is_html_element_mjs__WEBPACK_IMPORTED_MODULE_2__.isHTMLElement)(element) && !state.get("transformBox")) {
+                addStyleValue(element, state, "transformBox", new _value_index_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionValue("fill-box"));
+            }
+            state.set("transform", new _value_index_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionValue("none"), () => {
+                element.style.transform = (0,_transform_mjs__WEBPACK_IMPORTED_MODULE_6__.buildTransform)(state);
+            });
+        }
+        computed = state.get("transform");
+    }
+    else if (originProps.has(key)) {
+        if (!state.get("transformOrigin")) {
+            state.set("transformOrigin", new _value_index_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionValue(""), () => {
+                const originX = state.latest.originX ?? "50%";
+                const originY = state.latest.originY ?? "50%";
+                const originZ = state.latest.originZ ?? 0;
+                element.style.transformOrigin = `${originX} ${originY} ${originZ}`;
+            });
+        }
+        computed = state.get("transformOrigin");
+    }
+    else if ((0,_render_dom_is_css_var_mjs__WEBPACK_IMPORTED_MODULE_0__.isCSSVar)(key)) {
+        render = () => {
+            element.style.setProperty(key, state.latest[key]);
+        };
+    }
+    else {
+        render = () => {
+            element.style[key] = state.latest[key];
+        };
+    }
+    return state.set(key, value, render, computed);
+};
+const styleEffect = /*@__PURE__*/ (0,_utils_create_dom_effect_mjs__WEBPACK_IMPORTED_MODULE_4__.createSelectorEffect)(
+/*@__PURE__*/ (0,_utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_5__.createEffect)(addStyleValue));
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/transform.mjs"
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/transform.mjs ***!
+  \*****************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   buildTransform: () => (/* binding */ buildTransform)
+/* harmony export */ });
+/* harmony import */ var _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../render/utils/keys-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs");
+
+
+const translateAlias = {
+    x: "translateX",
+    y: "translateY",
+    z: "translateZ",
+    transformPerspective: "perspective",
+};
+function buildTransform(state) {
+    let transform = "";
+    let transformIsDefault = true;
+    /**
+     * Loop over all possible transforms in order, adding the ones that
+     * are present to the transform string.
+     */
+    for (let i = 0; i < _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_0__.transformPropOrder.length; i++) {
+        const key = _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_0__.transformPropOrder[i];
+        const value = state.latest[key];
+        if (value === undefined)
+            continue;
+        let valueIsDefault = true;
+        if (typeof value === "number") {
+            valueIsDefault = value === (key.startsWith("scale") ? 1 : 0);
+        }
+        else {
+            const parsed = parseFloat(value);
+            valueIsDefault = key.startsWith("scale") ? parsed === 1 : parsed === 0;
+        }
+        if (!valueIsDefault) {
+            transformIsDefault = false;
+            const transformName = translateAlias[key] || key;
+            transform += `${transformName}(${value}) `;
+        }
+    }
+    // See build-transform.ts: additive `rotate()` so user `rotate` isn't
+    // clobbered. Not a `transformPropOrder` slot.
+    const pathRotation = state.latest.pathRotation;
+    if (pathRotation) {
+        transformIsDefault = false;
+        transform += `rotate(${typeof pathRotation === "number"
+            ? `${pathRotation}deg`
+            : pathRotation}) `;
+    }
+    return transformIsDefault ? "none" : transform.trim();
+}
+
+
+//# sourceMappingURL=transform.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/svg/index.mjs"
+/*!***********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/svg/index.mjs ***!
+  \***********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   svgEffect: () => (/* binding */ svgEffect)
+/* harmony export */ });
+/* harmony import */ var _value_index_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../value/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _attr_index_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../attr/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/attr/index.mjs");
+/* harmony import */ var _style_index_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../style/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/index.mjs");
+/* harmony import */ var _utils_create_dom_effect_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/create-dom-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-dom-effect.mjs");
+/* harmony import */ var _utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/create-effect.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-effect.mjs");
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+
+
+
+
+
+
+
+function addSVGPathValue(element, state, key, value) {
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_5__.frame.render(() => element.setAttribute("pathLength", "1"));
+    if (key === "pathOffset") {
+        return state.set(key, value, () => {
+            // Use unitless value to avoid Safari zoom bug
+            const offset = state.latest[key];
+            element.setAttribute("stroke-dashoffset", `${-offset}`);
+        });
+    }
+    else {
+        if (!state.get("stroke-dasharray")) {
+            state.set("stroke-dasharray", new _value_index_mjs__WEBPACK_IMPORTED_MODULE_0__.MotionValue("1 1"), () => {
+                const { pathLength = 1, pathSpacing } = state.latest;
+                // Use unitless values to avoid Safari zoom bug
+                element.setAttribute("stroke-dasharray", `${pathLength} ${pathSpacing ?? 1 - Number(pathLength)}`);
+            });
+        }
+        return state.set(key, value, undefined, state.get("stroke-dasharray"));
+    }
+}
+const addSVGValue = (element, state, key, value) => {
+    if (key.startsWith("path")) {
+        return addSVGPathValue(element, state, key, value);
+    }
+    else if (key.startsWith("attr")) {
+        return (0,_attr_index_mjs__WEBPACK_IMPORTED_MODULE_1__.addAttrValue)(element, state, convertAttrKey(key), value);
+    }
+    const handler = key in element.style ? _style_index_mjs__WEBPACK_IMPORTED_MODULE_2__.addStyleValue : _attr_index_mjs__WEBPACK_IMPORTED_MODULE_1__.addAttrValue;
+    return handler(element, state, key, value);
+};
+const svgEffect = /*@__PURE__*/ (0,_utils_create_dom_effect_mjs__WEBPACK_IMPORTED_MODULE_3__.createSelectorEffect)(
+/*@__PURE__*/ (0,_utils_create_effect_mjs__WEBPACK_IMPORTED_MODULE_4__.createEffect)(addSVGValue));
+function convertAttrKey(key) {
+    return key.replace(/^attr([A-Z])/, (_, firstChar) => firstChar.toLowerCase());
+}
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-dom-effect.mjs"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-dom-effect.mjs ***!
+  \*************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createSelectorEffect: () => (/* binding */ createSelectorEffect)
+/* harmony export */ });
+/* harmony import */ var _utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/resolve-elements.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+
+
+function createSelectorEffect(subjectEffect) {
+    return (subject, values) => {
+        const elements = (0,_utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_0__.resolveElements)(subject);
+        const subscriptions = [];
+        for (const element of elements) {
+            const remove = subjectEffect(element, values);
+            subscriptions.push(remove);
+        }
+        return () => {
+            for (const remove of subscriptions)
+                remove();
+        };
+    };
+}
+
+
+//# sourceMappingURL=create-dom-effect.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-effect.mjs"
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/effects/utils/create-effect.mjs ***!
+  \*********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createEffect: () => (/* binding */ createEffect)
+/* harmony export */ });
+/* harmony import */ var _MotionValueState_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../MotionValueState.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/MotionValueState.mjs");
+
+
+function createEffect(addValue) {
+    const stateCache = new WeakMap();
+    return (subject, values) => {
+        const state = stateCache.get(subject) ?? new _MotionValueState_mjs__WEBPACK_IMPORTED_MODULE_0__.MotionValueState();
+        stateCache.set(subject, state);
+        const subscriptions = [];
+        for (const key in values) {
+            const value = values[key];
+            const remove = addValue(subject, state, key, value);
+            subscriptions.push(remove);
+        }
+        return () => {
+            for (const cancel of subscriptions)
+                cancel();
+        };
+    };
+}
+
+
+//# sourceMappingURL=create-effect.mjs.map
 
 
 /***/ },
@@ -7693,6 +15374,44 @@ const { schedule: frame, cancel: cancelFrame, state: frameData, steps: frameStep
 
 
 //# sourceMappingURL=frame.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/index-legacy.mjs"
+/*!****************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/index-legacy.mjs ***!
+  \****************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cancelSync: () => (/* binding */ cancelSync),
+/* harmony export */   sync: () => (/* binding */ sync)
+/* harmony export */ });
+/* harmony import */ var _order_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./order.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/order.mjs");
+/* harmony import */ var _frame_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+
+
+
+/**
+ * @deprecated
+ *
+ * Import as `frame` instead.
+ */
+const sync = _frame_mjs__WEBPACK_IMPORTED_MODULE_1__.frame;
+/**
+ * @deprecated
+ *
+ * Use cancelFrame(callback) instead.
+ */
+const cancelSync = _order_mjs__WEBPACK_IMPORTED_MODULE_0__.stepsOrder.reduce((acc, key) => {
+    acc[key] = (process) => (0,_frame_mjs__WEBPACK_IMPORTED_MODULE_1__.cancelFrame)(process);
+    return acc;
+}, {});
+
+
+//# sourceMappingURL=index-legacy.mjs.map
 
 
 /***/ },
@@ -8383,6 +16102,1014 @@ function setupGesture(elementOrSelector, options) {
 
 
 //# sourceMappingURL=setup.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/index.mjs"
+/*!***********************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/index.mjs ***!
+  \***********************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AsyncMotionValueAnimation: () => (/* reexport safe */ _animation_AsyncMotionValueAnimation_mjs__WEBPACK_IMPORTED_MODULE_0__.AsyncMotionValueAnimation),
+/* harmony export */   DOMKeyframesResolver: () => (/* reexport safe */ _animation_keyframes_DOMKeyframesResolver_mjs__WEBPACK_IMPORTED_MODULE_30__.DOMKeyframesResolver),
+/* harmony export */   DOMVisualElement: () => (/* reexport safe */ _render_dom_DOMVisualElement_mjs__WEBPACK_IMPORTED_MODULE_114__.DOMVisualElement),
+/* harmony export */   DocumentProjectionNode: () => (/* reexport safe */ _projection_node_DocumentProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_154__.DocumentProjectionNode),
+/* harmony export */   Feature: () => (/* reexport safe */ _render_Feature_mjs__WEBPACK_IMPORTED_MODULE_115__.Feature),
+/* harmony export */   FlatTree: () => (/* reexport safe */ _projection_utils_flat_tree_mjs__WEBPACK_IMPORTED_MODULE_150__.FlatTree),
+/* harmony export */   GroupAnimation: () => (/* reexport safe */ _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_1__.GroupAnimation),
+/* harmony export */   GroupAnimationWithThen: () => (/* reexport safe */ _animation_GroupAnimationWithThen_mjs__WEBPACK_IMPORTED_MODULE_2__.GroupAnimationWithThen),
+/* harmony export */   HTMLProjectionNode: () => (/* reexport safe */ _projection_node_HTMLProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_156__.HTMLProjectionNode),
+/* harmony export */   HTMLVisualElement: () => (/* reexport safe */ _render_html_HTMLVisualElement_mjs__WEBPACK_IMPORTED_MODULE_116__.HTMLVisualElement),
+/* harmony export */   JSAnimation: () => (/* reexport safe */ _animation_JSAnimation_mjs__WEBPACK_IMPORTED_MODULE_3__.JSAnimation),
+/* harmony export */   KeyframeResolver: () => (/* reexport safe */ _animation_keyframes_KeyframesResolver_mjs__WEBPACK_IMPORTED_MODULE_31__.KeyframeResolver),
+/* harmony export */   LayoutAnimationBuilder: () => (/* reexport safe */ _layout_LayoutAnimationBuilder_mjs__WEBPACK_IMPORTED_MODULE_170__.LayoutAnimationBuilder),
+/* harmony export */   MotionValue: () => (/* reexport safe */ _value_index_mjs__WEBPACK_IMPORTED_MODULE_87__.MotionValue),
+/* harmony export */   NativeAnimation: () => (/* reexport safe */ _animation_NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_4__.NativeAnimation),
+/* harmony export */   NativeAnimationExtended: () => (/* reexport safe */ _animation_NativeAnimationExtended_mjs__WEBPACK_IMPORTED_MODULE_5__.NativeAnimationExtended),
+/* harmony export */   NativeAnimationWrapper: () => (/* reexport safe */ _animation_NativeAnimationWrapper_mjs__WEBPACK_IMPORTED_MODULE_6__.NativeAnimationWrapper),
+/* harmony export */   NodeStack: () => (/* reexport safe */ _projection_shared_stack_mjs__WEBPACK_IMPORTED_MODULE_158__.NodeStack),
+/* harmony export */   ObjectVisualElement: () => (/* reexport safe */ _render_object_ObjectVisualElement_mjs__WEBPACK_IMPORTED_MODULE_117__.ObjectVisualElement),
+/* harmony export */   SVGVisualElement: () => (/* reexport safe */ _render_svg_SVGVisualElement_mjs__WEBPACK_IMPORTED_MODULE_119__.SVGVisualElement),
+/* harmony export */   ViewTransitionBuilder: () => (/* reexport safe */ _view_index_mjs__WEBPACK_IMPORTED_MODULE_111__.ViewTransitionBuilder),
+/* harmony export */   VisualElement: () => (/* reexport safe */ _render_VisualElement_mjs__WEBPACK_IMPORTED_MODULE_120__.VisualElement),
+/* harmony export */   acceleratedValues: () => (/* reexport safe */ _animation_waapi_utils_accelerated_values_mjs__WEBPACK_IMPORTED_MODULE_44__.acceleratedValues),
+/* harmony export */   addAttrValue: () => (/* reexport safe */ _effects_attr_index_mjs__WEBPACK_IMPORTED_MODULE_47__.addAttrValue),
+/* harmony export */   addDomEvent: () => (/* reexport safe */ _events_add_dom_event_mjs__WEBPACK_IMPORTED_MODULE_148__.addDomEvent),
+/* harmony export */   addScaleCorrector: () => (/* reexport safe */ _projection_styles_scale_correction_mjs__WEBPACK_IMPORTED_MODULE_172__.addScaleCorrector),
+/* harmony export */   addStyleValue: () => (/* reexport safe */ _effects_style_index_mjs__WEBPACK_IMPORTED_MODULE_49__.addStyleValue),
+/* harmony export */   addValueToWillChange: () => (/* reexport safe */ _value_will_change_add_will_change_mjs__WEBPACK_IMPORTED_MODULE_109__.addValueToWillChange),
+/* harmony export */   alpha: () => (/* reexport safe */ _value_types_numbers_index_mjs__WEBPACK_IMPORTED_MODULE_102__.alpha),
+/* harmony export */   analyseComplexValue: () => (/* reexport safe */ _value_types_complex_index_mjs__WEBPACK_IMPORTED_MODULE_97__.analyseComplexValue),
+/* harmony export */   animateMotionValue: () => (/* reexport safe */ _animation_interfaces_motion_value_mjs__WEBPACK_IMPORTED_MODULE_18__.animateMotionValue),
+/* harmony export */   animateSingleValue: () => (/* reexport safe */ _animation_animate_single_value_mjs__WEBPACK_IMPORTED_MODULE_147__.animateSingleValue),
+/* harmony export */   animateTarget: () => (/* reexport safe */ _animation_interfaces_visual_element_target_mjs__WEBPACK_IMPORTED_MODULE_20__.animateTarget),
+/* harmony export */   animateValue: () => (/* reexport safe */ _animation_JSAnimation_mjs__WEBPACK_IMPORTED_MODULE_3__.animateValue),
+/* harmony export */   animateVariant: () => (/* reexport safe */ _animation_interfaces_visual_element_variant_mjs__WEBPACK_IMPORTED_MODULE_21__.animateVariant),
+/* harmony export */   animateView: () => (/* reexport safe */ _view_index_mjs__WEBPACK_IMPORTED_MODULE_111__.animateView),
+/* harmony export */   animateVisualElement: () => (/* reexport safe */ _animation_interfaces_visual_element_mjs__WEBPACK_IMPORTED_MODULE_19__.animateVisualElement),
+/* harmony export */   animationMapKey: () => (/* reexport safe */ _animation_utils_active_animations_mjs__WEBPACK_IMPORTED_MODULE_7__.animationMapKey),
+/* harmony export */   applyAxisDelta: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.applyAxisDelta),
+/* harmony export */   applyBoxDelta: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.applyBoxDelta),
+/* harmony export */   applyGeneratorOptions: () => (/* reexport safe */ _animation_waapi_utils_apply_generator_mjs__WEBPACK_IMPORTED_MODULE_45__.applyGeneratorOptions),
+/* harmony export */   applyPointDelta: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.applyPointDelta),
+/* harmony export */   applyPxDefaults: () => (/* reexport safe */ _animation_keyframes_utils_apply_px_defaults_mjs__WEBPACK_IMPORTED_MODULE_35__.applyPxDefaults),
+/* harmony export */   applyTreeDeltas: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.applyTreeDeltas),
+/* harmony export */   arc: () => (/* reexport safe */ _animation_utils_arc_mjs__WEBPACK_IMPORTED_MODULE_9__.arc),
+/* harmony export */   aspectRatio: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.aspectRatio),
+/* harmony export */   attachFollow: () => (/* reexport safe */ _value_follow_value_mjs__WEBPACK_IMPORTED_MODULE_88__.attachFollow),
+/* harmony export */   attachSpring: () => (/* reexport safe */ _value_spring_value_mjs__WEBPACK_IMPORTED_MODULE_90__.attachSpring),
+/* harmony export */   attrEffect: () => (/* reexport safe */ _effects_attr_index_mjs__WEBPACK_IMPORTED_MODULE_47__.attrEffect),
+/* harmony export */   axisDeltaEquals: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.axisDeltaEquals),
+/* harmony export */   axisEquals: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.axisEquals),
+/* harmony export */   axisEqualsRounded: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.axisEqualsRounded),
+/* harmony export */   boxEquals: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.boxEquals),
+/* harmony export */   boxEqualsRounded: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.boxEqualsRounded),
+/* harmony export */   buildHTMLStyles: () => (/* reexport safe */ _render_html_utils_build_styles_mjs__WEBPACK_IMPORTED_MODULE_160__.buildHTMLStyles),
+/* harmony export */   buildProjectionTransform: () => (/* reexport safe */ _projection_styles_transform_mjs__WEBPACK_IMPORTED_MODULE_145__.buildProjectionTransform),
+/* harmony export */   buildSVGAttrs: () => (/* reexport safe */ _render_svg_utils_build_attrs_mjs__WEBPACK_IMPORTED_MODULE_164__.buildSVGAttrs),
+/* harmony export */   buildSVGPath: () => (/* reexport safe */ _render_svg_utils_path_mjs__WEBPACK_IMPORTED_MODULE_167__.buildSVGPath),
+/* harmony export */   buildTransform: () => (/* reexport safe */ _render_html_utils_build_transform_mjs__WEBPACK_IMPORTED_MODULE_161__.buildTransform),
+/* harmony export */   calcAxisDelta: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcAxisDelta),
+/* harmony export */   calcBoxDelta: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcBoxDelta),
+/* harmony export */   calcChildStagger: () => (/* reexport safe */ _animation_utils_calc_child_stagger_mjs__WEBPACK_IMPORTED_MODULE_8__.calcChildStagger),
+/* harmony export */   calcGeneratorDuration: () => (/* reexport safe */ _animation_generators_utils_calc_duration_mjs__WEBPACK_IMPORTED_MODULE_27__.calcGeneratorDuration),
+/* harmony export */   calcLength: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcLength),
+/* harmony export */   calcRelativeAxis: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcRelativeAxis),
+/* harmony export */   calcRelativeAxisPosition: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcRelativeAxisPosition),
+/* harmony export */   calcRelativeBox: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcRelativeBox),
+/* harmony export */   calcRelativePosition: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.calcRelativePosition),
+/* harmony export */   camelCaseAttributes: () => (/* reexport safe */ _render_svg_utils_camel_case_attrs_mjs__WEBPACK_IMPORTED_MODULE_165__.camelCaseAttributes),
+/* harmony export */   camelToDash: () => (/* reexport safe */ _render_dom_utils_camel_to_dash_mjs__WEBPACK_IMPORTED_MODULE_159__.camelToDash),
+/* harmony export */   cancelFrame: () => (/* reexport safe */ _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_173__.cancelFrame),
+/* harmony export */   cancelMicrotask: () => (/* reexport safe */ _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_52__.cancelMicrotask),
+/* harmony export */   cancelSync: () => (/* reexport safe */ _frameloop_index_legacy_mjs__WEBPACK_IMPORTED_MODULE_171__.cancelSync),
+/* harmony export */   checkVariantsDidChange: () => (/* reexport safe */ _render_utils_animation_state_mjs__WEBPACK_IMPORTED_MODULE_121__.checkVariantsDidChange),
+/* harmony export */   cleanDirtyNodes: () => (/* reexport safe */ _projection_node_create_projection_node_mjs__WEBPACK_IMPORTED_MODULE_153__.cleanDirtyNodes),
+/* harmony export */   collectMotionValues: () => (/* reexport safe */ _value_index_mjs__WEBPACK_IMPORTED_MODULE_87__.collectMotionValues),
+/* harmony export */   color: () => (/* reexport safe */ _value_types_color_index_mjs__WEBPACK_IMPORTED_MODULE_92__.color),
+/* harmony export */   compareByDepth: () => (/* reexport safe */ _projection_utils_compare_by_depth_mjs__WEBPACK_IMPORTED_MODULE_149__.compareByDepth),
+/* harmony export */   complex: () => (/* reexport safe */ _value_types_complex_index_mjs__WEBPACK_IMPORTED_MODULE_97__.complex),
+/* harmony export */   containsCSSVariable: () => (/* reexport safe */ _animation_utils_is_css_variable_mjs__WEBPACK_IMPORTED_MODULE_15__.containsCSSVariable),
+/* harmony export */   convertBoundingBoxToBox: () => (/* reexport safe */ _projection_geometry_conversion_mjs__WEBPACK_IMPORTED_MODULE_133__.convertBoundingBoxToBox),
+/* harmony export */   convertBoxToBoundingBox: () => (/* reexport safe */ _projection_geometry_conversion_mjs__WEBPACK_IMPORTED_MODULE_133__.convertBoxToBoundingBox),
+/* harmony export */   convertOffsetToTimes: () => (/* reexport safe */ _animation_keyframes_offsets_time_mjs__WEBPACK_IMPORTED_MODULE_34__.convertOffsetToTimes),
+/* harmony export */   copyAxisDeltaInto: () => (/* reexport safe */ _projection_geometry_copy_mjs__WEBPACK_IMPORTED_MODULE_134__.copyAxisDeltaInto),
+/* harmony export */   copyAxisInto: () => (/* reexport safe */ _projection_geometry_copy_mjs__WEBPACK_IMPORTED_MODULE_134__.copyAxisInto),
+/* harmony export */   copyBoxInto: () => (/* reexport safe */ _projection_geometry_copy_mjs__WEBPACK_IMPORTED_MODULE_134__.copyBoxInto),
+/* harmony export */   correctBorderRadius: () => (/* reexport safe */ _projection_styles_scale_border_radius_mjs__WEBPACK_IMPORTED_MODULE_143__.correctBorderRadius),
+/* harmony export */   correctBoxShadow: () => (/* reexport safe */ _projection_styles_scale_box_shadow_mjs__WEBPACK_IMPORTED_MODULE_144__.correctBoxShadow),
+/* harmony export */   createAnimationState: () => (/* reexport safe */ _render_utils_animation_state_mjs__WEBPACK_IMPORTED_MODULE_121__.createAnimationState),
+/* harmony export */   createAxis: () => (/* reexport safe */ _projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_138__.createAxis),
+/* harmony export */   createAxisDelta: () => (/* reexport safe */ _projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_138__.createAxisDelta),
+/* harmony export */   createBox: () => (/* reexport safe */ _projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_138__.createBox),
+/* harmony export */   createDelta: () => (/* reexport safe */ _projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_138__.createDelta),
+/* harmony export */   createGeneratorEasing: () => (/* reexport safe */ _animation_generators_utils_create_generator_easing_mjs__WEBPACK_IMPORTED_MODULE_28__.createGeneratorEasing),
+/* harmony export */   createProjectionNode: () => (/* reexport safe */ _projection_node_create_projection_node_mjs__WEBPACK_IMPORTED_MODULE_153__.createProjectionNode),
+/* harmony export */   createRenderBatcher: () => (/* reexport safe */ _frameloop_batcher_mjs__WEBPACK_IMPORTED_MODULE_51__.createRenderBatcher),
+/* harmony export */   cubicBezierAsString: () => (/* reexport safe */ _animation_waapi_easing_cubic_bezier_mjs__WEBPACK_IMPORTED_MODULE_37__.cubicBezierAsString),
+/* harmony export */   defaultEasing: () => (/* reexport safe */ _animation_generators_keyframes_mjs__WEBPACK_IMPORTED_MODULE_25__.defaultEasing),
+/* harmony export */   defaultOffset: () => (/* reexport safe */ _animation_keyframes_offsets_default_mjs__WEBPACK_IMPORTED_MODULE_32__.defaultOffset),
+/* harmony export */   defaultTransformValue: () => (/* reexport safe */ _render_dom_parse_transform_mjs__WEBPACK_IMPORTED_MODULE_61__.defaultTransformValue),
+/* harmony export */   defaultValueTypes: () => (/* reexport safe */ _value_types_maps_defaults_mjs__WEBPACK_IMPORTED_MODULE_99__.defaultValueTypes),
+/* harmony export */   degrees: () => (/* reexport safe */ _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__.degrees),
+/* harmony export */   delay: () => (/* reexport safe */ _utils_delay_mjs__WEBPACK_IMPORTED_MODULE_151__.delay),
+/* harmony export */   delayInSeconds: () => (/* reexport safe */ _utils_delay_mjs__WEBPACK_IMPORTED_MODULE_151__.delayInSeconds),
+/* harmony export */   dimensionValueTypes: () => (/* reexport safe */ _value_types_dimensions_mjs__WEBPACK_IMPORTED_MODULE_98__.dimensionValueTypes),
+/* harmony export */   eachAxis: () => (/* reexport safe */ _projection_utils_each_axis_mjs__WEBPACK_IMPORTED_MODULE_140__.eachAxis),
+/* harmony export */   fillOffset: () => (/* reexport safe */ _animation_keyframes_offsets_fill_mjs__WEBPACK_IMPORTED_MODULE_33__.fillOffset),
+/* harmony export */   fillWildcards: () => (/* reexport safe */ _animation_keyframes_utils_fill_wildcards_mjs__WEBPACK_IMPORTED_MODULE_36__.fillWildcards),
+/* harmony export */   findDimensionValueType: () => (/* reexport safe */ _value_types_dimensions_mjs__WEBPACK_IMPORTED_MODULE_98__.findDimensionValueType),
+/* harmony export */   findValueType: () => (/* reexport safe */ _value_types_utils_find_mjs__WEBPACK_IMPORTED_MODULE_106__.findValueType),
+/* harmony export */   flushKeyframeResolvers: () => (/* reexport safe */ _animation_keyframes_KeyframesResolver_mjs__WEBPACK_IMPORTED_MODULE_31__.flushKeyframeResolvers),
+/* harmony export */   followValue: () => (/* reexport safe */ _value_follow_value_mjs__WEBPACK_IMPORTED_MODULE_88__.followValue),
+/* harmony export */   frame: () => (/* reexport safe */ _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_173__.frame),
+/* harmony export */   frameData: () => (/* reexport safe */ _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_173__.frameData),
+/* harmony export */   frameSteps: () => (/* reexport safe */ _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_173__.frameSteps),
+/* harmony export */   generateLinearEasing: () => (/* reexport safe */ _animation_waapi_utils_linear_mjs__WEBPACK_IMPORTED_MODULE_46__.generateLinearEasing),
+/* harmony export */   getAnimatableNone: () => (/* reexport safe */ _value_types_utils_animatable_none_mjs__WEBPACK_IMPORTED_MODULE_105__.getAnimatableNone),
+/* harmony export */   getAnimationMap: () => (/* reexport safe */ _animation_utils_active_animations_mjs__WEBPACK_IMPORTED_MODULE_7__.getAnimationMap),
+/* harmony export */   getComputedStyle: () => (/* reexport safe */ _render_dom_style_computed_mjs__WEBPACK_IMPORTED_MODULE_62__.getComputedStyle),
+/* harmony export */   getDefaultTransition: () => (/* reexport safe */ _animation_utils_default_transitions_mjs__WEBPACK_IMPORTED_MODULE_11__.getDefaultTransition),
+/* harmony export */   getDefaultValueType: () => (/* reexport safe */ _value_types_maps_defaults_mjs__WEBPACK_IMPORTED_MODULE_99__.getDefaultValueType),
+/* harmony export */   getFeatureDefinitions: () => (/* reexport safe */ _render_VisualElement_mjs__WEBPACK_IMPORTED_MODULE_120__.getFeatureDefinitions),
+/* harmony export */   getFinalKeyframe: () => (/* reexport safe */ _animation_keyframes_get_final_mjs__WEBPACK_IMPORTED_MODULE_12__.getFinalKeyframe),
+/* harmony export */   getMixer: () => (/* reexport safe */ _utils_mix_complex_mjs__WEBPACK_IMPORTED_MODULE_77__.getMixer),
+/* harmony export */   getOptimisedAppearId: () => (/* reexport safe */ _animation_optimized_appear_get_appear_id_mjs__WEBPACK_IMPORTED_MODULE_23__.getOptimisedAppearId),
+/* harmony export */   getOriginIndex: () => (/* reexport safe */ _utils_stagger_mjs__WEBPACK_IMPORTED_MODULE_82__.getOriginIndex),
+/* harmony export */   getValueAsType: () => (/* reexport safe */ _value_types_utils_get_as_type_mjs__WEBPACK_IMPORTED_MODULE_107__.getValueAsType),
+/* harmony export */   getValueTransition: () => (/* reexport safe */ _animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_13__.getValueTransition),
+/* harmony export */   getVariableValue: () => (/* reexport safe */ _animation_utils_css_variables_conversion_mjs__WEBPACK_IMPORTED_MODULE_10__.getVariableValue),
+/* harmony export */   getVariantContext: () => (/* reexport safe */ _render_utils_get_variant_context_mjs__WEBPACK_IMPORTED_MODULE_122__.getVariantContext),
+/* harmony export */   getViewAnimationLayerInfo: () => (/* reexport safe */ _view_utils_get_layer_info_mjs__WEBPACK_IMPORTED_MODULE_112__.getViewAnimationLayerInfo),
+/* harmony export */   getViewAnimations: () => (/* reexport safe */ _view_utils_get_view_animations_mjs__WEBPACK_IMPORTED_MODULE_113__.getViewAnimations),
+/* harmony export */   globalProjectionState: () => (/* reexport safe */ _projection_node_state_mjs__WEBPACK_IMPORTED_MODULE_157__.globalProjectionState),
+/* harmony export */   has2DTranslate: () => (/* reexport safe */ _projection_utils_has_transform_mjs__WEBPACK_IMPORTED_MODULE_141__.has2DTranslate),
+/* harmony export */   hasReducedMotionListener: () => (/* reexport safe */ _render_utils_reduced_motion_state_mjs__WEBPACK_IMPORTED_MODULE_174__.hasReducedMotionListener),
+/* harmony export */   hasScale: () => (/* reexport safe */ _projection_utils_has_transform_mjs__WEBPACK_IMPORTED_MODULE_141__.hasScale),
+/* harmony export */   hasTransform: () => (/* reexport safe */ _projection_utils_has_transform_mjs__WEBPACK_IMPORTED_MODULE_141__.hasTransform),
+/* harmony export */   hex: () => (/* reexport safe */ _value_types_color_hex_mjs__WEBPACK_IMPORTED_MODULE_93__.hex),
+/* harmony export */   hover: () => (/* reexport safe */ _gestures_hover_mjs__WEBPACK_IMPORTED_MODULE_56__.hover),
+/* harmony export */   hsla: () => (/* reexport safe */ _value_types_color_hsla_mjs__WEBPACK_IMPORTED_MODULE_94__.hsla),
+/* harmony export */   hslaToRgba: () => (/* reexport safe */ _value_types_color_hsla_to_rgba_mjs__WEBPACK_IMPORTED_MODULE_95__.hslaToRgba),
+/* harmony export */   inertia: () => (/* reexport safe */ _animation_generators_inertia_mjs__WEBPACK_IMPORTED_MODULE_24__.inertia),
+/* harmony export */   initPrefersReducedMotion: () => (/* reexport safe */ _render_utils_reduced_motion_index_mjs__WEBPACK_IMPORTED_MODULE_132__.initPrefersReducedMotion),
+/* harmony export */   interpolate: () => (/* reexport safe */ _utils_interpolate_mjs__WEBPACK_IMPORTED_MODULE_71__.interpolate),
+/* harmony export */   invisibleValues: () => (/* reexport safe */ _utils_mix_visibility_mjs__WEBPACK_IMPORTED_MODULE_80__.invisibleValues),
+/* harmony export */   isAnimationControls: () => (/* reexport safe */ _render_utils_is_animation_controls_mjs__WEBPACK_IMPORTED_MODULE_123__.isAnimationControls),
+/* harmony export */   isCSSVariableName: () => (/* reexport safe */ _animation_utils_is_css_variable_mjs__WEBPACK_IMPORTED_MODULE_15__.isCSSVariableName),
+/* harmony export */   isCSSVariableToken: () => (/* reexport safe */ _animation_utils_is_css_variable_mjs__WEBPACK_IMPORTED_MODULE_15__.isCSSVariableToken),
+/* harmony export */   isControllingVariants: () => (/* reexport safe */ _render_utils_is_controlling_variants_mjs__WEBPACK_IMPORTED_MODULE_124__.isControllingVariants),
+/* harmony export */   isDeltaZero: () => (/* reexport safe */ _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__.isDeltaZero),
+/* harmony export */   isDragActive: () => (/* reexport safe */ _gestures_drag_state_is_active_mjs__WEBPACK_IMPORTED_MODULE_54__.isDragActive),
+/* harmony export */   isDragging: () => (/* reexport safe */ _gestures_drag_state_is_active_mjs__WEBPACK_IMPORTED_MODULE_54__.isDragging),
+/* harmony export */   isElementKeyboardAccessible: () => (/* reexport safe */ _gestures_press_utils_is_keyboard_accessible_mjs__WEBPACK_IMPORTED_MODULE_58__.isElementKeyboardAccessible),
+/* harmony export */   isElementTextInput: () => (/* reexport safe */ _gestures_press_utils_is_keyboard_accessible_mjs__WEBPACK_IMPORTED_MODULE_58__.isElementTextInput),
+/* harmony export */   isForcedMotionValue: () => (/* reexport safe */ _render_utils_is_forced_motion_value_mjs__WEBPACK_IMPORTED_MODULE_125__.isForcedMotionValue),
+/* harmony export */   isGenerator: () => (/* reexport safe */ _animation_generators_utils_is_generator_mjs__WEBPACK_IMPORTED_MODULE_29__.isGenerator),
+/* harmony export */   isHTMLElement: () => (/* reexport safe */ _utils_is_html_element_mjs__WEBPACK_IMPORTED_MODULE_72__.isHTMLElement),
+/* harmony export */   isKeyframesTarget: () => (/* reexport safe */ _render_utils_is_keyframes_target_mjs__WEBPACK_IMPORTED_MODULE_64__.isKeyframesTarget),
+/* harmony export */   isMotionValue: () => (/* reexport safe */ _value_utils_is_motion_value_mjs__WEBPACK_IMPORTED_MODULE_108__.isMotionValue),
+/* harmony export */   isNear: () => (/* reexport safe */ _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__.isNear),
+/* harmony export */   isNodeOrChild: () => (/* reexport safe */ _gestures_utils_is_node_or_child_mjs__WEBPACK_IMPORTED_MODULE_59__.isNodeOrChild),
+/* harmony export */   isPrimaryPointer: () => (/* reexport safe */ _gestures_utils_is_primary_pointer_mjs__WEBPACK_IMPORTED_MODULE_60__.isPrimaryPointer),
+/* harmony export */   isSVGElement: () => (/* reexport safe */ _utils_is_svg_element_mjs__WEBPACK_IMPORTED_MODULE_73__.isSVGElement),
+/* harmony export */   isSVGSVGElement: () => (/* reexport safe */ _utils_is_svg_svg_element_mjs__WEBPACK_IMPORTED_MODULE_74__.isSVGSVGElement),
+/* harmony export */   isSVGTag: () => (/* reexport safe */ _render_svg_utils_is_svg_tag_mjs__WEBPACK_IMPORTED_MODULE_166__.isSVGTag),
+/* harmony export */   isTransitionDefined: () => (/* reexport safe */ _animation_utils_is_transition_defined_mjs__WEBPACK_IMPORTED_MODULE_16__.isTransitionDefined),
+/* harmony export */   isVariantLabel: () => (/* reexport safe */ _render_utils_is_variant_label_mjs__WEBPACK_IMPORTED_MODULE_126__.isVariantLabel),
+/* harmony export */   isVariantNode: () => (/* reexport safe */ _render_utils_is_controlling_variants_mjs__WEBPACK_IMPORTED_MODULE_124__.isVariantNode),
+/* harmony export */   isWaapiSupportedEasing: () => (/* reexport safe */ _animation_waapi_easing_is_supported_mjs__WEBPACK_IMPORTED_MODULE_38__.isWaapiSupportedEasing),
+/* harmony export */   isWillChangeMotionValue: () => (/* reexport safe */ _value_will_change_is_mjs__WEBPACK_IMPORTED_MODULE_110__.isWillChangeMotionValue),
+/* harmony export */   keyframes: () => (/* reexport safe */ _animation_generators_keyframes_mjs__WEBPACK_IMPORTED_MODULE_25__.keyframes),
+/* harmony export */   makeAnimationInstant: () => (/* reexport safe */ _animation_utils_make_animation_instant_mjs__WEBPACK_IMPORTED_MODULE_17__.makeAnimationInstant),
+/* harmony export */   mapEasingToNativeEasing: () => (/* reexport safe */ _animation_waapi_easing_map_easing_mjs__WEBPACK_IMPORTED_MODULE_39__.mapEasingToNativeEasing),
+/* harmony export */   mapValue: () => (/* reexport safe */ _value_map_value_mjs__WEBPACK_IMPORTED_MODULE_89__.mapValue),
+/* harmony export */   maxGeneratorDuration: () => (/* reexport safe */ _animation_generators_utils_calc_duration_mjs__WEBPACK_IMPORTED_MODULE_27__.maxGeneratorDuration),
+/* harmony export */   measurePageBox: () => (/* reexport safe */ _projection_utils_measure_mjs__WEBPACK_IMPORTED_MODULE_142__.measurePageBox),
+/* harmony export */   measureViewportBox: () => (/* reexport safe */ _projection_utils_measure_mjs__WEBPACK_IMPORTED_MODULE_142__.measureViewportBox),
+/* harmony export */   microtask: () => (/* reexport safe */ _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_52__.microtask),
+/* harmony export */   mix: () => (/* reexport safe */ _utils_mix_index_mjs__WEBPACK_IMPORTED_MODULE_75__.mix),
+/* harmony export */   mixArray: () => (/* reexport safe */ _utils_mix_complex_mjs__WEBPACK_IMPORTED_MODULE_77__.mixArray),
+/* harmony export */   mixColor: () => (/* reexport safe */ _utils_mix_color_mjs__WEBPACK_IMPORTED_MODULE_76__.mixColor),
+/* harmony export */   mixComplex: () => (/* reexport safe */ _utils_mix_complex_mjs__WEBPACK_IMPORTED_MODULE_77__.mixComplex),
+/* harmony export */   mixImmediate: () => (/* reexport safe */ _utils_mix_immediate_mjs__WEBPACK_IMPORTED_MODULE_78__.mixImmediate),
+/* harmony export */   mixLinearColor: () => (/* reexport safe */ _utils_mix_color_mjs__WEBPACK_IMPORTED_MODULE_76__.mixLinearColor),
+/* harmony export */   mixNumber: () => (/* reexport safe */ _utils_mix_number_mjs__WEBPACK_IMPORTED_MODULE_79__.mixNumber),
+/* harmony export */   mixObject: () => (/* reexport safe */ _utils_mix_complex_mjs__WEBPACK_IMPORTED_MODULE_77__.mixObject),
+/* harmony export */   mixValues: () => (/* reexport safe */ _projection_animation_mix_values_mjs__WEBPACK_IMPORTED_MODULE_146__.mixValues),
+/* harmony export */   mixVisibility: () => (/* reexport safe */ _utils_mix_visibility_mjs__WEBPACK_IMPORTED_MODULE_80__.mixVisibility),
+/* harmony export */   motionValue: () => (/* reexport safe */ _value_index_mjs__WEBPACK_IMPORTED_MODULE_87__.motionValue),
+/* harmony export */   nodeGroup: () => (/* reexport safe */ _projection_node_group_mjs__WEBPACK_IMPORTED_MODULE_155__.nodeGroup),
+/* harmony export */   number: () => (/* reexport safe */ _value_types_numbers_index_mjs__WEBPACK_IMPORTED_MODULE_102__.number),
+/* harmony export */   numberValueTypes: () => (/* reexport safe */ _value_types_maps_number_mjs__WEBPACK_IMPORTED_MODULE_100__.numberValueTypes),
+/* harmony export */   observeTimeline: () => (/* reexport safe */ _scroll_observe_mjs__WEBPACK_IMPORTED_MODULE_68__.observeTimeline),
+/* harmony export */   optimizedAppearDataAttribute: () => (/* reexport safe */ _animation_optimized_appear_data_id_mjs__WEBPACK_IMPORTED_MODULE_22__.optimizedAppearDataAttribute),
+/* harmony export */   optimizedAppearDataId: () => (/* reexport safe */ _animation_optimized_appear_data_id_mjs__WEBPACK_IMPORTED_MODULE_22__.optimizedAppearDataId),
+/* harmony export */   parseAnimateLayoutArgs: () => (/* reexport safe */ _layout_LayoutAnimationBuilder_mjs__WEBPACK_IMPORTED_MODULE_170__.parseAnimateLayoutArgs),
+/* harmony export */   parseCSSVariable: () => (/* reexport safe */ _animation_utils_css_variables_conversion_mjs__WEBPACK_IMPORTED_MODULE_10__.parseCSSVariable),
+/* harmony export */   parseValueFromTransform: () => (/* reexport safe */ _render_dom_parse_transform_mjs__WEBPACK_IMPORTED_MODULE_61__.parseValueFromTransform),
+/* harmony export */   percent: () => (/* reexport safe */ _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__.percent),
+/* harmony export */   pixelsToPercent: () => (/* reexport safe */ _projection_styles_scale_border_radius_mjs__WEBPACK_IMPORTED_MODULE_143__.pixelsToPercent),
+/* harmony export */   positionalKeys: () => (/* reexport safe */ _render_utils_keys_position_mjs__WEBPACK_IMPORTED_MODULE_65__.positionalKeys),
+/* harmony export */   prefersReducedMotion: () => (/* reexport safe */ _render_utils_reduced_motion_state_mjs__WEBPACK_IMPORTED_MODULE_174__.prefersReducedMotion),
+/* harmony export */   press: () => (/* reexport safe */ _gestures_press_index_mjs__WEBPACK_IMPORTED_MODULE_57__.press),
+/* harmony export */   progressPercentage: () => (/* reexport safe */ _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__.progressPercentage),
+/* harmony export */   propEffect: () => (/* reexport safe */ _effects_prop_index_mjs__WEBPACK_IMPORTED_MODULE_48__.propEffect),
+/* harmony export */   propagateDirtyNodes: () => (/* reexport safe */ _projection_node_create_projection_node_mjs__WEBPACK_IMPORTED_MODULE_153__.propagateDirtyNodes),
+/* harmony export */   px: () => (/* reexport safe */ _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__.px),
+/* harmony export */   readTransformValue: () => (/* reexport safe */ _render_dom_parse_transform_mjs__WEBPACK_IMPORTED_MODULE_61__.readTransformValue),
+/* harmony export */   recordStats: () => (/* reexport safe */ _stats_index_mjs__WEBPACK_IMPORTED_MODULE_69__.recordStats),
+/* harmony export */   removeAxisDelta: () => (/* reexport safe */ _projection_geometry_delta_remove_mjs__WEBPACK_IMPORTED_MODULE_137__.removeAxisDelta),
+/* harmony export */   removeAxisTransforms: () => (/* reexport safe */ _projection_geometry_delta_remove_mjs__WEBPACK_IMPORTED_MODULE_137__.removeAxisTransforms),
+/* harmony export */   removeBoxTransforms: () => (/* reexport safe */ _projection_geometry_delta_remove_mjs__WEBPACK_IMPORTED_MODULE_137__.removeBoxTransforms),
+/* harmony export */   removePointDelta: () => (/* reexport safe */ _projection_geometry_delta_remove_mjs__WEBPACK_IMPORTED_MODULE_137__.removePointDelta),
+/* harmony export */   renderHTML: () => (/* reexport safe */ _render_html_utils_render_mjs__WEBPACK_IMPORTED_MODULE_162__.renderHTML),
+/* harmony export */   renderSVG: () => (/* reexport safe */ _render_svg_utils_render_mjs__WEBPACK_IMPORTED_MODULE_168__.renderSVG),
+/* harmony export */   resize: () => (/* reexport safe */ _resize_index_mjs__WEBPACK_IMPORTED_MODULE_67__.resize),
+/* harmony export */   resolveElements: () => (/* reexport safe */ _utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_81__.resolveElements),
+/* harmony export */   resolveMotionValue: () => (/* reexport safe */ _value_utils_resolve_motion_value_mjs__WEBPACK_IMPORTED_MODULE_152__.resolveMotionValue),
+/* harmony export */   resolveTransition: () => (/* reexport safe */ _animation_utils_resolve_transition_mjs__WEBPACK_IMPORTED_MODULE_14__.resolveTransition),
+/* harmony export */   resolveVariant: () => (/* reexport safe */ _render_utils_resolve_dynamic_variants_mjs__WEBPACK_IMPORTED_MODULE_128__.resolveVariant),
+/* harmony export */   resolveVariantFromProps: () => (/* reexport safe */ _render_utils_resolve_variants_mjs__WEBPACK_IMPORTED_MODULE_129__.resolveVariantFromProps),
+/* harmony export */   rgbUnit: () => (/* reexport safe */ _value_types_color_rgba_mjs__WEBPACK_IMPORTED_MODULE_96__.rgbUnit),
+/* harmony export */   rgba: () => (/* reexport safe */ _value_types_color_rgba_mjs__WEBPACK_IMPORTED_MODULE_96__.rgba),
+/* harmony export */   rootProjectionNode: () => (/* reexport safe */ _projection_node_HTMLProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_156__.rootProjectionNode),
+/* harmony export */   scale: () => (/* reexport safe */ _value_types_numbers_index_mjs__WEBPACK_IMPORTED_MODULE_102__.scale),
+/* harmony export */   scaleCorrectors: () => (/* reexport safe */ _projection_styles_scale_correction_mjs__WEBPACK_IMPORTED_MODULE_172__.scaleCorrectors),
+/* harmony export */   scalePoint: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.scalePoint),
+/* harmony export */   scrapeHTMLMotionValuesFromProps: () => (/* reexport safe */ _render_html_utils_scrape_motion_values_mjs__WEBPACK_IMPORTED_MODULE_163__.scrapeMotionValuesFromProps),
+/* harmony export */   scrapeSVGMotionValuesFromProps: () => (/* reexport safe */ _render_svg_utils_scrape_motion_values_mjs__WEBPACK_IMPORTED_MODULE_169__.scrapeMotionValuesFromProps),
+/* harmony export */   setDragLock: () => (/* reexport safe */ _gestures_drag_state_set_active_mjs__WEBPACK_IMPORTED_MODULE_55__.setDragLock),
+/* harmony export */   setFeatureDefinitions: () => (/* reexport safe */ _render_VisualElement_mjs__WEBPACK_IMPORTED_MODULE_120__.setFeatureDefinitions),
+/* harmony export */   setStyle: () => (/* reexport safe */ _render_dom_style_set_mjs__WEBPACK_IMPORTED_MODULE_63__.setStyle),
+/* harmony export */   setTarget: () => (/* reexport safe */ _render_utils_setters_mjs__WEBPACK_IMPORTED_MODULE_130__.setTarget),
+/* harmony export */   spring: () => (/* reexport safe */ _animation_generators_spring_mjs__WEBPACK_IMPORTED_MODULE_26__.spring),
+/* harmony export */   springValue: () => (/* reexport safe */ _value_spring_value_mjs__WEBPACK_IMPORTED_MODULE_90__.springValue),
+/* harmony export */   stagger: () => (/* reexport safe */ _utils_stagger_mjs__WEBPACK_IMPORTED_MODULE_82__.stagger),
+/* harmony export */   startWaapiAnimation: () => (/* reexport safe */ _animation_waapi_start_waapi_animation_mjs__WEBPACK_IMPORTED_MODULE_41__.startWaapiAnimation),
+/* harmony export */   statsBuffer: () => (/* reexport safe */ _stats_buffer_mjs__WEBPACK_IMPORTED_MODULE_70__.statsBuffer),
+/* harmony export */   styleEffect: () => (/* reexport safe */ _effects_style_index_mjs__WEBPACK_IMPORTED_MODULE_49__.styleEffect),
+/* harmony export */   supportedWaapiEasing: () => (/* reexport safe */ _animation_waapi_easing_supported_mjs__WEBPACK_IMPORTED_MODULE_40__.supportedWaapiEasing),
+/* harmony export */   supportsBrowserAnimation: () => (/* reexport safe */ _animation_waapi_supports_waapi_mjs__WEBPACK_IMPORTED_MODULE_43__.supportsBrowserAnimation),
+/* harmony export */   supportsFlags: () => (/* reexport safe */ _utils_supports_flags_mjs__WEBPACK_IMPORTED_MODULE_83__.supportsFlags),
+/* harmony export */   supportsLinearEasing: () => (/* reexport safe */ _utils_supports_linear_easing_mjs__WEBPACK_IMPORTED_MODULE_84__.supportsLinearEasing),
+/* harmony export */   supportsPartialKeyframes: () => (/* reexport safe */ _animation_waapi_supports_partial_keyframes_mjs__WEBPACK_IMPORTED_MODULE_42__.supportsPartialKeyframes),
+/* harmony export */   supportsScrollTimeline: () => (/* reexport safe */ _utils_supports_scroll_timeline_mjs__WEBPACK_IMPORTED_MODULE_85__.supportsScrollTimeline),
+/* harmony export */   supportsViewTimeline: () => (/* reexport safe */ _utils_supports_scroll_timeline_mjs__WEBPACK_IMPORTED_MODULE_85__.supportsViewTimeline),
+/* harmony export */   svgEffect: () => (/* reexport safe */ _effects_svg_index_mjs__WEBPACK_IMPORTED_MODULE_50__.svgEffect),
+/* harmony export */   sync: () => (/* reexport safe */ _frameloop_index_legacy_mjs__WEBPACK_IMPORTED_MODULE_171__.sync),
+/* harmony export */   testValueType: () => (/* reexport safe */ _value_types_test_mjs__WEBPACK_IMPORTED_MODULE_104__.testValueType),
+/* harmony export */   time: () => (/* reexport safe */ _frameloop_sync_time_mjs__WEBPACK_IMPORTED_MODULE_53__.time),
+/* harmony export */   transform: () => (/* reexport safe */ _utils_transform_mjs__WEBPACK_IMPORTED_MODULE_86__.transform),
+/* harmony export */   transformAxis: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.transformAxis),
+/* harmony export */   transformBox: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.transformBox),
+/* harmony export */   transformBoxPoints: () => (/* reexport safe */ _projection_geometry_conversion_mjs__WEBPACK_IMPORTED_MODULE_133__.transformBoxPoints),
+/* harmony export */   transformPropOrder: () => (/* reexport safe */ _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_66__.transformPropOrder),
+/* harmony export */   transformProps: () => (/* reexport safe */ _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_66__.transformProps),
+/* harmony export */   transformValue: () => (/* reexport safe */ _value_transform_value_mjs__WEBPACK_IMPORTED_MODULE_91__.transformValue),
+/* harmony export */   transformValueTypes: () => (/* reexport safe */ _value_types_maps_transform_mjs__WEBPACK_IMPORTED_MODULE_101__.transformValueTypes),
+/* harmony export */   translateAxis: () => (/* reexport safe */ _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__.translateAxis),
+/* harmony export */   updateMotionValuesFromProps: () => (/* reexport safe */ _render_utils_motion_values_mjs__WEBPACK_IMPORTED_MODULE_127__.updateMotionValuesFromProps),
+/* harmony export */   variantPriorityOrder: () => (/* reexport safe */ _render_utils_variant_props_mjs__WEBPACK_IMPORTED_MODULE_131__.variantPriorityOrder),
+/* harmony export */   variantProps: () => (/* reexport safe */ _render_utils_variant_props_mjs__WEBPACK_IMPORTED_MODULE_131__.variantProps),
+/* harmony export */   vh: () => (/* reexport safe */ _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__.vh),
+/* harmony export */   visualElementStore: () => (/* reexport safe */ _render_store_mjs__WEBPACK_IMPORTED_MODULE_118__.visualElementStore),
+/* harmony export */   vw: () => (/* reexport safe */ _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__.vw)
+/* harmony export */ });
+/* harmony import */ var _animation_AsyncMotionValueAnimation_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animation/AsyncMotionValueAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs");
+/* harmony import */ var _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./animation/GroupAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimation.mjs");
+/* harmony import */ var _animation_GroupAnimationWithThen_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animation/GroupAnimationWithThen.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimationWithThen.mjs");
+/* harmony import */ var _animation_JSAnimation_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation/JSAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/JSAnimation.mjs");
+/* harmony import */ var _animation_NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./animation/NativeAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs");
+/* harmony import */ var _animation_NativeAnimationExtended_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./animation/NativeAnimationExtended.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimationExtended.mjs");
+/* harmony import */ var _animation_NativeAnimationWrapper_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./animation/NativeAnimationWrapper.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimationWrapper.mjs");
+/* harmony import */ var _animation_utils_active_animations_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./animation/utils/active-animations.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/active-animations.mjs");
+/* harmony import */ var _animation_utils_calc_child_stagger_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation/utils/calc-child-stagger.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/calc-child-stagger.mjs");
+/* harmony import */ var _animation_utils_arc_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./animation/utils/arc.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/arc.mjs");
+/* harmony import */ var _animation_utils_css_variables_conversion_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./animation/utils/css-variables-conversion.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/css-variables-conversion.mjs");
+/* harmony import */ var _animation_utils_default_transitions_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./animation/utils/default-transitions.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/default-transitions.mjs");
+/* harmony import */ var _animation_keyframes_get_final_mjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./animation/keyframes/get-final.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/get-final.mjs");
+/* harmony import */ var _animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./animation/utils/get-value-transition.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/get-value-transition.mjs");
+/* harmony import */ var _animation_utils_resolve_transition_mjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./animation/utils/resolve-transition.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/resolve-transition.mjs");
+/* harmony import */ var _animation_utils_is_css_variable_mjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./animation/utils/is-css-variable.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/is-css-variable.mjs");
+/* harmony import */ var _animation_utils_is_transition_defined_mjs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./animation/utils/is-transition-defined.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/is-transition-defined.mjs");
+/* harmony import */ var _animation_utils_make_animation_instant_mjs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./animation/utils/make-animation-instant.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/make-animation-instant.mjs");
+/* harmony import */ var _animation_interfaces_motion_value_mjs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./animation/interfaces/motion-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/motion-value.mjs");
+/* harmony import */ var _animation_interfaces_visual_element_mjs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./animation/interfaces/visual-element.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs");
+/* harmony import */ var _animation_interfaces_visual_element_target_mjs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./animation/interfaces/visual-element-target.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element-target.mjs");
+/* harmony import */ var _animation_interfaces_visual_element_variant_mjs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./animation/interfaces/visual-element-variant.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/interfaces/visual-element-variant.mjs");
+/* harmony import */ var _animation_optimized_appear_data_id_mjs__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./animation/optimized-appear/data-id.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/optimized-appear/data-id.mjs");
+/* harmony import */ var _animation_optimized_appear_get_appear_id_mjs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./animation/optimized-appear/get-appear-id.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/optimized-appear/get-appear-id.mjs");
+/* harmony import */ var _animation_generators_inertia_mjs__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./animation/generators/inertia.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/inertia.mjs");
+/* harmony import */ var _animation_generators_keyframes_mjs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./animation/generators/keyframes.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/keyframes.mjs");
+/* harmony import */ var _animation_generators_spring_mjs__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./animation/generators/spring.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/spring.mjs");
+/* harmony import */ var _animation_generators_utils_calc_duration_mjs__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./animation/generators/utils/calc-duration.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/utils/calc-duration.mjs");
+/* harmony import */ var _animation_generators_utils_create_generator_easing_mjs__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./animation/generators/utils/create-generator-easing.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/utils/create-generator-easing.mjs");
+/* harmony import */ var _animation_generators_utils_is_generator_mjs__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./animation/generators/utils/is-generator.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/generators/utils/is-generator.mjs");
+/* harmony import */ var _animation_keyframes_DOMKeyframesResolver_mjs__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./animation/keyframes/DOMKeyframesResolver.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/DOMKeyframesResolver.mjs");
+/* harmony import */ var _animation_keyframes_KeyframesResolver_mjs__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./animation/keyframes/KeyframesResolver.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/KeyframesResolver.mjs");
+/* harmony import */ var _animation_keyframes_offsets_default_mjs__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./animation/keyframes/offsets/default.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/offsets/default.mjs");
+/* harmony import */ var _animation_keyframes_offsets_fill_mjs__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./animation/keyframes/offsets/fill.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/offsets/fill.mjs");
+/* harmony import */ var _animation_keyframes_offsets_time_mjs__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./animation/keyframes/offsets/time.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/offsets/time.mjs");
+/* harmony import */ var _animation_keyframes_utils_apply_px_defaults_mjs__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./animation/keyframes/utils/apply-px-defaults.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/apply-px-defaults.mjs");
+/* harmony import */ var _animation_keyframes_utils_fill_wildcards_mjs__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./animation/keyframes/utils/fill-wildcards.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/keyframes/utils/fill-wildcards.mjs");
+/* harmony import */ var _animation_waapi_easing_cubic_bezier_mjs__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./animation/waapi/easing/cubic-bezier.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/cubic-bezier.mjs");
+/* harmony import */ var _animation_waapi_easing_is_supported_mjs__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./animation/waapi/easing/is-supported.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/is-supported.mjs");
+/* harmony import */ var _animation_waapi_easing_map_easing_mjs__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./animation/waapi/easing/map-easing.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/map-easing.mjs");
+/* harmony import */ var _animation_waapi_easing_supported_mjs__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./animation/waapi/easing/supported.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/supported.mjs");
+/* harmony import */ var _animation_waapi_start_waapi_animation_mjs__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./animation/waapi/start-waapi-animation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/start-waapi-animation.mjs");
+/* harmony import */ var _animation_waapi_supports_partial_keyframes_mjs__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./animation/waapi/supports/partial-keyframes.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/supports/partial-keyframes.mjs");
+/* harmony import */ var _animation_waapi_supports_waapi_mjs__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./animation/waapi/supports/waapi.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/supports/waapi.mjs");
+/* harmony import */ var _animation_waapi_utils_accelerated_values_mjs__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./animation/waapi/utils/accelerated-values.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/accelerated-values.mjs");
+/* harmony import */ var _animation_waapi_utils_apply_generator_mjs__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./animation/waapi/utils/apply-generator.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/apply-generator.mjs");
+/* harmony import */ var _animation_waapi_utils_linear_mjs__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./animation/waapi/utils/linear.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/linear.mjs");
+/* harmony import */ var _effects_attr_index_mjs__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./effects/attr/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/attr/index.mjs");
+/* harmony import */ var _effects_prop_index_mjs__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./effects/prop/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/prop/index.mjs");
+/* harmony import */ var _effects_style_index_mjs__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./effects/style/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/style/index.mjs");
+/* harmony import */ var _effects_svg_index_mjs__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./effects/svg/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/effects/svg/index.mjs");
+/* harmony import */ var _frameloop_batcher_mjs__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./frameloop/batcher.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/batcher.mjs");
+/* harmony import */ var _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./frameloop/microtask.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/microtask.mjs");
+/* harmony import */ var _frameloop_sync_time_mjs__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./frameloop/sync-time.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/sync-time.mjs");
+/* harmony import */ var _gestures_drag_state_is_active_mjs__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./gestures/drag/state/is-active.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/drag/state/is-active.mjs");
+/* harmony import */ var _gestures_drag_state_set_active_mjs__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./gestures/drag/state/set-active.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/drag/state/set-active.mjs");
+/* harmony import */ var _gestures_hover_mjs__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./gestures/hover.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/hover.mjs");
+/* harmony import */ var _gestures_press_index_mjs__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./gestures/press/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/press/index.mjs");
+/* harmony import */ var _gestures_press_utils_is_keyboard_accessible_mjs__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./gestures/press/utils/is-keyboard-accessible.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/press/utils/is-keyboard-accessible.mjs");
+/* harmony import */ var _gestures_utils_is_node_or_child_mjs__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./gestures/utils/is-node-or-child.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/utils/is-node-or-child.mjs");
+/* harmony import */ var _gestures_utils_is_primary_pointer_mjs__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./gestures/utils/is-primary-pointer.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/gestures/utils/is-primary-pointer.mjs");
+/* harmony import */ var _render_dom_parse_transform_mjs__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./render/dom/parse-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/parse-transform.mjs");
+/* harmony import */ var _render_dom_style_computed_mjs__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./render/dom/style-computed.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-computed.mjs");
+/* harmony import */ var _render_dom_style_set_mjs__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./render/dom/style-set.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-set.mjs");
+/* harmony import */ var _render_utils_is_keyframes_target_mjs__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./render/utils/is-keyframes-target.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/is-keyframes-target.mjs");
+/* harmony import */ var _render_utils_keys_position_mjs__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./render/utils/keys-position.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/keys-position.mjs");
+/* harmony import */ var _render_utils_keys_transform_mjs__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./render/utils/keys-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs");
+/* harmony import */ var _resize_index_mjs__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./resize/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/resize/index.mjs");
+/* harmony import */ var _scroll_observe_mjs__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./scroll/observe.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/scroll/observe.mjs");
+/* harmony import */ var _stats_index_mjs__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./stats/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/stats/index.mjs");
+/* harmony import */ var _stats_buffer_mjs__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./stats/buffer.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/stats/buffer.mjs");
+/* harmony import */ var _utils_interpolate_mjs__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./utils/interpolate.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/interpolate.mjs");
+/* harmony import */ var _utils_is_html_element_mjs__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./utils/is-html-element.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-html-element.mjs");
+/* harmony import */ var _utils_is_svg_element_mjs__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./utils/is-svg-element.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-svg-element.mjs");
+/* harmony import */ var _utils_is_svg_svg_element_mjs__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./utils/is-svg-svg-element.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/is-svg-svg-element.mjs");
+/* harmony import */ var _utils_mix_index_mjs__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./utils/mix/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/index.mjs");
+/* harmony import */ var _utils_mix_color_mjs__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./utils/mix/color.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/color.mjs");
+/* harmony import */ var _utils_mix_complex_mjs__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./utils/mix/complex.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/complex.mjs");
+/* harmony import */ var _utils_mix_immediate_mjs__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./utils/mix/immediate.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/immediate.mjs");
+/* harmony import */ var _utils_mix_number_mjs__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./utils/mix/number.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/number.mjs");
+/* harmony import */ var _utils_mix_visibility_mjs__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./utils/mix/visibility.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/mix/visibility.mjs");
+/* harmony import */ var _utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./utils/resolve-elements.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+/* harmony import */ var _utils_stagger_mjs__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./utils/stagger.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/stagger.mjs");
+/* harmony import */ var _utils_supports_flags_mjs__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./utils/supports/flags.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/flags.mjs");
+/* harmony import */ var _utils_supports_linear_easing_mjs__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./utils/supports/linear-easing.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/linear-easing.mjs");
+/* harmony import */ var _utils_supports_scroll_timeline_mjs__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./utils/supports/scroll-timeline.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/scroll-timeline.mjs");
+/* harmony import */ var _utils_transform_mjs__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./utils/transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/transform.mjs");
+/* harmony import */ var _value_index_mjs__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./value/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _value_follow_value_mjs__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./value/follow-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/follow-value.mjs");
+/* harmony import */ var _value_map_value_mjs__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./value/map-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/map-value.mjs");
+/* harmony import */ var _value_spring_value_mjs__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./value/spring-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/spring-value.mjs");
+/* harmony import */ var _value_transform_value_mjs__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./value/transform-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/transform-value.mjs");
+/* harmony import */ var _value_types_color_index_mjs__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./value/types/color/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/color/index.mjs");
+/* harmony import */ var _value_types_color_hex_mjs__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./value/types/color/hex.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/color/hex.mjs");
+/* harmony import */ var _value_types_color_hsla_mjs__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./value/types/color/hsla.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/color/hsla.mjs");
+/* harmony import */ var _value_types_color_hsla_to_rgba_mjs__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./value/types/color/hsla-to-rgba.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/color/hsla-to-rgba.mjs");
+/* harmony import */ var _value_types_color_rgba_mjs__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./value/types/color/rgba.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/color/rgba.mjs");
+/* harmony import */ var _value_types_complex_index_mjs__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./value/types/complex/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/complex/index.mjs");
+/* harmony import */ var _value_types_dimensions_mjs__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./value/types/dimensions.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/dimensions.mjs");
+/* harmony import */ var _value_types_maps_defaults_mjs__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./value/types/maps/defaults.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/maps/defaults.mjs");
+/* harmony import */ var _value_types_maps_number_mjs__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./value/types/maps/number.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/maps/number.mjs");
+/* harmony import */ var _value_types_maps_transform_mjs__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./value/types/maps/transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/maps/transform.mjs");
+/* harmony import */ var _value_types_numbers_index_mjs__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./value/types/numbers/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/numbers/index.mjs");
+/* harmony import */ var _value_types_numbers_units_mjs__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./value/types/numbers/units.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/numbers/units.mjs");
+/* harmony import */ var _value_types_test_mjs__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./value/types/test.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/test.mjs");
+/* harmony import */ var _value_types_utils_animatable_none_mjs__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./value/types/utils/animatable-none.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/utils/animatable-none.mjs");
+/* harmony import */ var _value_types_utils_find_mjs__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./value/types/utils/find.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/utils/find.mjs");
+/* harmony import */ var _value_types_utils_get_as_type_mjs__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./value/types/utils/get-as-type.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/types/utils/get-as-type.mjs");
+/* harmony import */ var _value_utils_is_motion_value_mjs__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./value/utils/is-motion-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var _value_will_change_add_will_change_mjs__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./value/will-change/add-will-change.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/will-change/add-will-change.mjs");
+/* harmony import */ var _value_will_change_is_mjs__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./value/will-change/is.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/will-change/is.mjs");
+/* harmony import */ var _view_index_mjs__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./view/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/index.mjs");
+/* harmony import */ var _view_utils_get_layer_info_mjs__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./view/utils/get-layer-info.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-layer-info.mjs");
+/* harmony import */ var _view_utils_get_view_animations_mjs__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./view/utils/get-view-animations.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-view-animations.mjs");
+/* harmony import */ var _render_dom_DOMVisualElement_mjs__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./render/dom/DOMVisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/DOMVisualElement.mjs");
+/* harmony import */ var _render_Feature_mjs__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./render/Feature.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/Feature.mjs");
+/* harmony import */ var _render_html_HTMLVisualElement_mjs__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./render/html/HTMLVisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/HTMLVisualElement.mjs");
+/* harmony import */ var _render_object_ObjectVisualElement_mjs__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./render/object/ObjectVisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/object/ObjectVisualElement.mjs");
+/* harmony import */ var _render_store_mjs__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./render/store.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/store.mjs");
+/* harmony import */ var _render_svg_SVGVisualElement_mjs__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./render/svg/SVGVisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/SVGVisualElement.mjs");
+/* harmony import */ var _render_VisualElement_mjs__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./render/VisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/VisualElement.mjs");
+/* harmony import */ var _render_utils_animation_state_mjs__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./render/utils/animation-state.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/animation-state.mjs");
+/* harmony import */ var _render_utils_get_variant_context_mjs__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./render/utils/get-variant-context.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/get-variant-context.mjs");
+/* harmony import */ var _render_utils_is_animation_controls_mjs__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./render/utils/is-animation-controls.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/is-animation-controls.mjs");
+/* harmony import */ var _render_utils_is_controlling_variants_mjs__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./render/utils/is-controlling-variants.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/is-controlling-variants.mjs");
+/* harmony import */ var _render_utils_is_forced_motion_value_mjs__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./render/utils/is-forced-motion-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/is-forced-motion-value.mjs");
+/* harmony import */ var _render_utils_is_variant_label_mjs__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./render/utils/is-variant-label.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/is-variant-label.mjs");
+/* harmony import */ var _render_utils_motion_values_mjs__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./render/utils/motion-values.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/motion-values.mjs");
+/* harmony import */ var _render_utils_resolve_dynamic_variants_mjs__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./render/utils/resolve-dynamic-variants.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/resolve-dynamic-variants.mjs");
+/* harmony import */ var _render_utils_resolve_variants_mjs__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./render/utils/resolve-variants.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/resolve-variants.mjs");
+/* harmony import */ var _render_utils_setters_mjs__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./render/utils/setters.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/setters.mjs");
+/* harmony import */ var _render_utils_variant_props_mjs__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./render/utils/variant-props.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/variant-props.mjs");
+/* harmony import */ var _render_utils_reduced_motion_index_mjs__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./render/utils/reduced-motion/index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/reduced-motion/index.mjs");
+/* harmony import */ var _projection_geometry_conversion_mjs__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./projection/geometry/conversion.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/conversion.mjs");
+/* harmony import */ var _projection_geometry_copy_mjs__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./projection/geometry/copy.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/copy.mjs");
+/* harmony import */ var _projection_geometry_delta_apply_mjs__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./projection/geometry/delta-apply.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/delta-apply.mjs");
+/* harmony import */ var _projection_geometry_delta_calc_mjs__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ./projection/geometry/delta-calc.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/delta-calc.mjs");
+/* harmony import */ var _projection_geometry_delta_remove_mjs__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./projection/geometry/delta-remove.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/delta-remove.mjs");
+/* harmony import */ var _projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./projection/geometry/models.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/models.mjs");
+/* harmony import */ var _projection_geometry_utils_mjs__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./projection/geometry/utils.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/utils.mjs");
+/* harmony import */ var _projection_utils_each_axis_mjs__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./projection/utils/each-axis.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/utils/each-axis.mjs");
+/* harmony import */ var _projection_utils_has_transform_mjs__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./projection/utils/has-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/utils/has-transform.mjs");
+/* harmony import */ var _projection_utils_measure_mjs__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./projection/utils/measure.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/utils/measure.mjs");
+/* harmony import */ var _projection_styles_scale_border_radius_mjs__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./projection/styles/scale-border-radius.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/styles/scale-border-radius.mjs");
+/* harmony import */ var _projection_styles_scale_box_shadow_mjs__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(/*! ./projection/styles/scale-box-shadow.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/styles/scale-box-shadow.mjs");
+/* harmony import */ var _projection_styles_transform_mjs__WEBPACK_IMPORTED_MODULE_145__ = __webpack_require__(/*! ./projection/styles/transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/styles/transform.mjs");
+/* harmony import */ var _projection_animation_mix_values_mjs__WEBPACK_IMPORTED_MODULE_146__ = __webpack_require__(/*! ./projection/animation/mix-values.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/animation/mix-values.mjs");
+/* harmony import */ var _animation_animate_single_value_mjs__WEBPACK_IMPORTED_MODULE_147__ = __webpack_require__(/*! ./animation/animate/single-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/animate/single-value.mjs");
+/* harmony import */ var _events_add_dom_event_mjs__WEBPACK_IMPORTED_MODULE_148__ = __webpack_require__(/*! ./events/add-dom-event.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/events/add-dom-event.mjs");
+/* harmony import */ var _projection_utils_compare_by_depth_mjs__WEBPACK_IMPORTED_MODULE_149__ = __webpack_require__(/*! ./projection/utils/compare-by-depth.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/utils/compare-by-depth.mjs");
+/* harmony import */ var _projection_utils_flat_tree_mjs__WEBPACK_IMPORTED_MODULE_150__ = __webpack_require__(/*! ./projection/utils/flat-tree.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/utils/flat-tree.mjs");
+/* harmony import */ var _utils_delay_mjs__WEBPACK_IMPORTED_MODULE_151__ = __webpack_require__(/*! ./utils/delay.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/delay.mjs");
+/* harmony import */ var _value_utils_resolve_motion_value_mjs__WEBPACK_IMPORTED_MODULE_152__ = __webpack_require__(/*! ./value/utils/resolve-motion-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/resolve-motion-value.mjs");
+/* harmony import */ var _projection_node_create_projection_node_mjs__WEBPACK_IMPORTED_MODULE_153__ = __webpack_require__(/*! ./projection/node/create-projection-node.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/create-projection-node.mjs");
+/* harmony import */ var _projection_node_DocumentProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_154__ = __webpack_require__(/*! ./projection/node/DocumentProjectionNode.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/DocumentProjectionNode.mjs");
+/* harmony import */ var _projection_node_group_mjs__WEBPACK_IMPORTED_MODULE_155__ = __webpack_require__(/*! ./projection/node/group.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/group.mjs");
+/* harmony import */ var _projection_node_HTMLProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_156__ = __webpack_require__(/*! ./projection/node/HTMLProjectionNode.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/HTMLProjectionNode.mjs");
+/* harmony import */ var _projection_node_state_mjs__WEBPACK_IMPORTED_MODULE_157__ = __webpack_require__(/*! ./projection/node/state.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/state.mjs");
+/* harmony import */ var _projection_shared_stack_mjs__WEBPACK_IMPORTED_MODULE_158__ = __webpack_require__(/*! ./projection/shared/stack.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/shared/stack.mjs");
+/* harmony import */ var _render_dom_utils_camel_to_dash_mjs__WEBPACK_IMPORTED_MODULE_159__ = __webpack_require__(/*! ./render/dom/utils/camel-to-dash.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/utils/camel-to-dash.mjs");
+/* harmony import */ var _render_html_utils_build_styles_mjs__WEBPACK_IMPORTED_MODULE_160__ = __webpack_require__(/*! ./render/html/utils/build-styles.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/utils/build-styles.mjs");
+/* harmony import */ var _render_html_utils_build_transform_mjs__WEBPACK_IMPORTED_MODULE_161__ = __webpack_require__(/*! ./render/html/utils/build-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/utils/build-transform.mjs");
+/* harmony import */ var _render_html_utils_render_mjs__WEBPACK_IMPORTED_MODULE_162__ = __webpack_require__(/*! ./render/html/utils/render.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/utils/render.mjs");
+/* harmony import */ var _render_html_utils_scrape_motion_values_mjs__WEBPACK_IMPORTED_MODULE_163__ = __webpack_require__(/*! ./render/html/utils/scrape-motion-values.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/utils/scrape-motion-values.mjs");
+/* harmony import */ var _render_svg_utils_build_attrs_mjs__WEBPACK_IMPORTED_MODULE_164__ = __webpack_require__(/*! ./render/svg/utils/build-attrs.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/utils/build-attrs.mjs");
+/* harmony import */ var _render_svg_utils_camel_case_attrs_mjs__WEBPACK_IMPORTED_MODULE_165__ = __webpack_require__(/*! ./render/svg/utils/camel-case-attrs.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/utils/camel-case-attrs.mjs");
+/* harmony import */ var _render_svg_utils_is_svg_tag_mjs__WEBPACK_IMPORTED_MODULE_166__ = __webpack_require__(/*! ./render/svg/utils/is-svg-tag.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/utils/is-svg-tag.mjs");
+/* harmony import */ var _render_svg_utils_path_mjs__WEBPACK_IMPORTED_MODULE_167__ = __webpack_require__(/*! ./render/svg/utils/path.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/utils/path.mjs");
+/* harmony import */ var _render_svg_utils_render_mjs__WEBPACK_IMPORTED_MODULE_168__ = __webpack_require__(/*! ./render/svg/utils/render.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/utils/render.mjs");
+/* harmony import */ var _render_svg_utils_scrape_motion_values_mjs__WEBPACK_IMPORTED_MODULE_169__ = __webpack_require__(/*! ./render/svg/utils/scrape-motion-values.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/svg/utils/scrape-motion-values.mjs");
+/* harmony import */ var _layout_LayoutAnimationBuilder_mjs__WEBPACK_IMPORTED_MODULE_170__ = __webpack_require__(/*! ./layout/LayoutAnimationBuilder.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/layout/LayoutAnimationBuilder.mjs");
+/* harmony import */ var _frameloop_index_legacy_mjs__WEBPACK_IMPORTED_MODULE_171__ = __webpack_require__(/*! ./frameloop/index-legacy.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/index-legacy.mjs");
+/* harmony import */ var _projection_styles_scale_correction_mjs__WEBPACK_IMPORTED_MODULE_172__ = __webpack_require__(/*! ./projection/styles/scale-correction.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/styles/scale-correction.mjs");
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_173__ = __webpack_require__(/*! ./frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+/* harmony import */ var _render_utils_reduced_motion_state_mjs__WEBPACK_IMPORTED_MODULE_174__ = __webpack_require__(/*! ./render/utils/reduced-motion/state.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/utils/reduced-motion/state.mjs");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/layout/LayoutAnimationBuilder.mjs"
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/layout/LayoutAnimationBuilder.mjs ***!
+  \***********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LayoutAnimationBuilder: () => (/* binding */ LayoutAnimationBuilder),
+/* harmony export */   parseAnimateLayoutArgs: () => (/* binding */ parseAnimateLayoutArgs)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/clamp.mjs");
+/* harmony import */ var _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../animation/GroupAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimation.mjs");
+/* harmony import */ var _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../frameloop/microtask.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/microtask.mjs");
+/* harmony import */ var _frameloop_sync_time_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../frameloop/sync-time.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/sync-time.mjs");
+/* harmony import */ var _projection_node_HTMLProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../projection/node/HTMLProjectionNode.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/HTMLProjectionNode.mjs");
+/* harmony import */ var _render_html_HTMLVisualElement_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../render/html/HTMLVisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/html/HTMLVisualElement.mjs");
+/* harmony import */ var _render_store_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../render/store.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/store.mjs");
+/* harmony import */ var _projection_utils_has_transform_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../projection/utils/has-transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/utils/has-transform.mjs");
+/* harmony import */ var _utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/resolve-elements.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+
+
+
+
+
+
+
+
+
+
+
+const layoutSelector = "[data-layout],[data-layout-id]";
+/**
+ * All imperatively-created projection nodes live in one persistent tree,
+ * shared across animateLayout() calls (and with any React-created nodes,
+ * via the singleton document root). Keyed by element for reuse.
+ */
+const layoutNodes = new WeakMap();
+/**
+ * Builders created within the same synchronous tick are flushed together
+ * as a single "commit": every node is snapshotted before any updateDom
+ * runs, mirroring React batching renders from different parts of the tree.
+ */
+let pendingBuilders;
+function collectLayoutElements(scope) {
+    const elements = [];
+    if (scope instanceof HTMLElement && scope.matches(layoutSelector)) {
+        elements.push(scope);
+    }
+    scope.querySelectorAll(layoutSelector).forEach((element) => {
+        if (element instanceof HTMLElement)
+            elements.push(element);
+    });
+    return elements;
+}
+/**
+ * Process any work scheduled on the frameloop now. A previous animation
+ * may have been seeked while paused (controls.time = x) without a frame
+ * having rendered it - we must materialise that state into the DOM
+ * before taking snapshots.
+ */
+function flushPendingFrame() {
+    if (_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData.isProcessing)
+        return;
+    const now = _frameloop_sync_time_mjs__WEBPACK_IMPORTED_MODULE_3__.time.now();
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData.delta = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.clamp)(0, 1000 / 60, now - _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData.timestamp);
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData.timestamp = now;
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData.isProcessing = true;
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameSteps.update.process(_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData);
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameSteps.preRender.process(_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData);
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameSteps.render.process(_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData);
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_9__.frameData.isProcessing = false;
+}
+function getProjectionParent(element) {
+    let ancestor = element.parentElement;
+    while (ancestor) {
+        const node = layoutNodes.get(ancestor);
+        if (node && node.instance)
+            return node;
+        ancestor = ancestor.parentElement;
+    }
+    return undefined;
+}
+function createVisualElement() {
+    return new _render_html_HTMLVisualElement_mjs__WEBPACK_IMPORTED_MODULE_5__.HTMLVisualElement({
+        props: {},
+        presenceContext: null,
+        visualState: {
+            latestValues: {},
+            renderState: {
+                transform: {},
+                transformOrigin: {},
+                style: {},
+                vars: {},
+            },
+        },
+    }, { allowProjection: true });
+}
+function readNodeOptions(element, transition) {
+    const layoutAttr = element.getAttribute("data-layout");
+    const layoutId = element.getAttribute("data-layout-id") ?? undefined;
+    return {
+        layoutId,
+        layout: layoutAttr !== null ? true : undefined,
+        animationType: (!layoutAttr || layoutAttr === "true"
+            ? "both"
+            : layoutAttr),
+        transition,
+    };
+}
+function prepareNode(element, transition) {
+    let node = layoutNodes.get(element);
+    if (!node) {
+        let visualElement = _render_store_mjs__WEBPACK_IMPORTED_MODULE_6__.visualElementStore.get(element);
+        if (!visualElement)
+            visualElement = createVisualElement();
+        /**
+         * A first-time element may carry a projection transform in its
+         * inline style (e.g. it was cloned from an element mid-animation).
+         * That transform isn't tracked in latestValues so the engine can't
+         * reset it before measuring - clear it now so the first layout
+         * measurement isn't inflated.
+         */
+        if (element.style.transform &&
+            !(0,_projection_utils_has_transform_mjs__WEBPACK_IMPORTED_MODULE_7__.hasTransform)(visualElement.latestValues)) {
+            element.style.transform = "";
+        }
+        node = new _projection_node_HTMLProjectionNode_mjs__WEBPACK_IMPORTED_MODULE_4__.HTMLProjectionNode(visualElement.latestValues, getProjectionParent(element));
+        visualElement.projection = node;
+        node.setOptions({
+            ...readNodeOptions(element, transition),
+            visualElement,
+        });
+        node.mount(element);
+        layoutNodes.set(element, node);
+    }
+    else {
+        node.setOptions(readNodeOptions(element, transition));
+    }
+    node.isPresent = true;
+    if (node.options.onExitComplete) {
+        node.setOptions({ onExitComplete: undefined });
+    }
+    return node;
+}
+function sortDocumentOrder(elements) {
+    return [...elements].sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
+}
+function dropNode(element, node) {
+    node.setOptions({ onExitComplete: undefined });
+    /**
+     * Stop any lingering animation so it can't leak into future updates.
+     * A follow node can share its currentAnimation with a surviving lead
+     * (via resumingFrom), in which case it isn't ours to stop.
+     */
+    const stack = node.getStack();
+    if (!stack || node.isLead())
+        node.currentAnimation?.stop();
+    node.unmount();
+    layoutNodes.delete(element);
+}
+function flushPendingBuilders() {
+    const builders = pendingBuilders;
+    pendingBuilders = undefined;
+    flushPendingFrame();
+    /**
+     * Discover and mount every node across all builders before snapshotting
+     * any of them. Mounting during an active update flags isLayoutDirty,
+     * which would make that node's own willUpdate skip its snapshot.
+     * Document order guarantees ancestors mount before descendants, even
+     * when they're discovered by different builders.
+     */
+    const targets = new Map();
+    for (const builder of builders) {
+        for (const element of builder.collectTargets()) {
+            const owners = targets.get(element);
+            owners ? owners.push(builder) : targets.set(element, [builder]);
+        }
+    }
+    const union = new Map();
+    for (const element of sortDocumentOrder(targets.keys())) {
+        const owners = targets.get(element);
+        const node = prepareNode(element, owners[owners.length - 1].transitionFor(element));
+        for (const owner of owners)
+            owner.adopt(element, node);
+        union.set(element, node);
+    }
+    union.forEach((node) => {
+        node.isLayoutDirty = false;
+        node.willUpdate();
+    });
+    const updatePromises = [];
+    for (const builder of builders) {
+        const result = builder.runUpdate();
+        if (result)
+            updatePromises.push(result);
+    }
+    const commit = () => {
+        /**
+         * Process all additions before any removals so that, even across
+         * builders, a removed member knows whether a replacement with the
+         * same layoutId was added in this commit.
+         */
+        const newMemberIds = new Set();
+        for (const builder of builders) {
+            builder.reconcileAdditions(newMemberIds);
+        }
+        for (const builder of builders) {
+            builder.reconcileRemovals(newMemberIds);
+        }
+        let root;
+        union.forEach((node) => (root || (root = node.root)));
+        for (const builder of builders)
+            root || (root = builder.getRoot());
+        root?.didUpdate();
+        /**
+         * The root flushes the update on a microtask, synchronously
+         * processing the frame that creates the layout animations. Collect
+         * them in a later microtask step of the same pass.
+         */
+        _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_2__.microtask.render(() => {
+            for (const builder of builders)
+                builder.finalize();
+        });
+    };
+    updatePromises.length ? Promise.all(updatePromises).then(commit) : commit();
+}
+class LayoutAnimationBuilder {
+    constructor(scope, updateDom, defaultOptions) {
+        this.scope = scope;
+        this.updateDom = updateDom;
+        this.defaultOptions = defaultOptions;
+        this.sharedTransitions = new Map();
+        this.notifyReady = () => { };
+        this.rejectReady = () => { };
+        this.tracked = new Map();
+        this.restorePoints = new Map();
+        this.readyPromise = new Promise((resolve, reject) => {
+            this.notifyReady = resolve;
+            this.rejectReady = reject;
+        });
+        if (!pendingBuilders) {
+            pendingBuilders = [];
+            queueMicrotask(flushPendingBuilders);
+        }
+        pendingBuilders.push(this);
+    }
+    shared(id, transition) {
+        this.sharedTransitions.set(id, transition);
+        return this;
+    }
+    then(resolve, reject) {
+        return this.readyPromise.then(resolve, reject);
+    }
+    transitionFor(element) {
+        const layoutId = element.getAttribute("data-layout-id");
+        return ((layoutId && this.sharedTransitions.get(layoutId)) ||
+            this.defaultOptions);
+    }
+    adopt(element, node) {
+        this.tracked.set(element, node);
+        this.restorePoints.set(element, {
+            parent: element.parentElement,
+            next: element.nextSibling,
+        });
+    }
+    collectTargets() {
+        return collectLayoutElements(this.scope);
+    }
+    runUpdate() {
+        try {
+            const result = this.updateDom();
+            if (result && typeof result.then === "function") {
+                return result.then(undefined, (error) => {
+                    this.updateError = error;
+                });
+            }
+        }
+        catch (error) {
+            this.updateError = error;
+        }
+        return undefined;
+    }
+    reconcileAdditions(newMemberIds) {
+        for (const element of collectLayoutElements(this.scope)) {
+            if (this.tracked.has(element))
+                continue;
+            const node = prepareNode(element, this.transitionFor(element));
+            this.adopt(element, node);
+            node.options.layoutId && newMemberIds.add(node.options.layoutId);
+        }
+    }
+    reconcileRemovals(newMemberIds) {
+        this.tracked.forEach((node, element) => {
+            if (element.isConnected)
+                return;
+            const restore = this.restorePoints.get(element);
+            this.restorePoints.delete(element);
+            const { layoutId } = node.options;
+            const stack = node.getStack();
+            const hasSurvivor = stack &&
+                stack.members.some((member) => member !== node &&
+                    member.instance
+                        ?.isConnected);
+            /**
+             * A removed lead with a surviving stack member - and no
+             * replacement member added this commit - runs an exit
+             * crossfade: restore the element to its old position in the
+             * DOM, relegate it and let the survivor take over. It's
+             * removed again once the animation completes.
+             */
+            if (layoutId &&
+                node.isLead() &&
+                hasSurvivor &&
+                !newMemberIds.has(layoutId)) {
+                if (restore && restore.parent.isConnected) {
+                    restore.parent.insertBefore(element, restore.next && restore.next.parentNode === restore.parent
+                        ? restore.next
+                        : null);
+                    node.isPresent = false;
+                    node.setOptions({
+                        onExitComplete: () => {
+                            element.remove();
+                            dropNode(element, node);
+                        },
+                    });
+                    if (node.relegate())
+                        return;
+                    element.remove();
+                }
+            }
+            dropNode(element, node);
+            this.tracked.delete(element);
+        });
+    }
+    getRoot() {
+        let root;
+        this.tracked.forEach((node) => (root || (root = node.root)));
+        return root;
+    }
+    finalize() {
+        if (this.updateError) {
+            this.rejectReady(this.updateError);
+            return;
+        }
+        const animations = new Set();
+        this.tracked.forEach((node) => {
+            if (node.instance && node.currentAnimation) {
+                animations.add(node.currentAnimation);
+            }
+        });
+        this.notifyReady(new _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_1__.GroupAnimation([...animations]));
+    }
+}
+function parseAnimateLayoutArgs(scopeOrUpdateDom, updateDomOrOptions, options) {
+    if (typeof scopeOrUpdateDom === "function") {
+        return {
+            scope: document,
+            updateDom: scopeOrUpdateDom,
+            defaultOptions: updateDomOrOptions,
+        };
+    }
+    const scope = scopeOrUpdateDom instanceof Document
+        ? scopeOrUpdateDom
+        : (0,_utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_8__.resolveElements)(scopeOrUpdateDom)[0] ?? document;
+    return {
+        scope,
+        updateDom: updateDomOrOptions,
+        defaultOptions: options,
+    };
+}
+
+
+//# sourceMappingURL=LayoutAnimationBuilder.mjs.map
 
 
 /***/ },
@@ -10782,6 +19509,45 @@ function checkNodeWasScrollRoot(node) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/group.mjs"
+/*!***************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/group.mjs ***!
+  \***************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   nodeGroup: () => (/* binding */ nodeGroup)
+/* harmony export */ });
+const notify = (node) => !node.isLayoutDirty && node.willUpdate(false);
+function nodeGroup() {
+    const nodes = new Set();
+    const subscriptions = new WeakMap();
+    const dirtyAll = () => nodes.forEach(notify);
+    return {
+        add: (node) => {
+            nodes.add(node);
+            subscriptions.set(node, node.addEventListener("willUpdate", dirtyAll));
+        },
+        remove: (node) => {
+            nodes.delete(node);
+            const unsubscribe = subscriptions.get(node);
+            if (unsubscribe) {
+                unsubscribe();
+                subscriptions.delete(node);
+            }
+            dirtyAll();
+        },
+        dirty: dirtyAll,
+    };
+}
+
+
+//# sourceMappingURL=group.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/state.mjs"
 /*!***************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/projection/node/state.mjs ***!
@@ -12103,6 +20869,32 @@ function convertTransformToNumber(value) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-computed.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-computed.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getComputedStyle: () => (/* binding */ getComputedStyle)
+/* harmony export */ });
+/* harmony import */ var _is_css_var_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./is-css-var.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/is-css-var.mjs");
+
+
+function getComputedStyle(element, name) {
+    const computedStyle = window.getComputedStyle(element);
+    return (0,_is_css_var_mjs__WEBPACK_IMPORTED_MODULE_0__.isCSSVar)(name)
+        ? computedStyle.getPropertyValue(name)
+        : computedStyle[name];
+}
+
+
+//# sourceMappingURL=style-computed.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-set.mjs"
 /*!**************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/render/dom/style-set.mjs ***!
@@ -12467,6 +21259,64 @@ function scrapeMotionValuesFromProps(props, prevProps, visualElement) {
 
 
 //# sourceMappingURL=scrape-motion-values.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/render/object/ObjectVisualElement.mjs"
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/render/object/ObjectVisualElement.mjs ***!
+  \***************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ObjectVisualElement: () => (/* binding */ ObjectVisualElement)
+/* harmony export */ });
+/* harmony import */ var _projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../projection/geometry/models.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/projection/geometry/models.mjs");
+/* harmony import */ var _VisualElement_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../VisualElement.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/render/VisualElement.mjs");
+
+
+
+function isObjectKey(key, object) {
+    return key in object;
+}
+class ObjectVisualElement extends _VisualElement_mjs__WEBPACK_IMPORTED_MODULE_1__.VisualElement {
+    constructor() {
+        super(...arguments);
+        this.type = "object";
+    }
+    readValueFromInstance(instance, key) {
+        if (isObjectKey(key, instance)) {
+            const value = instance[key];
+            if (typeof value === "string" || typeof value === "number") {
+                return value;
+            }
+        }
+        return undefined;
+    }
+    getBaseTargetFromProps() {
+        return undefined;
+    }
+    removeValueFromRenderState(key, renderState) {
+        delete renderState.output[key];
+    }
+    measureInstanceViewportBox() {
+        return (0,_projection_geometry_models_mjs__WEBPACK_IMPORTED_MODULE_0__.createBox)();
+    }
+    build(renderState, latestValues) {
+        Object.assign(renderState.output, latestValues);
+    }
+    renderInstance(instance, { output }) {
+        Object.assign(instance, output);
+    }
+    sortInstanceNodePosition() {
+        return 0;
+    }
+}
+
+
+//# sourceMappingURL=ObjectVisualElement.mjs.map
 
 
 /***/ },
@@ -13952,6 +22802,40 @@ function resize(a, b) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/scroll/observe.mjs"
+/*!********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/scroll/observe.mjs ***!
+  \********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   observeTimeline: () => (/* binding */ observeTimeline)
+/* harmony export */ });
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+
+
+function observeTimeline(update, timeline) {
+    let prevProgress;
+    const onFrame = () => {
+        const { currentTime } = timeline;
+        const percentage = currentTime === null ? 0 : currentTime.value;
+        const progress = percentage / 100;
+        if (prevProgress !== progress) {
+            update(progress);
+        }
+        prevProgress = progress;
+    };
+    _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.frame.preUpdate(onFrame, true);
+    return () => (0,_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.cancelFrame)(onFrame);
+}
+
+
+//# sourceMappingURL=observe.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/stats/buffer.mjs"
 /*!******************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/stats/buffer.mjs ***!
@@ -13969,6 +22853,50 @@ const statsBuffer = {
 
 
 //# sourceMappingURL=buffer.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/stats/index.mjs"
+/*!*****************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/stats/index.mjs ***!
+  \*****************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   recordStats: () => (/* binding */ recordStats)
+/* harmony export */ });
+/* harmony import */ var _buffer_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buffer.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/stats/buffer.mjs");
+
+
+function clearStatsBuffer() {
+    _buffer_mjs__WEBPACK_IMPORTED_MODULE_0__.statsBuffer.value = null;
+    _buffer_mjs__WEBPACK_IMPORTED_MODULE_0__.statsBuffer.addProjectionMetrics = null;
+}
+function recordStats() {
+    if (_buffer_mjs__WEBPACK_IMPORTED_MODULE_0__.statsBuffer.value) {
+        clearStatsBuffer();
+        throw new Error("Stats are already being measured");
+    }
+    const buffer = _buffer_mjs__WEBPACK_IMPORTED_MODULE_0__.statsBuffer;
+    buffer.value = {
+        layoutProjection: {
+            nodes: [],
+            calculatedTargetDeltas: [],
+            calculatedProjections: [],
+        },
+    };
+    buffer.addProjectionMetrics = (metrics) => {
+        const { layoutProjection } = buffer.value;
+        layoutProjection.nodes.push(metrics.nodes);
+        layoutProjection.calculatedTargetDeltas.push(metrics.calculatedTargetDeltas);
+        layoutProjection.calculatedProjections.push(metrics.calculatedProjections);
+    };
+}
+
+
+//# sourceMappingURL=index.mjs.map
 
 
 /***/ },
@@ -14572,6 +23500,49 @@ function resolveElements(elementOrSelector, scope, selectorCache) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/stagger.mjs"
+/*!*******************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/utils/stagger.mjs ***!
+  \*******************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getOriginIndex: () => (/* binding */ getOriginIndex),
+/* harmony export */   stagger: () => (/* binding */ stagger)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/map.mjs");
+
+
+function getOriginIndex(from, total) {
+    if (from === "first") {
+        return 0;
+    }
+    else {
+        const lastIndex = total - 1;
+        return from === "last" ? lastIndex : lastIndex / 2;
+    }
+}
+function stagger(duration = 0.1, { startDelay = 0, from = 0, ease } = {}) {
+    return (i, total) => {
+        const fromIndex = typeof from === "number" ? from : getOriginIndex(from, total);
+        const distance = Math.abs(fromIndex - i);
+        let delay = duration * distance;
+        if (ease) {
+            const maxDelay = total * duration;
+            const easingFunction = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.easingDefinitionToFunction)(ease);
+            delay = easingFunction(delay / maxDelay) * maxDelay;
+        }
+        return startDelay + delay;
+    };
+}
+
+
+//# sourceMappingURL=stagger.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/flags.mjs"
 /*!**************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-dom/dist/es/utils/supports/flags.mjs ***!
@@ -14670,6 +23641,179 @@ const supportsViewTimeline = /* @__PURE__ */ (0,_memo_mjs__WEBPACK_IMPORTED_MODU
 
 
 //# sourceMappingURL=scroll-timeline.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/transform.mjs"
+/*!*********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/utils/transform.mjs ***!
+  \*********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   transform: () => (/* binding */ transform)
+/* harmony export */ });
+/* harmony import */ var _interpolate_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./interpolate.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/interpolate.mjs");
+
+
+function transform(...args) {
+    const useImmediate = !Array.isArray(args[0]);
+    const argOffset = useImmediate ? 0 : -1;
+    const inputValue = args[0 + argOffset];
+    const inputRange = args[1 + argOffset];
+    const outputRange = args[2 + argOffset];
+    const options = args[3 + argOffset];
+    const interpolator = (0,_interpolate_mjs__WEBPACK_IMPORTED_MODULE_0__.interpolate)(inputRange, outputRange, options);
+    return useImmediate ? interpolator(inputValue) : interpolator;
+}
+
+
+//# sourceMappingURL=transform.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/value/follow-value.mjs"
+/*!************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/value/follow-value.mjs ***!
+  \************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   attachFollow: () => (/* binding */ attachFollow),
+/* harmony export */   followValue: () => (/* binding */ followValue)
+/* harmony export */ });
+/* harmony import */ var _index_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _animation_JSAnimation_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../animation/JSAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/JSAnimation.mjs");
+/* harmony import */ var _utils_is_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/is-motion-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs");
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+
+
+
+
+
+/**
+ * Create a `MotionValue` that animates to its latest value using any transition type.
+ * Can either be a value or track another `MotionValue`.
+ *
+ * ```jsx
+ * const x = motionValue(0)
+ * const y = followValue(x, { type: "spring", stiffness: 300 })
+ * // or with tween
+ * const z = followValue(x, { type: "tween", duration: 0.5, ease: "easeOut" })
+ * ```
+ *
+ * @param source - Initial value or MotionValue to track
+ * @param options - Animation transition options
+ * @returns `MotionValue`
+ *
+ * @public
+ */
+function followValue(source, options) {
+    const initialValue = (0,_utils_is_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__.isMotionValue)(source) ? source.get() : source;
+    const value = (0,_index_mjs__WEBPACK_IMPORTED_MODULE_0__.motionValue)(initialValue);
+    attachFollow(value, source, options);
+    return value;
+}
+/**
+ * Attach an animation to a MotionValue that will animate whenever the value changes.
+ * Similar to attachSpring but supports any transition type (spring, tween, inertia, etc.)
+ *
+ * @param value - The MotionValue to animate
+ * @param source - Initial value or MotionValue to track
+ * @param options - Animation transition options
+ * @returns Cleanup function
+ *
+ * @public
+ */
+function attachFollow(value, source, options = {}) {
+    const initialValue = value.get();
+    let activeAnimation = null;
+    let latestValue = initialValue;
+    let latestSetter;
+    const unit = typeof initialValue === "string"
+        ? initialValue.replace(/[\d.-]/g, "")
+        : undefined;
+    const stopAnimation = () => {
+        if (activeAnimation) {
+            activeAnimation.stop();
+            activeAnimation = null;
+        }
+        value.animation = undefined;
+    };
+    const startAnimation = () => {
+        const currentValue = asNumber(value.get());
+        const targetValue = asNumber(latestValue);
+        // Don't animate if we're already at the target
+        if (currentValue === targetValue) {
+            stopAnimation();
+            return;
+        }
+        // Use the running animation's analytical velocity for accuracy,
+        // falling back to the MotionValue's velocity for the initial animation.
+        // This prevents systematic velocity loss at high frame rates (240hz+).
+        const velocity = activeAnimation
+            ? activeAnimation.getGeneratorVelocity()
+            : value.getVelocity();
+        stopAnimation();
+        activeAnimation = new _animation_JSAnimation_mjs__WEBPACK_IMPORTED_MODULE_1__.JSAnimation({
+            keyframes: [currentValue, targetValue],
+            velocity,
+            // Default to spring if no type specified (matches useSpring behavior)
+            type: "spring",
+            restDelta: 0.001,
+            restSpeed: 0.01,
+            ...options,
+            onUpdate: latestSetter,
+        });
+    };
+    // Use a stable function reference so the frame loop Set deduplicates
+    // multiple calls within the same frame (e.g. rapid mouse events)
+    const scheduleAnimation = () => {
+        startAnimation();
+        value.animation = activeAnimation ?? undefined;
+        value["events"].animationStart?.notify();
+        activeAnimation?.then(() => {
+            value.animation = undefined;
+            value["events"].animationComplete?.notify();
+        });
+    };
+    value.attach((v, set) => {
+        latestValue = v;
+        latestSetter = (latest) => set(parseValue(latest, unit));
+        _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_3__.frame.postRender(scheduleAnimation);
+    }, stopAnimation);
+    if ((0,_utils_is_motion_value_mjs__WEBPACK_IMPORTED_MODULE_2__.isMotionValue)(source)) {
+        let skipNextAnimation = options.skipInitialAnimation === true;
+        const removeSourceOnChange = source.on("change", (v) => {
+            if (skipNextAnimation) {
+                skipNextAnimation = false;
+                value.jump(parseValue(v, unit), false);
+            }
+            else {
+                value.set(parseValue(v, unit));
+            }
+        });
+        const removeValueOnDestroy = value.on("destroy", removeSourceOnChange);
+        return () => {
+            removeSourceOnChange();
+            removeValueOnDestroy();
+        };
+    }
+    return stopAnimation;
+}
+function parseValue(v, unit) {
+    return unit ? v + unit : v;
+}
+function asNumber(v) {
+    return typeof v === "number" ? v : parseFloat(v);
+}
+
+
+//# sourceMappingURL=follow-value.mjs.map
 
 
 /***/ },
@@ -15015,6 +24159,202 @@ function motionValue(init, options) {
 
 
 //# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/value/map-value.mjs"
+/*!*********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/value/map-value.mjs ***!
+  \*********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   mapValue: () => (/* binding */ mapValue)
+/* harmony export */ });
+/* harmony import */ var _utils_transform_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/transform.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/transform.mjs");
+/* harmony import */ var _transform_value_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./transform-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/transform-value.mjs");
+
+
+
+/**
+ * Create a `MotionValue` that maps the output of another `MotionValue` by
+ * mapping it from one range of values into another.
+ *
+ * @remarks
+ *
+ * Given an input range of `[-200, -100, 100, 200]` and an output range of
+ * `[0, 1, 1, 0]`, the returned `MotionValue` will:
+ *
+ * - When provided a value between `-200` and `-100`, will return a value between `0` and  `1`.
+ * - When provided a value between `-100` and `100`, will return `1`.
+ * - When provided a value between `100` and `200`, will return a value between `1` and  `0`
+ *
+ * The input range must be a linear series of numbers. The output range
+ * can be any value type supported by Motion: numbers, colors, shadows, etc.
+ *
+ * Every value in the output range must be of the same type and in the same format.
+ *
+ * ```jsx
+ * const x = motionValue(0)
+ * const xRange = [-200, -100, 100, 200]
+ * const opacityRange = [0, 1, 1, 0]
+ * const opacity = mapValue(x, xRange, opacityRange)
+ * ```
+ *
+ * @param inputValue - `MotionValue`
+ * @param inputRange - A linear series of numbers (either all increasing or decreasing)
+ * @param outputRange - A series of numbers, colors or strings. Must be the same length as `inputRange`.
+ * @param options -
+ *
+ *  - clamp: boolean. Clamp values to within the given range. Defaults to `true`
+ *  - ease: EasingFunction[]. Easing functions to use on the interpolations between each value in the input and output ranges. If provided as an array, the array must be one item shorter than the input and output ranges, as the easings apply to the transition between each.
+ *
+ * @returns `MotionValue`
+ *
+ * @public
+ */
+function mapValue(inputValue, inputRange, outputRange, options) {
+    const map = (0,_utils_transform_mjs__WEBPACK_IMPORTED_MODULE_0__.transform)(inputRange, outputRange, options);
+    return (0,_transform_value_mjs__WEBPACK_IMPORTED_MODULE_1__.transformValue)(() => map(inputValue.get()));
+}
+
+
+//# sourceMappingURL=map-value.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/value/spring-value.mjs"
+/*!************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/value/spring-value.mjs ***!
+  \************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   attachSpring: () => (/* binding */ attachSpring),
+/* harmony export */   springValue: () => (/* binding */ springValue)
+/* harmony export */ });
+/* harmony import */ var _follow_value_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./follow-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/follow-value.mjs");
+
+
+/**
+ * Create a `MotionValue` that animates to its latest value using a spring.
+ * Can either be a value or track another `MotionValue`.
+ *
+ * ```jsx
+ * const x = motionValue(0)
+ * const y = springValue(x, { stiffness: 300 })
+ * ```
+ *
+ * @param source - Initial value or MotionValue to track
+ * @param options - Spring configuration options
+ * @returns `MotionValue`
+ *
+ * @public
+ */
+function springValue(source, options) {
+    return (0,_follow_value_mjs__WEBPACK_IMPORTED_MODULE_0__.followValue)(source, { type: "spring", ...options });
+}
+/**
+ * Attach a spring animation to a MotionValue that will animate whenever the value changes.
+ *
+ * @param value - The MotionValue to animate
+ * @param source - Initial value or MotionValue to track
+ * @param options - Spring configuration options
+ * @returns Cleanup function
+ *
+ * @public
+ */
+function attachSpring(value, source, options) {
+    return (0,_follow_value_mjs__WEBPACK_IMPORTED_MODULE_0__.attachFollow)(value, source, { type: "spring", ...options });
+}
+
+
+//# sourceMappingURL=spring-value.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/value/subscribe-value.mjs"
+/*!***************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/value/subscribe-value.mjs ***!
+  \***************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   subscribeValue: () => (/* binding */ subscribeValue)
+/* harmony export */ });
+/* harmony import */ var _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../frameloop/frame.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/frame.mjs");
+
+
+function subscribeValue(inputValues, outputValue, getLatest) {
+    const update = () => outputValue.set(getLatest());
+    const scheduleUpdate = () => _frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.frame.preRender(update, false, true);
+    const subscriptions = inputValues.map((v) => v.on("change", scheduleUpdate));
+    outputValue.on("destroy", () => {
+        subscriptions.forEach((unsubscribe) => unsubscribe());
+        (0,_frameloop_frame_mjs__WEBPACK_IMPORTED_MODULE_0__.cancelFrame)(update);
+    });
+}
+
+
+//# sourceMappingURL=subscribe-value.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/value/transform-value.mjs"
+/*!***************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/value/transform-value.mjs ***!
+  \***************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   transformValue: () => (/* binding */ transformValue)
+/* harmony export */ });
+/* harmony import */ var _index_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/index.mjs");
+/* harmony import */ var _subscribe_value_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subscribe-value.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/value/subscribe-value.mjs");
+
+
+
+/**
+ * Create a `MotionValue` that transforms the output of other `MotionValue`s by
+ * passing their latest values through a transform function.
+ *
+ * Whenever a `MotionValue` referred to in the provided function is updated,
+ * it will be re-evaluated.
+ *
+ * ```jsx
+ * const x = motionValue(0)
+ * const y = transformValue(() => x.get() * 2) // double x
+ * ```
+ *
+ * @param transformer - A transform function. This function must be pure with no side-effects or conditional statements.
+ * @returns `MotionValue`
+ *
+ * @public
+ */
+function transformValue(transform) {
+    const collectedValues = [];
+    /**
+     * Open session of collectMotionValues. Any MotionValue that calls get()
+     * inside transform will be saved into this array.
+     */
+    _index_mjs__WEBPACK_IMPORTED_MODULE_0__.collectMotionValues.current = collectedValues;
+    const initialValue = transform();
+    _index_mjs__WEBPACK_IMPORTED_MODULE_0__.collectMotionValues.current = undefined;
+    const value = (0,_index_mjs__WEBPACK_IMPORTED_MODULE_0__.motionValue)(initialValue);
+    (0,_subscribe_value_mjs__WEBPACK_IMPORTED_MODULE_1__.subscribeValue)(collectedValues, value, transform);
+    return value;
+}
+
+
+//# sourceMappingURL=transform-value.mjs.map
 
 
 /***/ },
@@ -16191,6 +25531,1307 @@ function isWillChangeMotionValue(value) {
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/index.mjs"
+/*!****************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/index.mjs ***!
+  \****************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ViewTransitionBuilder: () => (/* binding */ ViewTransitionBuilder),
+/* harmony export */   animateView: () => (/* binding */ animateView)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/noop.mjs");
+/* harmony import */ var _queue_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./queue.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/queue.mjs");
+
+
+
+class ViewTransitionBuilder {
+    constructor(update, options = {}) {
+        this.currentSubject = "root";
+        this.targets = new Map();
+        /**
+         * Definitions that must be resolved to elements (and assigned a
+         * `view-transition-name`) rather than treated as pre-named layers.
+         */
+        this.resolveDefs = new Set();
+        /**
+         * Per-subject crop override: `true` forces the crop (clip + object-fit:
+         * cover + animated corner radii) on, `false` forces it off. A subject with
+         * no entry uses the default - crop only a genuine morph (a layer present in
+         * both snapshots), so a fade-only enter/exit isn't clipped to nothing.
+         */
+        this.cropOverride = new Map();
+        /**
+         * Subjects paired with a different new-snapshot target (the second `.add()`
+         * argument), so two distinct elements share one name and morph into each
+         * other - a shared-element transition.
+         */
+        this.pairs = new Map();
+        /**
+         * A `view-transition-class` to apply to each subject's resolved elements,
+         * so authors can target the generated layers from CSS by class rather than
+         * the opaque generated name.
+         */
+        this.classNames = new Map();
+        /**
+         * Subjects opted out of automatic group nesting via `.group(false)`. Their
+         * layer stays a flat top-level group (`view-transition-group: none`) instead
+         * of nesting under its DOM-ancestor layer - so it animates independently and
+         * escapes an ancestor's clip/transform (e.g. an element that lifts out of a
+         * card and flies across, which nesting would clip to the card).
+         */
+        this.flatGroups = new Set();
+        this.notifyReady = motion_utils__WEBPACK_IMPORTED_MODULE_0__.noop;
+        this.notifyReject = motion_utils__WEBPACK_IMPORTED_MODULE_0__.noop;
+        this.readyPromise = new Promise((resolve, reject) => {
+            this.notifyReady = resolve;
+            this.notifyReject = reject;
+        });
+        this.update = update;
+        this.options = {
+            interrupt: "wait",
+            ...options,
+        };
+        // Avoid an unhandled rejection when a failed transition has no
+        // `.then(_, reject)` handler attached (e.g. fire-and-forget).
+        this.readyPromise.catch(motion_utils__WEBPACK_IMPORTED_MODULE_0__.noop);
+        (0,_queue_mjs__WEBPACK_IMPORTED_MODULE_1__.addToQueue)(this);
+    }
+    /**
+     * Target elements resolved from a selector or Element, each assigned a
+     * `view-transition-name` automatically.
+     *
+     * Passing a second target pairs them: the first is resolved in the old
+     * snapshot and the second in the new, sharing one name so two *different*
+     * elements morph into each other (e.g. `.add(card, ".modal")`). Symmetric -
+     * pass them the other way round to morph back.
+     */
+    add(subject, newSubject) {
+        this.currentSubject = subject;
+        this.resolveDefs.add(subject);
+        if (newSubject !== undefined)
+            this.pairs.set(subject, newSubject);
+        // Register the subject so it participates (and gets an automatic
+        // layout/morph animation) even without an explicit enter/exit/layout.
+        if (!this.targets.has(subject))
+            this.targets.set(subject, {});
+        return this;
+    }
+    /**
+     * Control this subject's crop (clip + `object-fit: cover` + animated
+     * corners). By default a subject auto-crops only when it actually morphs -
+     * present in both snapshots (a survivor, or an `.add(a, b)` pair). A
+     * fade-only enter/exit has no second box to crop against, so it's left to
+     * the browser default; in particular the `overflow: clip` a crop adds would
+     * otherwise clip a mis-sized enter/exit layer to nothing.
+     *
+     * `.crop(false)` forces the crop off (e.g. a text morph, where
+     * `object-fit: cover` clips glyphs as the box grows); `.crop(true)` forces
+     * it on for a non-morph the default wouldn't otherwise crop.
+     */
+    crop(enabled = true) {
+        this.cropOverride.set(this.currentSubject, enabled);
+        return this;
+    }
+    /**
+     * By default a subject's layer nests under its nearest DOM-ancestor layer
+     * (`view-transition-group: contain`), so the ancestor's clip/transform/opacity
+     * apply to it through the transition - mirroring how the DOM actually paints,
+     * and letting a wrapper crop its child for the whole morph rather than only
+     * once the live DOM takes back over. (Needs a browser that supports nested
+     * view-transition groups; elsewhere it degrades to the flat default.)
+     *
+     * Call `.group(false)` to opt out: the layer stays flat and top-level, so it
+     * animates independently and escapes an ancestor's clip - e.g. an element
+     * that should lift out of a card and fly across, which nesting would clip.
+     */
+    group(enabled = true) {
+        enabled
+            ? this.flatGroups.delete(this.currentSubject)
+            : this.flatGroups.add(this.currentSubject);
+        return this;
+    }
+    /**
+     * Tag this subject's generated layers with a `view-transition-class`, so
+     * they can be targeted from CSS - `::view-transition-group(.name)`,
+     * `::view-transition-old/new(.name)`, `::view-transition-image-pair(.name)`
+     * - without the opaque generated `view-transition-name`. Because `.add()`
+     * can match many elements, a shared class targets them all at once (and,
+     * for a pair, both ends). The escape hatch for z-index / custom keyframes
+     * on a morph layer.
+     */
+    class(name) {
+        this.classNames.set(this.currentSubject, name);
+        return this;
+    }
+    /**
+     * Set the transition for this subject's morph. The morph is enabled
+     * automatically by `.add()`; this just customises its timing (duration,
+     * easing, a `delay`/`stagger`, …). On the implicit `root` subject it also
+     * opts the page into the transition (the root crossfade).
+     */
+    layout(options = {}) {
+        this.updateTarget("layout", {}, options);
+        return this;
+    }
+    enter(keyframes, options) {
+        this.updateTarget("enter", keyframes, options);
+        return this;
+    }
+    exit(keyframes, options) {
+        this.updateTarget("exit", keyframes, options);
+        return this;
+    }
+    /**
+     * Animate the new view directly, whether the element is appearing or
+     * persisting (unlike `.enter()`, which only fires for a pure newcomer).
+     * Pair with `.old()` for a crossfade or slide-through.
+     */
+    new(keyframes, options) {
+        this.updateTarget("new", keyframes, options);
+        return this;
+    }
+    /**
+     * Animate the old view directly, whether the element is leaving or
+     * persisting (unlike `.exit()`, which only fires for a pure leaver).
+     */
+    old(keyframes, options) {
+        this.updateTarget("old", keyframes, options);
+        return this;
+    }
+    updateTarget(target, keyframes, options = {}) {
+        const { currentSubject, targets } = this;
+        if (!targets.has(currentSubject)) {
+            targets.set(currentSubject, {});
+        }
+        const targetData = targets.get(currentSubject);
+        targetData[target] = { keyframes, options };
+    }
+    then(resolve, reject) {
+        return this.readyPromise.then(resolve, reject);
+    }
+}
+function animateView(update, options = {}) {
+    return new ViewTransitionBuilder(update, options);
+}
+
+
+//# sourceMappingURL=index.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/queue.mjs"
+/*!****************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/queue.mjs ***!
+  \****************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addToQueue: () => (/* binding */ addToQueue)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs");
+/* harmony import */ var _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../frameloop/microtask.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/frameloop/microtask.mjs");
+/* harmony import */ var _start_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./start.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/start.mjs");
+
+
+
+
+let builders = [];
+let current = null;
+function next() {
+    current = null;
+    const [nextBuilder] = builders;
+    if (nextBuilder)
+        start(nextBuilder);
+}
+function start(builder) {
+    ;(0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.removeItem)(builders, builder);
+    current = builder;
+    (0,_start_mjs__WEBPACK_IMPORTED_MODULE_2__.startViewAnimation)(builder)
+        .then((animation) => {
+        builder.notifyReady(animation);
+        return animation.finished;
+    })
+        // A genuinely failed transition (a throwing update) rejects the
+        // builder; a skipped/interrupted one resolves with no animations (see
+        // start.ts). Either way, advance the queue - else later transitions hang.
+        .catch((error) => builder.notifyReject(error))
+        .finally(next);
+}
+function processQueue() {
+    /**
+     * Iterate backwards over the builders array. We can ignore the
+     * "wait" animations. If we have an interrupting animation in the
+     * queue then we need to batch all preceeding animations into it.
+     * Currently this only batches the update functions but will also
+     * need to batch the targets.
+     */
+    for (let i = builders.length - 1; i >= 0; i--) {
+        const builder = builders[i];
+        const { interrupt } = builder.options;
+        if (interrupt === "immediate") {
+            const batchedUpdates = builders.slice(0, i + 1).map((b) => b.update);
+            const remaining = builders.slice(i + 1);
+            builder.update = () => {
+                batchedUpdates.forEach((update) => update());
+            };
+            // Put the current builder at the front, followed by any "wait" builders
+            builders = [builder, ...remaining];
+            break;
+        }
+    }
+    if (!current || builders[0]?.options.interrupt === "immediate") {
+        next();
+    }
+}
+function addToQueue(builder) {
+    builders.push(builder);
+    _frameloop_microtask_mjs__WEBPACK_IMPORTED_MODULE_1__.microtask.render(processQueue);
+}
+
+
+//# sourceMappingURL=queue.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/start.mjs"
+/*!****************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/start.mjs ***!
+  \****************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   startViewAnimation: () => (/* binding */ startViewAnimation)
+/* harmony export */ });
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/time-conversion.mjs");
+/* harmony import */ var motion_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! motion-utils */ "./node_modules/motion/node_modules/motion-utils/dist/es/warn-once.mjs");
+/* harmony import */ var _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animation/GroupAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/GroupAnimation.mjs");
+/* harmony import */ var _animation_NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../animation/NativeAnimation.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs");
+/* harmony import */ var _animation_NativeAnimationWrapper_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../animation/NativeAnimationWrapper.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/NativeAnimationWrapper.mjs");
+/* harmony import */ var _animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../animation/utils/get-value-transition.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/utils/get-value-transition.mjs");
+/* harmony import */ var _animation_waapi_easing_map_easing_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../animation/waapi/easing/map-easing.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/easing/map-easing.mjs");
+/* harmony import */ var _animation_waapi_utils_apply_generator_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../animation/waapi/utils/apply-generator.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/animation/waapi/utils/apply-generator.mjs");
+/* harmony import */ var _utils_border_radius_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/border-radius.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/border-radius.mjs");
+/* harmony import */ var _utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/resolve-elements.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+/* harmony import */ var _utils_assign_names_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/assign-names.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/assign-names.mjs");
+/* harmony import */ var _utils_choose_layer_type_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./utils/choose-layer-type.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/choose-layer-type.mjs");
+/* harmony import */ var _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils/css.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/css.mjs");
+/* harmony import */ var _utils_get_layer_info_mjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./utils/get-layer-info.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-layer-info.mjs");
+/* harmony import */ var _utils_get_view_animations_mjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./utils/get-view-animations.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-view-animations.mjs");
+/* harmony import */ var _utils_has_target_mjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./utils/has-target.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/has-target.mjs");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const definitionNames = ["layout", "enter", "exit", "new", "old"];
+/**
+ * Whether a computed border-radius is square (every component zero). Splitting
+ * on whitespace handles two-value/elliptical radii like "0px 20px" - a leading
+ * `parseFloat` alone would misread the non-zero vertical radius as square.
+ */
+const isSquareRadius = (radius) => radius.split(" ").every((value) => parseFloat(value) === 0);
+/**
+ * The `ViewTransitionTarget` buckets driving each generated layer type, in
+ * priority order - the inverse of `chooseLayerType`. The new view is driven by
+ * `new`/`enter`, the old by `old`/`exit`. `group-children`/`image-pair` have no
+ * bucket; they follow the default layout timing.
+ */
+const typeBuckets = {
+    group: ["layout"],
+    new: ["new", "enter"],
+    old: ["old", "exit"],
+};
+/**
+ * Default "absent" origin for a single-value keyframe, by pseudo type, so e.g.
+ * `enter({ scale: 1 })` grows in from 0.85 and `exit({ opacity: 0 })` fades
+ * from 1. `enter` prefers the matching `exit` value over these (see below).
+ */
+const ORIGIN_DEFAULTS = {
+    new: { opacity: 0, scale: 0.85 },
+    old: { opacity: 1, scale: 1 },
+};
+/**
+ * How much two box aspect ratios must differ before a morph is treated as
+ * aspect-changing (and so worth cropping). Matches the projection engine's
+ * `preserve-aspect` threshold, so small layout jitter doesn't trigger a crop.
+ */
+const ASPECT_TOLERANCE = 0.2;
+function startViewAnimation(builder) {
+    const { update, targets, resolveDefs, cropOverride, pairs, classNames, flatGroups, options: defaultOptions, } = builder;
+    if (!document.startViewTransition) {
+        // An async IIFE (not `new Promise(async …)`) so a throwing/rejecting
+        // update rejects this promise rather than leaving it unsettled.
+        return (async () => {
+            await update();
+            return new _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_2__.GroupAnimation([]);
+        })();
+    }
+    /**
+     * Resolve any selector/Element targets to layer names, assigning a
+     * `view-transition-name` to each element as we go. We run this before the
+     * update (so the elements are captured in the old snapshot) and again
+     * after it (for the new snapshot). An element present in both keeps the
+     * same name and animates as a single `group` layer.
+     */
+    const nameRegistry = new Map();
+    const assigned = [];
+    /**
+     * Elements we tagged with a `view-transition-class` (via `.class()`),
+     * tracked separately from `assigned` so cleanup removes the class without
+     * ever stripping an author's own inline `view-transition-name`.
+     */
+    const classed = [];
+    /**
+     * Elements we set a `view-transition-group` on (for nesting), tracked for
+     * cleanup. `clipChildren` collects the names of nested parents that clip in
+     * the live layout, so their `::view-transition-group-children` is clipped
+     * through the transition - not just once the live DOM takes back over.
+     */
+    const grouped = [];
+    const clipChildren = new Set();
+    const layerTargets = new Map();
+    const croppedNames = new Set();
+    /**
+     * Each layer's explicit `.crop(true | false)` override (by resolved name),
+     * so `finalizeCrop` can let an author's choice win over the morph default.
+     */
+    const cropForName = new Map();
+    /**
+     * Each layer's stagger position (index + total) within its subject, per
+     * snapshot. Resolving against the snapshot the layer belongs to keeps
+     * stagger correct when `update()` replaces the matched elements, and lets
+     * us skip a layer that's absent from a snapshot (e.g. an exited element
+     * has no `new` pseudo-element).
+     */
+    const layerStagger = new Map();
+    /**
+     * Names allocated for a paired subject in the old snapshot, replayed onto
+     * its new-snapshot target so both ends share a layer and morph.
+     */
+    const pairNames = new Map();
+    /**
+     * The old (`from`) elements of each paired subject, so their names can be
+     * transferred off before the new (`to`) elements inherit them.
+     */
+    const pairFrom = new Map();
+    const resolveLayers = (phase) => {
+        targets.forEach((target, definition) => {
+            const className = classNames.get(definition);
+            /**
+             * Nest each resolved layer under its DOM-ancestor layer by default
+             * (`contain`), so an ancestor's clip/transform/opacity reach it
+             * through the transition; `.group(false)` opts a subject out (`none`)
+             * to stay flat and escape. Skipped for root / pre-named layers, which
+             * aren't elements we resolve and style.
+             */
+            const group = definition === "root" || !resolveDefs.has(definition)
+                ? undefined
+                : flatGroups.has(definition)
+                    ? "none"
+                    : "contain";
+            let names;
+            if (definition === "root" || !resolveDefs.has(definition)) {
+                names = [definition];
+            }
+            else if (pairs.has(definition)) {
+                /**
+                 * Paired morph: name the old target in the old snapshot, then
+                 * force the same name(s) onto the new target in the new one, so
+                 * two different elements morph as a single layer.
+                 */
+                if (phase === "old") {
+                    pairFrom.set(definition, (0,_utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_9__.resolveElements)(definition));
+                    names = (0,_utils_assign_names_mjs__WEBPACK_IMPORTED_MODULE_10__.assignViewTransitionNames)(definition, nameRegistry, assigned, undefined, className, classed, group, grouped, clipChildren);
+                    pairNames.set(definition, names);
+                }
+                else {
+                    /**
+                     * Transfer the name(s) off the `from` elements before the
+                     * `to` elements inherit them. A `from` that survives into
+                     * the new snapshot (e.g. hidden with `visibility: hidden`
+                     * rather than removed) would otherwise keep the name and
+                     * collide - "duplicate view-transition-name".
+                     */
+                    for (const el of pairFrom.get(definition) ?? []) {
+                        el.style?.removeProperty("view-transition-name");
+                        /**
+                         * Drop the old end from the registry too, so the new
+                         * end alone supplies this name's `new` crop radii - we
+                         * neither re-measure nor get ordered by a stale element.
+                         */
+                        nameRegistry.delete(el);
+                    }
+                    names = (0,_utils_assign_names_mjs__WEBPACK_IMPORTED_MODULE_10__.assignViewTransitionNames)(pairs.get(definition), nameRegistry, assigned, pairNames.get(definition), className, classed, group, grouped, clipChildren);
+                }
+            }
+            else {
+                names = (0,_utils_assign_names_mjs__WEBPACK_IMPORTED_MODULE_10__.assignViewTransitionNames)(definition, nameRegistry, assigned, undefined, className, classed, group, grouped, clipChildren);
+            }
+            // Record any explicit `.crop(true | false)` per resolved name; the
+            // crop set itself is computed later by `finalizeCrop` (it needs both
+            // snapshots to know which morphs change aspect ratio).
+            const override = cropOverride.get(definition);
+            names.forEach((name, index) => {
+                /**
+                 * If two subjects resolve to the same element, merge their
+                 * definitions so neither subject's animations are dropped.
+                 */
+                const existing = layerTargets.get(name);
+                layerTargets.set(name, existing && existing !== target
+                    ? { ...existing, ...target }
+                    : target);
+                if (override !== undefined)
+                    cropForName.set(name, override);
+                const stagger = layerStagger.get(name) ?? {};
+                stagger[phase] = [index, names.length];
+                layerStagger.set(name, stagger);
+            });
+        });
+    };
+    /**
+     * The stagger index/total for a layer, resolved against the snapshot it
+     * belongs to. Returns index -1 when the layer is absent from that snapshot
+     * so the caller can skip a pseudo-element that doesn't exist.
+     */
+    const staggerPosition = (name, type) => {
+        const stagger = layerStagger.get(name);
+        const position = type === "old"
+            ? stagger?.old
+            : type === "new"
+                ? stagger?.new
+                : // group / group-children / image-pair persist across both.
+                    stagger?.new ?? stagger?.old;
+        return position ?? [-1, 1];
+    };
+    /**
+     * Merge default + per-layer transition options for a generated layer and
+     * resolve any stagger/delay function against this element's position. Used
+     * by both the morph-retiming and crop corner-radius passes.
+     */
+    const resolveLayerTransition = (target, type, transitionName, index, total) => {
+        const transition = mergeTransition((0,_animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_5__.getValueTransition)(defaultOptions, transitionName), (0,_animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_5__.getValueTransition)((layerOptions(target, type) ?? {}), transitionName));
+        if (typeof transition.delay === "function") {
+            transition.delay = transition.delay(index, total);
+        }
+        return transition;
+    };
+    /**
+     * Resolve a layer's group (`layout`) timing to plain WAAPI values: native
+     * ms `delay`/`duration` and a baked `ease`. The single source of group
+     * timing, shared by the generated-group retiming and the crop corner-radius
+     * pass so the rounded clip animates on exactly the box's timing. It returns
+     * no generator `type` (the WAAPI-only `NativeAnimation` rejects a string
+     * type) nor `repeat`/`times` (which the group's `updateTiming` ignores), so
+     * none of them can leak into the radius animation and desync it.
+     */
+    const resolveGroupTiming = (name) => {
+        const [index, total] = staggerPosition(name, "group");
+        const transition = resolveLayerTransition(layerTargets.get(name), "group", "layout", index === -1 ? 0 : index, total);
+        transition.duration && (transition.duration = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(transition.duration));
+        const { delay = 0, duration, ease } = (0,_animation_waapi_utils_apply_generator_mjs__WEBPACK_IMPORTED_MODULE_7__.applyGeneratorOptions)(transition);
+        return { delay: (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(delay), duration, ease };
+    };
+    /**
+     * Each layer's measured box + corner radii per snapshot. The box lets
+     * `finalizeCrop` tell whether a morph's aspect ratio changed (the only case
+     * worth cropping); the radii let a cropped morph's group clip animate each
+     * corner from the old element's radius to the new element's, keeping it
+     * rounded where `overflow: clip` would otherwise square the corners.
+     *
+     * We never flatten the source for capture (a snapshot is a paint of the live
+     * DOM, so squaring an element just for its capture would flash one real
+     * square frame). For an aspect-changing morph `object-fit: cover` crops each
+     * snapshot's own baked corners off-screen mid-morph, so the animated clip is
+     * the only visible corner; a near-same-aspect forced crop (`.crop(true)`)
+     * can't hide the outgoing snapshot's silhouette, but the endpoints coincide.
+     */
+    const cropMeasurements = new Map();
+    const measureLayers = (phase) => nameRegistry.forEach((name, element) => {
+        const el = element;
+        const rect = el.getBoundingClientRect?.();
+        if (rect && rect.height) {
+            const style = getComputedStyle(el);
+            const radii = {};
+            for (const corner of _utils_border_radius_mjs__WEBPACK_IMPORTED_MODULE_8__.cornerRadiusProps) {
+                radii[corner] = style[corner];
+            }
+            const entry = cropMeasurements.get(name) ?? {};
+            entry[phase] = { width: rect.width, height: rect.height, radii };
+            cropMeasurements.set(name, entry);
+        }
+    });
+    /**
+     * With both snapshots measured, settle which layers crop. The default crops
+     * only a morph whose aspect ratio *changes* between snapshots - the one case
+     * where `object-fit: cover` does real work. A same-aspect morph or a
+     * fade-only layer is left uncropped: its corners scale naturally (no flash
+     * from squaring, no `overflow: clip` eating its shadow) and a backdrop can't
+     * be clipped to nothing. An explicit `.crop(true | false)` overrides either
+     * way. Runs after both snapshots are measured, since aspect needs both.
+     */
+    const finalizeCrop = () => {
+        croppedNames.clear();
+        for (const name of layerStagger.keys()) {
+            if (name === "root")
+                continue;
+            // An explicit `.crop(true | false)` wins; otherwise crop a morph
+            // whose aspect ratio changed.
+            if (cropForName.get(name) ?? aspectChanged(name)) {
+                croppedNames.add(name);
+            }
+        }
+    };
+    /**
+     * Whether a layer is a morph whose box aspect ratio changed between
+     * snapshots (beyond a small tolerance). Fade-only layers (one snapshot) are
+     * never "changed".
+     */
+    const aspectChanged = (name) => {
+        const box = cropMeasurements.get(name);
+        if (!box?.old || !box?.new || !box.old.height || !box.new.height) {
+            return false;
+        }
+        return (Math.abs(box.old.width / box.old.height -
+            box.new.width / box.new.height) > ASPECT_TOLERANCE);
+    };
+    /**
+     * Write the persistent view-transition CSS: suppress root capture when the
+     * root has no animations of its own; force linear timing (baked into the
+     * keyframes, so we can retime later via updateTiming); and clip +
+     * object-fit: cover every cropped morph (the UA default overflows on
+     * aspect-ratio change).
+     *
+     * `css.commit` replaces rather than appends, so we re-set the full rule set
+     * each call - the crop rules are only known after `finalizeCrop` runs in the
+     * update callback, so the second call writes them.
+     */
+    const commitViewCSS = () => {
+        if (!(0,_utils_has_target_mjs__WEBPACK_IMPORTED_MODULE_15__.hasTarget)("root", targets)) {
+            _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.set(":root", { "view-transition-name": "none" });
+        }
+        _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.set("::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*)", { "animation-timing-function": "linear !important" });
+        croppedNames.forEach((name) => {
+            _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.set(`::view-transition-group(${name})`, { overflow: "clip" });
+            _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.set(`::view-transition-old(${name}), ::view-transition-new(${name})`, { width: "100%", height: "100%", "object-fit": "cover" });
+        });
+        /**
+         * Clip the nested children of any layer that clips in the live layout,
+         * so a wrapper crops its child for the whole morph (mirroring the DOM)
+         * rather than only at the live-DOM handoff. No-op on browsers without
+         * nested view-transition groups.
+         */
+        clipChildren.forEach((name) => {
+            _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.set(`::view-transition-group-children(${name})`, {
+                overflow: "clip",
+            });
+        });
+        _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.commit(); // Write
+    };
+    const cleanup = () => {
+        (0,_utils_assign_names_mjs__WEBPACK_IMPORTED_MODULE_10__.releaseViewTransitionNames)(assigned, classed, grouped);
+        _utils_css_mjs__WEBPACK_IMPORTED_MODULE_12__.css.remove(); // Write
+    };
+    const callback = async () => {
+        await update();
+        /**
+         * Re-resolve so elements created by the update are named for the new
+         * snapshot, then measure them. With both snapshots measured we can
+         * settle the crop set (aspect-changing morphs + forced).
+         */
+        resolveLayers("new");
+        measureLayers("new");
+        finalizeCrop();
+        /**
+         * Re-commit the crop CSS unconditionally: `finalizeCrop` is computed
+         * here (after both snapshots are measured), so the clip rules must be
+         * (re)written to match the settled set.
+         */
+        commitViewCSS();
+    };
+    let transition;
+    try {
+        resolveLayers("old");
+        /**
+         * Measure the old snapshot against the optimistic crop set (the new
+         * snapshot doesn't exist yet, so aspect change can't be known here;
+         * `finalizeCrop` settles it post-update).
+         */
+        measureLayers("old");
+        commitViewCSS();
+        transition = document.startViewTransition(callback);
+    }
+    catch (error) {
+        /**
+         * The prelude writes inline names before the transition exists. If it
+         * throws (e.g. startViewTransition rejects in a bad UA state), release
+         * them so we neither leak DOM state nor stall the queue on a promise
+         * that never settles - hand back a rejection it can advance past.
+         */
+        cleanup();
+        return Promise.reject(error);
+    }
+    transition.finished.finally(cleanup);
+    return new Promise((resolve, reject) => {
+        transition.ready
+            .then(() => {
+            const generatedViewAnimations = (0,_utils_get_view_animations_mjs__WEBPACK_IMPORTED_MODULE_14__.getViewAnimations)();
+            const animations = [];
+            /**
+             * Create animations for each of our explicitly-defined subjects.
+             * `opacityAnimated` additionally tracks which `${name}:${type}`
+             * we faded, so we can keep the UA `plus-lighter` blend only for a
+             * genuine opacity crossfade (both sides fading) and drop it for a
+             * slide/transform, where additive compositing would flash bright.
+             */
+            const explicitlyAnimated = new Set();
+            const opacityAnimated = new Set();
+            layerTargets.forEach((target, name) => {
+                const stagger = layerStagger.get(name);
+                /**
+                 * Presence: `enter` only fires for a pure newcomer (a new
+                 * view with no old), `exit` only for a pure leaver. A
+                 * survivor (both) gets neither - it just morphs.
+                 */
+                const enterApplies = !!stagger?.new && !stagger?.old;
+                const exitApplies = !!stagger?.old && !stagger?.new;
+                for (const key of definitionNames) {
+                    if (!target[key])
+                        continue;
+                    if (key === "enter" && !enterApplies)
+                        continue;
+                    if (key === "exit" && !exitApplies)
+                        continue;
+                    const type = (0,_utils_choose_layer_type_mjs__WEBPACK_IMPORTED_MODULE_11__.chooseLayerType)(key);
+                    const [index, total] = staggerPosition(name, type);
+                    // Skip a layer absent from its snapshot.
+                    if (index === -1)
+                        continue;
+                    const { keyframes, options } = target[key];
+                    for (let [valueName, valueKeyframes] of Object.entries(keyframes)) {
+                        // Skip only missing values - `0` (e.g. opacity: 0)
+                        // is valid and must reach the from-value inference.
+                        if (valueKeyframes == null)
+                            continue;
+                        /**
+                         * The view path hands keyframes straight to WAAPI,
+                         * so Motion's `x`/`y` shorthands (compiled to
+                         * `transform` only via the value pipeline) have no
+                         * effect. Warn and skip - use `transform`/`translate`.
+                         */
+                        if (valueName === "x" || valueName === "y") {
+                            (0,motion_utils__WEBPACK_IMPORTED_MODULE_1__.warnOnce)(false, `animateView() animates view-transition layers with CSS properties; the "${valueName}" shorthand has no effect - use transform, e.g. { transform: "translateX(40px)" }.`);
+                            continue;
+                        }
+                        /**
+                         * enter/exit win over new/old on a shared property -
+                         * skip it here when the gated bucket also defines it.
+                         */
+                        if (key === "new" &&
+                            enterApplies &&
+                            target.enter?.keyframes[valueName] != null) {
+                            continue;
+                        }
+                        if (key === "old" &&
+                            exitApplies &&
+                            target.exit?.keyframes[valueName] != null) {
+                            continue;
+                        }
+                        const valueOptions = mergeTransition((0,_animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_5__.getValueTransition)(defaultOptions, valueName), (0,_animation_utils_get_value_transition_mjs__WEBPACK_IMPORTED_MODULE_5__.getValueTransition)(options, valueName));
+                        /**
+                         * Infer an origin for a single-value keyframe. An
+                         * `enter` mirrors the matching `exit` value (a
+                         * defined exit reverses into the enter for free);
+                         * otherwise the per-type default (opacity 0/1, scale
+                         * 0.85). No default -> left as-is (animates from the
+                         * live value).
+                         *
+                         * `new`/`old` fire for survivors too, where only the
+                         * opacity crossfade default applies - a transform
+                         * default like scale 0.85 would pop a persisting
+                         * element, so gate it on the layer actually
+                         * entering/leaving.
+                         */
+                        if (!Array.isArray(valueKeyframes)) {
+                            const exitValue = key === "enter"
+                                ? target.exit?.keyframes[valueName]
+                                : undefined;
+                            const allowDefault = valueName === "opacity" ||
+                                (type === "new" ? enterApplies : exitApplies);
+                            const from = exitValue != null
+                                ? Array.isArray(exitValue)
+                                    ? exitValue[exitValue.length - 1]
+                                    : exitValue
+                                : allowDefault
+                                    ? ORIGIN_DEFAULTS[type]?.[valueName]
+                                    : undefined;
+                            if (from !== undefined) {
+                                valueKeyframes = [from, valueKeyframes];
+                            }
+                        }
+                        /**
+                         * Resolve stagger function if provided, per element
+                         * across this subject's resolved layers.
+                         */
+                        if (typeof valueOptions.delay === "function") {
+                            valueOptions.delay = valueOptions.delay(index, total);
+                        }
+                        valueOptions.duration && (valueOptions.duration = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(valueOptions.duration));
+                        valueOptions.delay && (valueOptions.delay = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(valueOptions.delay));
+                        animations.push(new _animation_NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_3__.NativeAnimation({
+                            ...valueOptions,
+                            element: document.documentElement,
+                            name: valueName,
+                            pseudoElement: `::view-transition-${type}(${name})`,
+                            keyframes: valueKeyframes,
+                        }));
+                        explicitlyAnimated.add(`${name}:${type}`);
+                        if (valueName === "opacity") {
+                            opacityAnimated.add(`${name}:${type}`);
+                        }
+                    }
+                }
+            });
+            /**
+             * Handle browser generated animations
+             */
+            for (const animation of generatedViewAnimations) {
+                if (animation.playState === "finished")
+                    continue;
+                const { effect } = animation;
+                if (!effect || !(effect instanceof KeyframeEffect))
+                    continue;
+                const { pseudoElement } = effect;
+                if (!pseudoElement)
+                    continue;
+                const name = (0,_utils_get_layer_info_mjs__WEBPACK_IMPORTED_MODULE_13__.getViewAnimationLayerInfo)(pseudoElement);
+                if (!name)
+                    continue;
+                const targetDefinition = layerTargets.get(name.layer);
+                /**
+                 * We built our own animation for this layer, so drop the
+                 * browser-generated fade we're replacing. The UA
+                 * `plus-lighter` blend is a *separate* generated animation on
+                 * the same pseudo (it sets `mix-blend-mode` in its keyframes):
+                 * keep it *only* for a true opacity crossfade - both sides
+                 * fading - so a symmetric crossfade composites without
+                 * darkening, but a slide/transform (where both layers stay
+                 * opaque and overlap) doesn't flash bright from the addition.
+                 */
+                if (explicitlyAnimated.has(`${name.layer}:${name.type}`)) {
+                    const isCrossfade = opacityAnimated.has(`${name.layer}:new`) &&
+                        opacityAnimated.has(`${name.layer}:old`);
+                    if (isCrossfade &&
+                        effect
+                            .getKeyframes()
+                            .some((keyframe) => keyframe.mixBlendMode)) {
+                        animations.push(new _animation_NativeAnimationWrapper_mjs__WEBPACK_IMPORTED_MODULE_4__.NativeAnimationWrapper(animation));
+                    }
+                    else {
+                        animation.cancel();
+                    }
+                    continue;
+                }
+                /**
+                 * Drop the orphaned half of the default crossfade. The UA
+                 * fades old out and new in as a *pair*; if the opposing half
+                 * was explicitly overridden with something other than an
+                 * opacity fade (a clip or transform reveal), this side's
+                 * default opacity fade has no partner - left to run it would
+                 * dissolve what should be a static backdrop (e.g.
+                 * `.new({ clipPath })` should reveal over a still old view,
+                 * not fade the old out around the growing clip). Cancel it -
+                 * and its `plus-lighter` sibling on the same pseudo, which
+                 * would otherwise flash bright where the two opaque layers
+                 * overlap. A genuine crossfade (the opposing side also fading
+                 * opacity) keeps both halves and is handled above.
+                 */
+                const opposite = name.type === "old"
+                    ? "new"
+                    : name.type === "new"
+                        ? "old"
+                        : undefined;
+                if (opposite &&
+                    explicitlyAnimated.has(`${name.layer}:${opposite}`) &&
+                    !opacityAnimated.has(`${name.layer}:${opposite}`)) {
+                    animation.cancel();
+                    continue;
+                }
+                /**
+                 * Otherwise retime the browser-generated animation to
+                 * Motion's timing. This auto-enables the layout (group)
+                 * morph for any resolved/named target, and applies the
+                 * default timing to old/new layers we haven't explicitly
+                 * overridden.
+                 *
+                 * group + group-children both follow the layout timing so
+                 * the nesting container stays in sync with the morph.
+                 */
+                /**
+                 * A survivor's old + new are the two halves of one
+                 * `plus-lighter` crossfade. They must share identical timing
+                 * (so their opacities stay mirrored and sum to 1 - else the
+                 * additive blend flashes bright wherever both are partly
+                 * visible) and fade linearly (the bounce belongs on the
+                 * group's geometry, not the opacity). So time them as the
+                 * group, rather than via their own - potentially staggered,
+                 * or enter/exit-derived - old/new options.
+                 */
+                const stagger = layerStagger.get(name.layer);
+                const isMorphCrossfade = (name.type === "old" || name.type === "new") &&
+                    !!stagger?.old &&
+                    !!stagger?.new;
+                let timing;
+                if (name.type.startsWith("group")) {
+                    // group + group-children follow the resolved group
+                    // timing - the single source shared with the crop
+                    // corner-radius pass below.
+                    const { delay, duration, ease } = resolveGroupTiming(name.layer);
+                    timing = {
+                        delay,
+                        duration,
+                        easing: (0,_animation_waapi_easing_map_easing_mjs__WEBPACK_IMPORTED_MODULE_6__.mapEasingToNativeEasing)(ease, duration),
+                    };
+                }
+                else {
+                    const timingType = isMorphCrossfade ? "group" : name.type;
+                    const [index, total] = staggerPosition(name.layer, timingType);
+                    const transitionName = timingType === "group" ? "layout" : "";
+                    let animationTransition = resolveLayerTransition(targetDefinition, timingType, transitionName, index === -1 ? 0 : index, total);
+                    /**
+                     * The crossfade should resolve at the spring's
+                     * *perceptual* (visual) duration - the geometry can keep
+                     * bouncing, but the opacity shouldn't drag through the
+                     * settle. So capture `visualDuration` before
+                     * `applyGeneratorOptions` replaces it with the full
+                     * overshoot duration, and use it for the fade.
+                     */
+                    const visualDuration = animationTransition.visualDuration;
+                    animationTransition.duration && (animationTransition.duration = (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(animationTransition.duration));
+                    animationTransition =
+                        (0,_animation_waapi_utils_apply_generator_mjs__WEBPACK_IMPORTED_MODULE_7__.applyGeneratorOptions)(animationTransition);
+                    timing = {
+                        delay: (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(animationTransition.delay ?? 0),
+                        duration: isMorphCrossfade && visualDuration !== undefined
+                            ? (0,motion_utils__WEBPACK_IMPORTED_MODULE_0__.secondsToMilliseconds)(visualDuration)
+                            : animationTransition.duration,
+                        easing: isMorphCrossfade
+                            ? "linear"
+                            : (0,_animation_waapi_easing_map_easing_mjs__WEBPACK_IMPORTED_MODULE_6__.mapEasingToNativeEasing)(animationTransition.ease, animationTransition.duration),
+                    };
+                }
+                effect.updateTiming(timing);
+                animations.push(new _animation_NativeAnimationWrapper_mjs__WEBPACK_IMPORTED_MODULE_4__.NativeAnimationWrapper(animation));
+            }
+            /**
+             * Round each cropped layer's clip. Its `::view-transition-group`
+             * has `overflow: clip`, which would otherwise square the corners
+             * mid-morph; animate each corner from the old element's radius to
+             * the new element's so the crop stays rounded. Timed as the group
+             * (`layout`) so the radius tracks the morphing box.
+             */
+            cropMeasurements.forEach((entry, name) => {
+                if (!croppedNames.has(name))
+                    return;
+                // Reuse the group's resolved timing - native ms delay/
+                // duration + a baked ease, with no generator `type` or
+                // repeat/times to leak into (or throw inside) NativeAnimation.
+                const { delay, duration, ease } = resolveGroupTiming(name);
+                for (const corner of _utils_border_radius_mjs__WEBPACK_IMPORTED_MODULE_8__.cornerRadiusProps) {
+                    // `||` (not `??`) so an empty measurement falls back to
+                    // the other snapshot rather than an invalid keyframe.
+                    const from = entry.old?.radii[corner] ||
+                        entry.new?.radii[corner] ||
+                        "0px";
+                    const to = entry.new?.radii[corner] ||
+                        entry.old?.radii[corner] ||
+                        "0px";
+                    // Nothing to round if the corner is square at both ends.
+                    if (isSquareRadius(from) && isSquareRadius(to))
+                        continue;
+                    animations.push(new _animation_NativeAnimation_mjs__WEBPACK_IMPORTED_MODULE_3__.NativeAnimation({
+                        element: document.documentElement,
+                        name: corner,
+                        pseudoElement: `::view-transition-group(${name})`,
+                        keyframes: [from, to],
+                        delay,
+                        duration,
+                        ease,
+                    }));
+                }
+            });
+            resolve(new _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_2__.GroupAnimation(animations));
+        })
+            .catch(() => 
+        /**
+         * `ready` rejects when the transition is skipped - no visual
+         * change, or superseded by an interrupting transition. The DOM
+         * update still applied, so settle with no animations rather than
+         * surfacing it as an error to an awaiting caller. A genuine
+         * failure in `update()` rejects `updateCallbackDone` (already
+         * settled by now), so propagate that instead.
+         */
+        transition.updateCallbackDone.then(() => resolve(new _animation_GroupAnimation_mjs__WEBPACK_IMPORTED_MODULE_2__.GroupAnimation([])), reject));
+    });
+}
+/**
+ * The options that should time a given generated layer type, so a retimed
+ * group/old/new picks up any per-target transition the user provided. Checks
+ * the type's buckets in priority order (e.g. `new` before `enter`).
+ */
+function layerOptions(target, type) {
+    for (const bucket of typeBuckets[type] ?? []) {
+        const options = target?.[bucket]?.options;
+        if (options)
+            return options;
+    }
+}
+/**
+ * Merge a base transition (e.g. the default `options`) with a per-layer/value
+ * override. An explicit `duration` on the override must win over an inherited
+ * generator's own timing: a spring prefers `visualDuration`, and
+ * `spring.applyToOptions` overwrites `duration` with the computed settle time -
+ * so without this the override is silently discarded. Dropping the inherited
+ * `type`/`visualDuration` makes the layer a plain tween of that duration, unless
+ * it asked for its own generator `type`/`visualDuration`.
+ */
+function mergeTransition(base, override) {
+    const merged = { ...base, ...override };
+    if (override.duration !== undefined) {
+        if (override.visualDuration === undefined)
+            delete merged.visualDuration;
+        if (override.type === undefined)
+            delete merged.type;
+    }
+    return merged;
+}
+
+
+//# sourceMappingURL=start.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/assign-names.mjs"
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/assign-names.mjs ***!
+  \*****************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   assignViewTransitionNames: () => (/* binding */ assignViewTransitionNames),
+/* harmony export */   releaseViewTransitionNames: () => (/* binding */ releaseViewTransitionNames)
+/* harmony export */ });
+/* harmony import */ var _utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/resolve-elements.mjs */ "./node_modules/motion/node_modules/motion-dom/dist/es/utils/resolve-elements.mjs");
+
+
+let nameCount = 0;
+/**
+ * Generated names live in their own namespace so we can tell a name we own
+ * (and must clean up) from an author-defined one - and so a stale generated
+ * name left behind by an interrupted transition is re-owned, not mistaken for
+ * the author's and leaked.
+ */
+const generatedName = () => `motion-view-${nameCount++}`;
+const isGeneratedName = (name) => name.startsWith("motion-view-");
+/**
+ * Tag a captured element with a `view-transition-class` so authors can target
+ * its generated layer from CSS (e.g. `::view-transition-group(.hero)`) without
+ * the opaque generated name. Tracked in `classed` - separate from the generated
+ * names in `assigned` - so cleanup removes the class without ever stripping an
+ * author's own inline `view-transition-name`.
+ */
+function tagClass(element, className, classed) {
+    if (!className)
+        return;
+    element.style?.setProperty("view-transition-class", className);
+    classed.push(element);
+}
+/**
+ * Set the element's `view-transition-group` so its layer reconstructs the DOM
+ * hierarchy in the pseudo-tree (`contain`) - or stays flat (`none`). Tracked in
+ * `grouped` for cleanup. When the element clips (any non-`visible` overflow) its
+ * name is recorded in `clipChildren` so the caller can clip the nested children
+ * (`::view-transition-group-children(name)`), mirroring the live clip through
+ * the whole transition rather than only at the live-DOM handoff.
+ *
+ * Ignored by browsers without nested view-transition groups, where it harmlessly
+ * degrades to the flat default.
+ */
+function applyGroup(element, name, group, grouped, clipChildren) {
+    if (!group)
+        return;
+    element.style?.setProperty("view-transition-group", group);
+    grouped.push(element);
+    if (group !== "none" && clipChildren) {
+        const style = getComputedStyle(element);
+        if (style.overflowX !== "visible" || style.overflowY !== "visible") {
+            clipChildren.add(name);
+        }
+    }
+}
+/**
+ * Resolve a selector/Element to elements and ensure each one carries a
+ * `view-transition-name` we can target from script.
+ *
+ * Author-defined names are reused as-is. Elements that are unnamed (or use
+ * the browser's `auto`/`match-element`, whose generated name is not exposed
+ * to script) are given a unique generated name, set inline so it's captured,
+ * and tracked in `assigned` for later cleanup.
+ *
+ * `registry` maps each Element to its name so the same element keeps its name
+ * across both captures (before and after the update), which is what allows a
+ * persistent element to animate as a single `group` layer.
+ */
+function assignViewTransitionNames(definition, registry, assigned, forcedNames, className, classed = [], group, grouped = [], clipChildren) {
+    const elements = (0,_utils_resolve_elements_mjs__WEBPACK_IMPORTED_MODULE_0__.resolveElements)(definition);
+    /**
+     * The new end of a paired morph: give each element the matching name from
+     * the old end (by index) so the two share one layer and morph. If the new
+     * end resolves to *more* elements than the old end named, the extras have no
+     * counterpart - give them a fresh name so they animate as newcomers rather
+     * than being silently left unnamed. We return the names actually assigned
+     * (sized to the resolved elements), not the raw `forcedNames`, so stagger
+     * totals and the layer set stay in step with what's on the page.
+     */
+    if (forcedNames) {
+        return elements.map((element, i) => {
+            const existing = registry.get(element);
+            if (existing)
+                return existing;
+            const name = forcedNames[i] ?? generatedName();
+            element.style?.setProperty("view-transition-name", name);
+            assigned.push(element);
+            registry.set(element, name);
+            tagClass(element, className, classed);
+            applyGroup(element, name, group, grouped, clipChildren);
+            return name;
+        });
+    }
+    /**
+     * Read every current name up front, before assigning any. Interleaving the
+     * reads with the inline `setProperty` writes below would dirty styles
+     * between reads and force a style recalc per element; batching the reads
+     * keeps it to one. Elements already in the registry keep their name and
+     * need no read.
+     */
+    const currentNames = elements.map((element) => registry.has(element)
+        ? undefined
+        : getComputedStyle(element).getPropertyValue("view-transition-name"));
+    return elements.map((element, i) => {
+        const existing = registry.get(element);
+        if (existing)
+            return existing;
+        const current = currentNames[i];
+        let name;
+        if (current &&
+            current !== "none" &&
+            current !== "auto" &&
+            current !== "match-element" &&
+            !isGeneratedName(current)) {
+            /**
+             * The author already named this layer - target it as-is and leave
+             * it to them to clean up. `auto`/`match-element` are overridden
+             * because their generated name is not exposed to script, and a
+             * stale `motion-view-*` (e.g. left by an interrupted transition) is
+             * re-owned rather than adopted as an author name and leaked.
+             */
+            name = current;
+        }
+        else {
+            name = generatedName();
+            element.style?.setProperty("view-transition-name", name);
+            assigned.push(element);
+        }
+        registry.set(element, name);
+        tagClass(element, className, classed);
+        applyGroup(element, name, group, grouped, clipChildren);
+        return name;
+    });
+}
+/**
+ * Remove the `view-transition-name`s we generated and the
+ * `view-transition-class`es we applied. Author-defined names are never touched
+ * (they're not in `assigned`). Safe to call more than once (e.g. on both a
+ * finished and an interrupted transition).
+ */
+function releaseViewTransitionNames(assigned, classed = [], grouped = []) {
+    for (const element of assigned) {
+        element.style?.removeProperty("view-transition-name");
+    }
+    for (const element of classed) {
+        element.style?.removeProperty("view-transition-class");
+    }
+    for (const element of grouped) {
+        element.style?.removeProperty("view-transition-group");
+    }
+}
+
+
+//# sourceMappingURL=assign-names.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/choose-layer-type.mjs"
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/choose-layer-type.mjs ***!
+  \**********************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   chooseLayerType: () => (/* binding */ chooseLayerType)
+/* harmony export */ });
+function chooseLayerType(valueName) {
+    if (valueName === "layout")
+        return "group";
+    if (valueName === "enter" || valueName === "new")
+        return "new";
+    return "old";
+}
+
+
+//# sourceMappingURL=choose-layer-type.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/css.mjs"
+/*!********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/css.mjs ***!
+  \********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   css: () => (/* binding */ css)
+/* harmony export */ });
+let pendingRules = {};
+let style = null;
+const css = {
+    set: (selector, values) => {
+        pendingRules[selector] = values;
+    },
+    commit: () => {
+        if (!style) {
+            style = document.createElement("style");
+            style.id = "motion-view";
+        }
+        let cssText = "";
+        for (const selector in pendingRules) {
+            const rule = pendingRules[selector];
+            cssText += `${selector} {\n`;
+            for (const [property, value] of Object.entries(rule)) {
+                cssText += `  ${property}: ${value};\n`;
+            }
+            cssText += "}\n";
+        }
+        style.textContent = cssText;
+        document.head.appendChild(style);
+        pendingRules = {};
+    },
+    remove: () => {
+        if (style && style.parentElement) {
+            style.parentElement.removeChild(style);
+        }
+    },
+};
+
+
+//# sourceMappingURL=css.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-layer-info.mjs"
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-layer-info.mjs ***!
+  \*******************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getViewAnimationLayerInfo: () => (/* binding */ getViewAnimationLayerInfo)
+/* harmony export */ });
+function getViewAnimationLayerInfo(pseudoElement) {
+    const match = pseudoElement.match(
+    // `group-children` (nested transitions) before `group` so it wins.
+    /::view-transition-(old|new|group-children|group|image-pair)\((.*?)\)/);
+    if (!match)
+        return null;
+    return { layer: match[2], type: match[1] };
+}
+
+
+//# sourceMappingURL=get-layer-info.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-view-animations.mjs"
+/*!************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/get-view-animations.mjs ***!
+  \************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getViewAnimations: () => (/* binding */ getViewAnimations)
+/* harmony export */ });
+function getViewAnimations() {
+    return document.getAnimations().filter((animation) => {
+        const { effect } = animation;
+        return (!!effect &&
+            effect.target === document.documentElement &&
+            effect.pseudoElement?.startsWith("::view-transition"));
+    });
+}
+
+
+//# sourceMappingURL=get-view-animations.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/has-target.mjs"
+/*!***************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-dom/dist/es/view/utils/has-target.mjs ***!
+  \***************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   hasTarget: () => (/* binding */ hasTarget)
+/* harmony export */ });
+function hasTarget(target, targets) {
+    return targets.has(target) && Object.keys(targets.get(target)).length > 0;
+}
+
+
+//# sourceMappingURL=has-target.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs"
 /*!*************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs ***!
@@ -16469,6 +27110,64 @@ const reverseEasing = (easing) => (p) => 1 - easing(1 - p);
 
 /***/ },
 
+/***/ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/steps.mjs"
+/*!********************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-utils/dist/es/easing/steps.mjs ***!
+  \********************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   steps: () => (/* binding */ steps)
+/* harmony export */ });
+/* harmony import */ var _clamp_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../clamp.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/clamp.mjs");
+
+
+/*#__NO_SIDE_EFFECTS__*/
+function steps(numSteps, direction = "end") {
+    return (progress) => {
+        progress =
+            direction === "end"
+                ? Math.min(progress, 0.999)
+                : Math.max(progress, 0.001);
+        const expanded = progress * numSteps;
+        const rounded = direction === "end" ? Math.floor(expanded) : Math.ceil(expanded);
+        return (0,_clamp_mjs__WEBPACK_IMPORTED_MODULE_0__.clamp)(0, 1, rounded / numSteps);
+    };
+}
+
+
+//# sourceMappingURL=steps.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/get-easing-for-segment.mjs"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/get-easing-for-segment.mjs ***!
+  \*******************************************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getEasingForSegment: () => (/* binding */ getEasingForSegment)
+/* harmony export */ });
+/* harmony import */ var _wrap_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../wrap.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/wrap.mjs");
+/* harmony import */ var _is_easing_array_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./is-easing-array.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/is-easing-array.mjs");
+
+
+
+/*#__NO_SIDE_EFFECTS__*/
+function getEasingForSegment(easing, i) {
+    return (0,_is_easing_array_mjs__WEBPACK_IMPORTED_MODULE_1__.isEasingArray)(easing) ? easing[(0,_wrap_mjs__WEBPACK_IMPORTED_MODULE_0__.wrap)(0, easing.length, i)] : easing;
+}
+
+
+//# sourceMappingURL=get-easing-for-segment.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/is-bezier-definition.mjs"
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/is-bezier-definition.mjs ***!
@@ -16645,6 +27344,115 @@ const MotionGlobalConfig = {};
 
 
 //# sourceMappingURL=global-config.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-utils/dist/es/index.mjs"
+/*!*************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-utils/dist/es/index.mjs ***!
+  \*************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MotionGlobalConfig: () => (/* reexport safe */ _global_config_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionGlobalConfig),
+/* harmony export */   SubscriptionManager: () => (/* reexport safe */ _subscription_manager_mjs__WEBPACK_IMPORTED_MODULE_11__.SubscriptionManager),
+/* harmony export */   addUniqueItem: () => (/* reexport safe */ _array_mjs__WEBPACK_IMPORTED_MODULE_0__.addUniqueItem),
+/* harmony export */   anticipate: () => (/* reexport safe */ _easing_anticipate_mjs__WEBPACK_IMPORTED_MODULE_16__.anticipate),
+/* harmony export */   backIn: () => (/* reexport safe */ _easing_back_mjs__WEBPACK_IMPORTED_MODULE_17__.backIn),
+/* harmony export */   backInOut: () => (/* reexport safe */ _easing_back_mjs__WEBPACK_IMPORTED_MODULE_17__.backInOut),
+/* harmony export */   backOut: () => (/* reexport safe */ _easing_back_mjs__WEBPACK_IMPORTED_MODULE_17__.backOut),
+/* harmony export */   circIn: () => (/* reexport safe */ _easing_circ_mjs__WEBPACK_IMPORTED_MODULE_18__.circIn),
+/* harmony export */   circInOut: () => (/* reexport safe */ _easing_circ_mjs__WEBPACK_IMPORTED_MODULE_18__.circInOut),
+/* harmony export */   circOut: () => (/* reexport safe */ _easing_circ_mjs__WEBPACK_IMPORTED_MODULE_18__.circOut),
+/* harmony export */   clamp: () => (/* reexport safe */ _clamp_mjs__WEBPACK_IMPORTED_MODULE_1__.clamp),
+/* harmony export */   cubicBezier: () => (/* reexport safe */ _easing_cubic_bezier_mjs__WEBPACK_IMPORTED_MODULE_19__.cubicBezier),
+/* harmony export */   easeIn: () => (/* reexport safe */ _easing_ease_mjs__WEBPACK_IMPORTED_MODULE_20__.easeIn),
+/* harmony export */   easeInOut: () => (/* reexport safe */ _easing_ease_mjs__WEBPACK_IMPORTED_MODULE_20__.easeInOut),
+/* harmony export */   easeOut: () => (/* reexport safe */ _easing_ease_mjs__WEBPACK_IMPORTED_MODULE_20__.easeOut),
+/* harmony export */   easingDefinitionToFunction: () => (/* reexport safe */ _easing_utils_map_mjs__WEBPACK_IMPORTED_MODULE_27__.easingDefinitionToFunction),
+/* harmony export */   getEasingForSegment: () => (/* reexport safe */ _easing_utils_get_easing_for_segment_mjs__WEBPACK_IMPORTED_MODULE_24__.getEasingForSegment),
+/* harmony export */   hasWarned: () => (/* reexport safe */ _warn_once_mjs__WEBPACK_IMPORTED_MODULE_14__.hasWarned),
+/* harmony export */   invariant: () => (/* reexport safe */ _errors_mjs__WEBPACK_IMPORTED_MODULE_2__.invariant),
+/* harmony export */   isBezierDefinition: () => (/* reexport safe */ _easing_utils_is_bezier_definition_mjs__WEBPACK_IMPORTED_MODULE_25__.isBezierDefinition),
+/* harmony export */   isEasingArray: () => (/* reexport safe */ _easing_utils_is_easing_array_mjs__WEBPACK_IMPORTED_MODULE_26__.isEasingArray),
+/* harmony export */   isNumericalString: () => (/* reexport safe */ _is_numerical_string_mjs__WEBPACK_IMPORTED_MODULE_4__.isNumericalString),
+/* harmony export */   isObject: () => (/* reexport safe */ _is_object_mjs__WEBPACK_IMPORTED_MODULE_5__.isObject),
+/* harmony export */   isZeroValueString: () => (/* reexport safe */ _is_zero_value_string_mjs__WEBPACK_IMPORTED_MODULE_6__.isZeroValueString),
+/* harmony export */   memo: () => (/* reexport safe */ _memo_mjs__WEBPACK_IMPORTED_MODULE_7__.memo),
+/* harmony export */   millisecondsToSeconds: () => (/* reexport safe */ _time_conversion_mjs__WEBPACK_IMPORTED_MODULE_12__.millisecondsToSeconds),
+/* harmony export */   mirrorEasing: () => (/* reexport safe */ _easing_modifiers_mirror_mjs__WEBPACK_IMPORTED_MODULE_21__.mirrorEasing),
+/* harmony export */   moveItem: () => (/* reexport safe */ _array_mjs__WEBPACK_IMPORTED_MODULE_0__.moveItem),
+/* harmony export */   noop: () => (/* reexport safe */ _noop_mjs__WEBPACK_IMPORTED_MODULE_8__.noop),
+/* harmony export */   pipe: () => (/* reexport safe */ _pipe_mjs__WEBPACK_IMPORTED_MODULE_9__.pipe),
+/* harmony export */   progress: () => (/* reexport safe */ _progress_mjs__WEBPACK_IMPORTED_MODULE_10__.progress),
+/* harmony export */   removeItem: () => (/* reexport safe */ _array_mjs__WEBPACK_IMPORTED_MODULE_0__.removeItem),
+/* harmony export */   reverseEasing: () => (/* reexport safe */ _easing_modifiers_reverse_mjs__WEBPACK_IMPORTED_MODULE_22__.reverseEasing),
+/* harmony export */   secondsToMilliseconds: () => (/* reexport safe */ _time_conversion_mjs__WEBPACK_IMPORTED_MODULE_12__.secondsToMilliseconds),
+/* harmony export */   steps: () => (/* reexport safe */ _easing_steps_mjs__WEBPACK_IMPORTED_MODULE_23__.steps),
+/* harmony export */   velocityPerSecond: () => (/* reexport safe */ _velocity_per_second_mjs__WEBPACK_IMPORTED_MODULE_13__.velocityPerSecond),
+/* harmony export */   warnOnce: () => (/* reexport safe */ _warn_once_mjs__WEBPACK_IMPORTED_MODULE_14__.warnOnce),
+/* harmony export */   warning: () => (/* reexport safe */ _errors_mjs__WEBPACK_IMPORTED_MODULE_2__.warning),
+/* harmony export */   wrap: () => (/* reexport safe */ _wrap_mjs__WEBPACK_IMPORTED_MODULE_15__.wrap)
+/* harmony export */ });
+/* harmony import */ var _array_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./array.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/array.mjs");
+/* harmony import */ var _clamp_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clamp.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/clamp.mjs");
+/* harmony import */ var _errors_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/errors.mjs");
+/* harmony import */ var _global_config_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./global-config.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/global-config.mjs");
+/* harmony import */ var _is_numerical_string_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./is-numerical-string.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/is-numerical-string.mjs");
+/* harmony import */ var _is_object_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./is-object.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/is-object.mjs");
+/* harmony import */ var _is_zero_value_string_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./is-zero-value-string.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/is-zero-value-string.mjs");
+/* harmony import */ var _memo_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./memo.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/memo.mjs");
+/* harmony import */ var _noop_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./noop.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/noop.mjs");
+/* harmony import */ var _pipe_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pipe.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/pipe.mjs");
+/* harmony import */ var _progress_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./progress.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/progress.mjs");
+/* harmony import */ var _subscription_manager_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./subscription-manager.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/subscription-manager.mjs");
+/* harmony import */ var _time_conversion_mjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./time-conversion.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/time-conversion.mjs");
+/* harmony import */ var _velocity_per_second_mjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./velocity-per-second.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/velocity-per-second.mjs");
+/* harmony import */ var _warn_once_mjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./warn-once.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/warn-once.mjs");
+/* harmony import */ var _wrap_mjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./wrap.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/wrap.mjs");
+/* harmony import */ var _easing_anticipate_mjs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./easing/anticipate.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/anticipate.mjs");
+/* harmony import */ var _easing_back_mjs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./easing/back.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/back.mjs");
+/* harmony import */ var _easing_circ_mjs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./easing/circ.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/circ.mjs");
+/* harmony import */ var _easing_cubic_bezier_mjs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./easing/cubic-bezier.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/cubic-bezier.mjs");
+/* harmony import */ var _easing_ease_mjs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./easing/ease.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/ease.mjs");
+/* harmony import */ var _easing_modifiers_mirror_mjs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./easing/modifiers/mirror.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/modifiers/mirror.mjs");
+/* harmony import */ var _easing_modifiers_reverse_mjs__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./easing/modifiers/reverse.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/modifiers/reverse.mjs");
+/* harmony import */ var _easing_steps_mjs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./easing/steps.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/steps.mjs");
+/* harmony import */ var _easing_utils_get_easing_for_segment_mjs__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./easing/utils/get-easing-for-segment.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/get-easing-for-segment.mjs");
+/* harmony import */ var _easing_utils_is_bezier_definition_mjs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./easing/utils/is-bezier-definition.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/is-bezier-definition.mjs");
+/* harmony import */ var _easing_utils_is_easing_array_mjs__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./easing/utils/is-easing-array.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/is-easing-array.mjs");
+/* harmony import */ var _easing_utils_map_mjs__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./easing/utils/map.mjs */ "./node_modules/motion/node_modules/motion-utils/dist/es/easing/utils/map.mjs");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.mjs.map
 
 
 /***/ },
@@ -16941,6 +27749,27 @@ function warnOnce(condition, message, errorCode) {
 
 
 //# sourceMappingURL=warn-once.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/motion/node_modules/motion-utils/dist/es/wrap.mjs"
+/*!************************************************************************!*\
+  !*** ./node_modules/motion/node_modules/motion-utils/dist/es/wrap.mjs ***!
+  \************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   wrap: () => (/* binding */ wrap)
+/* harmony export */ });
+const wrap = (min, max, v) => {
+    const rangeSize = max - min;
+    return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
+
+
+//# sourceMappingURL=wrap.mjs.map
 
 
 /***/ },
