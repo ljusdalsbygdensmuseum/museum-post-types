@@ -6,16 +6,7 @@ import { motion } from 'motion/react'
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
 export function MPTABDisplayAdress() {
-	const defaultData: Settings = {
-		phone: '',
-		adress: {
-			adress: '',
-			city: '',
-			areacode: '',
-			latlng: { lat: 0, lng: 0 },
-		},
-	}
-	const [data, setData] = useState(defaultData)
+	const [data, setData] = useState<Settings | null>(null)
 
 	//get the rest data
 	useEffect(() => {
@@ -30,11 +21,14 @@ export function MPTABDisplayAdress() {
 		})
 	}, [])
 
+	if (!data) {
+		return
+	}
+
 	return (
 		<motion.span
-			initial={{ opacity: 0, y: 40 }}
+			initial={{ opacity: 0, y: 15 }}
 			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5 }}
 			className='mptab-adress__text'
 		>
 			<strong className='adress-main-line'>{data.adress.adress}</strong>

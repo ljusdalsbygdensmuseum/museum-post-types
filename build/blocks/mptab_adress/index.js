@@ -121,19 +121,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MPTABDisplayAdress() {
-  const defaultData = {
-    phone: '',
-    adress: {
-      adress: '',
-      city: '',
-      areacode: '',
-      latlng: {
-        lat: 0,
-        lng: 0
-      }
-    }
-  };
-  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(defaultData);
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
   //get the rest data
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
@@ -148,17 +136,17 @@ function MPTABDisplayAdress() {
       }
     });
   }, []);
+  if (!data) {
+    return;
+  }
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.span, {
     initial: {
       opacity: 0,
-      y: 40
+      y: 15
     },
     animate: {
       opacity: 1,
       y: 0
-    },
-    transition: {
-      duration: 0.5
     },
     className: 'mptab-adress__text',
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
