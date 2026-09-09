@@ -33,9 +33,7 @@ import './editor.scss'
 export default function Edit() {
 	return (
 		<div {...useBlockProps()}>
-			<p>
-				<MPTABDisplayPhone />
-			</p>
+			<MPTABDisplayPhone />
 		</div>
 	)
 }

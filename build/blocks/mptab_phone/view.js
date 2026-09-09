@@ -5009,9 +5009,7 @@ _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
   elements.forEach(element => {
     const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createRoot)(element);
     root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_display_mptab_display_phone__WEBPACK_IMPORTED_MODULE_3__.MPTABDisplayPhone, {})
-      })
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_display_mptab_display_phone__WEBPACK_IMPORTED_MODULE_3__.MPTABDisplayPhone, {})
     }));
   });
 });
