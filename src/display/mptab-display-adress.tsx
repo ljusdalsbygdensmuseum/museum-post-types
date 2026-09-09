@@ -1,6 +1,7 @@
 import apiFetch from '@wordpress/api-fetch'
 import { useState, useEffect } from 'react'
 import { __ } from '@wordpress/i18n'
+import { motion } from 'motion/react'
 
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
@@ -30,10 +31,15 @@ export function MPTABDisplayAdress() {
 	}, [])
 
 	return (
-		<span>
+		<motion.span
+			initial={{ opacity: 0, y: 40 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5 }}
+			className='mptab-adress__text'
+		>
 			<strong className='adress-main-line'>{data.adress.adress}</strong>
 			<br />
 			{data.adress.areacode} {data.adress.city}
-		</span>
+		</motion.span>
 	)
 }
