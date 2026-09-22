@@ -1,12 +1,12 @@
 import apiFetch from '@wordpress/api-fetch'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactElement } from 'react'
 
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
 import { MPTABMap } from '../components/mptab-leaflet'
 
 export function MPTABDisplayMap() {
-	const [map, setMap] = useState(<p>loading...</p>)
+	const [data, setData] = useState<Settings | null>(null)
 
 	//get the rest data
 	useEffect(() => {
@@ -15,23 +15,7 @@ export function MPTABDisplayMap() {
 				if (SettingsSchema.safeParse(restData).success) {
 					const data: Settings = SettingsSchema.parse(restData)
 
-					const adress = (
-						<span>
-							<strong>{data.adress.adress}</strong>
-							<br />
-							{data.adress.areacode}
-							<br />
-							<strong>{data.adress.city}</strong>
-						</span>
-					)
-
-					setMap(
-						<MPTABMap
-							location={data.adress.latlng}
-							searchable={false}
-							visibleAdress={adress}
-						/>
-					)
+					setData(data)
 				} else {
 					console.log(SettingsSchema.safeParse(restData))
 				}
@@ -39,5 +23,32 @@ export function MPTABDisplayMap() {
 		})
 	}, [])
 
-	return <>{map}</>
+	let adress: null | ReactElement = null
+	if (data) {
+		adress = (
+			<span>
+				<strong>{data.adress.adress}</strong>
+				<br />
+				{data.adress.areacode}
+				<br />
+				<strong>{data.adress.city}</strong>
+			</span>
+		)
+	}
+
+	return (
+		<>
+			{data ? (
+				<div className='mptab-leaflet__container'>
+					<MPTABMap
+						location={data.adress.latlng}
+						searchable={false}
+						visibleAdress={adress}
+					/>
+				</div>
+			) : (
+				<div className='mptab-leaflet__skeleton'></div>
+			)}
+		</>
+	)
 }

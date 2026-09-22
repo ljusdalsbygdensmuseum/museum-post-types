@@ -176,9 +176,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MPTABDisplayMap() {
-  const [map, setMap] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-    children: "loading..."
-  }));
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
   //get the rest data
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
@@ -187,26 +185,34 @@ function MPTABDisplayMap() {
       if (typeof restData == 'object' && restData != undefined) {
         if (_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.SettingsSchema.safeParse(restData).success) {
           const data = _types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.SettingsSchema.parse(restData);
-          const adress = (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-            children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
-              children: data.adress.adress
-            }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), data.adress.areacode, (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
-              children: data.adress.city
-            })]
-          });
-          setMap((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_leaflet__WEBPACK_IMPORTED_MODULE_4__.MPTABMap, {
-            location: data.adress.latlng,
-            searchable: false,
-            visibleAdress: adress
-          }));
+          setData(data);
         } else {
           console.log(_types_mptab_rest_types__WEBPACK_IMPORTED_MODULE_3__.SettingsSchema.safeParse(restData));
         }
       }
     });
   }, []);
+  let adress = null;
+  if (data) {
+    adress = (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+      children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+        children: data.adress.adress
+      }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), data.adress.areacode, (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+        children: data.adress.city
+      })]
+    });
+  }
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: map
+    children: data ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: 'mptab-leaflet__container',
+      children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_leaflet__WEBPACK_IMPORTED_MODULE_4__.MPTABMap, {
+        location: data.adress.latlng,
+        searchable: false,
+        visibleAdress: adress
+      })
+    }) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: 'mptab-leaflet__skeleton'
+    })
   });
 }
 
