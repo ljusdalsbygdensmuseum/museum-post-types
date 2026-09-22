@@ -1,5 +1,6 @@
 import apiFetch from '@wordpress/api-fetch'
 import { useState, useEffect, ReactElement } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
 
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
@@ -38,17 +39,19 @@ export function MPTABDisplayMap() {
 
 	return (
 		<>
-			{data ? (
-				<div className='mptab-leaflet__container'>
-					<MPTABMap
-						location={data.adress.latlng}
-						searchable={false}
-						visibleAdress={adress}
-					/>
-				</div>
-			) : (
-				<div className='mptab-leaflet__skeleton'></div>
-			)}
+			<AnimatePresence mode='wait'>
+				{data ? (
+					<motion.div className='mptab-leaflet__container'>
+						<MPTABMap
+							location={data.adress.latlng}
+							searchable={false}
+							visibleAdress={adress}
+						/>
+					</motion.div>
+				) : (
+					<motion.div className='mptab-leaflet__skeleton'></motion.div>
+				)}
+			</AnimatePresence>
 		</>
 	)
 }
