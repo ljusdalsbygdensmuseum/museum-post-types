@@ -7,6 +7,9 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-mptab-phone .mptab-phone__text {
+  display: inline-block;
+}
 .wp-block-mptab-phone .mptab-phone__skeleton {
   animation: skeleton 1s infinite;
   border-radius: 4px;
