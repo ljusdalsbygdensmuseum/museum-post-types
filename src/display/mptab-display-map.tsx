@@ -41,7 +41,12 @@ export function MPTABDisplayMap() {
 		<>
 			<AnimatePresence mode='wait'>
 				{data ? (
-					<motion.div className='mptab-leaflet__container'>
+					<motion.div
+						initial={{ opacity: 0, y: 15 }}
+						animate={{ opacity: 1, y: 0 }}
+						key={`${Math.random}-mptab-leaflet__container`}
+						className='mptab-leaflet__container'
+					>
 						<MPTABMap
 							location={data.adress.latlng}
 							searchable={false}
@@ -49,7 +54,13 @@ export function MPTABDisplayMap() {
 						/>
 					</motion.div>
 				) : (
-					<motion.div className='mptab-leaflet__skeleton'></motion.div>
+					<motion.div
+						initial={{ opacity: 1 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						key={`${Math.random}-mptab-leaflet__skeleton`}
+						className='mptab-leaflet__skeleton'
+					></motion.div>
 				)}
 			</AnimatePresence>
 		</>

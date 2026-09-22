@@ -9,6 +9,7 @@
 .wp-block-mptab-map {
 	height: 500px;
 	.mptab-leaflet__container {
+		display: block;
 		height: inherit;
 		.leaflet-container {
 			height: inherit;

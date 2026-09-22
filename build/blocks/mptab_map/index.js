@@ -304,15 +304,32 @@ function MPTABDisplayMap() {
     children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_4__.AnimatePresence, {
       mode: 'wait',
       children: data ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.div, {
+        initial: {
+          opacity: 0,
+          y: 15
+        },
+        animate: {
+          opacity: 1,
+          y: 0
+        },
         className: 'mptab-leaflet__container',
         children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_mptab_leaflet__WEBPACK_IMPORTED_MODULE_6__.MPTABMap, {
           location: data.adress.latlng,
           searchable: false,
           visibleAdress: adress
         })
-      }) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.div, {
+      }, `${Math.random}-mptab-leaflet__container`) : (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(motion_react__WEBPACK_IMPORTED_MODULE_3__.motion.div, {
+        initial: {
+          opacity: 1
+        },
+        animate: {
+          opacity: 1
+        },
+        exit: {
+          opacity: 0
+        },
         className: 'mptab-leaflet__skeleton'
-      })
+      }, `${Math.random}-mptab-leaflet__skeleton`)
     })
   });
 }
