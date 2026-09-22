@@ -2,19 +2,12 @@ import apiFetch from '@wordpress/api-fetch'
 import { useState, useEffect } from 'react'
 import { __ } from '@wordpress/i18n'
 
+import { motion, AnimatePresence } from 'motion/react'
+
 import { SettingsSchema, Settings } from '../types/mptab-rest-types'
 
 export function MPTABDisplayPhone() {
-	const defaultData: Settings = {
-		phone: '',
-		adress: {
-			adress: '',
-			city: '',
-			areacode: '',
-			latlng: { lat: 0, lng: 0 },
-		},
-	}
-	const [data, setData] = useState(defaultData)
+	const [data, setData] = useState<Settings | null>(null)
 
 	//get the rest data
 	useEffect(() => {
@@ -28,5 +21,26 @@ export function MPTABDisplayPhone() {
 			}
 		})
 	}, [])
-	return data.phone
+	return (
+		<>
+			<AnimatePresence mode='wait'>
+				{data ? (
+					<motion.span
+						initial={{ opacity: 0, y: 15 }}
+						animate={{ opacity: 1, y: 0 }}
+						className='mptab-phone__text'
+					>
+						{data.phone}
+					</motion.span>
+				) : (
+					<motion.div
+						initial={{ opacity: 1 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className='mptab-phone__skeleton'
+					></motion.div>
+				)}
+			</AnimatePresence>
+		</>
+	)
 }

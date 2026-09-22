@@ -12,6 +12,29 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.leaflet-container {
+.wp-block-mptab-map {
   height: 500px;
+}
+.wp-block-mptab-map .mptab-leaflet__container {
+  display: block;
+  height: inherit;
+}
+.wp-block-mptab-map .mptab-leaflet__container .leaflet-container {
+  height: inherit;
+}
+.wp-block-mptab-map .mptab-leaflet__skeleton {
+  height: inherit;
+  animation: skeleton 1s infinite;
+  border-radius: 4px;
+}
+@keyframes skeleton {
+  0% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }

@@ -5,7 +5,36 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-mptab-adress {
+	.mptab-adress__text {
+		display: inline-block;
+	}
 	.adress-main-line {
 		font-size: var(--wp--preset--font-size--l);
+	}
+	.mptab-adress__skeleton {
+		div {
+			animation: skeleton 1s infinite;
+			border-radius: 4px;
+		}
+		.mptab-adress__skeleton-main {
+			height: var(--wp--preset--font-size--l);
+			width: 80%;
+			margin-bottom: var(--wp--custom--gapo--xs);
+		}
+		.mptab-adress__skeleton-secondary {
+			height: var(--wp--preset--font-size--m);
+			width: 45%;
+		}
+	}
+	@keyframes skeleton {
+		0% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
+		}
+		50% {
+			background-color: rgba($color: #fff, $alpha: 0.2);
+		}
+		100% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
+		}
 	}
 }

@@ -9,10 +9,8 @@ domReady(() => {
 		const root = createRoot(element!)
 		root.render(
 			<>
-				<p>
-					<MPTABDisplayPhone />
-				</p>
-			</>
+				<MPTABDisplayPhone />
+			</>,
 		)
 	})
 })

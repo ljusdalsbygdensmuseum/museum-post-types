@@ -5,6 +5,30 @@
  * Replace them with your own styles or remove the file completely.
  */
 @import url(https://unpkg.com/leaflet@1.9.4/dist/leaflet.css);
-.leaflet-container {
+
+.wp-block-mptab-map {
 	height: 500px;
+	.mptab-leaflet__container {
+		display: block;
+		height: inherit;
+		.leaflet-container {
+			height: inherit;
+		}
+	}
+	.mptab-leaflet__skeleton {
+		height: inherit;
+		animation: skeleton 1s infinite;
+		border-radius: 4px;
+	}
+	@keyframes skeleton {
+		0% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
+		}
+		50% {
+			background-color: rgba($color: #fff, $alpha: 0.2);
+		}
+		100% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
+		}
+	}
 }
